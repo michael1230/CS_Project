@@ -1,0 +1,834 @@
+fileFormatVersion: 2
+guid: 269e6c6574ab55a40918417918f24275
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Mobile - Final Fantasy Brave Exvius - Rain Extra_0
+    21300002: Mobile - Final Fantasy Brave Exvius - Rain Extra_3
+    21300004: Mobile - Final Fantasy Brave Exvius - Rain Extra_14
+    21300006: Mobile - Final Fantasy Brave Exvius - Rain Extra_15
+    21300008: Mobile - Final Fantasy Brave Exvius - Rain Extra_16
+    21300010: Mobile - Final Fantasy Brave Exvius - Rain Extra_17
+    21300012: Mobile - Final Fantasy Brave Exvius - Rain Extra_26
+    21300014: Mobile - Final Fantasy Brave Exvius - Rain Extra_27
+    21300016: Mobile - Final Fantasy Brave Exvius - Rain Extra_28
+    21300018: Mobile - Final Fantasy Brave Exvius - Rain Extra_29
+    21300020: Mobile - Final Fantasy Brave Exvius - Rain Extra_30
+    21300022: Mobile - Final Fantasy Brave Exvius - Rain Extra_31
+    21300024: Mobile - Final Fantasy Brave Exvius - Rain Extra_32
+    21300026: Mobile - Final Fantasy Brave Exvius - Rain Extra_33
+    21300028: Mobile - Final Fantasy Brave Exvius - Rain Extra_34
+    21300030: Mobile - Final Fantasy Brave Exvius - Rain Extra_35
+    21300032: Mobile - Final Fantasy Brave Exvius - Rain Extra_36
+    21300034: Mobile - Final Fantasy Brave Exvius - Rain Extra_37
+    21300036: Mobile - Final Fantasy Brave Exvius - Rain Extra_44
+    21300038: Mobile - Final Fantasy Brave Exvius - Rain Extra_45
+    21300040: Mobile - Final Fantasy Brave Exvius - Rain Extra_46
+    21300042: Mobile - Final Fantasy Brave Exvius - Rain Extra_47
+    21300044: Mobile - Final Fantasy Brave Exvius - Rain Extra_48
+    21300046: Mobile - Final Fantasy Brave Exvius - Rain Extra_6
+    21300048: Mobile - Final Fantasy Brave Exvius - Rain Extra_7
+    21300050: Mobile - Final Fantasy Brave Exvius - Rain Extra_8
+    21300052: Mobile - Final Fantasy Brave Exvius - Rain Extra_9
+    21300054: Mobile - Final Fantasy Brave Exvius - Rain Extra_10
+    21300056: Mobile - Final Fantasy Brave Exvius - Rain Extra_11
+    21300058: Mobile - Final Fantasy Brave Exvius - Rain Extra_12
+    21300060: Mobile - Final Fantasy Brave Exvius - Rain Extra_13
+    21300062: Mobile - Final Fantasy Brave Exvius - Rain Extra_22
+    21300064: Mobile - Final Fantasy Brave Exvius - Rain Extra_23
+    21300066: Mobile - Final Fantasy Brave Exvius - Rain Extra_24
+    21300068: Mobile - Final Fantasy Brave Exvius - Rain Extra_25
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 35
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1392
+        width: 53
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1921aadce84268143b6ac98f164fe3a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_3
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 1334
+        width: 87
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0afd06115e3e53f49be18fd1bb9533a9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_6
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1276
+        width: 38
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8f6ca5fa9daaa14690be1b63e4a4983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_7
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 1276
+        width: 38
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60cb430a09757ae458f6a5f507b908fa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_8
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 1276
+        width: 38
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 271a7b1a6e0c6d74e94e8efd1a441fa7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_9
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 1276
+        width: 38
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 150bdc68afa81f74a875e39530195c5b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_10
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1218
+        width: 38
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e4d02a230ee4974786c2a988941c372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_11
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 1218
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adae5f9844d878b4c8b4b947159f29ce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_12
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 1218
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a37d3945df825c4ab494c14c1645d19
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_13
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 1218
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e99da55a8c934044c9d9fbf14f1c2437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_14
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1160
+        width: 38
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48439f4beab7be94d88cc8078e1a2ee5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_15
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 1160
+        width: 42
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3c53f82727a6dd45a83c55a9be1f083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_16
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 1160
+        width: 46
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2092f92e02b9b6d4c9766a3ecc9fce60
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_17
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 1160
+        width: 44
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b107276a5a3c8594699a659bcbb5618f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_22
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 1044
+        width: 41
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dddfaa486f344384184d48855a012a56
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_23
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 1044
+        width: 41
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb0b619dff0a4a24085d45e2d2bf8469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_24
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 1044
+        width: 41
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4b12395fdf60f743b38163814f9567d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_25
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 1044
+        width: 41
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7e0784598d0e9342b97cfa34db42935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_26
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 986
+        width: 38
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cca4acec932b204dadf0c0c42c07eb9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_27
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 986
+        width: 41
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccb9b038d06012a489cd51bbd848b844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_28
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 986
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29602c2bf28dc164e95639b5f9a3c90e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_29
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 986
+        width: 43
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2c932211fd1e5745a0dc3054a53558e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_30
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 908
+        width: 46
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 959241185f5832241bb0c34daeec9c59
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_31
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 908
+        width: 46
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29fee899f128f1d42bc42a1e80848078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_32
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 908
+        width: 38
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d00e4813111679640a7f1e37f1fd6951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_33
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 908
+        width: 38
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f26b2ce9b3cdc444eaa7e0db39b9f02c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_34
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 756
+        width: 47
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb8f2cb271c888f428e1c72462bf2d56
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_35
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 761
+        width: 46
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b15e454a0e8be2d429cf0c585d876fcd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_36
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 761
+        width: 38
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fea00b55de20178428a04f609575c7fb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_37
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 761
+        width: 38
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b9360515535d19458d298685445d8eb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_44
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 639
+        width: 69
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1aab92f908aa83409e0d7666aeda0b2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_45
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 540
+        width: 75
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45d3f95aa1efed9479cb2d1d8a60d70b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_46
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 528
+        width: 125
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dddbefde4acc1a4bb74475a89886d68
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_47
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 412
+        width: 98
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a174a27df8215604d89eb7e6707fcb7f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Final Fantasy Brave Exvius - Rain Extra_48
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 413
+        width: 70
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77567da3ab33652459e09832a6ac8d85
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 9c475524aa1e0344ab583bb89b473824
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
