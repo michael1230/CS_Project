@@ -40,29 +40,54 @@ public class PlayerController : MonoBehaviour
 	void Update ()
     {
         if (canMovePlayer)
-        {
-            if ( (Input.GetButton("Horizontal")|| Input.GetButton("Vertical"))&&(Input.GetKey(KeyCode.LeftShift)))//if arrows and shift are pressed
+        {               
+            if (Input.GetButton(("Fire1")))
+            {
+                //theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"))*0;
+                myAnim.SetBool("isRunning", false);
+                myAnim.SetBool("isWalking", false);
+                myAnim.SetBool("isAttacking", true);                
+            }
+            else if ((Input.GetButton("Horizontal") || Input.GetButton("Vertical")) && (Input.GetKey(KeyCode.LeftShift)))//if arrows and shift are pressed
             {
                 myAnim.SetBool("isRunning", true);
                 myAnim.SetBool("isWalking", true);
+                myAnim.SetBool("isAttacking", false);
                 theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * runSpeed;
             }
-            else if((Input.GetButton("Horizontal") || Input.GetButton("Vertical")))//if only arrows are pressed
+            else if ((Input.GetButton("Horizontal") || Input.GetButton("Vertical")))//if only arrows are pressed
             {
                 myAnim.SetBool("isRunning", false);
+                myAnim.SetBool("isWalking", true);
+                myAnim.SetBool("isAttacking", false);
                 theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * walkSpeed;
             }
             else //if nothing is pressed
             {
                 myAnim.SetBool("isRunning", false);
                 myAnim.SetBool("isWalking", false);
+                myAnim.SetBool("isAttacking", false);
                 theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * walkSpeed;
             }
+            
+            
         }
         else
         {
             theRB.velocity = Vector2.zero;
         }
+
+       /* if(Input.GetButton("Fire1"))
+        {
+            canMovePlayer = false;
+            myAnim.SetBool("isAttacking", true);
+        }
+        else
+        {
+            canMovePlayer = true;
+            myAnim.SetBool("isAttacking", false);
+        }
+        */
         myAnim.SetFloat("moveX", theRB.velocity.x);//Update the x velocity 
         myAnim.SetFloat("moveY", theRB.velocity.y);//Update the y velocity 
 
