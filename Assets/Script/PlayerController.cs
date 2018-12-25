@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 bottomLeftLimit;//the first limit of the  map
     private Vector3 topRightLimit;//the second limit of the  map
 
+
+
     // Use this for initialization
     void Start ()
     {
@@ -43,7 +45,8 @@ public class PlayerController : MonoBehaviour
         {               
             if (Input.GetButton(("Fire1")))
             {
-                //theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"))*0;
+                //theRB.velocity = Vector2.zero;
+                theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * 0;
                 myAnim.SetBool("isRunning", false);
                 myAnim.SetBool("isWalking", false);
                 myAnim.SetBool("isAttacking", true);                
@@ -68,9 +71,7 @@ public class PlayerController : MonoBehaviour
                 myAnim.SetBool("isWalking", false);
                 myAnim.SetBool("isAttacking", false);
                 theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * walkSpeed;
-            }
-            
-            
+            }                      
         }
         else
         {
