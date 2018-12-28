@@ -46,10 +46,10 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButton(("Fire1")))
             {
                 //theRB.velocity = Vector2.zero;
-                theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * 0;
+                theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * 0;               
                 myAnim.SetBool("isRunning", false);
                 myAnim.SetBool("isWalking", false);
-                myAnim.SetBool("isAttacking", true);                
+                myAnim.SetBool("isAttacking", true);
             }
             else if ((Input.GetButton("Horizontal") || Input.GetButton("Vertical")) && (Input.GetKey(KeyCode.LeftShift)))//if arrows and shift are pressed
             {
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
             else //if nothing is pressed
             {
                 myAnim.SetBool("isRunning", false);
-                myAnim.SetBool("isWalking", false);
+                myAnim.SetBool("isWalking", false);                
                 myAnim.SetBool("isAttacking", false);
                 theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * walkSpeed;
             }                      
@@ -78,17 +78,6 @@ public class PlayerController : MonoBehaviour
             theRB.velocity = Vector2.zero;
         }
 
-       /* if(Input.GetButton("Fire1"))
-        {
-            canMovePlayer = false;
-            myAnim.SetBool("isAttacking", true);
-        }
-        else
-        {
-            canMovePlayer = true;
-            myAnim.SetBool("isAttacking", false);
-        }
-        */
         myAnim.SetFloat("moveX", theRB.velocity.x);//Update the x velocity 
         myAnim.SetFloat("moveY", theRB.velocity.y);//Update the y velocity 
 
@@ -104,7 +93,15 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, bottomLeftLimit.x, topRightLimit.x), Mathf.Clamp(transform.position.y, bottomLeftLimit.y, topRightLimit.y), transform.position.z);
 
     }
-    public void SetBounds(Vector3 botLeft, Vector3 topRight)
+
+   /* public IEnumerator AttackMoveCo()
+    {
+        
+        yield return new WaitForSeconds(5f);
+        myAnim.SetBool("isAttacking", false);
+    }*/
+
+        public void SetBounds(Vector3 botLeft, Vector3 topRight)
     {
         bottomLeftLimit = botLeft + new Vector3(.5f, 1f, 0f);
         topRightLimit = topRight + new Vector3(-.5f, -1f, 0f);
