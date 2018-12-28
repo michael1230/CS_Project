@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Battle_BG
+    uniqueID: 4230647463
+    locked: 0
+  - name: Battle_Chars
+    uniqueID: 3750069397
+    locked: 0
