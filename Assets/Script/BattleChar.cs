@@ -9,7 +9,14 @@ public class BattleChar : MonoBehaviour
     public string[] movesAvailable;
 
     public string charName;
-    public int currentHp, maxHP, currentMP, maxMP, strength, defence, wpnPower, armrPower;
+    public int currentHP;
+    public int maxHP;
+    public int currentMP;
+    public int maxMP;
+    public int strength;
+    public int defense;
+    public int dexterity;
+
     public bool hasDied;
 
     public SpriteRenderer theSprite;

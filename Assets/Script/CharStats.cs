@@ -7,9 +7,9 @@ public class CharStats : MonoBehaviour
 
     public string charName;
     public int playerLevel = 1;
-    public int currentHP;
+    public int currentHP=150;
     public int maxHP = 150;
-    public int currentMP;
+    public int currentMP=50;
     public int maxMP = 50;
     public int strength=30;
     public int defense = 30;
