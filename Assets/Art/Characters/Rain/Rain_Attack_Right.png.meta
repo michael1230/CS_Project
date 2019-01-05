@@ -6,7 +6,6 @@ TextureImporter:
     21300002: Rain_Attack_Right_1
     21300004: Rain_Attack_Right_2
     21300006: Rain_Attack_Right_3
-    21300008: Rain_Attack_Right_4
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -92,18 +91,18 @@ TextureImporter:
       name: Rain_Attack_Right_0
       rect:
         serializedVersion: 2
-        x: 581
-        y: 1372
-        width: 64
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 435
+        y: 1304
+        width: 125
+        height: 96
+      alignment: 9
+      pivot: {x: 0.17, y: 0.43}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb2253dfda7a25346a974ec9672a1f33
+      spriteID: 4a84382f0aac6564c87a1f18336696eb
       vertices: []
       indices: 
       edges: []
@@ -112,18 +111,18 @@ TextureImporter:
       name: Rain_Attack_Right_1
       rect:
         serializedVersion: 2
-        x: 350
-        y: 1258
-        width: 120
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 590
+        y: 1317
+        width: 74
+        height: 57
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d1b6d8f2475282438de1a343acfa261
+      spriteID: 2705b4c50faec5b4cad6dd41ad3969c4
       vertices: []
       indices: 
       edges: []
@@ -132,18 +131,18 @@ TextureImporter:
       name: Rain_Attack_Right_2
       rect:
         serializedVersion: 2
-        x: 500
-        y: 1273
-        width: 71
+        x: 436
+        y: 1189
+        width: 69
         height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.293, y: 0.732}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: def18f7500315224fa3691e950359988
+      spriteID: 02e20611c12e48847a93ebd3e2491f5b
       vertices: []
       indices: 
       edges: []
@@ -152,38 +151,18 @@ TextureImporter:
       name: Rain_Attack_Right_3
       rect:
         serializedVersion: 2
-        x: 350
-        y: 1143
-        width: 65
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67fadec7ca4acf946b1da88711b5d471
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rain_Attack_Right_4
-      rect:
-        serializedVersion: 2
-        x: 524
-        y: 1142
-        width: 84
+        x: 610
+        y: 1188
+        width: 97
         height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.208, y: 0.737}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88fa0ec2e0bd3344a942576be86ab5ea
+      spriteID: c692c6f7c58c2ab4690600cd57c38a26
       vertices: []
       indices: 
       edges: []
@@ -191,7 +170,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5d2f54aedee82194c8170c6ff773b644
+    spriteID: cb1607f20585e3f47bd057c6454bed08
     vertices: []
     indices: 
     edges: []
