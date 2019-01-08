@@ -12,28 +12,15 @@ public class PlayerController : MonoBehaviour
     public Animator myAnim;//reference the Animator
     public static PlayerController instance;//makes only one instance of player
     public bool canMovePlayer = true;//a flag to spot the player when needed
-
     public string areaTransitionName;//the name to next area
     private Vector3 bottomLeftLimit;//the first limit of the  map
     private Vector3 topRightLimit;//the second limit of the  map
-
-
-    public enum State
-    {
-        Idle,
-        Walk,
-        Run,
-        Attack
-    }
-    private State currentState;
-
     // Use this for initialization
     void Start ()
     {
         if (instance == null)
         {
             instance = this;
-            currentState = State.Idle;
         }
         else
         {
@@ -50,121 +37,35 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (canMovePlayer)
+        if (canMovePlayer)//if the flag is true
         {
-            if(currentState== State.Idle)
+            if (Input.anyKey == false) //if nothing is pressed 
             {
-                myAnim.Play("Player_Idle");
-                myAnim.SetBool("isRunning", false);
-                if (Input.GetButton(("Fire1")))
-                {
-                    currentState = State.Attack;
-                }
-                else if ((Input.GetButton("Horizontal") || Input.GetButton("Vertical")))
-                {
-                    currentState = State.Walk;
-                }
-                else if (Input.anyKey == false)
-                {
-                    currentState = State.Idle;
-                }
+                theRB.velocity = Vector2.zero;//don't move
+                myAnim.SetBool("isRunning", false);//if we came from Running then stop running animation 
             }
-            if(currentState == State.Walk)
+            
+            else if (Input.GetButton(("Fire1")))//if ctrl is pressed 
             {
-                myAnim.Play("Player_Walk");
-                myAnim.SetBool("isRunning", false);
+                theRB.velocity = Vector2.zero;//don't move
+                myAnim.SetBool("isRunning", false);//if we came from Running then stop running animation 
+                StartCoroutine("OnCompleteAttackAnimation");//start the attack Coroutine
+            }
+            else if ((Input.GetButton("Horizontal") || Input.GetButton("Vertical"))&&(myAnim.GetBool("isAttacking")==false))//if only arrows are pressed and the animation for attack is finished 
+            {
+                myAnim.SetBool("isRunning", false);//if we came from Running then stop running animation 
                 theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * walkSpeed;
-                if (Input.GetButton(("Fire1")))
+                if(Input.GetKey(KeyCode.LeftShift))
                 {
-                    currentState = State.Attack;
+                    myAnim.SetBool("isRunning", true);//start the running anim
+                    theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * runSpeed;
                 }
-                else if ((Input.GetButton("Horizontal") || Input.GetButton("Vertical")) && (Input.GetKey(KeyCode.LeftShift)))
-                {
-                    currentState = State.Run;
-                    myAnim.SetBool("isRunning", true);
-                }
-                else if (Input.anyKey == false)
-                {
-                    currentState = State.Idle;
-                }
-            }
-            if (currentState == State.Run)
-            {
-                myAnim.Play("Player_Run");
-                myAnim.SetBool("isRunning", true);
-                theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * runSpeed;
-                if (Input.GetButton(("Fire1")))
-                {
-                    currentState = State.Attack;
-                }
-                else if (Input.anyKey == false)
-                {
-                    currentState = State.Idle;
-                }
-            }
-            if (currentState == State.Attack)
-            {
-                myAnim.SetTrigger("AttackTrigger");
-                theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * 0;
-                StartCoroutine("OnCompleteAttackAnimation");
-                
             }
         }
-        else
+        else//if not
         {
-            theRB.velocity = Vector2.zero;
+            theRB.velocity = Vector2.zero;//don't move
         }
-
-
-
-        /*if (canMovePlayer)
-        {               
-            if (Input.GetButton(("Fire1")))
-            {
-                //theRB.velocity = Vector2.zero;
-                theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * 0;
-                myAnim.SetBool("isRunning", false);
-                myAnim.SetBool("isWalking", false);
-                myAnim.SetBool("isAttacking", true);                
-            }
-            else if ((Input.GetButton("Horizontal") || Input.GetButton("Vertical")) && (Input.GetKey(KeyCode.LeftShift)))//if arrows and shift are pressed
-            {
-                myAnim.SetBool("isRunning", true);
-                myAnim.SetBool("isWalking", true);
-                myAnim.SetBool("isAttacking", false);
-                theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * runSpeed;
-            }
-            else if ((Input.GetButton("Horizontal") || Input.GetButton("Vertical")))//if only arrows are pressed
-            {
-                myAnim.SetBool("isRunning", false);
-                myAnim.SetBool("isWalking", true);
-                myAnim.SetBool("isAttacking", false);
-                theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * walkSpeed;
-            }
-            else //if nothing is pressed
-            {
-                myAnim.SetBool("isRunning", false);
-                myAnim.SetBool("isWalking", false);
-                myAnim.SetBool("isAttacking", false);
-                theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * walkSpeed;
-            }                      
-        }
-        else
-        {
-            theRB.velocity = Vector2.zero;
-        }
-
-       /* if(Input.GetButton("Fire1"))
-        {
-            canMovePlayer = false;
-            myAnim.SetBool("isAttacking", true);
-        }
-        else
-        {
-            canMovePlayer = true;
-            myAnim.SetBool("isAttacking", false);
-        }
-        */
         myAnim.SetFloat("moveX", theRB.velocity.x);//Update the x velocity 
         myAnim.SetFloat("moveY", theRB.velocity.y);//Update the y velocity 
 
@@ -186,12 +87,13 @@ public class PlayerController : MonoBehaviour
         topRightLimit = topRight + new Vector3(-.5f, -1f, 0f);
     }
 
-    IEnumerator OnCompleteAttackAnimation()
+    IEnumerator OnCompleteAttackAnimation()//attack Coroutine
     {
-        while (myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+        myAnim.Play("Attack");//start the attack anim
+        myAnim.SetBool("isAttacking", true);//start the attack anim
+        while (myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)//wait until the attack is finished
             yield return null;
-
-        currentState = State.Idle;
+        myAnim.SetBool("isAttacking", false);//stop the attack anim
     }
 
 }
