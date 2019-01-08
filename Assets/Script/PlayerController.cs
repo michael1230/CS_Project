@@ -18,6 +18,14 @@ public class PlayerController : MonoBehaviour
     private Vector3 topRightLimit;//the second limit of the  map
 
 
+    public enum State
+    {
+        Idle,
+        Walk,
+        Run,
+        Attack
+    }
+    private State currentState;
 
     // Use this for initialization
     void Start ()
@@ -25,6 +33,7 @@ public class PlayerController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            currentState = State.Idle;
         }
         else
         {
@@ -42,6 +51,73 @@ public class PlayerController : MonoBehaviour
 	void Update ()
     {
         if (canMovePlayer)
+        {
+            if(currentState== State.Idle)
+            {
+                myAnim.Play("Player_Idle");
+                myAnim.SetBool("isRunning", false);
+                if (Input.GetButton(("Fire1")))
+                {
+                    currentState = State.Attack;
+                }
+                else if ((Input.GetButton("Horizontal") || Input.GetButton("Vertical")))
+                {
+                    currentState = State.Walk;
+                }
+                else if (Input.anyKey == false)
+                {
+                    currentState = State.Idle;
+                }
+            }
+            if(currentState == State.Walk)
+            {
+                myAnim.Play("Player_Walk");
+                myAnim.SetBool("isRunning", false);
+                theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * walkSpeed;
+                if (Input.GetButton(("Fire1")))
+                {
+                    currentState = State.Attack;
+                }
+                else if ((Input.GetButton("Horizontal") || Input.GetButton("Vertical")) && (Input.GetKey(KeyCode.LeftShift)))
+                {
+                    currentState = State.Run;
+                    myAnim.SetBool("isRunning", true);
+                }
+                else if (Input.anyKey == false)
+                {
+                    currentState = State.Idle;
+                }
+            }
+            if (currentState == State.Run)
+            {
+                myAnim.Play("Player_Run");
+                myAnim.SetBool("isRunning", true);
+                theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * runSpeed;
+                if (Input.GetButton(("Fire1")))
+                {
+                    currentState = State.Attack;
+                }
+                else if (Input.anyKey == false)
+                {
+                    currentState = State.Idle;
+                }
+            }
+            if (currentState == State.Attack)
+            {
+                myAnim.SetTrigger("AttackTrigger");
+                theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * 0;
+                StartCoroutine("OnCompleteAttackAnimation");
+                
+            }
+        }
+        else
+        {
+            theRB.velocity = Vector2.zero;
+        }
+
+
+
+        /*if (canMovePlayer)
         {               
             if (Input.GetButton(("Fire1")))
             {
@@ -110,6 +186,12 @@ public class PlayerController : MonoBehaviour
         topRightLimit = topRight + new Vector3(-.5f, -1f, 0f);
     }
 
+    IEnumerator OnCompleteAttackAnimation()
+    {
+        while (myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+            yield return null;
 
+        currentState = State.Idle;
+    }
 
 }
