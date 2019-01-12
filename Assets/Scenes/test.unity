@@ -388,6 +388,7 @@ MonoBehaviour:
   moveSpeed: 5
   timeBetweenMove: 2
   timeToMove: 1
+  waitToReload: 3
 --- !u!50 &370571411
 Rigidbody2D:
   serializedVersion: 4
@@ -442,6 +443,7 @@ MonoBehaviour:
   moveSpeed: 5
   timeBetweenMove: 2
   timeToMove: 1
+  waitToReload: 3
 --- !u!50 &512956980
 Rigidbody2D:
   serializedVersion: 4
@@ -52365,6 +52367,7 @@ MonoBehaviour:
   moveSpeed: 5
   timeBetweenMove: 2
   timeToMove: 1
+  waitToReload: 3
 --- !u!50 &1218778669
 Rigidbody2D:
   serializedVersion: 4
@@ -52511,6 +52514,7 @@ MonoBehaviour:
   moveSpeed: 5
   timeBetweenMove: 2
   timeToMove: 1
+  waitToReload: 3
 --- !u!50 &1291709830
 Rigidbody2D:
   serializedVersion: 4
@@ -52657,6 +52661,7 @@ MonoBehaviour:
   moveSpeed: 5
   timeBetweenMove: 2
   timeToMove: 1
+  waitToReload: 3
 --- !u!50 &1438768623
 Rigidbody2D:
   serializedVersion: 4
