@@ -41,6 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3314842535
+    locked: 0
+  - name: Player_Rain
+    uniqueID: 707867589
+    locked: 0
   - name: Battle_BG
     uniqueID: 4230647463
     locked: 0
