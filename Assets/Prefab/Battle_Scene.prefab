@@ -2276,7 +2276,7 @@ MonoBehaviour:
   isMapBoss: 0
   isGameBoss: 0
   movesAvailable: []
-  charName: 
+  charName: Aiden
   currentHP: 0
   maxHP: 0
   currentMP: 0
@@ -2897,7 +2897,7 @@ MonoBehaviour:
   isMapBoss: 0
   isGameBoss: 0
   movesAvailable: []
-  charName: 
+  charName: Fina
   currentHP: 0
   maxHP: 0
   currentMP: 0
@@ -3569,7 +3569,7 @@ MonoBehaviour:
   isMapBoss: 0
   isGameBoss: 0
   movesAvailable: []
-  charName: 
+  charName: Sakura
   currentHP: 0
   maxHP: 0
   currentMP: 0
