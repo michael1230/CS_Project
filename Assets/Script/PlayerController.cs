@@ -39,13 +39,13 @@ public class PlayerController : MonoBehaviour
     {
         if (canMovePlayer)//if the flag is true
         {
-            if (Input.anyKey == false) //if nothing is pressed 
+           /* if (Input.anyKey == false) //if nothing is pressed 
             {
                 theRB.velocity = Vector2.zero;//don't move
                 myAnim.SetBool("isRunning", false);//if we came from Running then stop running animation 
             }
             
-            else if (Input.GetButton(("Fire1")))//if ctrl is pressed 
+            else*/ if (Input.GetButton(("Fire1")))//if ctrl is pressed 
             {
                 theRB.velocity = Vector2.zero;//don't move
                 myAnim.SetBool("isRunning", false);//if we came from Running then stop running animation 
@@ -60,6 +60,11 @@ public class PlayerController : MonoBehaviour
                     myAnim.SetBool("isRunning", true);//start the running anim
                     theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * runSpeed;
                 }
+            }
+            else
+            {                       
+                    theRB.velocity = Vector2.zero;//don't move
+                    myAnim.SetBool("isRunning", false);//if we came from Running then stop running animation                 
             }
         }
         else//if not

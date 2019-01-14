@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1505684563947862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.27, y: 0.9, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,16 +53,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
+  isMapBoss: 0
+  isGameBoss: 0
   movesAvailable: []
   charName: Turtle
-  currentHp: 100
+  currentHP: 100
   maxHP: 100
   currentMP: 0
   maxMP: 0
   strength: 13
-  defence: 20
-  wpnPower: 5
-  armrPower: 5
+  defense: 0
+  dexterity: 0
   hasDied: 0
   theSprite: {fileID: 0}
   deadSprite: {fileID: 0}
@@ -100,7 +101,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -544897899
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300016, guid: 988d560df8d322a468c97243cbfd76e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
