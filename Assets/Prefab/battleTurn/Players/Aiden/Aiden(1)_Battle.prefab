@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4725874379807942}
   - component: {fileID: 212911857857900084}
   - component: {fileID: 95533413625575058}
+  - component: {fileID: 114805269003109404}
   m_Layer: 0
   m_Name: Aiden(1)_Battle
-  m_TagString: Untagged
+  m_TagString: BattlePlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,6 +60,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114805269003109404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1589083376291956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626a9542f651e154f98716c6c971af31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 1
+  isMapBoss: 0
+  isGameBoss: 0
+  movesAvailable: []
+  charName: Aiden
+  currentHP: 0
+  maxHP: 0
+  currentMP: 0
+  maxMP: 0
+  strength: 0
+  defense: 0
+  dexterity: 0
+  hasDied: 0
+  theSprite: {fileID: 0}
+  deadSprite: {fileID: 0}
+  aliveSprite: {fileID: 0}
 --- !u!212 &212911857857900084
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -92,7 +120,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -544897899
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 0ec2e0ace22b9514e9b797146ae874e4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

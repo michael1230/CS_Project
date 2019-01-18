@@ -6,31 +6,35 @@ public class CharStats : MonoBehaviour
 {
 
     public string charName;
-    public int playerLevel = 1;
-    public int currentHP=150;
-    public int maxHP = 150;
-    public int currentMP=50;
-    public int maxMP = 50;
-    public int strength=30;
-    public int defense = 30;
-    public int dexterity = 10;
-    public bool hasFirstElement;
-    public bool hasSecondElement;
-    public bool hasThirdElement;
-    public int[] bonusFirstElement;
-    public int[] bonusSecondElement;
-    public int[] bonusThirdElement;
-
+    public int playerLevel ;
+    public int currentHP;
+    public int maxHP;
+    public int currentMP;
+    public int maxMP;
+    public int strength;
+    public int defense;
+    public int dexterity;
+    public bool[] hasElement;
+    public int[][] bonusElement;
+    //public MultiDArrays[] bonusElement;
     public Sprite charIamge;
-
 
 
 
     // Use this for initialization
     void Start()
     {
-
-
+        hasElement = new bool[3];
+        bonusElement = new int[3][];
+        for (int i = 0; i < bonusElement.Length; i++)
+        {
+            bonusElement[i] = new int[6];
+            for (int j = 0; j < bonusElement[i].Length; j++)
+            {
+                bonusElement[i][j] = 25;
+            }
+        }
+        
     }
 
     // Update is called once per frame
@@ -40,36 +44,18 @@ public class CharStats : MonoBehaviour
 
     }
 
-    public void AddElement(int whichElement)
+    public void AddBonusElement(int whichElement)
     {
-        if(whichElement==1)
-        {
-            playerLevel += bonusFirstElement[0];
-            maxHP += bonusFirstElement[1];
-            maxMP += bonusFirstElement[2];
-            strength += bonusFirstElement[3];
-            defense += bonusFirstElement[4];
-            dexterity+= bonusFirstElement[5];
-        }
-        else if (whichElement == 2)
-        {
-            playerLevel += bonusSecondElement[0];
-            maxHP += bonusSecondElement[1];
-            maxMP += bonusSecondElement[2];
-            strength += bonusSecondElement[3];
-            defense += bonusSecondElement[4];
-            dexterity += bonusSecondElement[5];
-        }
-        else if (whichElement == 3)
-        {
-            playerLevel += bonusThirdElement[0];
-            maxHP += bonusThirdElement[1];
-            maxMP += bonusThirdElement[2];
-            strength += bonusThirdElement[3];
-            defense += bonusThirdElement[4];
-            dexterity += bonusThirdElement[5];
-        }
-
-
+        playerLevel +=  bonusElement[whichElement][0];
+        maxHP +=        bonusElement[whichElement][1];
+        maxMP +=        bonusElement[whichElement][2];
+        strength +=     bonusElement[whichElement][3];
+        defense +=      bonusElement[whichElement][4];
+        dexterity +=    bonusElement[whichElement][5];
+        hasElement[whichElement] = true;
+        currentHP = maxHP;
+        currentMP = maxMP;
     }
+
+       
 }

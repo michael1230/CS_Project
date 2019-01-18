@@ -11,6 +11,54 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1611360848643696}
   m_IsPrefabAsset: 1
+--- !u!1 &1132901506212100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4154565532786250}
+  - component: {fileID: 114883337014863132}
+  m_Layer: 0
+  m_Name: Rain_Status
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1313298603422832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4979005438487482}
+  - component: {fileID: 114506718270519652}
+  m_Layer: 0
+  m_Name: Fina_Status
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1604970542634968
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4071342046628466}
+  - component: {fileID: 114769546529351650}
+  m_Layer: 0
+  m_Name: Sakura_Status
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1611360848643696
 GameObject:
   m_ObjectHideFlags: 0
@@ -27,6 +75,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1859024176931122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4158910158954448}
+  - component: {fileID: 114779775681037156}
+  m_Layer: 0
+  m_Name: Aiden_Status
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4071342046628466
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1604970542634968}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.8576393, y: -1.2374663, z: 0.010720998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4101581769252684}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4101581769252684
 Transform:
   m_ObjectHideFlags: 1
@@ -36,9 +113,52 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.382437, y: 1.6866432, z: -0.171875}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4154565532786250}
+  - {fileID: 4158910158954448}
+  - {fileID: 4979005438487482}
+  - {fileID: 4071342046628466}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4154565532786250
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132901506212100}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.8576393, y: -1.2374663, z: 0.010720998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4101581769252684}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4158910158954448
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1859024176931122}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.8576393, y: -1.2374663, z: 0.010720998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4101581769252684}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4979005438487482
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1313298603422832}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.8576393, y: -1.2374663, z: 0.010720998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4101581769252684}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114418003867507588
 MonoBehaviour:
@@ -51,8 +171,101 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65fb1fb076ab6064181adcc3e37d7000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: []
+  playerStats:
+  - {fileID: 114779775681037156}
+  - {fileID: 114506718270519652}
+  - {fileID: 114883337014863132}
+  - {fileID: 114769546529351650}
+  numberOfElement: 0
   gameMenuOpen: 0
   dialogActive: 0
   fadingBetweenAreas: 0
   battleActive: 0
+--- !u!114 &114506718270519652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1313298603422832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177d7b13947784541b0e6080c8f407e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: Fina
+  playerLevel: 1
+  currentHP: 100
+  maxHP: 100
+  currentMP: 30
+  maxMP: 30
+  strength: 15
+  defense: 15
+  dexterity: 15
+  hasElement: 000000
+  charIamge: {fileID: 0}
+--- !u!114 &114769546529351650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1604970542634968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177d7b13947784541b0e6080c8f407e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: Sakura
+  playerLevel: 1
+  currentHP: 100
+  maxHP: 100
+  currentMP: 30
+  maxMP: 30
+  strength: 15
+  defense: 15
+  dexterity: 15
+  hasElement: 000000
+  charIamge: {fileID: 0}
+--- !u!114 &114779775681037156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1859024176931122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177d7b13947784541b0e6080c8f407e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: Aiden
+  playerLevel: 1
+  currentHP: 100
+  maxHP: 100
+  currentMP: 30
+  maxMP: 30
+  strength: 15
+  defense: 15
+  dexterity: 15
+  hasElement: 000000
+  charIamge: {fileID: 0}
+--- !u!114 &114883337014863132
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132901506212100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177d7b13947784541b0e6080c8f407e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: Rain
+  playerLevel: 1
+  currentHP: 100
+  maxHP: 100
+  currentMP: 30
+  maxMP: 30
+  strength: 15
+  defense: 15
+  dexterity: 15
+  hasElement: 000000
+  charIamge: {fileID: 0}

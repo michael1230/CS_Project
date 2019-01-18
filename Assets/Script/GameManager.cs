@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     public CharStats[] playerStats;
 
+    public int numberOfElement = 0;
+
     public bool gameMenuOpen, dialogActive, fadingBetweenAreas, battleActive;
 
     // Use this for initialization
@@ -28,5 +30,21 @@ public class GameManager : MonoBehaviour
         {
             PlayerController.instance.canMovePlayer = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.T))//for test
+        {
+            if (numberOfElement < 3)
+            {
+                
+                for (int i = 0; i < playerStats.Length; i++)
+                {
+                    playerStats[i].AddBonusElement(numberOfElement);
+                    playerStats[i].hasElement[numberOfElement] = true;
+                }
+                numberOfElement++;
+            }
+        }
+
+
     }
 }
