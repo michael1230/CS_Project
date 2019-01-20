@@ -263,6 +263,7 @@ public class BattleManager : MonoBehaviour
             {
                 Instantiate(movesList[i].theEffect, activeBattlers[selectedTarget].transform.position, activeBattlers[selectedTarget].transform.rotation);//make the effect appear on the target
                 //movePower = movesList[i].movePower;
+                activeBattlers[selectedTarget].currentHP -= movesList[i].movePower;
             }
         }
 
