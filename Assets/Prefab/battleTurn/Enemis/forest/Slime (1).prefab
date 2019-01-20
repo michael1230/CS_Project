@@ -55,7 +55,9 @@ MonoBehaviour:
   isPlayer: 0
   isMapBoss: 0
   isGameBoss: 0
-  movesAvailable: []
+  movesAvailable:
+  - Wind1
+  - Slash1
   charName: Slime
   currentHP: 50
   maxHP: 50

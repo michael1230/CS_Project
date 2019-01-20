@@ -55,7 +55,9 @@ MonoBehaviour:
   isPlayer: 0
   isMapBoss: 0
   isGameBoss: 0
-  movesAvailable: []
+  movesAvailable:
+  - Ice1
+  - Fire1
   charName: Snake
   currentHP: 200
   maxHP: 200

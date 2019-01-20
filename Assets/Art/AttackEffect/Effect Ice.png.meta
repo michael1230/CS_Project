@@ -1,54 +1,70 @@
 fileFormatVersion: 2
-guid: 7384dec0e667b8643bee02d3ecaf659c
+guid: 383c375ad8e824a4a93f30ccccd7c7e0
 TextureImporter:
   fileIDToRecycleName:
-    21300000: 6_flamelash_spritesheet_0
-    21300002: 6_flamelash_spritesheet_1
-    21300004: 6_flamelash_spritesheet_2
-    21300006: 6_flamelash_spritesheet_3
-    21300008: 6_flamelash_spritesheet_4
-    21300010: 6_flamelash_spritesheet_5
-    21300012: 6_flamelash_spritesheet_6
-    21300014: 6_flamelash_spritesheet_7
-    21300016: 6_flamelash_spritesheet_8
-    21300018: 6_flamelash_spritesheet_9
-    21300020: 6_flamelash_spritesheet_10
-    21300022: 6_flamelash_spritesheet_11
-    21300024: 6_flamelash_spritesheet_12
-    21300026: 6_flamelash_spritesheet_13
-    21300028: 6_flamelash_spritesheet_14
-    21300030: 6_flamelash_spritesheet_15
-    21300032: 6_flamelash_spritesheet_16
-    21300034: 6_flamelash_spritesheet_17
-    21300036: 6_flamelash_spritesheet_18
-    21300038: 6_flamelash_spritesheet_19
-    21300040: 6_flamelash_spritesheet_20
-    21300042: 6_flamelash_spritesheet_21
-    21300044: 6_flamelash_spritesheet_22
-    21300046: 6_flamelash_spritesheet_23
-    21300048: 6_flamelash_spritesheet_24
-    21300050: 6_flamelash_spritesheet_25
-    21300052: 6_flamelash_spritesheet_26
-    21300054: 6_flamelash_spritesheet_27
-    21300056: 6_flamelash_spritesheet_28
-    21300058: 6_flamelash_spritesheet_29
-    21300060: 6_flamelash_spritesheet_30
-    21300062: 6_flamelash_spritesheet_31
-    21300064: 6_flamelash_spritesheet_32
-    21300066: 6_flamelash_spritesheet_33
-    21300068: 6_flamelash_spritesheet_34
-    21300070: 6_flamelash_spritesheet_35
-    21300072: 6_flamelash_spritesheet_36
-    21300074: 6_flamelash_spritesheet_37
-    21300076: 6_flamelash_spritesheet_38
-    21300078: 6_flamelash_spritesheet_39
-    21300080: 6_flamelash_spritesheet_40
-    21300082: 6_flamelash_spritesheet_41
-    21300084: 6_flamelash_spritesheet_42
-    21300086: 6_flamelash_spritesheet_43
-    21300088: 6_flamelash_spritesheet_44
+    21300000: 12_nebula_spritesheet_0
+    21300002: 12_nebula_spritesheet_1
+    21300004: 12_nebula_spritesheet_2
+    21300006: 12_nebula_spritesheet_3
+    21300008: 12_nebula_spritesheet_4
+    21300010: 12_nebula_spritesheet_5
+    21300012: 12_nebula_spritesheet_6
+    21300014: 12_nebula_spritesheet_7
+    21300016: 12_nebula_spritesheet_8
+    21300018: 12_nebula_spritesheet_9
+    21300020: 12_nebula_spritesheet_10
+    21300022: 12_nebula_spritesheet_11
+    21300024: 12_nebula_spritesheet_12
+    21300026: 12_nebula_spritesheet_13
+    21300028: 12_nebula_spritesheet_14
+    21300030: 12_nebula_spritesheet_15
+    21300032: 12_nebula_spritesheet_16
+    21300034: 12_nebula_spritesheet_17
+    21300036: 12_nebula_spritesheet_18
+    21300038: 12_nebula_spritesheet_19
+    21300040: 12_nebula_spritesheet_20
+    21300042: 12_nebula_spritesheet_21
+    21300044: 12_nebula_spritesheet_22
+    21300046: 12_nebula_spritesheet_23
+    21300048: 12_nebula_spritesheet_24
+    21300050: 12_nebula_spritesheet_25
+    21300052: 12_nebula_spritesheet_26
+    21300054: 12_nebula_spritesheet_27
+    21300056: 12_nebula_spritesheet_28
+    21300058: 12_nebula_spritesheet_29
+    21300060: 12_nebula_spritesheet_30
+    21300062: 12_nebula_spritesheet_31
+    21300064: 12_nebula_spritesheet_32
+    21300066: 12_nebula_spritesheet_33
+    21300068: 12_nebula_spritesheet_34
+    21300070: 12_nebula_spritesheet_35
+    21300072: 12_nebula_spritesheet_36
+    21300074: 12_nebula_spritesheet_37
+    21300076: 12_nebula_spritesheet_38
+    21300078: 12_nebula_spritesheet_39
+    21300080: 12_nebula_spritesheet_40
+    21300082: 12_nebula_spritesheet_41
+    21300084: 12_nebula_spritesheet_42
+    21300086: 12_nebula_spritesheet_43
+    21300088: 12_nebula_spritesheet_44
+    21300090: 12_nebula_spritesheet_45
+    21300092: 12_nebula_spritesheet_46
+    21300094: 12_nebula_spritesheet_47
+    21300096: 12_nebula_spritesheet_48
+    21300098: 12_nebula_spritesheet_49
+    21300100: 12_nebula_spritesheet_50
+    21300102: 12_nebula_spritesheet_51
+    21300104: 12_nebula_spritesheet_52
+    21300106: 12_nebula_spritesheet_53
+    21300108: 12_nebula_spritesheet_54
+    21300110: 12_nebula_spritesheet_55
+    21300112: 12_nebula_spritesheet_56
+    21300114: 12_nebula_spritesheet_57
+    21300116: 12_nebula_spritesheet_58
+    21300118: 12_nebula_spritesheet_59
+    21300120: 12_nebula_spritesheet_60
   externalObjects: {}
-  serializedVersion: 6
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -90,7 +106,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 35
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -129,7 +145,187 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_0
+      name: 12_nebula_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 700
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 023414e385994fe4eb66f9478dafe335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_nebula_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 700
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa76778a9235634aa979a180303b812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_nebula_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 700
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a2da3edb424ec84eb5bf4fdb702bc92
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_nebula_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 700
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f044d3000f0450419dba7b9fb7ddbf7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_nebula_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 700
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1425bf01b4e21f348a7e519c873c8045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_nebula_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 700
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 392d76478fe1fa0439a7d9fac8afda6c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_nebula_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 700
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86dd3e340751b294bbb3af415e5b31c2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_nebula_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 700
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40e65f1b618cefa46806088a9810be76
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_nebula_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c792528e25d0b54fb4a5f3738081580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_nebula_spritesheet_9
       rect:
         serializedVersion: 2
         x: 100
@@ -143,13 +339,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82ebb7a4b0cecc64bb46b4d2931b48fb
+      spriteID: 97855e3801eff7c4ab68f258ad2cb56b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_1
+      name: 12_nebula_spritesheet_10
       rect:
         serializedVersion: 2
         x: 200
@@ -163,13 +359,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 220cc64cb7e80654fb36ffbdafa5d2dc
+      spriteID: 99f7e695fbb6b5d4d96ac32c832ad959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_2
+      name: 12_nebula_spritesheet_11
       rect:
         serializedVersion: 2
         x: 300
@@ -183,13 +379,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cab1a7f899530f44ba87be170e65b9a
+      spriteID: e70c9a2e7abc33e48b78841a99ab3415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_3
+      name: 12_nebula_spritesheet_12
       rect:
         serializedVersion: 2
         x: 400
@@ -203,13 +399,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d631db87e43699e4aa8134b5e5e436c8
+      spriteID: 264b67283395d4c4a8f7dbeb36ebd714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_4
+      name: 12_nebula_spritesheet_13
       rect:
         serializedVersion: 2
         x: 500
@@ -223,13 +419,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47312ed1b4462dd4f9834531cf0105e9
+      spriteID: f2281cb00d581e44d895928cab8b4110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_5
+      name: 12_nebula_spritesheet_14
       rect:
         serializedVersion: 2
         x: 600
@@ -243,13 +439,33 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18b2dc5d1dbe14941bf448b271b0b10a
+      spriteID: 93208f05cae222d4fa6c7ec5d062d73d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_6
+      name: 12_nebula_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 600
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 956f0c8367e2c8c49834c8a44dee4624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_nebula_spritesheet_16
       rect:
         serializedVersion: 2
         x: 0
@@ -263,13 +479,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 391c863c52b567a41a1339cd8939b03a
+      spriteID: 411761706d307e64d8dd5cf959c17b56
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_7
+      name: 12_nebula_spritesheet_17
       rect:
         serializedVersion: 2
         x: 100
@@ -283,13 +499,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d7c02b39fe1aa245adc71b7bfe2ee50
+      spriteID: 047300cbe0231d840ad1e7ab2b6ecfa5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_8
+      name: 12_nebula_spritesheet_18
       rect:
         serializedVersion: 2
         x: 200
@@ -303,13 +519,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e83e1661fe000d4fb82dab59528aa21
+      spriteID: 59c4b87fe39a6f040b85258430a1c5a3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_9
+      name: 12_nebula_spritesheet_19
       rect:
         serializedVersion: 2
         x: 300
@@ -323,13 +539,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8b9d592071581d498e20aee39581992
+      spriteID: 9552e41ec3e1f9c4c8bd3dc8ca817904
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_10
+      name: 12_nebula_spritesheet_20
       rect:
         serializedVersion: 2
         x: 400
@@ -343,13 +559,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96349500b1af99347bc79d91ca905ffc
+      spriteID: c80ece8a914db0b4397acd70f8c12652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_11
+      name: 12_nebula_spritesheet_21
       rect:
         serializedVersion: 2
         x: 500
@@ -363,13 +579,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab7140f4d5f267043ad8429cd37a58bf
+      spriteID: bac5f36340387f04aacaab13e82b20e0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_12
+      name: 12_nebula_spritesheet_22
       rect:
         serializedVersion: 2
         x: 600
@@ -383,13 +599,33 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e67cd5c441b8df4bbe84ee42d0b6d05
+      spriteID: 4e498c5fe8dde7944b3005c97dd48ba0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_13
+      name: 12_nebula_spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 500
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbfd5df66e0a878429ddac10f9c6dbfa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_nebula_spritesheet_24
       rect:
         serializedVersion: 2
         x: 0
@@ -403,13 +639,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7ceb01c9446c8640b0c4f70ec41a026
+      spriteID: dce02065fd1c399408addec2371ec57c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_14
+      name: 12_nebula_spritesheet_25
       rect:
         serializedVersion: 2
         x: 100
@@ -423,13 +659,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fba89a18e1207e841883fc586e3b49f6
+      spriteID: f62f7c71935425c41906fb5f37e831d0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_15
+      name: 12_nebula_spritesheet_26
       rect:
         serializedVersion: 2
         x: 200
@@ -443,13 +679,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9aa583b2962d1a04c94d1a9dc327b552
+      spriteID: 26a5485d82d14ca469c30936dac53d8c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_16
+      name: 12_nebula_spritesheet_27
       rect:
         serializedVersion: 2
         x: 300
@@ -463,13 +699,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1259900b06b41644a87c4efd48fc1af3
+      spriteID: e9ce154ad2602d942a4fc1b81bb1881e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_17
+      name: 12_nebula_spritesheet_28
       rect:
         serializedVersion: 2
         x: 400
@@ -483,13 +719,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0f002b5a16a7c64ab7cef97ad33956f
+      spriteID: 8535ffe9bca37cd48998bd6d85bd239d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_18
+      name: 12_nebula_spritesheet_29
       rect:
         serializedVersion: 2
         x: 500
@@ -503,13 +739,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45c546cd308851d4988524ac0eaba1c4
+      spriteID: c55b350b2bf0e4749ad28d7646ea7768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_19
+      name: 12_nebula_spritesheet_30
       rect:
         serializedVersion: 2
         x: 600
@@ -523,13 +759,33 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10cdd66734ac8e840ad081174c944951
+      spriteID: fc6be642bbf6cec468252b6bffa80600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_20
+      name: 12_nebula_spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bae8c932cda4224b9050f03805fca1e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_nebula_spritesheet_32
       rect:
         serializedVersion: 2
         x: 0
@@ -543,13 +799,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac8eea9fd30060f46a2a0cb488b3a4a7
+      spriteID: 066eca1b6c19ead46a08b2b77b783475
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_21
+      name: 12_nebula_spritesheet_33
       rect:
         serializedVersion: 2
         x: 100
@@ -563,13 +819,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4aac60e0182e18b469c8501257f394e3
+      spriteID: 9a116158c07e10146b30be44dc79cafe
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_22
+      name: 12_nebula_spritesheet_34
       rect:
         serializedVersion: 2
         x: 200
@@ -583,13 +839,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f20a039c93fd1947b5b0d4aefe37cbb
+      spriteID: 2fa8150f6279e4540b48fccc175c66a3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_23
+      name: 12_nebula_spritesheet_35
       rect:
         serializedVersion: 2
         x: 300
@@ -603,13 +859,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 371493db2d0803343b7bd99e871dceed
+      spriteID: 8bb9072677730af4e8a9bf4a23e74561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_24
+      name: 12_nebula_spritesheet_36
       rect:
         serializedVersion: 2
         x: 400
@@ -623,13 +879,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70255c82812e4f64c88df67d7d06221b
+      spriteID: feb2f5850bba6a44084a26151ba84d43
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_25
+      name: 12_nebula_spritesheet_37
       rect:
         serializedVersion: 2
         x: 500
@@ -643,13 +899,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35fbccf3ef68a064884ceee1c625e787
+      spriteID: af8dcc3d32f618a45b638cb7f1aacca7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_26
+      name: 12_nebula_spritesheet_38
       rect:
         serializedVersion: 2
         x: 600
@@ -663,13 +919,33 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95838c6855b37ef4c913b8572a141088
+      spriteID: a0079fd89eda9bc4c880d7861a01f883
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_27
+      name: 12_nebula_spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba3114e19f944cf4dac02f2add7ca683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_nebula_spritesheet_40
       rect:
         serializedVersion: 2
         x: 0
@@ -683,13 +959,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc9b93fccf425824896d18ce35fae40e
+      spriteID: e4df0065b8c2b0442a7168f62287b71c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_28
+      name: 12_nebula_spritesheet_41
       rect:
         serializedVersion: 2
         x: 100
@@ -703,13 +979,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 324f480d9e08acb4bb3676a1616170a6
+      spriteID: 11ef9d8b8ed61a94097553ea31101c0d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_29
+      name: 12_nebula_spritesheet_42
       rect:
         serializedVersion: 2
         x: 200
@@ -723,13 +999,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17ccb98e16fcc9a4db0f2054ab559aa9
+      spriteID: 81608fa58190dc24d8bcb4c46afba374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_30
+      name: 12_nebula_spritesheet_43
       rect:
         serializedVersion: 2
         x: 300
@@ -743,13 +1019,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 305c76a3435d4d34aa233d28939676cd
+      spriteID: a0d08feb9a29aab4ca34eea816a13780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_31
+      name: 12_nebula_spritesheet_44
       rect:
         serializedVersion: 2
         x: 400
@@ -763,13 +1039,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ff62c8f5494d144188699266f3b00f8
+      spriteID: 3d564a652878679408694bb396265711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_32
+      name: 12_nebula_spritesheet_45
       rect:
         serializedVersion: 2
         x: 500
@@ -783,13 +1059,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d8dd6d823871b140bcf88b869fe6f50
+      spriteID: 89f2425142c73f04484caed98d5e6261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_33
+      name: 12_nebula_spritesheet_46
       rect:
         serializedVersion: 2
         x: 600
@@ -803,13 +1079,33 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9e5c0e637af5ba4aacddb0ff5752f3d
+      spriteID: f15a354cfaf1dda46abfbdbaffb59337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_34
+      name: 12_nebula_spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8359f47ad7fbfdc46a86f72a0b2c098a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_nebula_spritesheet_48
       rect:
         serializedVersion: 2
         x: 0
@@ -823,13 +1119,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdd7df671ebdebd4e91ab870514d64b2
+      spriteID: b565933671239634799c7db7eefb91b6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_35
+      name: 12_nebula_spritesheet_49
       rect:
         serializedVersion: 2
         x: 100
@@ -843,13 +1139,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ea1146ae410caf41a89c406cd7cdfc4
+      spriteID: 05688767cd4cdf845a9bc562c172ccd8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_36
+      name: 12_nebula_spritesheet_50
       rect:
         serializedVersion: 2
         x: 200
@@ -863,13 +1159,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da81896929e051f41bb4910a7e5f0380
+      spriteID: a1f3b67b852275d4ba2bbff614328d6c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_37
+      name: 12_nebula_spritesheet_51
       rect:
         serializedVersion: 2
         x: 300
@@ -883,13 +1179,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f52d44859dba69949abe739cd0650bac
+      spriteID: 643f3a4164eeddf468c2863067f72916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_38
+      name: 12_nebula_spritesheet_52
       rect:
         serializedVersion: 2
         x: 400
@@ -903,13 +1199,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 724dcfe64432a9e4b88d0dfe0e2520a7
+      spriteID: 51b5d60a98f6d3b4184a3de5dfc2d30a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_39
+      name: 12_nebula_spritesheet_53
       rect:
         serializedVersion: 2
         x: 500
@@ -923,13 +1219,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ee10df8f65701d4a9d569b1a96f7dc4
+      spriteID: de024ef4f7ec0844db96bcb784292762
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_40
+      name: 12_nebula_spritesheet_54
       rect:
         serializedVersion: 2
         x: 600
@@ -943,13 +1239,33 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1656cc70ba1fcb34a8afd3e32cfe6a8e
+      spriteID: 054abcd686b4df04086930f21262320b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_41
+      name: 12_nebula_spritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6106cd4d251c6804eb32d85d1cdc02b5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_nebula_spritesheet_56
       rect:
         serializedVersion: 2
         x: 0
@@ -963,13 +1279,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fba3e300c1d2504bbc17a82f5820e82
+      spriteID: a88059a3ef2997f4c802e0e4ff51987c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_42
+      name: 12_nebula_spritesheet_57
       rect:
         serializedVersion: 2
         x: 100
@@ -983,13 +1299,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 821204e4d2f12f648bf3f0f975630960
+      spriteID: 48740673b2ed90f4f893ffcdc3cba3d9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_43
+      name: 12_nebula_spritesheet_58
       rect:
         serializedVersion: 2
         x: 200
@@ -1003,13 +1319,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7b6d62b402990a41a3696fcea14444a
+      spriteID: ce2c7f2574cbabb49a3010d8861cda45
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 6_flamelash_spritesheet_44
+      name: 12_nebula_spritesheet_59
       rect:
         serializedVersion: 2
         x: 300
@@ -1023,7 +1339,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ea5f4206ad51174b83b82e29fb80dbe
+      spriteID: 6751710ef4c525447879b13411d566dc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_nebula_spritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18ef891606db7c34d8b1bc43b062680a
       vertices: []
       indices: 
       edges: []
@@ -1031,12 +1367,14 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b58f2b6c9b928ca429f7d045427d2446
+    spriteID: bd9a477563f251945b02fbe94ad61f47
     vertices: []
     indices: 
     edges: []
     weights: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
