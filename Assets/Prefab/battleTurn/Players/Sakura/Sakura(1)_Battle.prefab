@@ -74,7 +74,8 @@ MonoBehaviour:
   isPlayer: 1
   isMapBoss: 0
   isGameBoss: 0
-  movesAvailable: []
+  movesAvailable:
+  - Wind1
   charName: Sakura
   currentHP: 0
   maxHP: 0

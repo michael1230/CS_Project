@@ -7,6 +7,7 @@ public class CharStats : MonoBehaviour
 
     public string charName;
     public int playerLevel ;
+
     public int currentHP;
     public int maxHP;
     public int currentMP;
@@ -14,6 +15,7 @@ public class CharStats : MonoBehaviour
     public int strength;
     public int defense;
     public int dexterity;
+
     public bool[] hasElement;
     public int[][] bonusElement;
     //public MultiDArrays[] bonusElement;

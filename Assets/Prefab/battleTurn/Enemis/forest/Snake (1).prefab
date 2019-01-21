@@ -64,7 +64,7 @@ MonoBehaviour:
   currentMP: 0
   maxMP: 0
   strength: 15
-  defense: 0
+  defense: 15
   dexterity: 0
   hasDied: 0
   theSprite: {fileID: 0}
