@@ -24,18 +24,8 @@ public class BattleMagicSelect : MonoBehaviour {
 
     public void Press()
     {
-        if (BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP >= spellCost)
-        {
             BattleManager.instance.magicMenu.SetActive(false);
             BattleManager.instance.OpenTargetMenu(spellName);
             BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= spellCost;
-        }
-       /* else
-        {
-            //let player know there is not enough MP
-            BattleManager.instance.battleNotice.theText.text = "Not Enough MP!";
-            BattleManager.instance.battleNotice.Activate();
-            BattleManager.instance.magicMenu.SetActive(false);
-        }*/
     }
 }

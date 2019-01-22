@@ -12,13 +12,14 @@ public class CharStats : MonoBehaviour
     public int maxHP;
     public int currentMP;
     public int maxMP;
+    public int currentSP;
+    public int maxSP;
     public int strength;
     public int defense;
     public int dexterity;
 
     public bool[] hasElement;
     public int[][] bonusElement;
-    //public MultiDArrays[] bonusElement;
     public Sprite charIamge;
 
 
@@ -30,7 +31,7 @@ public class CharStats : MonoBehaviour
         bonusElement = new int[3][];
         for (int i = 0; i < bonusElement.Length; i++)
         {
-            bonusElement[i] = new int[6];
+            bonusElement[i] = new int[7];
             for (int j = 0; j < bonusElement[i].Length; j++)
             {
                 bonusElement[i][j] = 25;
@@ -51,12 +52,14 @@ public class CharStats : MonoBehaviour
         playerLevel +=  bonusElement[whichElement][0];
         maxHP +=        bonusElement[whichElement][1];
         maxMP +=        bonusElement[whichElement][2];
-        strength +=     bonusElement[whichElement][3];
-        defense +=      bonusElement[whichElement][4];
-        dexterity +=    bonusElement[whichElement][5];
+        maxSP +=        bonusElement[whichElement][3];
+        strength +=     bonusElement[whichElement][4];
+        defense +=      bonusElement[whichElement][5];
+        dexterity +=    bonusElement[whichElement][6];
         hasElement[whichElement] = true;
         currentHP = maxHP;
         currentMP = maxMP;
+        currentSP = maxSP;
     }
 
        

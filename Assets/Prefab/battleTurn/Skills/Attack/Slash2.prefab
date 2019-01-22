@@ -9,49 +9,49 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1488779236149880}
+  m_RootGameObject: {fileID: 1813587175839984}
   m_IsPrefabAsset: 1
---- !u!1 &1488779236149880
+--- !u!1 &1813587175839984
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4336009051895038}
-  - component: {fileID: 212562030222252284}
-  - component: {fileID: 95811178906002006}
-  - component: {fileID: 114086294225904382}
+  - component: {fileID: 4413839289501282}
+  - component: {fileID: 212770071670548694}
+  - component: {fileID: 95806594414663942}
+  - component: {fileID: 114646681490339962}
   m_Layer: 0
-  m_Name: Rain(1)_Battle
-  m_TagString: BattlePlayer
+  m_Name: Slash2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4336009051895038
+--- !u!4 &4413839289501282
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1488779236149880}
+  m_GameObject: {fileID: 1813587175839984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.43, y: 0.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &95811178906002006
+--- !u!95 &95806594414663942
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1488779236149880}
+  m_GameObject: {fileID: 1813587175839984}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f7cd1cdb0ee050d4f805838c4e3f544a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 45e709de986b5dd4d80a17b6848904f1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -60,41 +60,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114086294225904382
+--- !u!114 &114646681490339962
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1488779236149880}
+  m_GameObject: {fileID: 1813587175839984}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 626a9542f651e154f98716c6c971af31, type: 3}
+  m_Script: {fileID: 11500000, guid: e968fa2f4b6c281429c7b50c8f20ded8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayer: 1
-  isMapBoss: 0
-  isGameBoss: 0
-  movesAvailable:
-  - Wind1
-  - Fire1
-  charName: Rain
-  currentHP: 0
-  maxHP: 0
-  currentMP: 0
-  maxMP: 0
-  strength: 0
-  defense: 0
-  dexterity: 0
-  hasDied: 0
-  theSprite: {fileID: 0}
-  deadSprite: {fileID: 0}
-  aliveSprite: {fileID: 0}
---- !u!212 &212562030222252284
+  effectLength: 0.11
+  soundEffect: 3
+--- !u!212 &212770071670548694
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1488779236149880}
+  m_GameObject: {fileID: 1813587175839984}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -121,15 +105,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -544897899
-  m_SortingLayer: 4
-  m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: e5cb0a60f5c9c4946a78e2e4ef96310f, type: 3}
+  m_SortingLayerID: 707867589
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: effed7cd724dd734196356a118cdfb20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.8285714, y: 1.5714285}
+  m_Size: {x: 1.7, y: 1.77}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

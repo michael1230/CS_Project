@@ -15,6 +15,8 @@ public class BattleChar : MonoBehaviour
     public int maxHP;
     public int currentMP;
     public int maxMP;
+    public int currentSP;
+    public int maxSP;
     public int strength;
     public int defense;
     public int dexterity;

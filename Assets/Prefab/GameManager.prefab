@@ -172,9 +172,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats:
-  - {fileID: 114779775681037156}
-  - {fileID: 114506718270519652}
   - {fileID: 114883337014863132}
+  - {fileID: 114506718270519652}
+  - {fileID: 114779775681037156}
   - {fileID: 114769546529351650}
   numberOfElement: 0
   gameMenuOpen: 0
@@ -196,8 +196,8 @@ MonoBehaviour:
   playerLevel: 1
   currentHP: 100
   maxHP: 100
-  currentMP: 30
-  maxMP: 30
+  currentMP: 60
+  maxMP: 60
   strength: 15
   defense: 15
   dexterity: 15
@@ -216,8 +216,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charName: Sakura
   playerLevel: 1
-  currentHP: 100
-  maxHP: 100
+  currentHP: 150
+  maxHP: 150
   currentMP: 30
   maxMP: 30
   strength: 15
@@ -240,8 +240,8 @@ MonoBehaviour:
   playerLevel: 1
   currentHP: 100
   maxHP: 100
-  currentMP: 30
-  maxMP: 30
+  currentMP: 50
+  maxMP: 50
   strength: 15
   defense: 15
   dexterity: 15

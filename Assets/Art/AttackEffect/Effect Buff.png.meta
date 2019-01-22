@@ -1,0 +1,498 @@
+fileFormatVersion: 2
+guid: 530620124208d634c84df5eb922265ec
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Effect Buff_0
+    21300002: Effect Buff_1
+    21300004: Effect Buff_2
+    21300006: Effect Buff_3
+    21300008: Effect Buff_4
+    21300010: Effect Buff_5
+    21300012: Effect Buff_6
+    21300014: Effect Buff_7
+    21300016: Effect Buff_8
+    21300018: Effect Buff_9
+    21300020: Effect Buff_14
+    21300022: Effect Buff_10
+    21300024: Effect Buff_11
+    21300026: Effect Buff_16
+    21300028: Effect Buff_17
+    21300030: Effect Buff_12
+    21300032: Effect Buff_13
+    21300034: Effect Buff_18
+    21300036: Effect Buff_15
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Effect Buff_0
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 579
+        width: 183
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09eb5dcfc4206854f852c925fa51fab8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Buff_1
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 579
+        width: 183
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b060bc98b6770241be4285c183f764d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Buff_2
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 579
+        width: 183
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcd6c6c5d42a0b64f83445ea36a6e13a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Buff_3
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 579
+        width: 183
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdad63294a5061048a5796d0bac7888f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Buff_4
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 385
+        width: 183
+        height: 145
+      alignment: 9
+      pivot: {x: 0.475, y: 0.51}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64cdbeaa771dbd2479e7b0465d8c4767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Buff_5
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 385
+        width: 183
+        height: 145
+      alignment: 9
+      pivot: {x: 0.49, y: 0.51}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e315784969e7b6b4ba7cb22d449fa49f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Buff_6
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 385
+        width: 183
+        height: 145
+      alignment: 9
+      pivot: {x: 0.495, y: 0.51}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4b01cb48bfa63a40b5402db879b134b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Buff_7
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 385
+        width: 183
+        height: 145
+      alignment: 9
+      pivot: {x: 0.505, y: 0.505}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dac457393106ce4ebc2360598ec6081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Buff_8
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 385
+        width: 183
+        height: 145
+      alignment: 9
+      pivot: {x: 0.505, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d55410119272faf4887273756a73b921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Buff_9
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 193
+        width: 183
+        height: 182
+      alignment: 9
+      pivot: {x: 0.48, y: 0.399}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cf241110ab9d9a4ba124a89dd6e51a1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Buff_14
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 0
+        width: 183
+        height: 182
+      alignment: 9
+      pivot: {x: 0.485, y: 0.405}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e40d3370db598e8458dc645368ac0937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Buff_10
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 193
+        width: 183
+        height: 182
+      alignment: 9
+      pivot: {x: 0.495, y: 0.398}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 178f1b7bfb5036744858d0ce18913494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Buff_11
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 193
+        width: 183
+        height: 182
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3530cb7fb86ea8d429bc08f508491909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Buff_16
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 0
+        width: 183
+        height: 182
+      alignment: 9
+      pivot: {x: 0.5, y: 0.405}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a94f8d41e798e84dac2415e8fe24f63
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Buff_17
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 0
+        width: 183
+        height: 182
+      alignment: 9
+      pivot: {x: 0.505, y: 0.405}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41560b6caf660bc42869c1c24e495c85
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Buff_12
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 193
+        width: 183
+        height: 182
+      alignment: 9
+      pivot: {x: 0.51, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceaa0e9adf57fcf44a3b780b8889f340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Buff_13
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 193
+        width: 183
+        height: 182
+      alignment: 9
+      pivot: {x: 0.51, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c137a33a65a1ade45882b0f9e423e90d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Buff_18
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 0
+        width: 183
+        height: 182
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0e37559578c5634598559fe9e9d275b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Buff_15
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 0
+        width: 183
+        height: 182
+      alignment: 9
+      pivot: {x: 0.495, y: 0.405}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d0dc9e521b590747a42731fa444a22f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 7217cf1668b78584e8c65ca834cdbed0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

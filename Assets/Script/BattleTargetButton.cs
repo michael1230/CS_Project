@@ -8,6 +8,7 @@ public class BattleTargetButton : MonoBehaviour
     public string moveName;//the name of the move we want to activate
     public int activeBattlerTarget;//the target we selected 
     public Text targetName;//the name of the target
+   // public Button theButton;
     // Use this for initialization
     void Start ()
     {
