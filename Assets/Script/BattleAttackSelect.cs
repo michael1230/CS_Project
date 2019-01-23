@@ -24,8 +24,7 @@ public class BattleAttackSelect : MonoBehaviour
 
     public void Press()
     {
-        BattleManager.instance.attackMenu.SetActive(false);
-        BattleManager.instance.OpenTargetMenu(theMove);
+        BattleManager.instance.OpenTargetMenu(theMove,4);
         BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentSP -= theMove.moveSpCost;
     }
 }

@@ -18,15 +18,14 @@ public class BattleManager : MonoBehaviour
     public BattleChar[] enemyPrefabs;
 
     public GameObject[] playerInfoHolder;
-    public GameObject battleMenuHolder;
-    public GameObject battleMenuButtonsHolder;
-    
+
+    public menuNavigation BattleMenus;//////////////////////////////////////////////////////////////////////
+
     public TextMeshProUGUI currentPlayerText;
     public TextMeshProUGUI currentMenuText;
 
     public DamageNumber theDamageNumber;
 
-   // public BattleMove[] movesList;
     public GameObject enemyAttackEffect;
 
     public Text[] playerHP;
@@ -36,27 +35,14 @@ public class BattleManager : MonoBehaviour
     public Slider[] mpSlider;
     public Slider[] spSlider;
     public Image[] charImage;
-
-    public GameObject targetMenu;
+    public GameObject battleMenuHolder;
     public BattleTargetButton[] targetButtons;
-
-    public GameObject magicMenu;
     public BattleMagicSelect[] magicButtons;
-
-    public GameObject specialMenu;
     public BattleSpecialSelect[] specialButtons;
-
-    public GameObject itemMenu;
     public BattleItemSelect[] itemButtons;
-
-    public GameObject attackMenu;
     public BattleAttackSelect[] attackButtons;
-
-    public GameObject selfMenu;
     public BattleTargetButton[] selfButtons;
-
     public List<BattleChar> activeBattlers = new List<BattleChar>();
-
     public int currentTurn;
     public bool turnWaiting;
 
@@ -81,8 +67,7 @@ public class BattleManager : MonoBehaviour
                 if (activeBattlers[currentTurn].isPlayer)//if the current Turn is of player
                 {
                     battleMenuHolder.SetActive(true);//show the battle menu
-                    currentPlayerText.text = activeBattlers[currentTurn].charName;//write the name of the current char
-                    //currentMenuText.text = "Main";
+                    currentPlayerText.text = activeBattlers[currentTurn].charName;//write the name of the current char                   
                 }
                 else//if its not the player
                 {
@@ -100,9 +85,16 @@ public class BattleManager : MonoBehaviour
                 activeBattlers[currentTurn].currentMP = activeBattlers[currentTurn].maxMP;
                 activeBattlers[currentTurn].currentSP = activeBattlers[currentTurn].maxSP;
             }
+            if (Input.GetKeyDown(KeyCode.L))///for test!!
+            { 
+                for (int i = 0; i < GameManager.instance.totalItems.Length; i++)
+                {
+                    GameManager.instance.totalItems[i].ItemAmount = 10;
+                }
+            }
+
         }
     }
-
     public void BattleStart(string[] enemiesToSpawn, bool setCannotFlee)//a method for staring the battle(only runs once per battle)
     {
         if (!battleActive)//if the battleActive is false
@@ -285,7 +277,6 @@ public class BattleManager : MonoBehaviour
     {
         float atkPwr = activeBattlers[currentTurn].strength;// + activeBattlers[currentTurn].wpnPower;
         float defPwr = activeBattlers[target].defense;//+ activeBattlers[target].armrPower;
-
         float damageCalc = (atkPwr / defPwr) * movePower * Random.Range(.9f, 1.1f);
         int damageToGive = Mathf.RoundToInt(damageCalc);
        // Debug.Log(activeBattlers[currentTurn].charName + " is dealing " + damageCalc + "(" + damageToGive + ") damage to " + activeBattlers[target].charName);//for test
@@ -293,6 +284,47 @@ public class BattleManager : MonoBehaviour
         Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetDamage(damageToGive);//make the damage appear on screen
         UpdateUIStats();//update the stats
     }
+
+    public void Dealdefense(BattleMove move, BattleItem item, int target,bool moveOrItem)//later to add miss, critical, res , magic? 
+    {
+        if(moveOrItem==true)//move
+        {//need to add status buff over time and all select target
+            if(move.statusBuff== "Hp")
+            {
+                activeBattlers[target].currentHP += move.movePower;
+                if (activeBattlers[target].currentHP > activeBattlers[target].maxHP)
+                    activeBattlers[target].currentHP = activeBattlers[target].maxHP;
+            }
+        }
+        else if(moveOrItem==false)//item is over the limit////////////////////////
+        {
+            if(item.ishpPotion())
+            {
+                activeBattlers[target].currentHP += item.ItemHp;//take hp
+                Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetDamage(item.ItemHp);//make the damage appear on screen
+            }
+            else if (item.ismpPotion())
+            {
+                activeBattlers[target].currentMP += item.ItemMp;//take hp
+                Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetDamage(item.ItemMp);//make the damage appear on screen
+            }
+            else if (item.isspPotion())
+            {
+                activeBattlers[target].currentSP += item.ItemSp;//take hp
+                Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetDamage(item.ItemSp);//make the damage appear on screen
+            }
+            else if (item.isElixir())
+            {
+                activeBattlers[target].currentHP += item.ItemHp;//take hp
+                activeBattlers[target].currentMP += item.ItemMp;//take hp
+                activeBattlers[target].currentSP += item.ItemSp;//take hp
+                //need to do fix this
+                Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetDamage(item.ItemSp);//make the damage appear on screen
+            }
+        }
+        UpdateUIStats();//update the stats
+    }
+
     public void UpdateUIStats()//a method for keeping the info up to date
     {
         for (int i = 0; i < playerInfoHolder.Length; i++)//a loop for the info
@@ -324,21 +356,48 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-    public void PlayerAttack(BattleMove move, int selectedTarget)//a method for player attack//////////////add animation //////////////
+
+    /*public void PlayerAttack(BattleMove move, int selectedTarget)//a method for player attack//////////////add animation //////////////
     {
         int movePower = 0;
         Instantiate(move.theEffect, activeBattlers[selectedTarget].transform.position, activeBattlers[selectedTarget].transform.rotation);
         movePower = move.movePower;
         DealDamage(selectedTarget, movePower);//deal the damage
         battleMenuHolder.SetActive(false);//turn off the menu do prevent the player for pressing the buttons twice
-        targetMenu.SetActive(false);//turn off the target menu
-        battleMenuButtonsHolder.SetActive(true);//turn on the button on the main battle menu
+        BattleMenus.goToMenu(0,0);
+        NextTurn();//next turn
+    }*/
+    public void PlayerAction(BattleMove move, BattleItem item, int selectedTarget,bool offense)//a method for player attack//////////////add animation //////////////
+    {
+        if (offense == true)//no item
+        {
+            int movePower = 0;
+            Instantiate(move.theEffect, activeBattlers[selectedTarget].transform.position, activeBattlers[selectedTarget].transform.rotation);
+            movePower = move.movePower;
+            DealDamage(selectedTarget, movePower);//deal the damage
+
+        }
+        else//maybe item
+        {
+            if (move == null)
+            {
+                Instantiate(item.theEffect, activeBattlers[selectedTarget].transform.position, activeBattlers[selectedTarget].transform.rotation);
+                Dealdefense(null, item, selectedTarget, false);
+            }
+            else if (item == null)
+            {
+                Instantiate(move.theEffect, activeBattlers[selectedTarget].transform.position, activeBattlers[selectedTarget].transform.rotation);
+                Dealdefense(move, null, selectedTarget, true);
+            }
+        }
+        battleMenuHolder.SetActive(false);//turn off the menu do prevent the player for pressing the buttons twice
+        BattleMenus.goToMenu(0, 0);
         NextTurn();//next turn
     }
-    public void OpenTargetMenu(BattleMove attackMove)//a method for opening the target menu
+
+    public void OpenTargetMenu(BattleMove attackMove,int fromMenu)//a method for opening the target menu
     {
-        targetMenu.SetActive(true);//open the target menu
-        battleMenuButtonsHolder.SetActive(false);//turnoff the buttons on the main battle menu because its interrupting the navigation for button
+        BattleMenus.goToMenu(5, fromMenu);//what is previus
         List<int> Enemies = new List<int>();//list of enemies
         for (int i = 0; i < activeBattlers.Count; i++)//for adding the enemies
         {
@@ -370,10 +429,9 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-    public void OpenSelfMenu(BattleMove selfMove, BattleItem selfItem)//a method for opening the self target menu
+    public void OpenSelfMenu(BattleMove selfMove, BattleItem selfItem, int fromMenu)//a method for opening the self target menu
     {
-        selfMenu.SetActive(true);//open the target menu
-        battleMenuButtonsHolder.SetActive(false);//turnoff the buttons on the main battle menu because its interrupting the navigation for button
+        BattleMenus.goToMenu(6, fromMenu);//
         List<int> players = new List<int>();//list of enemies
         for (int i = 0; i < activeBattlers.Count; i++)//for adding the enemies
         {
@@ -395,10 +453,14 @@ public class BattleManager : MonoBehaviour
                     firstButton.Select();//select it
                     alreadySelected = true;//rise the flag
                 }
+                /*
                 if(selfItem == null)
                     selfButtons[i].theMove = selfMove;//save the move name
                 else if(selfMove == null)
                     selfButtons[i].theItem = selfItem;//save the move name
+                    */
+                selfButtons[i].theMove = selfMove;//save the move name
+                selfButtons[i].theItem = selfItem;//save the move name
                 selfButtons[i].activeBattlerTarget = players[i];//save the players target
                 selfButtons[i].targetName.text = activeBattlers[players[i]].charName;//show its name
             }
@@ -410,8 +472,7 @@ public class BattleManager : MonoBehaviour
     }
     public void OpenMagicMenu()//a method for opening the magic menu
     {
-        magicMenu.SetActive(true);//open the magic menu
-        battleMenuButtonsHolder.SetActive(false);//turnoff the buttons on the main battle menu because its interrupting the navigation for button
+        BattleMenus.goToMenu(1, 0);//what is previus
         currentMenuText.text = "Magic";//show which menu we are at
         List<Button> activeMagicButon = new List<Button>();//a list for all the buttons in this menu
         bool alreadySelected = false;//a flag for knowing if we have already selected the button
@@ -460,8 +521,8 @@ public class BattleManager : MonoBehaviour
     }
     public void OpenAttackMenu()//a method for opening the magic menu
     {
-        attackMenu.SetActive(true);//open the attack menu
-        battleMenuButtonsHolder.SetActive(false);//turnoff the buttons on the main battle menu because its interrupting the navigation for button
+        BattleMenus.goToMenu(4, 0);//what is previus
+
         currentMenuText.text = "Attack";//show which menu we are at
         List<Button> activeAttackButon = new List<Button>();//a list for all the buttons in this menu
         bool alreadySelected = false;//a flag for knowing if we have already selected the button
@@ -510,8 +571,7 @@ public class BattleManager : MonoBehaviour
     }   
     public void OpenSpecialMenu()//a method for opening the magic menu
     {
-        specialMenu.SetActive(true);//open the magic menu
-        battleMenuButtonsHolder.SetActive(false);//turnoff the buttons on the main battle menu because its interrupting the navigation for button
+        BattleMenus.goToMenu(2, 0);//what is previus
         currentMenuText.text = "Special";//show which menu we are at
         List<Button> activeSpecialButon = new List<Button>();//a list for all the buttons in this menu
         bool alreadySelected = false;//a flag for knowing if we have already selected the button
@@ -548,7 +608,6 @@ public class BattleManager : MonoBehaviour
         }
         for (int i = 0; i < activeSpecialButon.Count; i++)//going on all the active buttons
         {
-            //Debug.Log(activeMagicButon[i].GetComponent<BattleMagicSelect>().spellName);
             if ((activeBattlers[currentTurn].currentMP < activeSpecialButon[i].GetComponent<BattleSpecialSelect>().theMove.moveMpCost)&& (activeBattlers[currentTurn].currentSP > specialButtons[i].theMove.moveSpCost))//check if the currnet player can use the move i
             {
                 activeSpecialButon[i].interactable = false; //if not then disable the button
@@ -561,8 +620,7 @@ public class BattleManager : MonoBehaviour
     }
     public void OpenItemMenu()//a method for opening the magic menu
     {
-        itemMenu.SetActive(true);//open the magic menu
-        battleMenuButtonsHolder.SetActive(false);//turnoff the buttons on the main battle menu because its interrupting the navigation for button
+        BattleMenus.goToMenu(3, 0);//what is previus
         currentMenuText.text = "Item";//show which menu we are at
         List<Button> activeItemButon = new List<Button>();//a list for all the buttons in this menu
         bool alreadySelected = false;//a flag for knowing if we have already selected the button
@@ -600,6 +658,5 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-
 }
 

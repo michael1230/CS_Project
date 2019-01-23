@@ -24,16 +24,17 @@ public class BattleSpecialSelect : MonoBehaviour {
 
     public void Press()
     {
-        BattleManager.instance.specialMenu.SetActive(false);
+        //BattleManager.instance.specialMenu.SetActive(false);
+
         if (theMove.isAttackSpecial())
         {
-            BattleManager.instance.OpenTargetMenu(theMove);
+            BattleManager.instance.OpenTargetMenu(theMove,2);
             BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= theMove.moveMpCost;
             BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentSP -= theMove.moveSpCost;
         }
         else if(theMove.isSelfSpecial())
         {
-            BattleManager.instance.OpenSelfMenu(theMove,null);
+            BattleManager.instance.OpenSelfMenu(theMove,null,2);
             BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= theMove.moveMpCost;
             BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentSP -= theMove.moveSpCost;
         }

@@ -22,17 +22,16 @@ public class BattleMagicSelect : MonoBehaviour {
     }
     public void Press()
     {
-            BattleManager.instance.magicMenu.SetActive(false);
-            if (theMove.isAttackMagic())
-            {
-                BattleManager.instance.OpenTargetMenu(theMove);
-                BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= theMove.moveMpCost;
-            }
-            else if(theMove.isSelfMagic())
-            {
-                BattleManager.instance.OpenSelfMenu(theMove,null);
-                BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= theMove.moveMpCost;
-            }
+        if (theMove.isAttackMagic())
+        {
+            BattleManager.instance.OpenTargetMenu(theMove,1);
+            BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= theMove.moveMpCost;
+        }
+        else if (theMove.isSelfMagic())
+        {
+            BattleManager.instance.OpenSelfMenu(theMove, null,1);
+            BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= theMove.moveMpCost;
+        }
 
     }
 }

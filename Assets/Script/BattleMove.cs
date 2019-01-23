@@ -8,9 +8,11 @@ public class BattleMove : MonoBehaviour
     public enum moveType { Attack, AttackSpecial, SelfSpecial, SelfMagic, AttackMagic };
     public moveType theType;
     public string moveName;//the name of the move
+    public string statusBuff;//the name of the move
     public int movePower;// the power(for damage) 
     public int moveMpCost;//how much it cost
     public int moveSpCost;//how much it cost
+    public bool moveTargetAll;//how much it cost
     public AttackEffect theEffect;//the effect itself
 
     public void copy(BattleMove other)

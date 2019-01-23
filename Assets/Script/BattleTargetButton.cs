@@ -22,10 +22,16 @@ public class BattleTargetButton : MonoBehaviour
 
     }
 
-    public void Press()
+    public void Press()// true no item 
     {
-        if(theItem==null)
-            BattleManager.instance.PlayerAttack(theMove, activeBattlerTarget);
-//else
+
+        if ((theMove.isAttackMagic())|| (theMove.isAttackSpecial())|| (theMove.isAttck()))
+        {
+            BattleManager.instance.PlayerAction(theMove, theItem, activeBattlerTarget,true);
+        }
+        else if ((theMove == null) || (theMove.isSelfMagic()) || (theMove.isSelfSpecial()))
+        {
+            BattleManager.instance.PlayerAction(theMove, theItem, activeBattlerTarget, false);
+        }
     }
 }
