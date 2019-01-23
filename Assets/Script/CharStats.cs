@@ -6,7 +6,7 @@ public class CharStats : MonoBehaviour
 {
 
     public string charName;
-    public int playerLevel ;
+    public int playerLevel;
 
     public int currentHP;
     public int maxHP;
@@ -17,7 +17,8 @@ public class CharStats : MonoBehaviour
     public int strength;
     public int defense;
     public int dexterity;
-
+    public List<BattleMove> movesAvailable = new List<BattleMove>();
+    public List<BattleMove> movesToAdd = new List<BattleMove>();//later
     public bool[] hasElement;
     public int[][] bonusElement;
     public Sprite charIamge;
@@ -37,7 +38,7 @@ public class CharStats : MonoBehaviour
                 bonusElement[i][j] = 25;
             }
         }
-        
+
     }
 
     // Update is called once per frame
@@ -47,20 +48,22 @@ public class CharStats : MonoBehaviour
 
     }
 
-    public void AddBonusElement(int whichElement)
+    public void AddBonusElementStats(int whichElement)
     {
-        playerLevel +=  bonusElement[whichElement][0];
-        maxHP +=        bonusElement[whichElement][1];
-        maxMP +=        bonusElement[whichElement][2];
-        maxSP +=        bonusElement[whichElement][3];
-        strength +=     bonusElement[whichElement][4];
-        defense +=      bonusElement[whichElement][5];
-        dexterity +=    bonusElement[whichElement][6];
+        playerLevel += bonusElement[whichElement][0];
+        maxHP += bonusElement[whichElement][1];
+        maxMP += bonusElement[whichElement][2];
+        maxSP += bonusElement[whichElement][3];
+        strength += bonusElement[whichElement][4];
+        defense += bonusElement[whichElement][5];
+        dexterity += bonusElement[whichElement][6];
         hasElement[whichElement] = true;
         currentHP = maxHP;
         currentMP = maxMP;
         currentSP = maxSP;
     }
+    public void AddBonusElementMoves(int whichElement)//later
+    {
 
-       
+    }
 }

@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class BattleAttackSelect : MonoBehaviour
 {
 
-    public string attackName;
-    public int attackCost;
+    public BattleMove theMove;
     public Text nameText;
     public Text costText;
 
@@ -25,8 +24,8 @@ public class BattleAttackSelect : MonoBehaviour
 
     public void Press()
     {
-        //BattleManager.instance.magicMenu.SetActive(false);
-        //BattleManager.instance.OpenTargetMenu(spellName);
-        //BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= spellCost;
+        BattleManager.instance.attackMenu.SetActive(false);
+        BattleManager.instance.OpenTargetMenu(theMove);
+        BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentSP -= theMove.moveSpCost;
     }
 }

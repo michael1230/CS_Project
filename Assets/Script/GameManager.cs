@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     public CharStats[] playerStats;
 
+    public BattleItem[] totalItems;
+
     public int numberOfElement = 0;
 
     public bool gameMenuOpen, dialogActive, fadingBetweenAreas, battleActive;
@@ -38,7 +40,7 @@ public class GameManager : MonoBehaviour
                 
                 for (int i = 0; i < playerStats.Length; i++)
                 {
-                    playerStats[i].AddBonusElement(numberOfElement);
+                    playerStats[i].AddBonusElementStats(numberOfElement);
                     playerStats[i].hasElement[numberOfElement] = true;
                 }
                 numberOfElement++;

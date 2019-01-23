@@ -74,14 +74,14 @@ MonoBehaviour:
   isPlayer: 1
   isMapBoss: 0
   isGameBoss: 0
-  movesAvailable:
-  - Fire1
-  - Wind1
+  movesAvailable: []
   charName: Aiden
   currentHP: 0
   maxHP: 0
   currentMP: 0
   maxMP: 0
+  currentSP: 0
+  maxSP: 0
   strength: 0
   defense: 0
   dexterity: 0

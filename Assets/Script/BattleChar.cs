@@ -8,7 +8,7 @@ public class BattleChar : MonoBehaviour
     public bool isPlayer;
     public bool isMapBoss;
     public bool isGameBoss;
-    public string[] movesAvailable;
+    public List<BattleMove> movesAvailable;
 
     public string charName;
     public int currentHP;

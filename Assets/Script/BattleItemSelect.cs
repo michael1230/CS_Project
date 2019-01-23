@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class BattleItemSelect : MonoBehaviour
 {
-    public string itemName;
-    public int itemCost;
+    public BattleItem theItem;
+    public int itemIndex;
     public Text nameText;
     public Text amountText;
 
@@ -24,8 +24,8 @@ public class BattleItemSelect : MonoBehaviour
 
     public void Press()
     {
-       // BattleManager.instance.magicMenu.SetActive(false);////////////////////
-        //BattleManager.instance.OpenTargetMenu(artName);
-        //BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= artCost;
+        BattleManager.instance.itemMenu.SetActive(false);
+        BattleManager.instance.OpenSelfMenu(null,theItem);
+        GameManager.instance.totalItems[itemIndex].ItemAmount--;
     }
 }

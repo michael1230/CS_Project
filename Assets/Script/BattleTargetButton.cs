@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class BattleTargetButton : MonoBehaviour
 {
-    public string moveName;//the name of the move we want to activate
+    public BattleMove theMove;
+    public BattleItem theItem;
     public int activeBattlerTarget;//the target we selected 
     public Text targetName;//the name of the target
    // public Button theButton;
@@ -23,6 +24,8 @@ public class BattleTargetButton : MonoBehaviour
 
     public void Press()
     {
-        BattleManager.instance.PlayerAttack(moveName, activeBattlerTarget);
+        if(theItem==null)
+            BattleManager.instance.PlayerAttack(theMove, activeBattlerTarget);
+//else
     }
 }

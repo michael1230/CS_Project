@@ -56,13 +56,15 @@ MonoBehaviour:
   isMapBoss: 0
   isGameBoss: 0
   movesAvailable:
-  - Ice1
-  - Fire1
+  - {fileID: 114102729691059236, guid: e62c43880c26a094e9f5c236a2041d1b, type: 2}
+  - {fileID: 114806301489941652, guid: 65ad07a7e08a17d4dbba6a36f54ec66a, type: 2}
   charName: Snake
   currentHP: 200
   maxHP: 200
   currentMP: 0
   maxMP: 0
+  currentSP: 0
+  maxSP: 0
   strength: 15
   defense: 15
   dexterity: 0

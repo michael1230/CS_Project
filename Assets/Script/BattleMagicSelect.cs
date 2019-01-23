@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class BattleMagicSelect : MonoBehaviour {
 
-    public string spellName;
-    public int spellCost;
+    public BattleMove theMove;
     public Text nameText;
     public Text costText;
 
@@ -21,11 +20,19 @@ public class BattleMagicSelect : MonoBehaviour {
     {
 
     }
-
     public void Press()
     {
             BattleManager.instance.magicMenu.SetActive(false);
-            BattleManager.instance.OpenTargetMenu(spellName);
-            BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= spellCost;
+            if (theMove.isAttackMagic())
+            {
+                BattleManager.instance.OpenTargetMenu(theMove);
+                BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= theMove.moveMpCost;
+            }
+            else if(theMove.isSelfMagic())
+            {
+                BattleManager.instance.OpenSelfMenu(theMove,null);
+                BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= theMove.moveMpCost;
+            }
+
     }
 }

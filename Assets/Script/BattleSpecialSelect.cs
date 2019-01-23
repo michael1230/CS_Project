@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class BattleSpecialSelect : MonoBehaviour {
 
-    public string   artName;
-    public int      artCost;
+    public BattleMove theMove;
     public Text     nameText;
-    public Text     costText;
+    public Text     mpCostText;
+    public Text     spCostText;
 
     // Use this for initialization
     void Start()
@@ -24,8 +24,20 @@ public class BattleSpecialSelect : MonoBehaviour {
 
     public void Press()
     {
-       // BattleManager.instance.magicMenu.SetActive(false);/////////////////
-        //BattleManager.instance.OpenTargetMenu(artName);
-        //BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= artCost;
+        BattleManager.instance.specialMenu.SetActive(false);
+        if (theMove.isAttackSpecial())
+        {
+            BattleManager.instance.OpenTargetMenu(theMove);
+            BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= theMove.moveMpCost;
+            BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentSP -= theMove.moveSpCost;
+        }
+        else if(theMove.isSelfSpecial())
+        {
+            BattleManager.instance.OpenSelfMenu(theMove,null);
+            BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= theMove.moveMpCost;
+            BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentSP -= theMove.moveSpCost;
+        }
+        
+        
     }
 }

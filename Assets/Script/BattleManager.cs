@@ -26,7 +26,7 @@ public class BattleManager : MonoBehaviour
 
     public DamageNumber theDamageNumber;
 
-    public BattleMove[] movesList;
+   // public BattleMove[] movesList;
     public GameObject enemyAttackEffect;
 
     public Text[] playerHP;
@@ -98,6 +98,7 @@ public class BattleManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.K))///for test!!
             {
                 activeBattlers[currentTurn].currentMP = activeBattlers[currentTurn].maxMP;
+                activeBattlers[currentTurn].currentSP = activeBattlers[currentTurn].maxSP;
             }
         }
     }
@@ -132,6 +133,7 @@ public class BattleManager : MonoBehaviour
                             activeBattlers[i].strength = thePlayer.strength;
                             activeBattlers[i].defense = thePlayer.defense;
                             activeBattlers[i].dexterity = thePlayer.dexterity;
+                            activeBattlers[i].movesAvailable = thePlayer.movesAvailable;
 
                         }
                     }
@@ -258,7 +260,7 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         NextTurn();
     }
-    public void EnemyAttack()// a method for enemy attack//// later for boss/////////////
+    public void EnemyAttack()// a method for enemy attack//// later for boss/////////////sp add////////////////////
     {
         List<int> players = new List<int>();//the list for all players
         for (int i = 0; i < activeBattlers.Count; i++)//add only alive players
@@ -269,15 +271,12 @@ public class BattleManager : MonoBehaviour
             }
         }
         int selectedTarget = players[Random.Range(0, players.Count)];//random select targets from the list
-        int selectAttack = Random.Range(0, activeBattlers[currentTurn].movesAvailable.Length);//random select an attack of the enemy
+        int selectAttack = Random.Range(0, activeBattlers[currentTurn].movesAvailable.Count);//random select an attack of the enemy
         int movePower = 0;
-        for (int i = 0; i < movesList.Length; i++)
+        for (int i = 0; i < activeBattlers[currentTurn].movesAvailable.Count; i++)
         {
-            if (movesList[i].moveName == activeBattlers[currentTurn].movesAvailable[selectAttack])//if the enemy has the attack we selected
-            {
-                Instantiate(movesList[i].theEffect, activeBattlers[selectedTarget].transform.position, activeBattlers[selectedTarget].transform.rotation);//make the effect appear on the target
-                movePower = movesList[i].movePower;//save the move power
-            }
+            Instantiate(activeBattlers[currentTurn].movesAvailable[selectAttack].theEffect, activeBattlers[selectedTarget].transform.position, activeBattlers[selectedTarget].transform.rotation);//make the effect appear on the target
+            movePower = activeBattlers[currentTurn].movesAvailable[selectAttack].movePower;//save the move power
         }
         Instantiate(enemyAttackEffect, activeBattlers[currentTurn].transform.position, activeBattlers[currentTurn].transform.rotation);//white circle on the attacking enemy to know which one is attacking
         DealDamage(selectedTarget, movePower);//deal the damage
@@ -325,24 +324,18 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-    public void PlayerAttack(string moveName, int selectedTarget)//a method for player attack//////////////add animation //////////////
+    public void PlayerAttack(BattleMove move, int selectedTarget)//a method for player attack//////////////add animation //////////////
     {
         int movePower = 0;
-        for (int i = 0; i < movesList.Length; i++)
-        {
-            if (movesList[i].moveName == moveName)
-            {
-                Instantiate(movesList[i].theEffect, activeBattlers[selectedTarget].transform.position, activeBattlers[selectedTarget].transform.rotation);
-                movePower = movesList[i].movePower;
-            }
-        }
+        Instantiate(move.theEffect, activeBattlers[selectedTarget].transform.position, activeBattlers[selectedTarget].transform.rotation);
+        movePower = move.movePower;
         DealDamage(selectedTarget, movePower);//deal the damage
         battleMenuHolder.SetActive(false);//turn off the menu do prevent the player for pressing the buttons twice
         targetMenu.SetActive(false);//turn off the target menu
         battleMenuButtonsHolder.SetActive(true);//turn on the button on the main battle menu
         NextTurn();//next turn
     }
-    public void OpenTargetMenu(string moveName)//a method for opening the target menu
+    public void OpenTargetMenu(BattleMove attackMove)//a method for opening the target menu
     {
         targetMenu.SetActive(true);//open the target menu
         battleMenuButtonsHolder.SetActive(false);//turnoff the buttons on the main battle menu because its interrupting the navigation for button
@@ -358,7 +351,7 @@ public class BattleManager : MonoBehaviour
         for (int i = 0; i < targetButtons.Length; i++)//how many target buttons there are
         {
             Button firstButton;//the first button to select
-            if (Enemies.Count > i && activeBattlers[Enemies[i]].currentHP > 0)//if the Enemies.Countis bigger then i(for no error in activeBattlers[Enemies[i]]) and the enemy hp is above 0(alive)
+            if (Enemies.Count > i && activeBattlers[Enemies[i]].currentHP > 0)//if the Enemies.Count is bigger then i(for no error in activeBattlers[Enemies[i]]) and the enemy hp is above 0(alive)
             {
                 targetButtons[i].gameObject.SetActive(true);//turn on the button
                 if (activeBattlers[Enemies[i]].currentHP > 0 && alreadySelected == false)//go in on the first enemy alive on the list and if we have yet to select the button 
@@ -367,7 +360,7 @@ public class BattleManager : MonoBehaviour
                     firstButton.Select();//select it
                     alreadySelected = true;//rise the flag
                 }
-                targetButtons[i].moveName = moveName;//save the move name
+                targetButtons[i].theMove = attackMove;//save the move name
                 targetButtons[i].activeBattlerTarget = Enemies[i];//save the enemy target
                 targetButtons[i].targetName.text = activeBattlers[Enemies[i]].charName;//show its name
             }
@@ -377,38 +370,41 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-    public void OpenSelfMenu(string moveName)//a method for opening the target menu
+    public void OpenSelfMenu(BattleMove selfMove, BattleItem selfItem)//a method for opening the self target menu
     {
         selfMenu.SetActive(true);//open the target menu
         battleMenuButtonsHolder.SetActive(false);//turnoff the buttons on the main battle menu because its interrupting the navigation for button
-        List<int> Enemies = new List<int>();//list of enemies
+        List<int> players = new List<int>();//list of enemies
         for (int i = 0; i < activeBattlers.Count; i++)//for adding the enemies
         {
-            if (!activeBattlers[i].isPlayer)
+            if (activeBattlers[i].isPlayer && activeBattlers[i].currentHP > 0)
             {
-                Enemies.Add(i);
+                players.Add(i);
             }
         }
         bool alreadySelected = false;//a flag for knowing if we have already selected the button
-        for (int i = 0; i < targetButtons.Length; i++)//how many target buttons there are
+        for (int i = 0; i < selfButtons.Length; i++)//how many self buttons there are
         {
             Button firstButton;//the first button to select
-            if (Enemies.Count > i && activeBattlers[Enemies[i]].currentHP > 0)//if the Enemies.Countis bigger then i(for no error in activeBattlers[Enemies[i]]) and the enemy hp is above 0(alive)
+            if (players.Count > i && activeBattlers[players[i]].currentHP > 0)//if the players.Count is bigger then i(for no error in activeBattlers[players[i]]) and the players hp is above 0(alive)
             {
-                targetButtons[i].gameObject.SetActive(true);//turn on the button
-                if (activeBattlers[Enemies[i]].currentHP > 0 && alreadySelected == false)//go in on the first enemy alive on the list and if we have yet to select the button 
+                selfButtons[i].gameObject.SetActive(true);//turn on the button
+                if (activeBattlers[players[i]].currentHP > 0 && alreadySelected == false)//go in on the first enemy alive on the list and if we have yet to select the button 
                 {
-                    firstButton = targetButtons[i].gameObject.GetComponent<Button>();//get the button
+                    firstButton = selfButtons[i].gameObject.GetComponent<Button>();//get the button
                     firstButton.Select();//select it
                     alreadySelected = true;//rise the flag
                 }
-                targetButtons[i].moveName = moveName;//save the move name
-                targetButtons[i].activeBattlerTarget = Enemies[i];//save the enemy target
-                targetButtons[i].targetName.text = activeBattlers[Enemies[i]].charName;//show its name
+                if(selfItem == null)
+                    selfButtons[i].theMove = selfMove;//save the move name
+                else if(selfMove == null)
+                    selfButtons[i].theItem = selfItem;//save the move name
+                selfButtons[i].activeBattlerTarget = players[i];//save the players target
+                selfButtons[i].targetName.text = activeBattlers[players[i]].charName;//show its name
             }
             else//if the enemy is dead 
             {
-                targetButtons[i].gameObject.SetActive(false);//turnoff the target
+                selfButtons[i].gameObject.SetActive(false);//turnoff the target
             }
         }
     }
@@ -419,41 +415,40 @@ public class BattleManager : MonoBehaviour
         currentMenuText.text = "Magic";//show which menu we are at
         List<Button> activeMagicButon = new List<Button>();//a list for all the buttons in this menu
         bool alreadySelected = false;//a flag for knowing if we have already selected the button
-        for (int i = 0; i < magicButtons.Length; i++)
+        for (int i = 0,j = 0; i < magicButtons.Length;)
         {
-            if (activeBattlers[currentTurn].movesAvailable.Length > i)//go in if we still have moves to map
+            if (activeBattlers[currentTurn].movesAvailable.Count > j)//go in if we still have moves to map
             {
-                magicButtons[i].gameObject.SetActive(true);//turn on the button
-                activeMagicButon.Add(magicButtons[i].gameObject.GetComponent<Button>());//add the button
-               /* if (i==0)
+                if (activeBattlers[currentTurn].movesAvailable[j].isAttackMagic() || activeBattlers[currentTurn].movesAvailable[j].isSelfMagic())//if the move is magic then
                 {
-                    activeMagicButon[0].Select();
-                } */             
-                magicButtons[i].spellName = activeBattlers[currentTurn].movesAvailable[i];//save the spell name
-                magicButtons[i].nameText.text = magicButtons[i].spellName;//show the spell name 
-                for (int j = 0; j < movesList.Length; j++)
-                {
-                    if (movesList[j].moveName == magicButtons[i].spellName)//choose the right spell according to the name
+                    magicButtons[i].gameObject.SetActive(true);//turn on the button
+                    activeMagicButon.Add(magicButtons[i].gameObject.GetComponent<Button>());//add the button           
+                    magicButtons[i].theMove = activeBattlers[currentTurn].movesAvailable[j];//add the move
+                    magicButtons[i].nameText.text = magicButtons[i].theMove.moveName;//show the move name 
+                    magicButtons[i].costText.text = magicButtons[i].theMove.moveMpCost.ToString();//show the move mp cost 
+                    if (alreadySelected == false && (activeBattlers[currentTurn].currentMP > magicButtons[i].theMove.moveMpCost))//go in on the first spell that the player can use on the list and if we have yet to select the button 
                     {
-                        magicButtons[i].spellCost = movesList[j].moveCost;//save the spell cost
-                        magicButtons[i].costText.text = magicButtons[i].spellCost.ToString();//show the spell cost 
+                        magicButtons[i].gameObject.GetComponent<Button>().Select();
+                        alreadySelected = true;
                     }
+                    i++;//next button
+                    j++;//next move
                 }
-                if(alreadySelected==false &&(activeBattlers[currentTurn].currentMP> magicButtons[i].spellCost))//go in on the first spell that the player can use on the list and if we have yet to select the button 
+                else//if the move is not magic
                 {
-                    magicButtons[i].gameObject.GetComponent<Button>().Select();
-                    alreadySelected = true;
+                    j++;//next move
                 }
             }
             else//if we are out of moves
             {               
                 magicButtons[i].gameObject.SetActive(false);//turnoff the button
+                i++;//next button
             }
         }
         for (int i = 0; i < activeMagicButon.Count; i++)//going on all the active buttons
         {
             //Debug.Log(activeMagicButon[i].GetComponent<BattleMagicSelect>().spellName);
-            if(activeBattlers[currentTurn].currentMP<activeMagicButon[i].GetComponent<BattleMagicSelect>().spellCost)//check if the currnet player can use the move i
+            if(activeBattlers[currentTurn].currentMP<activeMagicButon[i].GetComponent<BattleMagicSelect>().theMove.moveMpCost)//check if the currnet player can use the move i
             {
                 activeMagicButon[i].interactable = false; //if not then disable the button
             }
@@ -463,9 +458,6 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-
-
-/*
     public void OpenAttackMenu()//a method for opening the magic menu
     {
         attackMenu.SetActive(true);//open the attack menu
@@ -473,37 +465,40 @@ public class BattleManager : MonoBehaviour
         currentMenuText.text = "Attack";//show which menu we are at
         List<Button> activeAttackButon = new List<Button>();//a list for all the buttons in this menu
         bool alreadySelected = false;//a flag for knowing if we have already selected the button
-        for (int i = 0; i < attackButtons.Length; i++)
+        for (int i = 0, j = 0; i < attackButtons.Length;)
         {
-            if (activeBattlers[currentTurn].movesAvailable.Length > i)//go in if we still have moves to map
+            if (activeBattlers[currentTurn].movesAvailable.Count > j)//go in if we still have moves to map
             {
-                attackButtons[i].gameObject.SetActive(true);//turn on the button
-                activeAttackButon.Add(attackButtons[i].gameObject.GetComponent<Button>());//add the button
-                attackButtons[i].spellName = activeBattlers[currentTurn].movesAvailable[i];//save the spell name
-                attackButtons[i].nameText.text = attackButtons[i].spellName;//show the spell name 
-                for (int j = 0; j < movesList.Length; j++)
+                if (activeBattlers[currentTurn].movesAvailable[j].isAttck())
                 {
-                    if (movesList[j].moveName == attackButtons[i].spellName)//choose the right spell according to the name
+                    attackButtons[i].gameObject.SetActive(true);//turn on the button
+                    activeAttackButon.Add(attackButtons[i].gameObject.GetComponent<Button>());//add the button
+                    attackButtons[i].theMove = activeBattlers[currentTurn].movesAvailable[j];//add the move
+                    attackButtons[i].nameText.text = attackButtons[i].theMove.moveName;//show the move name 
+                    attackButtons[i].costText.text = attackButtons[i].theMove.moveSpCost.ToString();//show the move cost 
+                    if (alreadySelected == false && (activeBattlers[currentTurn].currentMP > attackButtons[i].theMove.moveSpCost))//go in on the first spell that the player can use on the list and if we have yet to select the button 
                     {
-                        attackButtons[i].spellCost = movesList[j].moveCost;//save the spell cost
-                        attackButtons[i].costText.text = attackButtons[i].spellCost.ToString();//show the spell cost 
+                        attackButtons[i].gameObject.GetComponent<Button>().Select();
+                        alreadySelected = true;
                     }
+                    i++;//next button
+                    j++;//next move
                 }
-                if (alreadySelected == false && (activeBattlers[currentTurn].currentMP > attackButtons[i].spellCost))//go in on the first spell that the player can use on the list and if we have yet to select the button 
+                else//if the move is not magic
                 {
-                    attackButtons[i].gameObject.GetComponent<Button>().Select();
-                    alreadySelected = true;
+                    j++;//next move
                 }
             }
             else//if we are out of moves
             {
                 attackButtons[i].gameObject.SetActive(false);//turnoff the button
+                i++;//next button
             }
         }
         for (int i = 0; i < activeAttackButon.Count; i++)//going on all the active buttons
         {
             //Debug.Log(activeMagicButon[i].GetComponent<BattleMagicSelect>().spellName);
-            if (activeBattlers[currentTurn].currentMP < activeAttackButon[i].GetComponent<BattleMagicSelect>().spellCost)//check if the currnet player can use the move i
+            if (activeBattlers[currentTurn].currentMP < activeAttackButon[i].GetComponent<BattleAttackSelect>().theMove.moveSpCost)//check if the currnet player can use the move i
             {
                 activeAttackButon[i].interactable = false; //if not then disable the button
             }
@@ -512,111 +507,99 @@ public class BattleManager : MonoBehaviour
                 activeAttackButon[i].interactable = true; //if not then disable the button
             }
         }
-    }
-    */
+    }   
     public void OpenSpecialMenu()//a method for opening the magic menu
     {
-        magicMenu.SetActive(true);//open the magic menu
+        specialMenu.SetActive(true);//open the magic menu
         battleMenuButtonsHolder.SetActive(false);//turnoff the buttons on the main battle menu because its interrupting the navigation for button
-        currentMenuText.text = "Magic";//show which menu we are at
-        List<Button> activeMagicButon = new List<Button>();//a list for all the buttons in this menu
+        currentMenuText.text = "Special";//show which menu we are at
+        List<Button> activeSpecialButon = new List<Button>();//a list for all the buttons in this menu
         bool alreadySelected = false;//a flag for knowing if we have already selected the button
-        for (int i = 0; i < magicButtons.Length; i++)
+        for (int i = 0, j = 0; i < specialButtons.Length;)
         {
-            if (activeBattlers[currentTurn].movesAvailable.Length > i)//go in if we still have moves to map
+            if (activeBattlers[currentTurn].movesAvailable.Count > j)//go in if we still have moves to map
             {
-                magicButtons[i].gameObject.SetActive(true);//turn on the button
-                activeMagicButon.Add(magicButtons[i].gameObject.GetComponent<Button>());//add the button
-                                                                                        /* if (i==0)
-                                                                                         {
-                                                                                             activeMagicButon[0].Select();
-                                                                                         } */
-                magicButtons[i].spellName = activeBattlers[currentTurn].movesAvailable[i];//save the spell name
-                magicButtons[i].nameText.text = magicButtons[i].spellName;//show the spell name 
-                for (int j = 0; j < movesList.Length; j++)
+                if (activeBattlers[currentTurn].movesAvailable[j].isSelfSpecial() || activeBattlers[currentTurn].movesAvailable[j].isAttackSpecial())
                 {
-                    if (movesList[j].moveName == magicButtons[i].spellName)//choose the right spell according to the name
+                    specialButtons[i].gameObject.SetActive(true);//turn on the button
+                    activeSpecialButon.Add(specialButtons[i].gameObject.GetComponent<Button>());//add the button
+                    specialButtons[i].theMove = activeBattlers[currentTurn].movesAvailable[j];//add the move
+                    specialButtons[i].nameText.text = specialButtons[i].theMove.moveName;//show the move name 
+                    specialButtons[i].mpCostText.text = specialButtons[i].theMove.moveMpCost.ToString();//show the move mp cost 
+                    specialButtons[i].spCostText.text = specialButtons[i].theMove.moveSpCost.ToString();//show the move sp cost 
+                    if (alreadySelected == false && (activeBattlers[currentTurn].currentMP > specialButtons[i].theMove.moveMpCost) && (activeBattlers[currentTurn].currentSP > specialButtons[i].theMove.moveSpCost))//go in on the first spell that the player can use on the list and if we have yet to select the button 
                     {
-                        magicButtons[i].spellCost = movesList[j].moveCost;//save the spell cost
-                        magicButtons[i].costText.text = magicButtons[i].spellCost.ToString();//show the spell cost 
+                        specialButtons[i].gameObject.GetComponent<Button>().Select();
+                        alreadySelected = true;
                     }
+                    i++;//next button
+                    j++;//next move
                 }
-                if (alreadySelected == false && (activeBattlers[currentTurn].currentMP > magicButtons[i].spellCost))//go in on the first spell that the player can use on the list and if we have yet to select the button 
+                else//if the move is not magic
                 {
-                    magicButtons[i].gameObject.GetComponent<Button>().Select();
-                    alreadySelected = true;
+                    j++;//next move
                 }
-            }
+            }            
             else//if we are out of moves
             {
-                magicButtons[i].gameObject.SetActive(false);//turnoff the button
-            }
+                specialButtons[i].gameObject.SetActive(false);//turnoff the button
+                i++;//next button
         }
-        for (int i = 0; i < activeMagicButon.Count; i++)//going on all the active buttons
+        }
+        for (int i = 0; i < activeSpecialButon.Count; i++)//going on all the active buttons
         {
             //Debug.Log(activeMagicButon[i].GetComponent<BattleMagicSelect>().spellName);
-            if (activeBattlers[currentTurn].currentMP < activeMagicButon[i].GetComponent<BattleMagicSelect>().spellCost)//check if the currnet player can use the move i
+            if ((activeBattlers[currentTurn].currentMP < activeSpecialButon[i].GetComponent<BattleSpecialSelect>().theMove.moveMpCost)&& (activeBattlers[currentTurn].currentSP > specialButtons[i].theMove.moveSpCost))//check if the currnet player can use the move i
             {
-                activeMagicButon[i].interactable = false; //if not then disable the button
+                activeSpecialButon[i].interactable = false; //if not then disable the button
             }
             else
             {
-                activeMagicButon[i].interactable = true; //if not then disable the button
+                activeSpecialButon[i].interactable = true; //if not then disable the button
             }
         }
     }
     public void OpenItemMenu()//a method for opening the magic menu
     {
-        magicMenu.SetActive(true);//open the magic menu
+        itemMenu.SetActive(true);//open the magic menu
         battleMenuButtonsHolder.SetActive(false);//turnoff the buttons on the main battle menu because its interrupting the navigation for button
-        currentMenuText.text = "Magic";//show which menu we are at
-        List<Button> activeMagicButon = new List<Button>();//a list for all the buttons in this menu
+        currentMenuText.text = "Item";//show which menu we are at
+        List<Button> activeItemButon = new List<Button>();//a list for all the buttons in this menu
         bool alreadySelected = false;//a flag for knowing if we have already selected the button
-        for (int i = 0; i < magicButtons.Length; i++)
+        for (int i = 0;i < itemButtons.Length; i++)
         {
-            if (activeBattlers[currentTurn].movesAvailable.Length > i)//go in if we still have moves to map
+            if (GameManager.instance.totalItems.Length > i)//go in if we still have moves to map
             {
-                magicButtons[i].gameObject.SetActive(true);//turn on the button
-                activeMagicButon.Add(magicButtons[i].gameObject.GetComponent<Button>());//add the button
-                                                                                        /* if (i==0)
-                                                                                         {
-                                                                                             activeMagicButon[0].Select();
-                                                                                         } */
-                magicButtons[i].spellName = activeBattlers[currentTurn].movesAvailable[i];//save the spell name
-                magicButtons[i].nameText.text = magicButtons[i].spellName;//show the spell name 
-                for (int j = 0; j < movesList.Length; j++)
+                itemButtons[i].gameObject.SetActive(true);//turn on the button
+                activeItemButon.Add(itemButtons[i].gameObject.GetComponent<Button>());//add the button
+                itemButtons[i].theItem = GameManager.instance.totalItems[i];//save the spell name
+                itemButtons[i].nameText.text = itemButtons[i].theItem.ItemName;//show the spell name 
+                itemButtons[i].amountText.text = itemButtons[i].theItem.ItemAmount.ToString();//show the spell cost 
+                itemButtons[i].itemIndex = i;
+                if (alreadySelected == false && (itemButtons[i].theItem.ItemAmount>0))//go in on the first spell that the player can use on the list and if we have yet to select the button 
                 {
-                    if (movesList[j].moveName == magicButtons[i].spellName)//choose the right spell according to the name
-                    {
-                        magicButtons[i].spellCost = movesList[j].moveCost;//save the spell cost
-                        magicButtons[i].costText.text = magicButtons[i].spellCost.ToString();//show the spell cost 
-                    }
-                }
-                if (alreadySelected == false && (activeBattlers[currentTurn].currentMP > magicButtons[i].spellCost))//go in on the first spell that the player can use on the list and if we have yet to select the button 
-                {
-                    magicButtons[i].gameObject.GetComponent<Button>().Select();
+                    itemButtons[i].gameObject.GetComponent<Button>().Select();
                     alreadySelected = true;
                 }
             }
             else//if we are out of moves
             {
-                magicButtons[i].gameObject.SetActive(false);//turnoff the button
+                itemButtons[i].gameObject.SetActive(false);//turnoff the button
             }
         }
-        for (int i = 0; i < activeMagicButon.Count; i++)//going on all the active buttons
+        for (int i = 0; i < activeItemButon.Count; i++)//going on all the active buttons
         {
             //Debug.Log(activeMagicButon[i].GetComponent<BattleMagicSelect>().spellName);
-            if (activeBattlers[currentTurn].currentMP < activeMagicButon[i].GetComponent<BattleMagicSelect>().spellCost)//check if the currnet player can use the move i
+            if (activeItemButon[i].GetComponent<BattleItemSelect>().theItem.ItemAmount<0)//check if the currnet player can use the move i
             {
-                activeMagicButon[i].interactable = false; //if not then disable the button
+                activeItemButon[i].interactable = false; //if not then disable the button
             }
             else
             {
-                activeMagicButon[i].interactable = true; //if not then disable the button
+                activeItemButon[i].interactable = true; //if not then disable the button
             }
         }
     }
-
 
 }
 
