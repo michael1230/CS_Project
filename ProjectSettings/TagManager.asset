@@ -7,6 +7,7 @@ TagManager:
   - BattlePlayer
   - BattleEnemy
   - MapTurnEnemy
+  - breakable
   layers:
   - Default
   - TransparentFX
