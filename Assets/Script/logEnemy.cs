@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class logEnemy : EnemyOnMap {
 
+    private Rigidbody2D myRigidbody;
     public Transform target;
     public float chaseRaidius;
     public float attackRadius;
     public Transform homePosition; //for returning to base if not attacking
+    public Animator anim;
 
 	// Use this for initialization
 	void Start () {
+        myRigidbody = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform; //finds the player location
 	}
 	
@@ -23,7 +27,8 @@ public class logEnemy : EnemyOnMap {
     {
         if(Vector3.Distance(target.position, transform.position) <= chaseRaidius && Vector3.Distance(target.position, transform.position) >attackRadius)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime); //the log will move to the player
+            Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime); //the log will move to the player
+            myRigidbody.MovePosition(temp);
         }
     }
 
