@@ -126,9 +126,10 @@ GameObject:
   - component: {fileID: 96703263}
   - component: {fileID: 96703264}
   - component: {fileID: 96703265}
+  - component: {fileID: 96703266}
   m_Layer: 0
   m_Name: Player_Rain
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -266,6 +267,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.34}
   serializedVersion: 2
   m_Radius: 0.48510182
+--- !u!114 &96703266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 96703259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb067b085c825f4089595565f8cd9cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 5
+  knockTime: 0.4
 --- !u!1 &150439343
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,9 +339,11 @@ PolygonCollider2D:
       - {x: -0.30939877, y: 0.85610765}
       - {x: -0.702668, y: 0.43703133}
       - {x: -0.8104325, y: -0.095962375}
-      - {x: -0.4898827, y: -0.85318124}
-      - {x: 0.5635482, y: -1.1089522}
-      - {x: 0.46049297, y: -0.35678163}
+      - {x: -0.55624366, y: -0.8384342}
+      - {x: -0.2686802, y: -1.1038772}
+      - {x: 0.5561751, y: -1.1974332}
+      - {x: 0.5635482, y: -1.2416737}
+      - {x: 0.46786606, y: -0.024977863}
 --- !u!114 &150439346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,7 +370,7 @@ GameObject:
   - component: {fileID: 154036312}
   m_Layer: 0
   m_Name: log
-  m_TagString: Untagged
+  m_TagString: SmallMapEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -448,7 +464,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.010559559, y: -0.46989906}
+  m_Offset: {x: -0.010559559, y: -0.3163134}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -459,7 +475,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6694994, y: 0.5955832}
+  m_Size: {x: 0.6694994, y: 0.90275455}
   m_EdgeRadius: 0
 --- !u!50 &154036311
 Rigidbody2D:
@@ -496,6 +512,10 @@ MonoBehaviour:
   enemyName: Bob
   baseAttack: 1
   moveSpeed: 1.5
+  target: {fileID: 0}
+  chaseRaidius: 4
+  attackRadius: 1
+  homePosition: {fileID: 0}
 --- !u!1 &336070973
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,13 +570,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.009931684, y: 0.94908136}
+    - - {x: 0.24662316, y: 0.8919489}
+      - {x: 0.07986367, y: 1.0758557}
       - {x: -0.70442116, y: 1.0349507}
-      - {x: 0.050369978, y: 0.22701854}
-      - {x: 0.17883766, y: -0.016732156}
+      - {x: -0.7183629, y: 1.0447025}
+      - {x: -0.2679392, y: 0.09643036}
+      - {x: 0.10538149, y: -0.090188116}
       - {x: 0.23234046, y: -0.88241243}
       - {x: 0.25441003, y: -0.8667955}
-      - {x: 0.65668476, y: -0.30193537}
+      - {x: 0.7219788, y: -0.31825882}
+      - {x: 0.68424857, y: 0.12225866}
       - {x: 0.5975472, y: 0.5464527}
 --- !u!114 &336070976
 MonoBehaviour:
@@ -53270,8 +53293,19 @@ PolygonCollider2D:
     - - {x: 2.687694, y: 0.9466292}
       - {x: 2.2583427, y: 1.3032649}
       - {x: 1.9821779, y: 1.4205799}
-      - {x: 1.4517647, y: 1.5345583}
-      - {x: 0.5907799, y: -0.8366175}
+      - {x: 1.5566796, y: 1.5190289}
+      - {x: 1.2892355, y: 1.5697868}
+      - {x: 0.3254403, y: 1.224411}
+      - {x: -0.2765454, y: 0.5960364}
+      - {x: 0.29044545, y: 1.1824813}
+      - {x: -0.28035104, y: 0.57652694}
+      - {x: -0.6063247, y: 0.28847778}
+      - {x: -1.024828, y: -0.3868519}
+      - {x: -0.5884521, y: -0.20396194}
+      - {x: -0.04311371, y: -0.50141937}
+      - {x: 0.47743666, y: 0.5396815}
+      - {x: -0.34449232, y: -0.08976135}
+      - {x: 0.13084733, y: -0.6472348}
       - {x: 1.2780255, y: -1.2105457}
       - {x: 2.3505635, y: -0.887284}
       - {x: 2.6525016, y: -0.013249576}
@@ -53402,15 +53436,19 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.2433794, y: 0.8307937}
-      - {x: -1.6247392, y: 1.4733083}
-      - {x: -2.5576408, y: 0.96414906}
+    - - {x: 1.0181032, y: -0.44842893}
+      - {x: 0.6049713, y: 0.4434929}
+      - {x: 0.17602444, y: 0.77811056}
+      - {x: -0.57411397, y: 1.4102795}
+      - {x: -1.9104011, y: 1.5059557}
+      - {x: -2.753523, y: 0.85804623}
       - {x: -2.7107296, y: -0.13671374}
       - {x: -2.726211, y: -0.36616334}
-      - {x: -2.107331, y: -1.0069766}
-      - {x: -0.8874417, y: -1.0723445}
-      - {x: -0.6632017, y: -0.75711405}
-      - {x: -0.8675717, y: -0.06563175}
+      - {x: -2.139978, y: -1.0151384}
+      - {x: -1.4506037, y: -1.2110947}
+      - {x: -0.77869606, y: -1.0061378}
+      - {x: 0.048974037, y: -0.53032863}
+      - {x: 0.29338896, y: 0.05596733}
 --- !u!114 &1789716007
 MonoBehaviour:
   m_ObjectHideFlags: 0
