@@ -13,23 +13,35 @@ public class logEnemy : EnemyOnMap {
 
 	// Use this for initialization
 	void Start () {
+        currentState = EnemyState.idle;
         myRigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform; //finds the player location
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {//check every 30 sec
         CheckDistance();
 	}
 
     void CheckDistance()
     {
-        if(Vector3.Distance(target.position, transform.position) <= chaseRaidius && Vector3.Distance(target.position, transform.position) >attackRadius)
+        if (Vector3.Distance(target.position, transform.position) <= chaseRaidius && Vector3.Distance(target.position, transform.position) >attackRadius)
         {
-            Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime); //the log will move to the player
-            myRigidbody.MovePosition(temp);
+            if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)
+            {
+                Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime); //the log will move to the player
+                myRigidbody.MovePosition(temp);
+                ChangeState(EnemyState.walk);
+            }
         }
     }
 
+    private void ChangeState(EnemyState newState)
+    {
+        if (currentState != newState)
+        {
+            currentState = newState;
+        }
+    }
 }
