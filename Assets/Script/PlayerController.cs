@@ -48,10 +48,17 @@ public class PlayerController : MonoBehaviour
             else if ((Input.GetButton("Horizontal") || Input.GetButton("Vertical"))&&(myAnim.GetBool("isAttacking")==false))//if only arrows are pressed and the animation for attack is finished 
             {
                 myAnim.SetBool("isRunning", false);//if we came from Running then stop running animation 
+
+               // theRB.velocity.Normalize();
+
                 theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * walkSpeed;
                 if(Input.GetKey(KeyCode.LeftShift))
                 {
                     myAnim.SetBool("isRunning", true);//start the running anim
+
+                   // theRB.velocity.Normalize();
+
+
                     theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * runSpeed;
                 }
             }
