@@ -8,13 +8,15 @@ public class BattleChar : MonoBehaviour
     public bool isPlayer;
     public bool isMapBoss;
     public bool isGameBoss;
-    public string[] movesAvailable;
+    public List<BattleMove> movesAvailable;
 
     public string charName;
     public int currentHP;
     public int maxHP;
     public int currentMP;
     public int maxMP;
+    public int currentSP;
+    public int maxSP;
     public int strength;
     public int defense;
     public int dexterity;

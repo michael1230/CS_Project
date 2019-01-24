@@ -80,6 +80,8 @@ MonoBehaviour:
   maxHP: 0
   currentMP: 0
   maxMP: 0
+  currentSP: 0
+  maxSP: 0
   strength: 0
   defense: 0
   dexterity: 0

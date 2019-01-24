@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626a9542f651e154f98716c6c971af31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayer: 0
+  isPlayer: 1
   isMapBoss: 0
   isGameBoss: 0
   movesAvailable: []
@@ -80,6 +80,8 @@ MonoBehaviour:
   maxHP: 0
   currentMP: 0
   maxMP: 0
+  currentSP: 0
+  maxSP: 0
   strength: 0
   defense: 0
   dexterity: 0
