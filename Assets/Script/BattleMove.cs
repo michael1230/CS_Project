@@ -6,7 +6,7 @@ using UnityEngine;
 public class BattleMove : MonoBehaviour
 {
     public enum moveType { Attack, AttackSpecial, SelfSpecial, SelfMagic, AttackMagic };
-    public moveType theType;
+    public moveType theType= moveType.Attack;//////////////
     public string moveName;//the name of the move
     public string statusBuff;//the name of the move
     public int movePower;// the power(for damage) 
@@ -56,5 +56,12 @@ public class BattleMove : MonoBehaviour
             return true;
         return false;
     }
-
+    /*
+    public bool isEmpthy()
+    {
+        if (this == null)
+            return true;
+        return false;
+    }
+    */
 }

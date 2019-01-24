@@ -29,7 +29,7 @@ public class BattleMagicSelect : MonoBehaviour {
         }
         else if (theMove.isSelfMagic())
         {
-            BattleManager.instance.OpenSelfMenu(theMove, null,1);
+            BattleManager.instance.OpenSelfMenu(theMove, null,1,true);
             BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= theMove.moveMpCost;
         }
 

@@ -24,7 +24,7 @@ public class BattleItemSelect : MonoBehaviour
 
     public void Press()
     {
-        BattleManager.instance.OpenSelfMenu(null,theItem,3);
+        BattleManager.instance.OpenSelfMenu(null,theItem,3,false);
         GameManager.instance.totalItems[itemIndex].ItemAmount--;
 
     }

@@ -9,7 +9,8 @@ public class BattleTargetButton : MonoBehaviour
     public BattleItem theItem;
     public int activeBattlerTarget;//the target we selected 
     public Text targetName;//the name of the target
-   // public Button theButton;
+    public bool moveOrItem;/////////////////////////////////////////////////////true move
+    // public Button theButton;
     // Use this for initialization
     void Start ()
     {
@@ -24,12 +25,18 @@ public class BattleTargetButton : MonoBehaviour
 
     public void Press()// true no item 
     {
-
-        if ((theMove.isAttackMagic())|| (theMove.isAttackSpecial())|| (theMove.isAttck()))
+        if (moveOrItem==true)
         {
-            BattleManager.instance.PlayerAction(theMove, theItem, activeBattlerTarget,true);
+            if ((theMove.isAttackMagic()) || (theMove.isAttackSpecial()) || (theMove.isAttck()))
+            {
+                BattleManager.instance.PlayerAction(theMove, theItem, activeBattlerTarget, true);
+            }
+            else if ((theMove.isSelfMagic()) || (theMove.isSelfSpecial()))
+            {
+                BattleManager.instance.PlayerAction(theMove, theItem, activeBattlerTarget, false);
+            }
         }
-        else if ((theMove == null) || (theMove.isSelfMagic()) || (theMove.isSelfSpecial()))
+        else
         {
             BattleManager.instance.PlayerAction(theMove, theItem, activeBattlerTarget, false);
         }

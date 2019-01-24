@@ -19,7 +19,7 @@ public class BattleManager : MonoBehaviour
 
     public GameObject[] playerInfoHolder;
 
-    public menuNavigation BattleMenus;//////////////////////////////////////////////////////////////////////
+    public menuNavigation BattleMenus;
 
     public TextMeshProUGUI currentPlayerText;
     public TextMeshProUGUI currentMenuText;
@@ -429,7 +429,7 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-    public void OpenSelfMenu(BattleMove selfMove, BattleItem selfItem, int fromMenu)//a method for opening the self target menu
+    public void OpenSelfMenu(BattleMove selfMove, BattleItem selfItem, int fromMenu,bool moveOrItem)//a method for opening the self target menu
     {
         BattleMenus.goToMenu(6, fromMenu);//
         List<int> players = new List<int>();//list of enemies
@@ -453,16 +453,12 @@ public class BattleManager : MonoBehaviour
                     firstButton.Select();//select it
                     alreadySelected = true;//rise the flag
                 }
-                /*
-                if(selfItem == null)
-                    selfButtons[i].theMove = selfMove;//save the move name
-                else if(selfMove == null)
-                    selfButtons[i].theItem = selfItem;//save the move name
-                    */
+                //if(moveOrItem==true)//true move
                 selfButtons[i].theMove = selfMove;//save the move name
                 selfButtons[i].theItem = selfItem;//save the move name
                 selfButtons[i].activeBattlerTarget = players[i];//save the players target
                 selfButtons[i].targetName.text = activeBattlers[players[i]].charName;//show its name
+                selfButtons[i].moveOrItem = moveOrItem;///////////////////////////////////////////////////////true move
             }
             else//if the enemy is dead 
             {

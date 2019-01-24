@@ -176,11 +176,10 @@ MonoBehaviour:
   - {fileID: 114506718270519652}
   - {fileID: 114779775681037156}
   - {fileID: 114769546529351650}
-  totalitemsNames:
-  - Health1
-  - MP1
-  - SP1
-  totalItemsAmount: 050000000500000005000000
+  totalItems:
+  - {fileID: 114605038549311608, guid: 280194e95cf9b104eb30fcfb3b8bb077, type: 2}
+  - {fileID: 114205956424164794, guid: 4fee9fcab8c0b354494040a656a2fdfd, type: 2}
+  - {fileID: 114261064787111316, guid: 11d55eefb7152dc43bc43723b4a221ea, type: 2}
   numberOfElement: 0
   gameMenuOpen: 0
   dialogActive: 0
@@ -203,7 +202,7 @@ MonoBehaviour:
   maxHP: 100
   currentMP: 60
   maxMP: 60
-  currentSP: 0
+  currentSP: 30
   maxSP: 30
   strength: 15
   defense: 15
@@ -235,7 +234,7 @@ MonoBehaviour:
   maxHP: 150
   currentMP: 30
   maxMP: 30
-  currentSP: 0
+  currentSP: 30
   maxSP: 30
   strength: 15
   defense: 15
@@ -267,7 +266,7 @@ MonoBehaviour:
   maxHP: 100
   currentMP: 50
   maxMP: 50
-  currentSP: 0
+  currentSP: 30
   maxSP: 30
   strength: 15
   defense: 15
@@ -299,7 +298,7 @@ MonoBehaviour:
   maxHP: 100
   currentMP: 30
   maxMP: 30
-  currentSP: 0
+  currentSP: 30
   maxSP: 30
   strength: 15
   defense: 15
