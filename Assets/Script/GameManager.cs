@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public CharStats[] playerStats;
+    public CharStats[] playerStats;//work on activate playerStats if the number of element!!!!
 
     public BattleItem[] totalItems;
 

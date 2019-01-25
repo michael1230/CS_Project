@@ -53,8 +53,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theType: 3
   moveName: Cure1
+  statusBuff: HP
   movePower: 40
   moveMpCost: 5
   moveSpCost: 0
+  moveTargetAll: 0
   theEffect: {fileID: 114208378236766488, guid: 18ded1a3b4401d64ba76351c668bb5b3,
     type: 2}

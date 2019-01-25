@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BattleItemSelect : MonoBehaviour
 {
     public BattleItem theItem;
-    public int itemIndex;
+   // public int itemIndex;
     public Text nameText;
     public Text amountText;
 
@@ -24,8 +24,6 @@ public class BattleItemSelect : MonoBehaviour
 
     public void Press()
     {
-        BattleManager.instance.OpenSelfMenu(null,theItem,3,false);
-        GameManager.instance.totalItems[itemIndex].ItemAmount--;
-
+        BattleManager.instance.OpenSelfMenu(null,theItem,3,true);
     }
 }

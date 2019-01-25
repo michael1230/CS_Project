@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 222034201646877366}
   - component: {fileID: 114987344298055498}
   m_Layer: 0
-  m_Name: P1_icon
+  m_Name: P4_icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 222542069842739408}
   - component: {fileID: 114024349070824360}
   m_Layer: 0
-  m_Name: P1_icon
+  m_Name: P2_icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -980,13 +980,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224672438203792214}
+  - component: {fileID: 114513257913834932}
   m_Layer: 0
   m_Name: P2_Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1227487302903978
 GameObject:
   m_ObjectHideFlags: 1
@@ -2138,13 +2139,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224344626234930738}
+  - component: {fileID: 114734563748087176}
   m_Layer: 0
   m_Name: P4_Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1520299775878282
 GameObject:
   m_ObjectHideFlags: 1
@@ -2386,13 +2388,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224078179195772650}
+  - component: {fileID: 114966029309758004}
   m_Layer: 0
   m_Name: P3_Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1574402828746790
 GameObject:
   m_ObjectHideFlags: 1
@@ -3148,13 +3151,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224120829596531336}
+  - component: {fileID: 114501409115685822}
   m_Layer: 0
   m_Name: P1_Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1675383121335268
 GameObject:
   m_ObjectHideFlags: 1
@@ -3292,7 +3296,7 @@ GameObject:
   - component: {fileID: 222892071143331310}
   - component: {fileID: 114095705333475112}
   m_Layer: 0
-  m_Name: P1_icon
+  m_Name: P3_icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5362,6 +5366,7 @@ MonoBehaviour:
   theItem: {fileID: 0}
   activeBattlerTarget: 0
   targetName: {fileID: 114909630269334002}
+  moveOrItem: 0
 --- !u!114 &114043121570261842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5424,6 +5429,7 @@ MonoBehaviour:
   theItem: {fileID: 0}
   activeBattlerTarget: 0
   targetName: {fileID: 114910613940128720}
+  moveOrItem: 0
 --- !u!114 &114049402339855520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6346,11 +6352,6 @@ MonoBehaviour:
   - {fileID: 114789881260309676, guid: 1c96725f4bc8aee4badbd18a6e92e2d6, type: 2}
   - {fileID: 114217456850337400, guid: 134cade906e959a4e96c1beb254f822e, type: 2}
   - {fileID: 114260683632420484, guid: 68c2114fc4acb404aa7aa7162b848135, type: 2}
-  playerInfoHolder:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   BattleMenus: {fileID: 114196001075970598}
   currentPlayerText: {fileID: 114208864421034054}
   currentMenuText: {fileID: 114684200966542428}
@@ -6358,41 +6359,11 @@ MonoBehaviour:
     type: 2}
   enemyAttackEffect: {fileID: 1683132891911294, guid: 6ef7515bd140b7740b59006ef9a29aa5,
     type: 2}
-  playerHP:
-  - {fileID: 114301862953395494}
-  - {fileID: 114471587729570702}
-  - {fileID: 114931027799068134}
-  - {fileID: 114219547652885476}
-  playerMP:
-  - {fileID: 114814489976194608}
-  - {fileID: 114828249435523692}
-  - {fileID: 114897867474583438}
-  - {fileID: 114109432258337600}
-  playerSP:
-  - {fileID: 114295837510563638}
-  - {fileID: 114218538057800026}
-  - {fileID: 114817056205332006}
-  - {fileID: 114449256175875370}
-  hpSlider:
-  - {fileID: 114050700884758566}
-  - {fileID: 114188433191435330}
-  - {fileID: 114741299854274692}
-  - {fileID: 114681585628186940}
-  mpSlider:
-  - {fileID: 114955532174737336}
-  - {fileID: 114120396633160902}
-  - {fileID: 114031097510647286}
-  - {fileID: 114872092874364604}
-  spSlider:
-  - {fileID: 114961722872888126}
-  - {fileID: 114485658103042828}
-  - {fileID: 114631771903811412}
-  - {fileID: 114287910879886390}
-  charImage:
-  - {fileID: 114840722134784840}
-  - {fileID: 114024349070824360}
-  - {fileID: 114095705333475112}
-  - {fileID: 114987344298055498}
+  playersInfos:
+  - {fileID: 114501409115685822}
+  - {fileID: 114513257913834932}
+  - {fileID: 114966029309758004}
+  - {fileID: 114734563748087176}
   battleMenuHolder: {fileID: 1650511507438020}
   targetButtons:
   - {fileID: 114411109908391826}
@@ -7262,11 +7233,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -7652,6 +7623,7 @@ MonoBehaviour:
   theItem: {fileID: 0}
   activeBattlerTarget: 0
   targetName: {fileID: 114478560919533544}
+  moveOrItem: 0
 --- !u!114 &114245516611625732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7938,6 +7910,7 @@ MonoBehaviour:
   theItem: {fileID: 0}
   activeBattlerTarget: 0
   targetName: {fileID: 114029418785857072}
+  moveOrItem: 0
 --- !u!114 &114286917728199970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9387,6 +9360,7 @@ MonoBehaviour:
   theItem: {fileID: 0}
   activeBattlerTarget: 0
   targetName: {fileID: 114120700013335034}
+  moveOrItem: 0
 --- !u!114 &114421342072502358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9632,6 +9606,7 @@ MonoBehaviour:
   theItem: {fileID: 0}
   activeBattlerTarget: 0
   targetName: {fileID: 114737543561828274}
+  moveOrItem: 0
 --- !u!114 &114449256175875370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10259,6 +10234,24 @@ MonoBehaviour:
   theMove: {fileID: 0}
   nameText: {fileID: 114842637991495692}
   costText: {fileID: 114984517606751384}
+--- !u!114 &114501409115685822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1671014945245226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b010d31b467ffdb4d92c8866fc9ba39a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHP: {fileID: 114301862953395494}
+  playerMP: {fileID: 114814489976194608}
+  playerSP: {fileID: 114295837510563638}
+  hpSlider: {fileID: 114050700884758566}
+  mpSlider: {fileID: 114955532174737336}
+  spSlider: {fileID: 114961722872888126}
+  charImage: {fileID: 114840722134784840}
 --- !u!114 &114502796779671056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10315,6 +10308,7 @@ MonoBehaviour:
   theItem: {fileID: 0}
   activeBattlerTarget: 0
   targetName: {fileID: 114295831104396352}
+  moveOrItem: 0
 --- !u!114 &114507645223639988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10367,6 +10361,24 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114513257913834932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1225336431416458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b010d31b467ffdb4d92c8866fc9ba39a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHP: {fileID: 114471587729570702}
+  playerMP: {fileID: 114828249435523692}
+  playerSP: {fileID: 114218538057800026}
+  hpSlider: {fileID: 114188433191435330}
+  mpSlider: {fileID: 114120396633160902}
+  spSlider: {fileID: 114485658103042828}
+  charImage: {fileID: 114024349070824360}
 --- !u!114 &114514488399439088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12252,11 +12264,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -12966,6 +12978,24 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114734563748087176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1513614157975198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b010d31b467ffdb4d92c8866fc9ba39a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHP: {fileID: 114219547652885476}
+  playerMP: {fileID: 114109432258337600}
+  playerSP: {fileID: 114449256175875370}
+  hpSlider: {fileID: 114681585628186940}
+  mpSlider: {fileID: 114872092874364604}
+  spSlider: {fileID: 114287910879886390}
+  charImage: {fileID: 114987344298055498}
 --- !u!114 &114734817514500312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15078,6 +15108,24 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: SPELL NAME
+--- !u!114 &114966029309758004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1571426913877780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b010d31b467ffdb4d92c8866fc9ba39a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHP: {fileID: 114931027799068134}
+  playerMP: {fileID: 114897867474583438}
+  playerSP: {fileID: 114817056205332006}
+  hpSlider: {fileID: 114741299854274692}
+  mpSlider: {fileID: 114031097510647286}
+  spSlider: {fileID: 114631771903811412}
+  charImage: {fileID: 114095705333475112}
 --- !u!114 &114971106856776070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15176,6 +15224,7 @@ MonoBehaviour:
   theItem: {fileID: 0}
   activeBattlerTarget: 0
   targetName: {fileID: 114022764558848010}
+  moveOrItem: 0
 --- !u!114 &114983057295220126
 MonoBehaviour:
   m_ObjectHideFlags: 1

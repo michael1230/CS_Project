@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b785688d9052653478317d57cc65b203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageText: {fileID: 114823686952985000}
+  notificationText: {fileID: 114823686952985000}
   lifetime: 1
   moveSpeed: 1
   placementJitter: 0.5

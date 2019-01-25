@@ -53,8 +53,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theType: 3
   moveName: At+
+  statusBuff: Attack
   movePower: 10
   moveMpCost: 5
   moveSpCost: 0
+  moveTargetAll: 0
   theEffect: {fileID: 114321882886982374, guid: b30bc38e3c4e185458b256e8d72eabca,
     type: 2}

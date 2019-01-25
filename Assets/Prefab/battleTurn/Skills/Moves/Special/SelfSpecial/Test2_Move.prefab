@@ -53,8 +53,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theType: 2
   moveName: Test2
+  statusBuff: 
   movePower: 60
   moveMpCost: 10
   moveSpCost: 10
+  moveTargetAll: 1
   theEffect: {fileID: 114321882886982374, guid: b30bc38e3c4e185458b256e8d72eabca,
     type: 2}

@@ -29,14 +29,10 @@ public class BattleSpecialSelect : MonoBehaviour {
         if (theMove.isAttackSpecial())
         {
             BattleManager.instance.OpenTargetMenu(theMove,2);
-            BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= theMove.moveMpCost;
-            BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentSP -= theMove.moveSpCost;
         }
         else if(theMove.isSelfSpecial())
         {
-            BattleManager.instance.OpenSelfMenu(theMove,null,2, true);
-            BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= theMove.moveMpCost;
-            BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentSP -= theMove.moveSpCost;
+            BattleManager.instance.OpenSelfMenu(theMove,null,2, false);
         }
         
         

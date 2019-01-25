@@ -9,7 +9,7 @@ public class BattleTargetButton : MonoBehaviour
     public BattleItem theItem;
     public int activeBattlerTarget;//the target we selected 
     public Text targetName;//the name of the target
-    public bool moveOrItem;/////////////////////////////////////////////////////true move
+    public bool moveOrItem;/////////////////////////////////////////////////////false move
     // public Button theButton;
     // Use this for initialization
     void Start ()
@@ -25,19 +25,25 @@ public class BattleTargetButton : MonoBehaviour
 
     public void Press()// true no item 
     {
-        if (moveOrItem==true)
+        if (moveOrItem==false)
         {
             if ((theMove.isAttackMagic()) || (theMove.isAttackSpecial()) || (theMove.isAttck()))
             {
+                BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= theMove.moveMpCost;
+                BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentSP -= theMove.moveSpCost;
                 BattleManager.instance.PlayerAction(theMove, theItem, activeBattlerTarget, true);
             }
             else if ((theMove.isSelfMagic()) || (theMove.isSelfSpecial()))
             {
+                BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= theMove.moveMpCost;
+                BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentSP -= theMove.moveSpCost;
                 BattleManager.instance.PlayerAction(theMove, theItem, activeBattlerTarget, false);
             }
+
         }
         else
         {
+            GameManager.instance.totalItems[theItem.itemIndex].ItemAmount--;
             BattleManager.instance.PlayerAction(theMove, theItem, activeBattlerTarget, false);
         }
     }

@@ -25,12 +25,10 @@ public class BattleMagicSelect : MonoBehaviour {
         if (theMove.isAttackMagic())
         {
             BattleManager.instance.OpenTargetMenu(theMove,1);
-            BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= theMove.moveMpCost;
         }
         else if (theMove.isSelfMagic())
         {
-            BattleManager.instance.OpenSelfMenu(theMove, null,1,true);
-            BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= theMove.moveMpCost;
+            BattleManager.instance.OpenSelfMenu(theMove, null,1,false);
         }
 
     }
