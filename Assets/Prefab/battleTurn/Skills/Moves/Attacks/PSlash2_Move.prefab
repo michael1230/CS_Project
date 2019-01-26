@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4941867238478234}
   - component: {fileID: 114055494465312062}
   m_Layer: 0
-  m_Name: Slash2_Move
+  m_Name: PSlash2_Move
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,8 +53,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theType: 0
   moveName: Slash2
+  statusBuff: 
+  animeName: Reg_Atk_2
   movePower: 50
   moveMpCost: 0
   moveSpCost: 5
+  moveTargetAll: 0
   theEffect: {fileID: 114646681490339962, guid: 9dcc9a6a23b563143b659b5663df4f05,
     type: 2}

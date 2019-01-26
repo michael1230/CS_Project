@@ -6739,6 +6739,9 @@ MonoBehaviour:
   strength: 15
   defense: 0
   dexterity: 0
+  anim: {fileID: 0}
+  effect: 0
+  Idle: 0
   hasDied: 0
   bounusTurn: 
   statusBounus: 
@@ -7714,6 +7717,9 @@ MonoBehaviour:
   strength: 15
   defense: 0
   dexterity: 0
+  anim: {fileID: 0}
+  effect: 0
+  Idle: 0
   hasDied: 0
   bounusTurn: 
   statusBounus: 
@@ -9288,6 +9294,9 @@ MonoBehaviour:
   strength: 0
   defense: 0
   dexterity: 0
+  anim: {fileID: 0}
+  effect: 0
+  Idle: 0
   hasDied: 0
   bounusTurn: 0000000000000000
   statusBounus: 0000000000000000
@@ -11883,6 +11892,9 @@ MonoBehaviour:
   strength: 0
   defense: 0
   dexterity: 0
+  anim: {fileID: 0}
+  effect: 0
+  Idle: 0
   hasDied: 0
   bounusTurn: 0000000000000000
   statusBounus: 0000000000000000
@@ -12380,6 +12392,9 @@ MonoBehaviour:
   strength: 0
   defense: 0
   dexterity: 0
+  anim: {fileID: 0}
+  effect: 0
+  Idle: 0
   hasDied: 0
   bounusTurn: 0000000000000000
   statusBounus: 0000000000000000
@@ -14353,6 +14368,9 @@ MonoBehaviour:
   strength: 15
   defense: 0
   dexterity: 0
+  anim: {fileID: 0}
+  effect: 0
+  Idle: 0
   hasDied: 0
   bounusTurn: 
   statusBounus: 
@@ -15490,6 +15508,9 @@ MonoBehaviour:
   strength: 0
   defense: 0
   dexterity: 0
+  anim: {fileID: 0}
+  effect: 0
+  Idle: 0
   hasDied: 0
   bounusTurn: 
   statusBounus: 

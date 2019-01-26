@@ -85,6 +85,7 @@ MonoBehaviour:
   strength: 0
   defense: 0
   dexterity: 0
+  anim: {fileID: 95032685916083490}
   hasDied: 0
   bounusTurn: 000000000000000000000000
   statusBounus: 000000000000000000000000

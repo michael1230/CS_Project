@@ -319,6 +319,18 @@ public class BattleManager : MonoBehaviour
             float damageCalc = (atkPwr / defPwr) * move.movePower;
             damageToGive = Mathf.RoundToInt(damageCalc);
             activeBattlers[target].currentHP -= damageToGive;//take hp
+            /*if(activeBattlers[currentTurn].charName=="Rain")
+            {
+                Debug.Log("here "+ move.animeName);
+                activeBattlers[currentTurn].anim.SetBool(move.animeName, true);//Reg_Atk_1
+                //Instantiate(move.theEffect, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation);
+                while (activeBattlers[currentTurn].ReturnToIdleCheck() == false)
+                { }
+                activeBattlers[currentTurn].anim.SetBool(move.animeName, false);//Reg_Atk_1
+                //activeBattlers[currentTurn].anim.Play(move.animeName);
+                //activeBattlers[currentTurn].anim.SetTrigger(move.animeName);
+            }*/
+
             Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetNotification(damageToGive);//make the damage appear on screen
         }
         else//if the move is for all enemies 

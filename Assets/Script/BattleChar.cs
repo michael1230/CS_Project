@@ -21,6 +21,11 @@ public class BattleChar : MonoBehaviour
     public int defense;
     public int dexterity;
 
+    public Animator anim;
+
+    public bool effect;
+    public bool Idle;
+
     public bool hasDied;
     public int[] bounusTurn;//0->attack 1->defense
     public int[] statusBounus;//0->attack 1->defense
@@ -54,4 +59,26 @@ public class BattleChar : MonoBehaviour
     {
         shouldFade = true;
     }*/
+
+    public void AttackEffectOn()
+    {
+        Debug.Log("on");
+        effect= true;
+    }
+    public void ReturnToIdle()
+    {
+        Debug.Log("idle");
+        Idle= true;
+    }
+
+    public bool AttackEffectCheck()
+    {
+        return effect;
+    }
+    public bool ReturnToIdleCheck()
+    {
+        return Idle;
+    }
+
+
 }

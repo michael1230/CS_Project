@@ -9,6 +9,7 @@ public class BattleMove : MonoBehaviour
     public moveType theType= moveType.Attack;//////////////
     public string moveName;//the name of the move
     public string statusBuff;//the name of the move
+    public string animeName;//the name of the move
     public int movePower;// the power(for damage) 
     public int moveMpCost;//how much it cost
     public int moveSpCost;//how much it cost

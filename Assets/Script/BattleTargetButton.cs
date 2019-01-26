@@ -39,7 +39,6 @@ public class BattleTargetButton : MonoBehaviour
                 BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentSP -= theMove.moveSpCost;
                 BattleManager.instance.PlayerAction(theMove, theItem, activeBattlerTarget, false);
             }
-
         }
         else
         {
