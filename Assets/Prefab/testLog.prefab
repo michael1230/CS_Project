@@ -154,6 +154,7 @@ MonoBehaviour:
   chaseRaidius: 4
   attackRadius: 1.5
   homePosition: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!114 &114738163793111546
 MonoBehaviour:
   m_ObjectHideFlags: 1
