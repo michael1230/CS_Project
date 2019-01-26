@@ -18,13 +18,18 @@ public class EnemyOnMap : MonoBehaviour {
     public int baseAttack;
     public float moveSpeed;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void knock(Rigidbody2D myRigidbody, float knockTime)
+    {
+        StartCoroutine(KnockCo(myRigidbody, knockTime));
+    }
+
+    private IEnumerator KnockCo(Rigidbody2D myRigidbody, float knockTime) //knock the enemy not too far away
+    {
+        if (myRigidbody != null && currentState != EnemyState.stagger)
+        {
+            yield return new WaitForSeconds(knockTime);
+            myRigidbody.velocity = Vector2.zero;
+            currentState = EnemyState.idle;
+        }
+    }
 }

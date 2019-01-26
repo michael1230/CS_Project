@@ -9,16 +9,24 @@ public class Knockback : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)  //kncok the enemy after checking the tag
     {
-        if (other.gameObject.CompareTag("SmallMapEnemy"))
+        if (other.gameObject.CompareTag("breakable"))// tag for things that can be hit
         {
-            Rigidbody2D enemy = other.GetComponent<Rigidbody2D>();
-            if (enemy != null)
+            other.GetComponent<potMap>().Smash();
+        }
+        if (other.gameObject.CompareTag("SmallMapEnemy") || other.gameObject.CompareTag("Player"))
+        {
+            Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
+            if (hit != null)
             {
-                enemy.GetComponent<EnemyOnMap>().currentState = EnemyState.stagger;
-                Vector2 difference = enemy.transform.position - transform.position;
+                if(other.gameObject.CompareTag("SmallMapEnemy"))
+                {
+                    hit.GetComponent<EnemyOnMap>().currentState = EnemyState.stagger;
+                    other.GetComponent<EnemyOnMap>().knock(hit, knockTime);
+                }
+                Vector2 difference = hit.transform.position - transform.position;
                 difference = difference.normalized * thrust;
-                enemy.AddForce(difference, ForceMode2D.Impulse);
-                StartCoroutine(KnockCo(enemy));
+                hit.AddForce(difference, ForceMode2D.Impulse);
+                StartCoroutine(KnockCo(hit));
             }
         }
     }
