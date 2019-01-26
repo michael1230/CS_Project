@@ -9,13 +9,13 @@ public class logEnemy : EnemyOnMap {
     public float chaseRaidius;
     public float attackRadius;
     public Transform homePosition; //for returning to base if not attacking
-    public Animator anim;
+   // public Animator anim;
 
 	// Use this for initialization
 	void Start () {
         currentState = EnemyState.idle;
         myRigidbody = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+     //   anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform; //finds the player location
 	}
 	
@@ -26,7 +26,7 @@ public class logEnemy : EnemyOnMap {
 
     void CheckDistance()
     {
-        if (Vector3.Distance(target.position, transform.position) <= chaseRaidius && Vector3.Distance(target.position, transform.position) >attackRadius)
+        if (Vector3.Distance(target.position, transform.position) <= chaseRaidius && Vector3.Distance(target.position, transform.position) > attackRadius)
         {
             if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)
             {
