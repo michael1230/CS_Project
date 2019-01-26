@@ -49,14 +49,14 @@ public class PlayerController : MonoBehaviour
             {
                 myAnim.SetBool("isRunning", false);//if we came from Running then stop running animation 
 
-               // theRB.velocity.Normalize();
+                theRB.velocity.Normalize();
 
                 theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * walkSpeed;
                 if(Input.GetKey(KeyCode.LeftShift))
                 {
                     myAnim.SetBool("isRunning", true);//start the running anim
 
-                   // theRB.velocity.Normalize();
+                   theRB.velocity.Normalize();
 
 
                     theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * runSpeed;
