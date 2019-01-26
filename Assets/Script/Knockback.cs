@@ -37,7 +37,7 @@ public class Knockback : MonoBehaviour {
         {
             yield return new WaitForSeconds(knockTime);
             enemy.velocity = Vector2.zero;
-            enemy.GetComponent<EnemyOnMap>().currentState = EnemyState.idle;
+            //enemy.GetComponent<EnemyOnMap>().currentState = EnemyState.idle;
         }
     }
 }
