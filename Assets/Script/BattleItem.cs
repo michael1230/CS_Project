@@ -13,6 +13,7 @@ public class BattleItem : MonoBehaviour
     public int ItemMp;//how much it cost
     public int ItemSp;//how much it cost
     public int itemIndex;
+    public bool moveTargetAll;
     public AttackEffect theEffect;//the effect itself
 
     public bool ishpPotion()

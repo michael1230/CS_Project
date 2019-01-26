@@ -22,6 +22,8 @@ public class BattleChar : MonoBehaviour
     public int dexterity;
 
     public bool hasDied;
+    public int[] bounusTurn;//0->attack 1->defense
+    public int[] statusBounus;//0->attack 1->defense
 
     public SpriteRenderer theSprite;
     public Sprite deadSprite, aliveSprite;

@@ -5442,7 +5442,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theItem: {fileID: 0}
-  itemIndex: 0
   nameText: {fileID: 114232655594582808}
   amountText: {fileID: 114808921620551580}
 --- !u!114 &114049756782317668
@@ -5467,7 +5466,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.7490196, g: 0.13333334, b: 0.13333334, a: 1}
     m_PressedColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
-    m_DisabledColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0.5019608}
+    m_DisabledColor: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -5648,7 +5647,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.7490196, g: 0.13333334, b: 0.13333334, a: 1}
     m_PressedColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
-    m_DisabledColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0.5019608}
+    m_DisabledColor: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -5690,7 +5689,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theItem: {fileID: 0}
-  itemIndex: 0
   nameText: {fileID: 114852600612826982}
   amountText: {fileID: 114855135517597072}
 --- !u!114 &114065019328458058
@@ -5959,7 +5957,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.7490196, g: 0.13333334, b: 0.13333334, a: 1}
     m_PressedColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
-    m_DisabledColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0.5019608}
+    m_DisabledColor: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -6119,7 +6117,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.7490196, g: 0.13333334, b: 0.13333334, a: 1}
     m_PressedColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
-    m_DisabledColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0.5019608}
+    m_DisabledColor: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -6601,7 +6599,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theItem: {fileID: 0}
-  itemIndex: 0
   nameText: {fileID: 114814899234531652}
   amountText: {fileID: 114786186302905494}
 --- !u!114 &114154158107660246
@@ -6715,7 +6712,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theItem: {fileID: 0}
-  itemIndex: 0
   nameText: {fileID: 114111295138697276}
   amountText: {fileID: 114678792003168116}
 --- !u!114 &114171821135823778
@@ -6744,6 +6740,8 @@ MonoBehaviour:
   defense: 0
   dexterity: 0
   hasDied: 0
+  bounusTurn: 
+  statusBounus: 
   theSprite: {fileID: 0}
   deadSprite: {fileID: 0}
   aliveSprite: {fileID: 0}
@@ -7023,6 +7021,7 @@ MonoBehaviour:
   - {fileID: 1425839081622392}
   currentMenu: 0
   previousMenu: 0
+  menuButtons: []
 --- !u!114 &114196389443648872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7716,6 +7715,8 @@ MonoBehaviour:
   defense: 0
   dexterity: 0
   hasDied: 0
+  bounusTurn: 
+  statusBounus: 
   theSprite: {fileID: 0}
   deadSprite: {fileID: 0}
   aliveSprite: {fileID: 0}
@@ -8596,7 +8597,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theItem: {fileID: 0}
-  itemIndex: 0
   nameText: {fileID: 114190739462589328}
   amountText: {fileID: 114759493460419426}
 --- !u!114 &114337295333307470
@@ -8611,7 +8611,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theItem: {fileID: 0}
-  itemIndex: 0
   nameText: {fileID: 114726079738409980}
   amountText: {fileID: 114261285280198592}
 --- !u!114 &114338033634466234
@@ -8996,7 +8995,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.7490196, g: 0.13333334, b: 0.13333334, a: 1}
     m_PressedColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
-    m_DisabledColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0.5019608}
+    m_DisabledColor: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -9290,6 +9289,8 @@ MonoBehaviour:
   defense: 0
   dexterity: 0
   hasDied: 0
+  bounusTurn: 0000000000000000
+  statusBounus: 0000000000000000
   theSprite: {fileID: 0}
   deadSprite: {fileID: 0}
   aliveSprite: {fileID: 0}
@@ -9777,7 +9778,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.7490196, g: 0.13333334, b: 0.13333334, a: 1}
     m_PressedColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
-    m_DisabledColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0.5019608}
+    m_DisabledColor: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -9846,7 +9847,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theItem: {fileID: 0}
-  itemIndex: 0
   nameText: {fileID: 114378257411195350}
   amountText: {fileID: 114358582333022558}
 --- !u!114 &114471587729570702
@@ -10633,7 +10633,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theItem: {fileID: 0}
-  itemIndex: 0
   nameText: {fileID: 114811482533935298}
   amountText: {fileID: 114769534287636168}
 --- !u!114 &114555908441521650
@@ -11064,7 +11063,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.7490196, g: 0.13333334, b: 0.13333334, a: 1}
     m_PressedColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
-    m_DisabledColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0.5019608}
+    m_DisabledColor: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -11573,7 +11572,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theItem: {fileID: 0}
-  itemIndex: 0
   nameText: {fileID: 114720522180030650}
   amountText: {fileID: 114173282267871356}
 --- !u!114 &114637708824524020
@@ -11754,7 +11752,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theItem: {fileID: 0}
-  itemIndex: 0
   nameText: {fileID: 114154158107660246}
   amountText: {fileID: 114523018328744684}
 --- !u!114 &114653713476642770
@@ -11779,7 +11776,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.7490196, g: 0.13333334, b: 0.13333334, a: 1}
     m_PressedColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
-    m_DisabledColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0.5019608}
+    m_DisabledColor: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -11887,6 +11884,8 @@ MonoBehaviour:
   defense: 0
   dexterity: 0
   hasDied: 0
+  bounusTurn: 0000000000000000
+  statusBounus: 0000000000000000
   theSprite: {fileID: 0}
   deadSprite: {fileID: 0}
   aliveSprite: {fileID: 0}
@@ -12382,6 +12381,8 @@ MonoBehaviour:
   defense: 0
   dexterity: 0
   hasDied: 0
+  bounusTurn: 0000000000000000
+  statusBounus: 0000000000000000
   theSprite: {fileID: 0}
   deadSprite: {fileID: 0}
   aliveSprite: {fileID: 0}
@@ -12639,7 +12640,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.7490196, g: 0.13333334, b: 0.13333334, a: 1}
     m_PressedColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
-    m_DisabledColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0.5019608}
+    m_DisabledColor: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -13403,7 +13404,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.7490196, g: 0.13333334, b: 0.13333334, a: 1}
     m_PressedColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
-    m_DisabledColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0.5019608}
+    m_DisabledColor: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -13816,7 +13817,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theItem: {fileID: 0}
-  itemIndex: 0
   nameText: {fileID: 114353810872106210}
   amountText: {fileID: 114338033634466234}
 --- !u!114 &114828249435523692
@@ -13949,7 +13949,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.7490196, g: 0.13333334, b: 0.13333334, a: 1}
     m_PressedColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
-    m_DisabledColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0.5019608}
+    m_DisabledColor: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -14354,6 +14354,8 @@ MonoBehaviour:
   defense: 0
   dexterity: 0
   hasDied: 0
+  bounusTurn: 
+  statusBounus: 
   theSprite: {fileID: 0}
   deadSprite: {fileID: 0}
   aliveSprite: {fileID: 0}
@@ -14760,7 +14762,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theItem: {fileID: 0}
-  itemIndex: 0
   nameText: {fileID: 114793440777650428}
   amountText: {fileID: 114997990913616216}
 --- !u!114 &114940743711119054
@@ -14870,7 +14871,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.7490196, g: 0.13333334, b: 0.13333334, a: 1}
     m_PressedColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
-    m_DisabledColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0.5019608}
+    m_DisabledColor: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -15490,6 +15491,8 @@ MonoBehaviour:
   defense: 0
   dexterity: 0
   hasDied: 0
+  bounusTurn: 
+  statusBounus: 
   theSprite: {fileID: 0}
   deadSprite: {fileID: 0}
   aliveSprite: {fileID: 0}

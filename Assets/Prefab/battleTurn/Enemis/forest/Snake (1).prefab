@@ -69,6 +69,8 @@ MonoBehaviour:
   defense: 15
   dexterity: 0
   hasDied: 0
+  bounusTurn: 000000000000000000000000
+  statusBounus: 000000000000000000000000
   theSprite: {fileID: 0}
   deadSprite: {fileID: 0}
   aliveSprite: {fileID: 0}
