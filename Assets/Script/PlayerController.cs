@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
         currentState = PlayerState.attack;
         yield return null;
         animator.SetBool("attacking", false);//stop the attack anim
-        yield return new WaitForSeconds(.33f);
+        yield return new WaitForSeconds(.38f);
         currentState = PlayerState.walk;
     }
 

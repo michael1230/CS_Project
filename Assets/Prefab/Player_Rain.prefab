@@ -446,7 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   walkSpeed: 3
-  runSpeed: 7
+  runSpeed: 7.5
   canMovePlayer: 1
   areaTransitionName: 
 --- !u!114 &114518133026385070
