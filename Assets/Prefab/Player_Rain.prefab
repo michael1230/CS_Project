@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114518133026385070}
   m_Layer: 0
   m_Name: down hit box
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114018206403929656}
   m_Layer: 0
   m_Name: right hit box
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 95680708755905712}
   - component: {fileID: 114274969119176896}
   - component: {fileID: 50021531448033430}
-  - component: {fileID: 58333659562666966}
+  - component: {fileID: 61768927980660576}
   - component: {fileID: 61943415165131474}
   m_Layer: 0
   m_Name: Player_Rain
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 114191439632840566}
   m_Layer: 0
   m_Name: 'up hit box '
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 114827888908643970}
   m_Layer: 0
   m_Name: 'left hit box '
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,21 +189,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &58333659562666966
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1393728808900118}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.34}
-  serializedVersion: 2
-  m_Radius: 0.48510182
 --- !u!60 &60553705975918930
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -230,8 +215,9 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 0.24662316, y: 0.8919489}
       - {x: 0.07986367, y: 1.0758557}
-      - {x: -0.70442116, y: 1.0349507}
-      - {x: -0.7183629, y: 1.0447025}
+      - {x: -0.4860469, y: 1.1248696}
+      - {x: -0.758336, y: 1.1337948}
+      - {x: -0.763292, y: 1.0986176}
       - {x: -0.2679392, y: 0.09643036}
       - {x: 0.10538149, y: -0.090188116}
       - {x: 0.23234046, y: -0.88241243}
@@ -353,6 +339,31 @@ PolygonCollider2D:
       - {x: -0.77869606, y: -1.0061378}
       - {x: -0.30982578, y: -0.5976036}
       - {x: -0.17753601, y: -0.33647028}
+--- !u!61 &61768927980660576
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1393728808900118}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0035578609, y: -0.3450115}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.0857143, y: 1.5714285}
+    newSize: {x: 3.6857142, y: 2.142857}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.63743126, y: 0.5679385}
+  m_EdgeRadius: 0
 --- !u!61 &61943415165131474
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -365,7 +376,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.012824416, y: -0.038473397}
+  m_Offset: {x: -0.0005619526, y: -0.009630591}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -376,7 +387,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5470884, y: 1.2721927}
+  m_Size: {x: 1.0740592, y: 1.3298783}
   m_EdgeRadius: 0
 --- !u!95 &95680708755905712
 Animator:
@@ -408,7 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 2
-  knockTime: 0.1
+  knockTime: 0.2
 --- !u!114 &114191439632840566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -421,7 +432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 2
-  knockTime: 0.1
+  knockTime: 0.2
 --- !u!114 &114274969119176896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -433,10 +444,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2686fa5cb8279784ca7738c84899709d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
   walkSpeed: 3
-  runSpeed: 5
-  theRB: {fileID: 50021531448033430}
-  myAnim: {fileID: 95680708755905712}
+  runSpeed: 7
   canMovePlayer: 1
   areaTransitionName: 
 --- !u!114 &114518133026385070
@@ -451,7 +461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 2
-  knockTime: 0.1
+  knockTime: 0.2
 --- !u!114 &114827888908643970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -464,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 2
-  knockTime: 0.1
+  knockTime: 0.2
 --- !u!212 &212140802640073654
 SpriteRenderer:
   m_ObjectHideFlags: 1

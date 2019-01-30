@@ -13,23 +13,24 @@ public enum EnemyState
 public class EnemyOnMap : MonoBehaviour {
 
     public EnemyState currentState;
-    public int health;
+    public float health;
     public string enemyName;
     public int baseAttack;
     public float moveSpeed;
 
-    public void knock(Rigidbody2D myRigidbody, float knockTime)
+    public void knock(Rigidbody2D myRigidbody, float knockTime)//enemy knock call function
     {
         StartCoroutine(KnockCo(myRigidbody, knockTime));
     }
 
-    private IEnumerator KnockCo(Rigidbody2D myRigidbody, float knockTime) //knock the enemy not too far away
+    private IEnumerator KnockCo(Rigidbody2D myRigidbody, float knockTime) //knock the enemy
     {
-        if (myRigidbody != null && currentState != EnemyState.stagger)
+        if (myRigidbody != null)
         {
             yield return new WaitForSeconds(knockTime);
             myRigidbody.velocity = Vector2.zero;
             currentState = EnemyState.idle;
+            myRigidbody.velocity = Vector2.zero;
         }
     }
 }

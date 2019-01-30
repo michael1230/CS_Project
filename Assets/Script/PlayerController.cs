@@ -2,9 +2,158 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlayerState
+{
+    walk,
+    run,
+    attack,
+    interact,
+    stagger,
+    idle
+}
+
 public class PlayerController : MonoBehaviour
 {
+    public PlayerState currentState;//state for the enum
+    public float walkSpeed;//the speed of walk
+    public float runSpeed;//the speed of run
+    private Rigidbody2D myRigidbody;//reference the Rigidbody2D
+    private Vector3 change;//players Vector3
+    private Animator animator;//reference the Animator
+    public bool canMovePlayer = true;//a flag to spot the player when needed
+    public static PlayerController instance;//makes only one instance of player
+    public string areaTransitionName;//the name to next area
+    private Vector3 bottomLeftLimit;//the first limit of the  map
+    private Vector3 topRightLimit;//the second limit of the  map
 
+    void Start()
+    {
+        currentState = PlayerState.walk;
+        animator = GetComponent<Animator>();
+        myRigidbody = GetComponent<Rigidbody2D>();
+        animator.SetFloat("moveX", 0);//first direction of player
+        animator.SetFloat("moveY", -1);//first direction of player
+
+        //for not deleting the player bettwen sence
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            if (instance != this)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+    void Update()
+    {
+        if (canMovePlayer)//if the flag is true
+        {
+            change = Vector3.zero; //reset how much the player moved
+            change.x = Input.GetAxisRaw("Horizontal");//for moving
+            change.y = Input.GetAxisRaw("Vertical");//for moving
+            animator.SetBool("isRunning", false);//change animtion
+            animator.SetBool("moving", false);//change animtion
+            if (Input.GetKey(KeyCode.LeftControl) && currentState != PlayerState.attack && currentState != PlayerState.stagger)//attack state
+            {
+                StartCoroutine(AttackCo());
+            }
+            else if ((currentState == PlayerState.walk || currentState == PlayerState.idle)
+                      && Input.GetKey(KeyCode.LeftShift) && (Input.GetButton("Horizontal") || Input.GetButton("Vertical")))//running state
+            {
+                animator.SetBool("moving", true);
+                UpdateAnimationAndRun();
+            }
+            else if (currentState == PlayerState.walk || currentState == PlayerState.idle)//walking state
+            {
+
+                UpdateAnimationAndMove();
+            }
+            //keep the camera inside the bounds
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, bottomLeftLimit.x, topRightLimit.x), Mathf.Clamp(transform.position.y, bottomLeftLimit.y, topRightLimit.y), transform.position.z);
+        }
+    }
+
+    private IEnumerator AttackCo() //attack Coroutine
+    {
+        animator.SetBool("attacking", true);//start the attack anim
+        currentState = PlayerState.attack;
+        yield return null;
+        animator.SetBool("attacking", false);//stop the attack anim
+        yield return new WaitForSeconds(.33f);
+        currentState = PlayerState.walk;
+    }
+
+    void UpdateAnimationAndMove()//mooving function
+    {
+        if (change != Vector3.zero)//move only if player idle
+        {
+            MoveCharacter();
+            animator.SetFloat("moveX", change.x);
+            animator.SetFloat("moveY", change.y);
+            animator.SetBool("moving", true);
+        }
+        else
+        {
+            animator.SetBool("moving", false);
+        }
+    }
+
+    void MoveCharacter()
+    {
+        change.Normalize();//normlize the vector for walking diagonally the same speed as the sides
+        myRigidbody.MovePosition(transform.position + change * walkSpeed * Time.deltaTime);//move position
+    }
+
+    void UpdateAnimationAndRun()//running function
+    {
+        if (change != Vector3.zero)//move only if player idle
+        {
+            RunCharacter();
+            animator.SetFloat("moveX", change.x);
+            animator.SetFloat("moveY", change.y);
+            animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
+        }
+    }
+
+    void RunCharacter()
+    {
+        change.Normalize();//normlize the vector for running diagonally the same speed as the sides
+        myRigidbody.MovePosition(transform.position + change * runSpeed * Time.deltaTime);//move position
+    }
+
+    public void knock(float knockTime)//function for knock effect when colliding with enemy
+    {
+        StartCoroutine(KnockCo(knockTime));
+    }
+
+    private IEnumerator KnockCo(float knockTime) //knock the player
+    {
+        if (myRigidbody != null)
+        {
+            yield return new WaitForSeconds(knockTime);
+            myRigidbody.velocity = Vector2.zero;
+            currentState = PlayerState.idle;
+            myRigidbody.velocity = Vector2.zero;
+        }
+    }
+
+    public void SetBounds(Vector3 botLeft, Vector3 topRight)//for the camera
+    {
+        bottomLeftLimit = botLeft + new Vector3(.5f, 1f, 0f);
+        topRightLimit = topRight + new Vector3(-.5f, -1f, 0f);
+    }
+
+    /*
 
     public float walkSpeed;//the speed of walk
     public float runSpeed;//the speed of run
@@ -101,5 +250,7 @@ public class PlayerController : MonoBehaviour
             yield return null;
         myAnim.SetBool("isAttacking", false);//stop the attack anim
     }
+
+    */
 
 }

@@ -4,40 +4,34 @@ using UnityEngine;
 
 public class Knockback : MonoBehaviour {
 
-    public float thrust; //the force of rain knockback hit
+    public float thrust; //the force of knockback hit
     public float knockTime; //stops enemy after the hit
 
-    private void OnTriggerEnter2D(Collider2D other)  //kncok the enemy after checking the tag
+    private void OnTriggerEnter2D(Collider2D other)  //kncok after checking the tag
     {
-        if (other.gameObject.CompareTag("breakable"))// tag for things that can be hit
+        if (other.gameObject.CompareTag("breakable") && this.gameObject.CompareTag("Player"))// tag for things that can be smashed and only by the player
         {
             other.GetComponent<potMap>().Smash();
         }
-        if (other.gameObject.CompareTag("SmallMapEnemy") || other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("SmallMapEnemy") || other.gameObject.CompareTag("Player"))//tag for things that can be knock
         {
-            Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
+            Rigidbody2D hit = other.GetComponent<Rigidbody2D>();//gets the rigidbody
             if (hit != null)
             {
-                if(other.gameObject.CompareTag("SmallMapEnemy"))
-                {
-                    hit.GetComponent<EnemyOnMap>().currentState = EnemyState.stagger;
-                    other.GetComponent<EnemyOnMap>().knock(hit, knockTime);
-                }
-                Vector2 difference = hit.transform.position - transform.position;
+                Vector2 difference = hit.transform.position - transform.position;//count how much to knock
                 difference = difference.normalized * thrust;
                 hit.AddForce(difference, ForceMode2D.Impulse);
-                StartCoroutine(KnockCo(hit));
+                if (other.gameObject.CompareTag("SmallMapEnemy"))//knock of the enemys
+                {
+                    hit.GetComponent<EnemyOnMap>().currentState = EnemyState.stagger;//while get hit the state is stagger
+                    other.GetComponent<EnemyOnMap>().knock(hit, knockTime);//how much hit and the knock time
+                }
+                if (other.gameObject.CompareTag("Player"))//knock of the player
+                {
+                    hit.GetComponent<PlayerController>().currentState = PlayerState.stagger;//while get hit the state is stagger
+                    other.GetComponent<PlayerController>().knock(knockTime);//how much hit and the knock time
+                }
             }
-        }
-    }
-
-    private IEnumerator KnockCo(Rigidbody2D enemy) //knock the enemy not too far away
-    {
-        if (enemy != null)
-        {
-            yield return new WaitForSeconds(knockTime);
-            enemy.velocity = Vector2.zero;
-            enemy.GetComponent<EnemyOnMap>().currentState = EnemyState.idle;
         }
     }
 }
