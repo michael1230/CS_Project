@@ -54,6 +54,8 @@ MonoBehaviour:
   theType: 3
   moveName: De+
   statusBuff: Defense
+  animateName: Magic
+  numOfSFXs: 
   movePower: 10
   moveMpCost: 5
   moveSpCost: 0

@@ -23,7 +23,8 @@ public class BattleChar : MonoBehaviour
 
     public Animator anim;
 
-    public bool effect;
+    public bool effect1;
+    public bool effect2;
     public bool Idle;
 
     public bool hasDied;
@@ -33,8 +34,12 @@ public class BattleChar : MonoBehaviour
     public SpriteRenderer theSprite;
     public Sprite deadSprite, aliveSprite;
 
-   // private bool shouldFade;
-   // public float fadeSpeed = 1f;
+
+    public bool move;
+    private Transform moveTo;
+
+    // private bool shouldFade;
+    // public float fadeSpeed = 1f;
 
     // Use this for initialization
     void Start()
@@ -53,32 +58,47 @@ public class BattleChar : MonoBehaviour
                 gameObject.SetActive(false);
             }
         }*/
+        if(move==true)
+        {
+            BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].transform.position = Vector2.MoveTowards(BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].transform.position, moveTo.position, 2.5f * Time.deltaTime);
+        }
     }
 
    /* public void EnemyFade()
     {
         shouldFade = true;
     }*/
-
     public void AttackEffectOn()
     {
         Debug.Log("on");
-        effect= true;
+        effect1 = true;
     }
+
+    public void AttackEffectOn2()
+    {
+        Debug.Log("on");
+        effect2 = true;
+    }
+
     public void ReturnToIdle()
     {
         Debug.Log("idle");
         Idle= true;
     }
 
-    public bool AttackEffectCheck()
-    {
-        return effect;
-    }
-    public bool ReturnToIdleCheck()
-    {
-        return Idle;
-    }
 
+    public void moveToPostion(Transform currentPos, Transform targetPos)
+    {
+        //if (BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].transform.position != targetPos.position)
+        if (currentPos.transform.position != targetPos.position)
+        {
+            moveTo = targetPos;
+            move = true;
+        }
+        else
+        {
+            move = false;
+        }
+    }
 
 }

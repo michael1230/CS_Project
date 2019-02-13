@@ -54,6 +54,8 @@ MonoBehaviour:
   theType: 3
   moveName: Cure1
   statusBuff: HP
+  animateName: Magic
+  numOfSFXs: 
   movePower: 40
   moveMpCost: 5
   moveSpCost: 0

@@ -18,4 +18,5 @@ public class AttackEffect : MonoBehaviour {
     {
         Destroy(gameObject, effectLength);//Destroy this object after effectLength
     }
+
 }

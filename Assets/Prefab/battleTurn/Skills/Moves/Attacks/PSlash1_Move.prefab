@@ -54,7 +54,8 @@ MonoBehaviour:
   theType: 0
   moveName: Slash1
   statusBuff: 
-  animeName: Reg_Atk_1
+  animateName: Req_Atk_1
+  numOfSFXs: 1
   movePower: 40
   moveMpCost: 0
   moveSpCost: 0

@@ -9,30 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1616256037736612}
+  m_RootGameObject: {fileID: 1710885761136496}
   m_IsPrefabAsset: 1
---- !u!1 &1616256037736612
+--- !u!1 &1710885761136496
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4604552998155950}
-  - component: {fileID: 114527013342165008}
+  - component: {fileID: 4866032069230844}
+  - component: {fileID: 114084563384403506}
   m_Layer: 0
-  m_Name: Ice1_Move
+  m_Name: PFire1_Move
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4604552998155950
+--- !u!4 &4866032069230844
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1616256037736612}
+  m_GameObject: {fileID: 1710885761136496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 444.53217, y: 185.47845, z: -2.5908813}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,21 +40,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114527013342165008
+--- !u!114 &114084563384403506
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1616256037736612}
+  m_GameObject: {fileID: 1710885761136496}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9437c8f2a94ccb3488cf9f0ca74c6062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   theType: 4
-  moveName: Ice1
+  moveName: Fire1
+  statusBuff: 
+  animateName: Magic
+  numOfSFXs: 
   movePower: 60
   moveMpCost: 7
   moveSpCost: 0
-  theEffect: {fileID: 114937804617692794, guid: 050a9c7dc5ed6984bb0d38ef7f21126b,
+  moveTargetAll: 0
+  theEffect: {fileID: 114774642166038994, guid: a4e5b7ee87909174da209009e450fb5e,
     type: 2}

@@ -54,6 +54,8 @@ MonoBehaviour:
   theType: 2
   moveName: Test2
   statusBuff: HP
+  animateName: Limt_Atk
+  numOfSFXs: 
   movePower: 60
   moveMpCost: 10
   moveSpCost: 10

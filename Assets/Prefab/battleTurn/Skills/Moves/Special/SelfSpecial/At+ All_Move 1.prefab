@@ -54,6 +54,8 @@ MonoBehaviour:
   theType: 2
   moveName: At+
   statusBuff: Attack
+  animateName: Limt_Atk
+  numOfSFXs: 
   movePower: 20
   moveMpCost: 15
   moveSpCost: 15

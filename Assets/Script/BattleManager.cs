@@ -14,6 +14,8 @@ public class BattleManager : MonoBehaviour
     public Transform[] playerPositions;
     public Transform[] enemyPositions;
 
+    public Transform playerAcionPosition;
+
     public BattleChar[] playerPrefabs;
     public BattleChar[] enemyPrefabs;
 
@@ -40,8 +42,7 @@ public class BattleManager : MonoBehaviour
     public bool turnWaiting;
 
 
-
-
+    public bool next=false;////////////////////////
     // Use this for initialization
     void Start()
     {
@@ -68,6 +69,7 @@ public class BattleManager : MonoBehaviour
                     StartCoroutine(EnemyMoveCo());//start the Coroutine for the enemy turn
                 }
             }
+
             if (Input.GetKeyDown(KeyCode.N))///for test!!
             {
                 NextTurn();
@@ -192,6 +194,8 @@ public class BattleManager : MonoBehaviour
     }
     public void NextTurn()//a method for going to the next turn
     {
+        activeBattlers[currentTurn].move = false;
+        next = false;
         currentTurn++;
         if (currentTurn >= activeBattlers.Count)//if it over the limit 
         {
@@ -309,55 +313,6 @@ public class BattleManager : MonoBehaviour
         Instantiate(enemyAttackEffect, activeBattlers[currentTurn].transform.position, activeBattlers[currentTurn].transform.rotation);//white circle on the attacking enemy to know which one is attacking
         DealDamage(selectedTarget, enemyMove);//deal the damage
     }
-    public void DealDamage(int target, BattleMove move)//later to add miss, critical, res , magic? 
-    {
-        int damageToGive=0;
-        if (move.moveTargetAll==false)//if the move is only for one enemy
-        {
-            float atkPwr = activeBattlers[currentTurn].strength + activeBattlers[currentTurn].statusBounus[0];
-            float defPwr = activeBattlers[target].defense + activeBattlers[target].statusBounus[1];
-            float damageCalc = (atkPwr / defPwr) * move.movePower;
-            damageToGive = Mathf.RoundToInt(damageCalc);
-            activeBattlers[target].currentHP -= damageToGive;//take hp
-            /*if(activeBattlers[currentTurn].charName=="Rain")
-            {
-                Debug.Log("here "+ move.animeName);
-                activeBattlers[currentTurn].anim.SetBool(move.animeName, true);//Reg_Atk_1
-                //Instantiate(move.theEffect, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation);
-                while (activeBattlers[currentTurn].ReturnToIdleCheck() == false)
-                { }
-                activeBattlers[currentTurn].anim.SetBool(move.animeName, false);//Reg_Atk_1
-                //activeBattlers[currentTurn].anim.Play(move.animeName);
-                //activeBattlers[currentTurn].anim.SetTrigger(move.animeName);
-            }*/
-
-            Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetNotification(damageToGive);//make the damage appear on screen
-        }
-        else//if the move is for all enemies 
-        {//maybe another formula later
-            float defPwr = 0; 
-            float atkPwr = 0;
-            List<int> Enemies = new List<int>();//list of enemies
-            for (int i = 0; i < activeBattlers.Count; i++)//for adding the enemies
-            {
-                if (!activeBattlers[i].isPlayer)
-                {
-                    Enemies.Add(i);
-                    defPwr+= (activeBattlers[i].defense+ activeBattlers[i].statusBounus[1]);//add all of the defense of all the enemies
-                }
-            }
-            atkPwr = (activeBattlers[currentTurn].strength + activeBattlers[currentTurn].statusBounus[0])* Enemies.Count;//the strength of the current player times the number of enemies
-            float damageCalc = (atkPwr / defPwr) * move.movePower;
-            damageToGive = Mathf.RoundToInt(damageCalc);//to int
-            for (int i = 0; i < Enemies.Count; i++)//for every enemy
-            {
-                activeBattlers[Enemies[i]].currentHP -= damageToGive;//take hp
-                Instantiate(theDamageNumber, activeBattlers[Enemies[i]].transform.position, activeBattlers[Enemies[i]].transform.rotation).SetNotification(damageToGive);//make the damage appear on screen
-            }
-        }        
-        UpdateUIStats();//update the stats
-        //Debug.Log(activeBattlers[currentTurn].charName + " is dealing " + damageCalc + "(" + damageToGive + ") damage to " + activeBattlers[target].charName);//for test
-    }
     public void StatusBuffsCheck(BattleChar playerData)//a method to check the status of the char;
     {
         for (int j = 0; j < playerData.bounusTurn.Length; j++)//status buff check
@@ -374,18 +329,19 @@ public class BattleManager : MonoBehaviour
     }
     public void StatusBuffs(BattleMove move, int target)//a method to apply status buffs
     {
-        if(move.moveTargetAll==false)//if the move is not on all targets
+        if (move.moveTargetAll == false)//if the move is not on all targets
         {
             if (move.statusBuff == "Attack")//if the buff is Attack
             {
                 activeBattlers[target].bounusTurn[0] = 3;//the bonus turn time is will last
                 activeBattlers[target].statusBounus[0] = move.movePower;//the bonus itself
             }
-            else if(move.statusBuff == "Defense")//if the buff is Defense
+            else if (move.statusBuff == "Defense")//if the buff is Defense
             {
                 activeBattlers[target].bounusTurn[1] = 3;//the bonus turn time is will last
                 activeBattlers[target].statusBounus[1] = move.movePower;//the bonus itself
             }
+            StartCoroutine(animeteSelfMagicCo(target, move));///
         }
         else//all target
         {
@@ -404,30 +360,79 @@ public class BattleManager : MonoBehaviour
                         activeBattlers[i].statusBounus[1] = move.movePower;//the bonus itself
                     }
                 }
-            }         
+            }
+            StartCoroutine(animeteSelfSpecialCo(move));//
         }
     }
-    public void Dealdefense(BattleMove move, BattleItem item, int target,bool moveOrItem)//later to add miss, critical, res , magic? 
+    public void DealDamage(int target, BattleMove move)//later to add miss, critical, res , magic? 
+    {
+        int damageToGive = 0;
+        if (move.moveTargetAll == false)//if the move is only for one enemy
+        {
+            float atkPwr = activeBattlers[currentTurn].strength + activeBattlers[currentTurn].statusBounus[0];
+            float defPwr = activeBattlers[target].defense + activeBattlers[target].statusBounus[1];
+            float damageCalc = (atkPwr / defPwr) * move.movePower;
+            damageToGive = Mathf.RoundToInt(damageCalc);
+            //activeBattlers[target].currentHP -= damageToGive;//take hp
+            if (activeBattlers[currentTurn].isPlayer)
+            {
+                if (move.isAttck())
+                {
+                    if(move.numOfSFXs=="1")
+                    {
+                        StartCoroutine(animeteAttckCo(target, damageToGive, move));
+                    }
+                    else if (move.numOfSFXs == "2")
+                    {
+                        StartCoroutine(animeteAttckCo2(target, damageToGive, move));
+                    }
+                }
+                else if (move.isAttackMagic())
+                {
+                    StartCoroutine(animeteAttackMagicCo(target, damageToGive, move));
+                }
+            }
+            else if (activeBattlers[currentTurn].isPlayer == false)//for enemy numbers..temp
+            {
+                Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetNotification(damageToGive);//make the damage appear on screen
+            }
+        }
+        else//if the move is for all enemies 
+        {//maybe another formula later
+            float defPwr = 0;
+            float atkPwr = 0;
+            List<int> Enemies = new List<int>();//list of enemies
+            for (int i = 0; i < activeBattlers.Count; i++)//for adding the enemies
+            {
+                if ((!activeBattlers[i].isPlayer)&&(activeBattlers[i].currentHP>0))
+                {
+                    Enemies.Add(i);
+                    defPwr += (activeBattlers[i].defense + activeBattlers[i].statusBounus[1]);//add all of the defense of all the enemies
+                }
+            }
+            atkPwr = (activeBattlers[currentTurn].strength + activeBattlers[currentTurn].statusBounus[0]) * Enemies.Count;//the strength of the current player times the number of enemies
+            float damageCalc = (atkPwr / defPwr) * move.movePower;
+            damageToGive = Mathf.RoundToInt(damageCalc);//to int
+            StartCoroutine(animeteAttackSpecialCo(Enemies, damageToGive, move));
+        }
+        UpdateUIStats();//update the stats
+        //Debug.Log(activeBattlers[currentTurn].charName + " is dealing " + damageCalc + "(" + damageToGive + ") damage to " + activeBattlers[target].charName);//for test
+    }
+    public void Dealdefense(BattleMove move, BattleItem item, int target, bool moveOrItem)//later to add miss, critical, res , magic? 
     {
         if (moveOrItem == false)//move
-        {//need to add status buff over time and all select target
+        {
             if (move.statusBuff == "HP")//if its a hp refile move then
             {
                 if (move.moveTargetAll == false)
                 {
                     activeBattlers[target].currentHP += move.movePower;
                     Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetNotification(move.movePower, "Health");//make the damage appear on screen
+                    StartCoroutine(animeteSelfMagicCo(target, move));//
                 }
                 else
-                {
-                    for (int i = 0; i < activeBattlers.Count; i++)
-                    {
-                        if (activeBattlers[i].isPlayer && activeBattlers[i].currentHP > 0)
-                        {
-                            activeBattlers[i].currentHP += move.movePower;
-                            Instantiate(theDamageNumber, activeBattlers[i].transform.position, activeBattlers[i].transform.rotation).SetNotification(move.movePower, "Health");//make the damage appear on screen
-                        }
-                    }
+                {                  
+                    StartCoroutine(animeteSelfSpecialCo(move));//
                 }
             }
             else if (move.statusBuff != "")
@@ -461,31 +466,150 @@ public class BattleManager : MonoBehaviour
             }
         }
         UpdateUIStats();//update the stats
+        StartCoroutine(waitBeforeBackCo());
     }
-    public void PlayerAction(BattleMove move, BattleItem item, int selectedTarget,bool offense)//a method for player attack//////////////add animation //////////////
+    public IEnumerator animeteAttackSpecialCo(List<int> targets, int damage, BattleMove move)//for Attacking all enemy.. one effect 
     {
+        activeBattlers[currentTurn].anim.SetBool(move.animateName, true);
+        yield return new WaitWhile(() => activeBattlers[currentTurn].effect1 == false);
+        for (int i = 0; i < targets.Count; i++)//for every enemy
+        {
+            Instantiate(move.theEffect, activeBattlers[targets[i]].transform.position, activeBattlers[targets[i]].transform.rotation);
+            activeBattlers[targets[i]].currentHP -= damage;//take hp
+            Instantiate(theDamageNumber, activeBattlers[targets[i]].transform.position, activeBattlers[targets[i]].transform.rotation).SetNotification(damage);//make the damage appear on screen
+        }           
+        yield return new WaitWhile(() => activeBattlers[currentTurn].Idle == false);
+        activeBattlers[currentTurn].anim.SetBool(move.animateName, false);
+        StartCoroutine(moveBackAndNextTurnCo());
+    }
+    public IEnumerator animeteAttckCo(int target , int damage,BattleMove move)//for Attacking one enemy.. one effects 
+    {
+        activeBattlers[currentTurn].anim.SetBool(move.animateName, true);
+        yield return new WaitWhile(() => activeBattlers[currentTurn].effect1 == false);
+        Instantiate(move.theEffect, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation);
+        activeBattlers[target].currentHP -= damage;//take hp
+        Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetNotification(damage);//make the damage appear on screen
+        yield return new WaitWhile(() => activeBattlers[currentTurn].Idle == false);
+        activeBattlers[currentTurn].anim.SetBool(move.animateName, false);
+        StartCoroutine(moveBackAndNextTurnCo());
+    }
+    public IEnumerator animeteAttckCo2(int target, int damage, BattleMove move)//for Attacking one enemy.. two effects 
+    {
+        activeBattlers[currentTurn].anim.SetBool(move.animateName, true);
+        yield return new WaitWhile(() => activeBattlers[currentTurn].effect1 == false);
+        Instantiate(move.theEffect, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation);
+        yield return new WaitWhile(() => activeBattlers[currentTurn].effect2 == false);
+        Instantiate(move.theEffect, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation);
+        activeBattlers[target].currentHP -= damage;//take hp
+        Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetNotification(damage);//make the damage appear on screen
+        yield return new WaitWhile(() => activeBattlers[currentTurn].Idle == false);
+        activeBattlers[currentTurn].anim.SetBool(move.animateName, false);
+        StartCoroutine(moveBackAndNextTurnCo());
+    }
+    public IEnumerator animeteAttackMagicCo(int target, int damage, BattleMove move)//for Attacking one enemy.. skill effects 
+    {
+        activeBattlers[currentTurn].anim.SetBool(move.animateName, true);
+        Instantiate(move.theEffect, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation);
+        activeBattlers[target].currentHP -= damage;//take hp
+        Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetNotification(damage);//make the damage appear on screen
+        yield return new WaitForSeconds(move.theEffect.effectLength);
+        activeBattlers[currentTurn].anim.SetBool(move.animateName, false);
+        //NextTurn();
+        StartCoroutine(moveBackAndNextTurnCo());
+    }
+    public IEnumerator animeteSelfMagicCo(int target, BattleMove move)//for Attacking one enemy.. skill effects 
+    {
+        activeBattlers[currentTurn].anim.SetBool(move.animateName, true);
+        Instantiate(move.theEffect, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation);       
+        yield return new WaitForSeconds(move.theEffect.effectLength);
+        activeBattlers[currentTurn].anim.SetBool(move.animateName, false);
+        StartCoroutine(moveBackAndNextTurnCo());
+    }
+    public IEnumerator animeteSelfSpecialCo(BattleMove move)//for Attacking all enemy.. one effect 
+    {
+        activeBattlers[currentTurn].anim.SetBool(move.animateName, true);
+        yield return new WaitWhile(() => activeBattlers[currentTurn].effect1 == false);
+        for (int i = 0; i < activeBattlers.Count; i++)
+        {
+            if (activeBattlers[i].isPlayer && activeBattlers[i].currentHP > 0)
+            {
+                Instantiate(move.theEffect, activeBattlers[i].transform.position, activeBattlers[i].transform.rotation);
+                if (move.statusBuff == "HP")
+                {
+                    activeBattlers[i].currentHP += move.movePower;
+                    Instantiate(theDamageNumber, activeBattlers[i].transform.position, activeBattlers[i].transform.rotation).SetNotification(move.movePower, "Health");//make the damage appear on screen
+                }
+            }
+        }
+        yield return new WaitForSeconds(move.theEffect.effectLength);
+        yield return new WaitWhile(() => activeBattlers[currentTurn].Idle == false);
+        activeBattlers[currentTurn].anim.SetBool(move.animateName, false);
+        StartCoroutine(moveBackAndNextTurnCo());
+    }
+    public IEnumerator moveBackAndNextTurnCo()//for moving back to original position
+    {
+        activeBattlers[currentTurn].effect1 = false;
+        activeBattlers[currentTurn].effect2 = false;
+        activeBattlers[currentTurn].Idle = false;
+        int index = 0;
+        activeBattlers[currentTurn].anim.SetBool("Move", true);       
+        if (activeBattlers[currentTurn].charName=="Rain")
+        {
+            index = 0;
+        }
+        else if (activeBattlers[currentTurn].charName == "Roselia")
+        {
+            index = 1;
+        }
+        else if (activeBattlers[currentTurn].charName == "Aiden")
+        {
+            index = 2;
+        }
+        else if (activeBattlers[currentTurn].charName == "Sakura")
+        {
+            index = 3;
+        }
+        activeBattlers[currentTurn].moveToPostion(activeBattlers[currentTurn].transform, playerPositions[index].transform);
+        yield return new WaitWhile(() => activeBattlers[currentTurn].transform.position != playerPositions[index].transform.position);
+        activeBattlers[currentTurn].anim.SetBool("Move", false);
+        battleMenuHolder.SetActive(false);//turn off the menu do prevent the player for pressing the buttons twice
+        BattleMenus.goToMenu(0, 0);
+        BattleMenus.buttonSelect();
+        NextTurn();
+    }
+    public IEnumerator waitBeforeBackCo()//wait for enemy
+    {
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(moveBackAndNextTurnCo());
+    }
+    public IEnumerator moveToAtkPosAndActCo(BattleMove move, BattleItem item, int selectedTarget, bool offense)
+    {
+        activeBattlers[currentTurn].anim.SetBool("Move", true);       
+        activeBattlers[currentTurn].moveToPostion(activeBattlers[currentTurn].transform, playerAcionPosition.transform);
+        yield return new WaitWhile(() => activeBattlers[currentTurn].transform.position != playerAcionPosition.position);
+        activeBattlers[currentTurn].anim.SetBool("Move", false);
+        activeBattlers[currentTurn].move = false;
         if (offense == true)//no item
         {
-            Instantiate(move.theEffect, activeBattlers[selectedTarget].transform.position, activeBattlers[selectedTarget].transform.rotation);
             DealDamage(selectedTarget, move);//deal the damage
         }
         else//maybe item
         {
             if (move == null)
             {
-                Instantiate(item.theEffect, activeBattlers[selectedTarget].transform.position, activeBattlers[selectedTarget].transform.rotation);
+                //Instantiate(item.theEffect, activeBattlers[selectedTarget].transform.position, activeBattlers[selectedTarget].transform.rotation);
                 Dealdefense(null, item, selectedTarget, true);
             }
             else if (item == null)
             {
-                Instantiate(move.theEffect, activeBattlers[selectedTarget].transform.position, activeBattlers[selectedTarget].transform.rotation);
+                //Instantiate(move.theEffect, activeBattlers[selectedTarget].transform.position, activeBattlers[selectedTarget].transform.rotation);
                 Dealdefense(move, null, selectedTarget, false);
             }
         }
-        battleMenuHolder.SetActive(false);//turn off the menu do prevent the player for pressing the buttons twice
-        BattleMenus.goToMenu(0, 0);
-        BattleMenus.buttonSelect();
-        NextTurn();//next turn
+    }
+    public void PlayerAction(BattleMove move, BattleItem item, int selectedTarget,bool offense)//a method for player attack//////////////add animation //////////////
+    {
+        StartCoroutine(moveToAtkPosAndActCo( move,  item,  selectedTarget,  offense));
     }
     public void OpenTargetMenu(BattleMove attackMove,int fromMenu)//a method for opening the target menu
     {
