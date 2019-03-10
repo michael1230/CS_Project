@@ -6,6 +6,7 @@ public class Knockback : MonoBehaviour {
 
     public float thrust; //the force of knockback hit
     public float knockTime; //stops enemy after the hit
+    public float damage; //damage from hit
 
     private void OnTriggerEnter2D(Collider2D other)  //kncok after checking the tag
     {
@@ -21,10 +22,10 @@ public class Knockback : MonoBehaviour {
                 Vector2 difference = hit.transform.position - transform.position;//count how much to knock
                 difference = difference.normalized * thrust;
                 hit.AddForce(difference, ForceMode2D.Impulse);
-                if (other.gameObject.CompareTag("SmallMapEnemy"))//knock of the enemys
+                if (other.gameObject.CompareTag("SmallMapEnemy") && other.isTrigger)//knock of the enemys
                 {
                     hit.GetComponent<EnemyOnMap>().currentState = EnemyState.stagger;//while get hit the state is stagger
-                    other.GetComponent<EnemyOnMap>().knock(hit, knockTime);//how much hit and the knock time
+                    other.GetComponent<EnemyOnMap>().knock(hit, knockTime, damage);//how much hit and the knock time
                 }
                 if (other.gameObject.CompareTag("Player"))//knock of the player
                 {

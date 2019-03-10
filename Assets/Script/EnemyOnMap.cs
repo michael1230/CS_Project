@@ -13,14 +13,29 @@ public enum EnemyState
 public class EnemyOnMap : MonoBehaviour {
 
     public EnemyState currentState;
+    public FloatValue maxHealth;
     public float health;
     public string enemyName;
     public int baseAttack;
     public float moveSpeed;
 
-    public void knock(Rigidbody2D myRigidbody, float knockTime)//enemy knock call function
+    private void Awake()
+    {
+        health = maxHealth.initialValue;
+    }
+    private void TakeDamage(float damage) //enemy damage after hit
+    {
+        health -= damage;
+        if(health <= 0)
+        {
+            this.gameObject.SetActive(false); //better then destroy for memory
+        }
+    }
+
+    public void knock(Rigidbody2D myRigidbody, float knockTime, float damage)//enemy knock call function
     {
         StartCoroutine(KnockCo(myRigidbody, knockTime));
+        TakeDamage(damage);
     }
 
     private IEnumerator KnockCo(Rigidbody2D myRigidbody, float knockTime) //knock the enemy

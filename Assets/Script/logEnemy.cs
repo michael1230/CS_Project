@@ -55,7 +55,7 @@ public class logEnemy : EnemyOnMap {
         anim.SetFloat("moveY", setVector.y);
     }
 
-    private void changeAnim(Vector2 direction)
+    private void changeAnim(Vector2 direction)//change animation direction
     {
         if(Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
             {
