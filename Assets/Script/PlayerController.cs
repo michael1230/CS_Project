@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (canMovePlayer)//if the flag is true
         {
@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
         currentState = PlayerState.attack;
         yield return null;
         animator.SetBool("attacking", false);//stop the attack anim
-        yield return new WaitForSeconds(.38f);
+        yield return new WaitForSeconds(.31f);
         currentState = PlayerState.walk;
     }
 
@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
     void MoveCharacter()
     {
         change.Normalize();//normlize the vector for walking diagonally the same speed as the sides
-        myRigidbody.MovePosition(transform.position + change * walkSpeed * Time.deltaTime);//move position
+        myRigidbody.MovePosition(transform.position + change * walkSpeed * Time.fixedDeltaTime);//move position
     }
 
     void UpdateAnimationAndRun()//running function
@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour
     void RunCharacter()
     {
         change.Normalize();//normlize the vector for running diagonally the same speed as the sides
-        myRigidbody.MovePosition(transform.position + change * runSpeed * Time.deltaTime);//move position
+        myRigidbody.MovePosition(transform.position + change * runSpeed * Time.fixedDeltaTime);//move position
     }
 
     public void knock(float knockTime)//function for knock effect when colliding with enemy
