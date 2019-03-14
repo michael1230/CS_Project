@@ -53101,6 +53101,36 @@ Prefab:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 3549f2a87143c2348ba8369b6a9ca1b5, type: 2}
+    - target: {fileID: 60758473680701232, guid: bc42ca0f68d878e47b70d06c2c3755df,
+        type: 2}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[11].x
+      value: 0.3962463
+      objectReference: {fileID: 0}
+    - target: {fileID: 60758473680701232, guid: bc42ca0f68d878e47b70d06c2c3755df,
+        type: 2}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[11].y
+      value: 0.4927833
+      objectReference: {fileID: 0}
+    - target: {fileID: 60889341808562490, guid: bc42ca0f68d878e47b70d06c2c3755df,
+        type: 2}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
+      value: -0.2594546
+      objectReference: {fileID: 0}
+    - target: {fileID: 60889341808562490, guid: bc42ca0f68d878e47b70d06c2c3755df,
+        type: 2}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
+      value: 0.584691
+      objectReference: {fileID: 0}
+    - target: {fileID: 60889341808562490, guid: bc42ca0f68d878e47b70d06c2c3755df,
+        type: 2}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: 0.9754129
+      objectReference: {fileID: 0}
+    - target: {fileID: 60889341808562490, guid: bc42ca0f68d878e47b70d06c2c3755df,
+        type: 2}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: -0.38935626
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
   m_IsPrefabAsset: 0

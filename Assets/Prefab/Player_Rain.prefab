@@ -294,7 +294,7 @@ PolygonCollider2D:
       - {x: 0.38118613, y: 1.2380648}
       - {x: 0.4140128, y: 1.2863903}
       - {x: 0.29824722, y: 1.2165356}
-      - {x: 1.003723, y: 0.5024256}
+      - {x: 0.3962463, y: 0.4927833}
       - {x: -0.04311371, y: -0.50141937}
       - {x: -0.027126193, y: -0.4806562}
       - {x: -0.019329906, y: -0.49341145}
@@ -326,8 +326,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.46194685, y: 0.5943336}
-      - {x: -0.5050663, y: 0.936843}
+    - - {x: -0.2594546, y: 0.584691}
+      - {x: -0.38935626, y: 0.9754129}
       - {x: -0.5864258, y: 1.394798}
       - {x: -0.57411397, y: 1.4102795}
       - {x: -1.9104011, y: 1.5059557}
@@ -347,7 +347,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1393728808900118}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3549f2a87143c2348ba8369b6a9ca1b5, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -376,7 +376,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.005249381, y: -0.009630561}
+  m_Offset: {x: -0.0136086345, y: -0.082077175}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -387,7 +387,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.70843315, y: 1.3298783}
+  m_Size: {x: 0.41307437, y: 1.1292572}
   m_EdgeRadius: 0
 --- !u!95 &95680708755905712
 Animator:
@@ -420,6 +420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 2
   knockTime: 0.2
+  damage: 1
 --- !u!114 &114191439632840566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -433,6 +434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 2
   knockTime: 0.2
+  damage: 1
 --- !u!114 &114274969119176896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -462,6 +464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 2
   knockTime: 0.2
+  damage: 1
 --- !u!114 &114827888908643970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -475,6 +478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 2
   knockTime: 0.2
+  damage: 1
 --- !u!212 &212140802640073654
 SpriteRenderer:
   m_ObjectHideFlags: 1
