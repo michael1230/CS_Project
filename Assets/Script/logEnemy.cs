@@ -24,7 +24,7 @@ public class logEnemy : EnemyOnMap {
         CheckDistance();//check the distance bettwen log and player
 	}
 
-    void CheckDistance()
+    void CheckDistance()//will to change to A star algorithm probably
     {
         if (Vector3.Distance(target.position,
                              transform.position) <= chaseRaidius

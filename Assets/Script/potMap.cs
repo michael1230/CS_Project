@@ -24,7 +24,7 @@ public class potMap : MonoBehaviour {
     
     IEnumerator breakCo()//makes the pot disaper from map but not destroyed
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.3f);
         this.gameObject.SetActive(false);
 
     }
