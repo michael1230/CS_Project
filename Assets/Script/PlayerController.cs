@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
             change = Vector3.zero; //reset how much the player moved
             change.x = Input.GetAxisRaw("Horizontal");//for moving
             change.y = Input.GetAxisRaw("Vertical");//for moving
-            animator.SetBool("isRunning", false);//change animtion
+            animator.SetBool("isRunning", false);//change animtion    
             animator.SetBool("moving", false);//change animtion
             if (Input.GetKey(KeyCode.LeftControl) && currentState != PlayerState.attack && currentState != PlayerState.stagger)//attack state
             {

@@ -49,6 +49,9 @@ TagManager:
   - name: Background
     uniqueID: 3314842535
     locked: 0
+  - name: Signs
+    uniqueID: 1171054311
+    locked: 0
   - name: Player_Rain
     uniqueID: 707867589
     locked: 0

@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class Sign : MonoBehaviour {
 
-    public GameObject dailogBox; //reference for the dialog box
+    public GameObject dialogBox; //reference for the dialog box
     public Text dialogText; //reference for the text
     public string dialog; //reference to the string that shows up in place og the dialog
-    public bool dialogActive; //for activating the dialog
+    public bool playerInRange; //for activating the dialog
 
     // Use this for initialization
     void Start () {
@@ -18,14 +18,25 @@ public class Sign : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (Input.GetKeyDown(KeyCode.Space) && playerInRange) //if player presses space near the sign then
+        {
+            if (dialogBox.activeInHierarchy) //if dialogBox is active change to false
+            {
+                dialogBox.SetActive(false);
+            }
+            else // else change to true
+            {
+                dialogBox.SetActive(true);
+                dialogText.text = dialog;
+            }
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other) //check if the player entered the sign area 
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player in range");
+            playerInRange = true;
         }
     }
 
@@ -33,7 +44,8 @@ public class Sign : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player left range");
+            playerInRange = false;
+            dialogBox.SetActive(false);
         }
     }
 }
