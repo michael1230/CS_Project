@@ -14,17 +14,19 @@ public enum PlayerState
 
 public class PlayerController : MonoBehaviour
 {
-    public PlayerState currentState;//state for the enum
-    public float walkSpeed;//the speed of walk
-    public float runSpeed;//the speed of run
-    private Rigidbody2D myRigidbody;//reference the Rigidbody2D
-    private Vector3 change;//players Vector3
-    private Animator animator;//reference the Animator
-    public bool canMovePlayer = true;//a flag to spot the player when needed
-    public static PlayerController instance;//makes only one instance of player
-    public string areaTransitionName;//the name to next area
-    private Vector3 bottomLeftLimit;//the first limit of the  map
-    private Vector3 topRightLimit;//the second limit of the  map
+    public PlayerState currentState; //state for the enum
+    public float walkSpeed; //the speed of walk
+    public float runSpeed; //the speed of run
+    private Rigidbody2D myRigidbody; //reference the Rigidbody2D
+    private Vector3 change; //players Vector3
+    private Animator animator; //reference the Animator
+    public bool canMovePlayer = true; //a flag to spot the player when needed
+    public static PlayerController instance; //makes only one instance of player
+    public string areaTransitionName; //the name to next area
+    private Vector3 bottomLeftLimit; //the first limit of the  map
+    private Vector3 topRightLimit; //the second limit of the  map
+    public FloatValue currentHealth; //player current health
+    public Signal playerHealthSignal; //reference to current health
 
     void Start()
     {
@@ -131,9 +133,15 @@ public class PlayerController : MonoBehaviour
         myRigidbody.MovePosition(transform.position + change * runSpeed * Time.fixedDeltaTime);//move position
     }
 
-    public void knock(float knockTime)//function for knock effect when colliding with enemy
+    public void knock(float knockTime, float damage)//function for knock and damage effect when colliding with enemy
     {
+        currentHealth.initialValue -= damage;//lost off health after enemy hit
         StartCoroutine(KnockCo(knockTime));
+        if (currentHealth.initialValue > 0)//if there is still health
+        {
+            playerHealthSignal.Raise();//send signal to change the hearts
+            StartCoroutine(KnockCo(knockTime));
+        }
     }
 
     private IEnumerator KnockCo(float knockTime) //knock the player
