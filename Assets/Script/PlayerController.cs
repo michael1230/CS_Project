@@ -135,13 +135,16 @@ public class PlayerController : MonoBehaviour
 
     public void knock(float knockTime, float damage)//function for knock and damage effect when colliding with enemy
     {
-        currentHealth.initialValue -= damage;//lost off health after enemy hit
+        currentHealth.RuntimeValue -= damage;//lost off health after enemy hit
         StartCoroutine(KnockCo(knockTime));
-        if (currentHealth.initialValue > 0)//if there is still health
+        playerHealthSignal.Raise();//send signal to change the hearts0
+        if (currentHealth.RuntimeValue > 0)//if there is still health
         {
-            playerHealthSignal.Raise();//send signal to change the hearts
             StartCoroutine(KnockCo(knockTime));
+        }else{//kill the player- for now just inactive
+            this.gameObject.SetActive(false);
         }
+
     }
 
     private IEnumerator KnockCo(float knockTime) //knock the player
