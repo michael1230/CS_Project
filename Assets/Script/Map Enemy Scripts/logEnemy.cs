@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class logEnemy : EnemyOnMap {
 
-    private Rigidbody2D myRigidbody;
+    public Rigidbody2D myRigidbody;
     public Transform target;//moving the enemy
     public float chaseRaidius;
     public float attackRadius;
@@ -17,6 +17,7 @@ public class logEnemy : EnemyOnMap {
         myRigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform; //finds the player location
+        anim.SetBool("wakeUp", true);
 	}
 	
 	// Update is called once per frame
@@ -24,7 +25,7 @@ public class logEnemy : EnemyOnMap {
         CheckDistance();//check the distance bettwen log and player
 	}
 
-    void CheckDistance()//will to change to A star algorithm probably
+    public virtual void CheckDistance()//will to change to A star algorithm probably
     {
         if (Vector3.Distance(target.position,
                              transform.position) <= chaseRaidius
@@ -55,7 +56,7 @@ public class logEnemy : EnemyOnMap {
         anim.SetFloat("moveY", setVector.y);
     }
 
-    private void changeAnim(Vector2 direction)//change animation direction
+    public void changeAnim(Vector2 direction)//change animation direction
     {
         if(Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
             {
