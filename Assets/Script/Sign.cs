@@ -34,7 +34,7 @@ public class Sign : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other) //check if the player entered the sign area 
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !other.isTrigger)
         {
             playerInRange = true;
         }
@@ -42,7 +42,7 @@ public class Sign : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D other) //check if the player exited the sign area 
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !other.isTrigger)
         {
             playerInRange = false;
             dialogBox.SetActive(false);

@@ -543,6 +543,52 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!1001 &436383278
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4854127000082886, guid: 60331d046f34c3c4ca8cca1a1742463f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 11.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854127000082886, guid: 60331d046f34c3c4ca8cca1a1742463f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.6425169
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854127000082886, guid: 60331d046f34c3c4ca8cca1a1742463f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854127000082886, guid: 60331d046f34c3c4ca8cca1a1742463f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854127000082886, guid: 60331d046f34c3c4ca8cca1a1742463f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854127000082886, guid: 60331d046f34c3c4ca8cca1a1742463f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854127000082886, guid: 60331d046f34c3c4ca8cca1a1742463f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854127000082886, guid: 60331d046f34c3c4ca8cca1a1742463f, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654058408773722, guid: 60331d046f34c3c4ca8cca1a1742463f, type: 2}
+      propertyPath: m_Name
+      value: testLog (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 60331d046f34c3c4ca8cca1a1742463f, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &469156431
 GameObject:
   m_ObjectHideFlags: 0
