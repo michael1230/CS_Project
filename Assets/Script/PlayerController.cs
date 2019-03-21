@@ -85,15 +85,16 @@ public class PlayerController : MonoBehaviour
             {
                 StartCoroutine(AttackCo());
             }
-            else if ((currentState == PlayerState.walk || currentState == PlayerState.idle)
+            else if ((currentState == PlayerState.walk || currentState == PlayerState.idle || currentState == PlayerState.run)
                       && Input.GetKey(KeyCode.LeftShift) && (Input.GetButton("Horizontal") || Input.GetButton("Vertical")))//running state
             {
-                animator.SetBool("moving", true);
-                UpdateAnimationAndRun();
+                // animator.SetBool("moving", true);
+                UpdateFace();
+                UpdateAnimationAndRun();             
             }
             else if (currentState == PlayerState.walk || currentState == PlayerState.idle)//walking state
             {
-
+                UpdateFace();
                 UpdateAnimationAndMove();
             }
             //keep the camera inside the bounds
@@ -124,6 +125,8 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator AttackCo() //attack Coroutine
     {
+        
+        animator.SetBool("attacking", true);//start the attack anim
         switch (currentFace)
         {
             case PlayerFace.Down:
@@ -139,17 +142,12 @@ public class PlayerController : MonoBehaviour
                 HitBoxRight.SetActive(true);
                 break;
         }
-        animator.SetBool("attacking", true);//start the attack anim
-        currentState = PlayerState.attack;
         
+        currentState = PlayerState.attack;
         yield return null;
         animator.SetBool("attacking", false);//stop the attack anim
         yield return new WaitForSeconds(.3f);
         currentState = PlayerState.walk;
-        if (currentState != PlayerState.interact)
-        {
-            currentState = PlayerState.walk;
-        }
         HitBoxDown.SetActive(false);
         HitBoxUp.SetActive(false);
         HitBoxLeft.SetActive(false);
