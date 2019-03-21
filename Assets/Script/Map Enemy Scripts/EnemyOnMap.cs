@@ -18,6 +18,7 @@ public class EnemyOnMap : MonoBehaviour {
     public string enemyName;
     public int baseAttack;
     public float moveSpeed;
+    public GameObject deathEffect;
 
     private void Awake()
     {
@@ -28,9 +29,19 @@ public class EnemyOnMap : MonoBehaviour {
         health -= damage;
         if(health <= 0)
         {
+            DeathEffect();
             this.gameObject.SetActive(false); //better then destroy for memory
         }
     }
+    private void DeathEffect() //effect for enemy death
+    {
+        if (deathEffect != null)
+        {
+            GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Destroy(effect, 1f);
+        }
+    }
+
 
     public void knock(Rigidbody2D myRigidbody, float knockTime, float damage)//enemy knock call function
     {

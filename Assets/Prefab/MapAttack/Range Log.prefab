@@ -165,10 +165,12 @@ MonoBehaviour:
   enemyName: Bob
   baseAttack: 1
   moveSpeed: 1.5
+  deathEffect: {fileID: 1574220630175308, guid: c1784592266c8664aa898ba93c58ea07,
+    type: 2}
   myRigidbody: {fileID: 0}
   target: {fileID: 0}
   chaseRaidius: 4
-  attackRadius: 0.5
+  attackRadius: 1
   homePosition: {fileID: 0}
   anim: {fileID: 0}
 --- !u!212 &212899699969733760

@@ -861,6 +861,12 @@ Prefab:
       propertyPath: attackRadius
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114668086332539722, guid: f65ec1e74a9c9eb42963bff8a9a29535,
+        type: 2}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 1574220630175308, guid: c1784592266c8664aa898ba93c58ea07,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f65ec1e74a9c9eb42963bff8a9a29535, type: 2}
   m_IsPrefabAsset: 0
@@ -53455,11 +53461,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114389652197182492, guid: d5e13b02da7c84c4ebc11540a477621e,
-        type: 2}
-      propertyPath: attackRadius
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5e13b02da7c84c4ebc11540a477621e, type: 2}
   m_IsPrefabAsset: 0
@@ -54327,6 +54328,7 @@ MonoBehaviour:
   enemyName: Bob
   baseAttack: 1
   moveSpeed: 1.5
+  deathEffect: {fileID: 0}
   myRigidbody: {fileID: 0}
   target: {fileID: 0}
   chaseRaidius: 4
