@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public enum PlayerState
 {
     walk,
@@ -45,6 +45,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         currentFace = PlayerFace.Down;
+        HitBoxDown.SetActive(false);
+        HitBoxUp.SetActive(false);
+        HitBoxLeft.SetActive(false);
+        HitBoxRight.SetActive(false);
 
         currentState = PlayerState.walk;
         animator = GetComponent<Animator>();
@@ -83,6 +87,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("moving", false);//change animtion
             if (Input.GetKey(KeyCode.LeftControl) && currentState != PlayerState.attack && currentState != PlayerState.stagger)//attack state
             {
+                UpdateFace();
                 StartCoroutine(AttackCo());
             }
             else if ((currentState == PlayerState.walk || currentState == PlayerState.idle || currentState == PlayerState.run)
@@ -127,6 +132,7 @@ public class PlayerController : MonoBehaviour
     {
         
         animator.SetBool("attacking", true);//start the attack anim
+        currentState = PlayerState.attack;
         switch (currentFace)
         {
             case PlayerFace.Down:
@@ -143,9 +149,10 @@ public class PlayerController : MonoBehaviour
                 break;
         }
         
-        currentState = PlayerState.attack;
+        
         yield return null;
-        animator.SetBool("attacking", false);//stop the attack anim
+
+        animator.SetBool("attacking", false);//stop the attack anim  
         yield return new WaitForSeconds(.3f);
         currentState = PlayerState.walk;
         HitBoxDown.SetActive(false);
@@ -228,9 +235,9 @@ public class PlayerController : MonoBehaviour
     {
         bottomLeftLimit = botLeft + new Vector3(.5f, 1f, 0f);
         topRightLimit = topRight + new Vector3(-.5f, -1f, 0f);
-    }
+    }*/
 
-    /*
+    
     public enum PlayerState
     {
         walk,
@@ -298,7 +305,7 @@ public class PlayerController : MonoBehaviour
                 {
                     StartCoroutine(AttackCo());
                 }
-                else if ((currentState == PlayerState.walk || currentState == PlayerState.idle)
+                else if ((currentState == PlayerState.walk || currentState == PlayerState.idle || currentState == PlayerState.run)
                           && Input.GetKey(KeyCode.LeftShift) && (Input.GetButton("Horizontal") || Input.GetButton("Vertical")))//running state
                 {
                     animator.SetBool("moving", true);
@@ -322,10 +329,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("attacking", false);//stop the attack anim
             yield return new WaitForSeconds(.3f);
             currentState = PlayerState.walk;
-            if (currentState != PlayerState.interact)
-            {
-                currentState = PlayerState.walk;
-            }
         }
 
         void UpdateAnimationAndMove()//mooving function
