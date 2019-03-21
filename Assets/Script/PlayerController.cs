@@ -86,9 +86,9 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(AttackCo());
             }
             else if ((currentState == PlayerState.walk || currentState == PlayerState.idle || currentState == PlayerState.run)
-                      && Input.GetKey(KeyCode.LeftShift) && (Input.GetButton("Horizontal") || Input.GetButton("Vertical")))//running state
+                      && Input.GetButton("Fire3") && (Input.GetButton("Horizontal") || Input.GetButton("Vertical")))//running state
             {
-                // animator.SetBool("moving", true);
+                 animator.SetBool("moving", true);
                 UpdateFace();
                 UpdateAnimationAndRun();             
             }
