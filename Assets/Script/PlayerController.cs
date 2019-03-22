@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public enum PlayerState
 {
     walk,
@@ -76,6 +76,7 @@ public class PlayerController : MonoBehaviour
     {
         if (canMovePlayer)//if the flag is true
         {
+            UpdateFace();
             if (currentState == PlayerState.interact)
             {
                 return;
@@ -85,21 +86,20 @@ public class PlayerController : MonoBehaviour
             change.y = Input.GetAxisRaw("Vertical");//for moving
             animator.SetBool("isRunning", false);//change animtion    
             animator.SetBool("moving", false);//change animtion
-            if (Input.GetKey(KeyCode.LeftControl) && currentState != PlayerState.attack && currentState != PlayerState.stagger)//attack state
+            if (Input.GetButtonDown("Fire1") && currentState != PlayerState.attack && currentState != PlayerState.stagger)//attack state
             {
                 UpdateFace();
                 StartCoroutine(AttackCo());
+                UpdateFace();
             }
             else if ((currentState == PlayerState.walk || currentState == PlayerState.idle || currentState == PlayerState.run)
                       && Input.GetButton("Fire3") && (Input.GetButton("Horizontal") || Input.GetButton("Vertical")))//running state
             {
                  animator.SetBool("moving", true);
-                UpdateFace();
                 UpdateAnimationAndRun();             
             }
             else if (currentState == PlayerState.walk || currentState == PlayerState.idle)//walking state
             {
-                UpdateFace();
                 UpdateAnimationAndMove();
             }
             //keep the camera inside the bounds
@@ -237,7 +237,7 @@ public class PlayerController : MonoBehaviour
         topRightLimit = topRight + new Vector3(-.5f, -1f, 0f);
     }///*/
 
-    /*
+    
     public enum PlayerState
     {
         walk,
@@ -300,8 +300,8 @@ public class PlayerController : MonoBehaviour
                 change.x = Input.GetAxisRaw("Horizontal");//for moving
                 change.y = Input.GetAxisRaw("Vertical");//for moving
                 animator.SetBool("isRunning", false);//change animtion    
-                animator.SetBool("moving", false);//change animtion
-                if (Input.GetKey(KeyCode.LeftControl) && currentState != PlayerState.attack && currentState != PlayerState.stagger)//attack state
+                animator.SetBool("moving", false);//change animtion     (Input.GetKey(KeyCode.LeftControl)
+                if (Input.GetButton("Fire1") && currentState != PlayerState.attack && currentState != PlayerState.stagger)//attack state
                 {
                     StartCoroutine(AttackCo());
                 }

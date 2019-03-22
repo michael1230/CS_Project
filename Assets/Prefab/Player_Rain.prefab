@@ -449,11 +449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2686fa5cb8279784ca7738c84899709d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentFace: 0
-  HitBoxDown: {fileID: 1148038089447850}
-  HitBoxUp: {fileID: 1658832561608360}
-  HitBoxLeft: {fileID: 1911523434174010}
-  HitBoxRight: {fileID: 1307587975358936}
   currentState: 0
   walkSpeed: 3.5
   runSpeed: 7.5
