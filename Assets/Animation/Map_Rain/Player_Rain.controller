@@ -228,8 +228,8 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: moveY
     m_Mirror: 0
-  m_BlendParameter: lastMoveX
-  m_BlendParameterY: lastMoveY
+  m_BlendParameter: moveX
+  m_BlendParameterY: moveY
   m_MinThreshold: 0
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
@@ -344,7 +344,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.57142854
   m_HasExitTime: 0
@@ -419,9 +419,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.014172302
   m_TransitionOffset: 0
-  m_ExitTime: 0.28571433
+  m_ExitTime: 0.28571436
   m_HasExitTime: 0
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
@@ -568,7 +568,7 @@ AnimatorStateMachine:
     m_Position: {x: -192, y: 264, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102479877837186274}
-    m_Position: {x: -192, y: 168, z: 0}
+    m_Position: {x: -300, y: 168, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102332738270714788}
     m_Position: {x: -432, y: 264, z: 0}
@@ -581,8 +581,8 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 72, y: 72, z: 0}
-  m_EntryPosition: {x: -168, y: 72, z: 0}
-  m_ExitPosition: {x: -168, y: 12, z: 0}
+  m_AnyStatePosition: {x: 84, y: 72, z: 0}
+  m_EntryPosition: {x: -276, y: 84, z: 0}
+  m_ExitPosition: {x: -108, y: 12, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 1102479877837186274}

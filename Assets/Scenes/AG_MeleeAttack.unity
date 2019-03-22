@@ -856,17 +856,6 @@ Prefab:
       propertyPath: path.Array.data[1]
       value: 
       objectReference: {fileID: 2078914942}
-    - target: {fileID: 114668086332539722, guid: f65ec1e74a9c9eb42963bff8a9a29535,
-        type: 2}
-      propertyPath: attackRadius
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114668086332539722, guid: f65ec1e74a9c9eb42963bff8a9a29535,
-        type: 2}
-      propertyPath: deathEffect
-      value: 
-      objectReference: {fileID: 1574220630175308, guid: c1784592266c8664aa898ba93c58ea07,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f65ec1e74a9c9eb42963bff8a9a29535, type: 2}
   m_IsPrefabAsset: 0
