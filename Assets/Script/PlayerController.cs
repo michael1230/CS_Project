@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/*
+
 public enum PlayerState
 {
     walk,
@@ -235,9 +235,9 @@ public class PlayerController : MonoBehaviour
     {
         bottomLeftLimit = botLeft + new Vector3(.5f, 1f, 0f);
         topRightLimit = topRight + new Vector3(-.5f, -1f, 0f);
-    }*/
+    }///*/
 
-    
+    /*
     public enum PlayerState
     {
         walk,
