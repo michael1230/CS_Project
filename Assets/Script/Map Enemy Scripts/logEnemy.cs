@@ -9,6 +9,8 @@ public class logEnemy : EnemyOnMap {
     public float chaseRaidius;
     public float attackRadius;
     public Transform homePosition; //for returning to base if not attacking
+
+    [Header("Animator")]
     public Animator anim;
 
 	// Use this for initialization
@@ -82,7 +84,7 @@ public class logEnemy : EnemyOnMap {
         }
     }
 
-    private void ChangeState(EnemyState newState)
+    public void ChangeState(EnemyState newState)
     {
         if (currentState != newState)
         {
