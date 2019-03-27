@@ -11,6 +11,10 @@ public class FireBall : MonoBehaviour {
 	void Start () {
 		
 	}
+    void Update()
+    {
+        Object.Destroy(gameObject, 2.0f);
+    }
 
     public void Setup(Vector2 velocity, Vector3 direction)
     {

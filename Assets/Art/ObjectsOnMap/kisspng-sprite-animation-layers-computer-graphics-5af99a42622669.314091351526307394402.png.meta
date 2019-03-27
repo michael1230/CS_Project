@@ -72,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -119,7 +119,7 @@ TextureImporter:
         width: 8
         height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,7 +139,7 @@ TextureImporter:
         width: 17
         height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -159,7 +159,7 @@ TextureImporter:
         width: 28
         height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -179,7 +179,7 @@ TextureImporter:
         width: 34
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,12 +194,12 @@ TextureImporter:
       name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_5
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 301
-        width: 44
+        width: 45
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -214,12 +214,12 @@ TextureImporter:
       name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_6
       rect:
         serializedVersion: 2
-        x: 132
+        x: 129
         y: 300
-        width: 46
+        width: 50
         height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,7 +239,7 @@ TextureImporter:
         width: 63
         height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -254,12 +254,12 @@ TextureImporter:
       name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_9
       rect:
         serializedVersion: 2
-        x: 376
+        x: 392
         y: 299
-        width: 72
+        width: 56
         height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -274,12 +274,12 @@ TextureImporter:
       name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_10
       rect:
         serializedVersion: 2
-        x: 12
+        x: 25
         y: 175
-        width: 72
+        width: 56
         height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -294,12 +294,12 @@ TextureImporter:
       name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_11
       rect:
         serializedVersion: 2
-        x: 144
+        x: 160
         y: 175
-        width: 72
+        width: 56
         height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -314,12 +314,12 @@ TextureImporter:
       name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_13
       rect:
         serializedVersion: 2
-        x: 279
+        x: 294
         y: 174
-        width: 72
+        width: 56
         height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -334,12 +334,12 @@ TextureImporter:
       name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_14
       rect:
         serializedVersion: 2
-        x: 410
-        y: 175
-        width: 72
+        x: 426
+        y: 174
+        width: 56
         height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -354,12 +354,12 @@ TextureImporter:
       name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_15
       rect:
         serializedVersion: 2
-        x: 44
+        x: 60
         y: 50
-        width: 72
+        width: 56
         height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
