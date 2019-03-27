@@ -225,7 +225,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4915181274448254, guid: 016bbc6571c2c1a49861d9a6bb41f4e4, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 016bbc6571c2c1a49861d9a6bb41f4e4, type: 2}
@@ -501,6 +501,48 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 299833221}
   m_CullTransparentMesh: 0
+--- !u!1001 &324430242
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4039334700961018, guid: 3a865e55ca249724ca2346f8eef460d7, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.18420944
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039334700961018, guid: 3a865e55ca249724ca2346f8eef460d7, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.5121274
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039334700961018, guid: 3a865e55ca249724ca2346f8eef460d7, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039334700961018, guid: 3a865e55ca249724ca2346f8eef460d7, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039334700961018, guid: 3a865e55ca249724ca2346f8eef460d7, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039334700961018, guid: 3a865e55ca249724ca2346f8eef460d7, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039334700961018, guid: 3a865e55ca249724ca2346f8eef460d7, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039334700961018, guid: 3a865e55ca249724ca2346f8eef460d7, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3a865e55ca249724ca2346f8eef460d7, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &328284902
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,7 +821,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &370571408
 Animator:
@@ -1040,7 +1082,7 @@ RectTransform:
   - {fileID: 299833222}
   - {fileID: 659261523}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1107,7 +1149,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &535558848
 GameObject:
@@ -1448,7 +1490,7 @@ Transform:
   - {fileID: 1391323958}
   - {fileID: 2010363566}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &837804630
 Prefab:
@@ -1487,7 +1529,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4965227105638466, guid: 7a0e3af63ba27444daf7cb23c2c4c67c, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a0e3af63ba27444daf7cb23c2c4c67c, type: 2}
@@ -53256,7 +53298,7 @@ GameObject:
   - component: {fileID: 955513981}
   - component: {fileID: 955513982}
   - component: {fileID: 955513983}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: down hit box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53348,7 +53390,7 @@ Transform:
   - {fileID: 411445863}
   - {fileID: 1079908598}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1079908597
 GameObject:
@@ -53364,9 +53406,9 @@ GameObject:
   - component: {fileID: 1079908600}
   - component: {fileID: 1079908599}
   - component: {fileID: 1079908604}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: orge
-  m_TagString: Untagged
+  m_TagString: SmallMapEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53539,7 +53581,6 @@ MonoBehaviour:
   enemyName: ogre
   baseAttack: 4
   moveSpeed: 1
-  homePosition: {x: -8, y: -4}
   deathEffect: {fileID: 1574220630175308, guid: c1784592266c8664aa898ba93c58ea07,
     type: 2}
   myRigidbody: {fileID: 1079908602}
@@ -53722,7 +53763,7 @@ Transform:
   - {fileID: 1941161738}
   - {fileID: 2078914942}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1136286599
 Prefab:
@@ -53781,7 +53822,7 @@ GameObject:
   - component: {fileID: 1170697855}
   - component: {fileID: 1170697856}
   - component: {fileID: 1170697857}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right hit box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53938,7 +53979,7 @@ GameObject:
   - component: {fileID: 1331648567}
   - component: {fileID: 1331648568}
   - component: {fileID: 1331648569}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left hit box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54037,23 +54078,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4588857567065908, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
       propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658832561608360, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911523434174010, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307587975358936, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1148038089447850, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
@@ -54205,7 +54230,7 @@ GameObject:
   - component: {fileID: 1469574238}
   - component: {fileID: 1469574239}
   - component: {fileID: 1469574240}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: up hit box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54852,7 +54877,6 @@ MonoBehaviour:
   enemyName: Bob
   baseAttack: 1
   moveSpeed: 1.5
-  homePosition: {x: 0, y: 0}
   deathEffect: {fileID: 0}
   myRigidbody: {fileID: 0}
   target: {fileID: 0}
@@ -55187,5 +55211,5 @@ Transform:
   - {fileID: 878973842}
   - {fileID: 1101486166}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

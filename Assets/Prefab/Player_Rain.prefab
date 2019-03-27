@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4656702474132866}
   - component: {fileID: 60696287583225936}
   - component: {fileID: 114518133026385070}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: down hit box
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4752027925528756}
   - component: {fileID: 60758473680701232}
   - component: {fileID: 114018206403929656}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: right hit box
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 50021531448033430}
   - component: {fileID: 61768927980660576}
   - component: {fileID: 61943415165131474}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player_Rain
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 4148394604033050}
   - component: {fileID: 60553705975918930}
   - component: {fileID: 114191439632840566}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 'up hit box '
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 4922147272522890}
   - component: {fileID: 60889341808562490}
   - component: {fileID: 114827888908643970}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 'left hit box '
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -456,6 +456,7 @@ MonoBehaviour:
   areaTransitionName: 
   currentHealth: {fileID: 11400000, guid: 867c4c96ffc6e7f428c5bf92eace0277, type: 2}
   playerHealthSignal: {fileID: 11400000, guid: e33c07a445f20244a8f41e4cebfdd5eb, type: 2}
+  projectile: {fileID: 1987229610183826, guid: 3a865e55ca249724ca2346f8eef460d7, type: 2}
 --- !u!114 &114518133026385070
 MonoBehaviour:
   m_ObjectHideFlags: 1

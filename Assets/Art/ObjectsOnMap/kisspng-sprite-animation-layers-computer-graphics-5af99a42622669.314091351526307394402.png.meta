@@ -1,0 +1,386 @@
+fileFormatVersion: 2
+guid: 7013de7fbcfafb545a45e9e937d5aeaf
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_0
+    21300002: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_1
+    21300004: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_2
+    21300006: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_3
+    21300008: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_4
+    21300010: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_5
+    21300012: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_6
+    21300014: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_7
+    21300016: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_8
+    21300018: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_9
+    21300020: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_10
+    21300022: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_11
+    21300024: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_12
+    21300026: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_13
+    21300028: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_14
+    21300030: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_15
+    21300032: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_16
+    21300034: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_17
+    21300036: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_18
+    21300038: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_19
+    21300040: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_20
+    21300042: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_21
+    21300044: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_22
+    21300046: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_23
+    21300048: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_24
+    21300050: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_25
+    21300052: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_26
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 426
+        width: 8
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e50ff92eae755d3489a5c3775027a3f4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_1
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 424
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d26817ba431488a46baa7d894c00d924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_2
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 424
+        width: 28
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef10f7728922b6c4da464182a51a7e4c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_3
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 425
+        width: 34
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a5e787a5d1ae894ebc186bf46b564de
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 301
+        width: 44
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aa26e22a7f032f46b0b831d95ca9729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_6
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 300
+        width: 46
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a44b5460b9057464eb6466412c8bef22
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_7
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 301
+        width: 63
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dfabd8e915a2c2468386bfe1ad64194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_9
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 299
+        width: 72
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5d02c5fba013314399d8b1c1e98936f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_10
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 175
+        width: 72
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc8644bb2256cd740838412c0282a3d5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_11
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 175
+        width: 72
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86692c74182df0449a28fd57c11bd89b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_13
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 174
+        width: 72
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c69fe5a856eacb141af69ceef382e542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_14
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 175
+        width: 72
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16c2c715cd61284cbc97826e38d3415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_15
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 50
+        width: 72
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2d10bba2cc2c4a46978cc1b872bfa89
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: e7552205b1ce7574d80db7976e9e8575
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
