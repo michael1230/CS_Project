@@ -31,7 +31,7 @@ public class PatrolLog : logEnemy {
         else if (Vector3.Distance(target.position,
                           transform.position) > chaseRaidius)
         {
-            if(Vector3.Distance(transform.position, path[currentPoint].position) >roundingDistance)
+            if(Vector3.Distance(transform.position, path[currentPoint].position) >roundingDistance && currentState != EnemyState.stagger)
             {
                 Vector3 temp = Vector3.MoveTowards(transform.position,
                                    path[currentPoint].position,//moves to the point
