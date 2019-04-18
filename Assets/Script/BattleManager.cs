@@ -30,7 +30,6 @@ public class BattleManager : MonoBehaviour
 
     public PlayerInfoHandler[] playersInfos;
 
-    public GameObject battleMenuHolder;
     public BattleTargetButton[] targetButtons;
     public BattleMagicSelect[] magicButtons;
     public BattleSpecialSelect[] specialButtons;
@@ -60,12 +59,12 @@ public class BattleManager : MonoBehaviour
             {
                 if (activeBattlers[currentTurn].isPlayer)//if the current Turn is of player
                 {
-                    battleMenuHolder.SetActive(true);//show the battle menu
+                    BattleMenus.offMenu(true);
                     currentPlayerText.text = activeBattlers[currentTurn].charName;//write the name of the current char                   
                 }
                 else//if its not the player
                 {
-                    battleMenuHolder.SetActive(false);//turnoff the battle menu
+                    BattleMenus.offMenu(false);
                     StartCoroutine(EnemyMoveCo());//start the Coroutine for the enemy turn
                 }
             }
@@ -373,7 +372,6 @@ public class BattleManager : MonoBehaviour
             float defPwr = activeBattlers[target].defense + activeBattlers[target].statusBounus[1];
             float damageCalc = (atkPwr / defPwr) * move.movePower;
             damageToGive = Mathf.RoundToInt(damageCalc);
-            //activeBattlers[target].currentHP -= damageToGive;//take hp
             if (activeBattlers[currentTurn].isPlayer)
             {
                 if (move.isAttck())
@@ -517,7 +515,7 @@ public class BattleManager : MonoBehaviour
         //NextTurn();
         StartCoroutine(moveBackAndNextTurnCo());
     }
-    public IEnumerator animeteSelfMagicCo(int target, BattleMove move)//for Attacking one enemy.. skill effects 
+    public IEnumerator animeteSelfMagicCo(int target, BattleMove move)//for support one ally.. skill effects 
     {
         activeBattlers[currentTurn].anim.SetBool(move.animateName, true);
         Instantiate(move.theEffect, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation);       
@@ -525,7 +523,7 @@ public class BattleManager : MonoBehaviour
         activeBattlers[currentTurn].anim.SetBool(move.animateName, false);
         StartCoroutine(moveBackAndNextTurnCo());
     }
-    public IEnumerator animeteSelfSpecialCo(BattleMove move)//for Attacking all enemy.. one effect 
+    public IEnumerator animeteSelfSpecialCo(BattleMove move)//for support all enemy.. one effect 
     {
         activeBattlers[currentTurn].anim.SetBool(move.animateName, true);
         yield return new WaitWhile(() => activeBattlers[currentTurn].effect1 == false);
@@ -572,7 +570,6 @@ public class BattleManager : MonoBehaviour
         activeBattlers[currentTurn].moveToPostion(activeBattlers[currentTurn].transform, playerPositions[index].transform);
         yield return new WaitWhile(() => activeBattlers[currentTurn].transform.position != playerPositions[index].transform.position);
         activeBattlers[currentTurn].anim.SetBool("Move", false);
-        battleMenuHolder.SetActive(false);//turn off the menu do prevent the player for pressing the buttons twice
         BattleMenus.goToMenu(0, 0);
         BattleMenus.buttonSelect();
         NextTurn();
@@ -580,7 +577,6 @@ public class BattleManager : MonoBehaviour
     public IEnumerator waitBeforeBackCo()//wait for enemy
     {
         yield return new WaitForSeconds(1f);
-        StartCoroutine(moveBackAndNextTurnCo());
     }
     public IEnumerator moveToAtkPosAndActCo(BattleMove move, BattleItem item, int selectedTarget, bool offense)
     {
@@ -609,7 +605,8 @@ public class BattleManager : MonoBehaviour
     }
     public void PlayerAction(BattleMove move, BattleItem item, int selectedTarget,bool offense)//a method for player attack//////////////add animation //////////////
     {
-        StartCoroutine(moveToAtkPosAndActCo( move,  item,  selectedTarget,  offense));
+        BattleMenus.offButtons();
+        StartCoroutine(moveToAtkPosAndActCo( move,  item,  selectedTarget,  offense));       
     }
     public void OpenTargetMenu(BattleMove attackMove,int fromMenu)//a method for opening the target menu
     {

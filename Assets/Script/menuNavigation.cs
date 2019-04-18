@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class MenuNavigation : MonoBehaviour
 {
     public GameObject[] theMenus;//all the battle menus
-    public int currentMenu =0;//the current menu
-    public int previousMenu =0;//the previous menu for knowing where to go back from target and self menu
+    public GameObject theBattaleMenusHolder;//all the battle menus
+    public int currentMenu = 0;//the current menu
+    public int previousMenu = 0;//the previous menu for knowing where to go back from target and self menu
     public Button[] menuButtons;//the buttons on the current menu
 
     // Use this for initialization
@@ -18,7 +19,7 @@ public class MenuNavigation : MonoBehaviour
         {
             if (i == 0)
             {
-                theMenus[i].SetActive(true);             
+                theMenus[i].SetActive(true);
             }
             else
             {
@@ -27,8 +28,8 @@ public class MenuNavigation : MonoBehaviour
             this.buttonSelect();//select the first available button
         }
     }
-	// Update is called once per frame
-	void Update ()
+    // Update is called once per frame
+    void Update()
     {
 
         if (Input.GetButtonDown(("Fire2")))//the back button
@@ -44,8 +45,8 @@ public class MenuNavigation : MonoBehaviour
         }
     }
     public void backMenu()//a method forgoing to the previous Menu
-    {       
-        if(currentMenu==5|| currentMenu==6)//if we are in the target or self menu
+    {
+        if (currentMenu == 5 || currentMenu == 6)//if we are in the target or self menu
         {
             this.goToMenu(previousMenu, currentMenu);//go to previous
         }
@@ -56,7 +57,7 @@ public class MenuNavigation : MonoBehaviour
         }
         this.buttonSelect();//select the first available button
     }
-    public void goToMenu(int menuNext,int menuNow)//a method for goint into a menu
+    public void goToMenu(int menuNext, int menuNow)//a method for goint into a menu
     {
         for (int i = 0; i < theMenus.Length; i++)//go on all the battle menu
         {
@@ -80,11 +81,26 @@ public class MenuNavigation : MonoBehaviour
         bool alreadySelected = false;//a flag to know if we already Selected a button
         for (int i = 0; i < menuButtons.Length; i++)
         {
-            if ((menuButtons[i].interactable == true)&&(alreadySelected==false))//if the button is available to select and we haven't still selected a button
+            if ((menuButtons[i].interactable == true) && (alreadySelected == false))//if the button is available to select and we haven't still selected a button
             {
                 menuButtons[i].Select();//select it
                 alreadySelected = true;//rise the flag
-            }                    
+            }
+        }
+    }
+    //public void offMenu()
+    public void offMenu(bool state)
+    {
+        theBattaleMenusHolder.SetActive(state);
+    }
+    public void offButtons()
+    {
+        for (int i = 0; i < theMenus.Length; i++)//go on all the battle menu
+        {
+            {
+                theMenus[i].SetActive(false);//show it
+
+            }
         }
     }
 }

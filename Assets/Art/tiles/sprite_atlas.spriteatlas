@@ -1264,6 +1264,7 @@ SpriteAtlas:
   - {fileID: 21300238, guid: 6cac031bed6779c46a20745f38894b77, type: 3}
   - {fileID: 21300218, guid: 6cac031bed6779c46a20745f38894b77, type: 3}
   - {fileID: 21300216, guid: 6cac031bed6779c46a20745f38894b77, type: 3}
+  - {fileID: 21300000, guid: a0b8decdad3bc474fb8a415101d42718, type: 3}
   - {fileID: 21300030, guid: 7013de7fbcfafb545a45e9e937d5aeaf, type: 3}
   - {fileID: 21300028, guid: 7013de7fbcfafb545a45e9e937d5aeaf, type: 3}
   - {fileID: 21300022, guid: 7013de7fbcfafb545a45e9e937d5aeaf, type: 3}
@@ -2497,6 +2498,7 @@ SpriteAtlas:
   - objects_119
   - objects_109
   - objects_108
+  - WhiteDot
   - kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_15
   - kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_14
   - kisspng-sprite-animation-layers-computer-graphics-5af99a42622669.314091351526307394402_11
