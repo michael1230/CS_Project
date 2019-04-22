@@ -20,4 +20,9 @@ public class WorldTile : MonoBehaviour
             return gCost + hCost;
         }
     }
+
+    public List<WorldTile> getMyNeighbours()
+    {
+        return myNeighbours;
+    }
 }

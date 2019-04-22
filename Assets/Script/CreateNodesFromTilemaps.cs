@@ -47,7 +47,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        NodeFromPosition(PlayerController.instance.transform);////////////////////////////////
+        //NodeFromPosition(PlayerController.instance.transform.position);////////////////////////////////
     }
 
     void Start()//////////////////////////////////////////////////////////////////////////////////////
@@ -59,7 +59,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
 
     public int gridBoundX = 0, gridBoundY = 0;
 
-    public void NodeFromPosition(Transform pos)//a method get the node from the position
+    public WorldTile NodeFromPosition(Vector3 pos)//a method get the node from the position
     {
         WorldTile firstWorldTile = nodes[0, 0].GetComponent<WorldTile>();//the first node to get the min X and Y of the map
         int wxp = Mathf.FloorToInt(firstWorldTile.transform.position.x);//the floor of pos.x
@@ -68,16 +68,19 @@ public class CreateNodesFromTilemaps : MonoBehaviour
         int columnY = 0;//the column for the nodes array
         float resultX = ((float)maxXFloor / Mathf.Abs(wxp));//for the next formula
         float resultY = ((float)maxYFloor / Mathf.Abs(wyp));//for the next formula
-        float percentX = (pos.position.x + maxXFloor/ resultX) / maxXFloor;//the percent of pos.x from the grid itself
-        float percentY = (pos.position.y + maxYFloor / resultY) / maxYFloor;//the percent of pos.y from the grid itself
+        //float percentX = (pos.position.x + maxXFloor/ resultX) / maxXFloor;//the percent of pos.x from the grid itself
+        float percentX = (pos.x + maxXFloor / resultX) / maxXFloor;//the percent of pos.x from the grid itself
+        //float percentY = (pos.position.y + maxYFloor / resultY) / maxYFloor;//the percent of pos.y from the grid itself
+        float percentY = (pos.y + maxYFloor / resultY) / maxYFloor;//the percent of pos.y from the grid itself
+        percentX = Mathf.Clamp01(percentX);//in case we not between 0 to 1
         percentX = Mathf.Clamp01(percentX);//in case we not between 0 to 1
 		percentY = Mathf.Clamp01(percentY);//in case we not between 0 to 1
         rowX = Mathf.RoundToInt((maxXFloor - 1) * percentX);//the row index for the node in pos.x
         columnY = Mathf.RoundToInt((maxYFloor - 1) * percentY);//the column index for the node in pos.y
         WorldTile worldTileOfPos = nodes[rowX, columnY].GetComponent<WorldTile>();//the node itself
         //return worldTileOfPos;//////to add later and change from void to node
-        //worldTileOfPos.GetComponent<SpriteRenderer>().color = Color.blue; for test
-
+        //worldTileOfPos.GetComponent<SpriteRenderer>().color = Color.blue; 
+        return worldTileOfPos;
 
 
     }
