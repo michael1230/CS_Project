@@ -6,14 +6,11 @@ public class APathfinding : MonoBehaviour {
 
     public Transform seeker;
     public Transform target;
-    //public CreateNodesFromTilemaps grid;
     public List<WorldTile> path;
 
 
     void Awake()
     {
-        //grid = GetComponent<CreateNodesFromTilemaps>();
-        //grid = CreateNodesFromTilemaps.instance;
     }
     void Start()
     {
@@ -43,22 +40,20 @@ public class APathfinding : MonoBehaviour {
 
     }
 
-    //public void FindPath(Vector3 startPos, Vector3 targetPos)
     public void FindPath(Transform startPos, Transform targetPos)
     {
         WorldTile startNode = CreateNodesFromTilemaps.instance.NodeFromPosition(startPos.position);
         WorldTile targetNode = CreateNodesFromTilemaps.instance.NodeFromPosition(targetPos.position);
 
-        //WorldTile startNode = grid.NodeFromPosition(startPos.position);
-        //WorldTile targetNode = grid.NodeFromPosition(targetPos.position);
+        //List <WorldTile> openSet = new List<WorldTile>();
+        Heap<WorldTile> openSet = new Heap<WorldTile>(CreateNodesFromTilemaps.instance.MaxSize);
 
-        List <WorldTile> openSet = new List<WorldTile>();
         HashSet<WorldTile> closedSet = new HashSet<WorldTile>();
         openSet.Add(startNode);
 
         while (openSet.Count > 0)
         {
-            WorldTile currentWorldTile = openSet[0];
+            /*WorldTile currentWorldTile = openSet[0];
             for (int i = 1; i < openSet.Count; i++)
             {
                 if (openSet[i].fCost < currentWorldTile.fCost || openSet[i].fCost == currentWorldTile.fCost)
@@ -76,6 +71,17 @@ public class APathfinding : MonoBehaviour {
                 RetracePath(startNode, targetNode);
                 return;
             }
+            */
+            WorldTile currentWorldTile = openSet.RemoveFirst();
+            closedSet.Add(currentWorldTile);
+
+            if (currentWorldTile == targetNode)
+            {
+                RetracePath(startNode, targetNode);
+                return;
+            }
+
+
 
             foreach (WorldTile neighbour in currentWorldTile.getMyNeighbours())
             {
@@ -93,6 +99,10 @@ public class APathfinding : MonoBehaviour {
 
                     if (!openSet.Contains(neighbour))
                         openSet.Add(neighbour);
+                    else
+                    {
+                        openSet.UpdateItem(neighbour);
+                    }
                 }
             }
         }

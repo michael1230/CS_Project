@@ -85,6 +85,15 @@ public class CreateNodesFromTilemaps : MonoBehaviour
 
     }
 
+    public int MaxSize////////////////////////////////////////////////////////////////////////////////
+    {
+        get
+        {
+            return maxXFloor * maxYFloor;
+        }
+    }
+
+
     void createNodes()
     {
         int gridX = 0; //use these to work out the size and where each node should be in the 2d array we'll use to store our nodes so we can work out neighbours and get paths

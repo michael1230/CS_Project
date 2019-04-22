@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorldTile : MonoBehaviour
+public class WorldTile : MonoBehaviour , IHeapItem<WorldTile>
 {
     public int gCost;
     public int hCost;
     public int gridX;
     public int gridY;
+    public int heapIndex;
     public Vector3 gridPosition;
     public bool walkable=true;
     public List<WorldTile> myNeighbours;
@@ -25,4 +26,28 @@ public class WorldTile : MonoBehaviour
     {
         return myNeighbours;
     }
+
+    public int HeapIndex
+    {
+        get
+        {
+            return heapIndex;
+        }
+        set
+        {
+            heapIndex = value;
+        }
+    }
+
+    public int CompareTo(WorldTile nodeToCompare)
+    {
+        int compare = fCost.CompareTo(nodeToCompare.fCost);
+        if (compare == 0)
+        {
+            compare = hCost.CompareTo(nodeToCompare.hCost);
+        }
+        return -compare;
+    }
+
+
 }
