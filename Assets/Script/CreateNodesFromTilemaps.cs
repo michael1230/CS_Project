@@ -6,7 +6,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
 {
 
 
-    public static CreateNodesFromTilemaps instance;//////////////////////////////////////////////////////////////////////////////////////
+    //public static CreateNodesFromTilemaps instance;//////////////////////////////////////////////////////////////////////////////////////
 
     //changed execution order for this and world builder
     public bool displayGridGizmos;//////////////////////////////////////////////////////////////////////////////////
@@ -51,8 +51,8 @@ public class CreateNodesFromTilemaps : MonoBehaviour
 
     void Start()//////////////////////////////////////////////////////////////////////////////////////
     {
-        instance = this;
-        DontDestroyOnLoad(gameObject);
+        //instance = this;
+        //DontDestroyOnLoad(gameObject);
 
     }//////////////////////////////////////////////////////////////////////////////////////
 
@@ -222,12 +222,11 @@ public class CreateNodesFromTilemaps : MonoBehaviour
         {
             foreach (WorldTile n in wTNodes)
             {
-               // if (n != null)
-               // {
+                if (n != null)
+                {
                     Gizmos.color = (n.walkable) ? Color.white : Color.red;
                     Gizmos.DrawCube(new Vector3(n.gridPosition.x + 0.5f, n.gridPosition.y + 0.5f, 0), Vector3.one * (0.5f));
-               // }
-
+                }
             }
         }
     }

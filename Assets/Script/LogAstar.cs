@@ -24,7 +24,7 @@ public class LogAstar : EnemyOnMap
         currentState = EnemyState.idle;//first state is idle
         myRigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        //target = GameObject.FindWithTag("Player").transform; //finds the player location
+        target = GameObject.FindWithTag("Player").transform; //finds the player location
         PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
         anim.SetBool("wakeUp", true);
         ChangeState(EnemyState.walk);
@@ -57,11 +57,34 @@ public class LogAstar : EnemyOnMap
             }
 
             transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime);
+            //changeAnim(temp - transform.position);
+           // myRigidbody.MovePosition(Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime));
+            ChangeState(EnemyState.walk);
+            anim.SetBool("wakeUp", true);
             yield return null;
 
         }
     }
+    public void OnDrawGizmos()
+    {
+        if (path != null)
+        {
+            for (int i = targetIndex; i < path.Length; i++)
+            {
+                Gizmos.color = Color.black;
+                Gizmos.DrawCube(path[i], Vector3.one);
 
+                if (i == targetIndex)
+                {
+                    Gizmos.DrawLine(transform.position, path[i]);
+                }
+                else
+                {
+                    Gizmos.DrawLine(path[i - 1], path[i]);
+                }
+            }
+        }
+    }
 
 
 

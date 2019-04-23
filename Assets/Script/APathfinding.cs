@@ -9,12 +9,14 @@ public class APathfinding : MonoBehaviour {
     //public Transform target;
 
     PathRequestManager requestManager;
+    CreateNodesFromTilemaps grid;
     public List<WorldTile> path;
 
 
     void Awake()
     {
         requestManager = GetComponent<PathRequestManager>();
+        grid = GetComponent<CreateNodesFromTilemaps>();
     }
     void Start()
     {
@@ -35,13 +37,22 @@ public class APathfinding : MonoBehaviour {
     {
         Vector3[] waypoints = new Vector3[0];
         bool pathSuccess = false;
-
+        /*
         WorldTile startNode = CreateNodesFromTilemaps.instance.NodeFromPosition(startPos);
         WorldTile targetNode = CreateNodesFromTilemaps.instance.NodeFromPosition(targetPos);
+        */
+
+        if (grid == null)
+        {
+            Debug.Log("CreateNodesFromTilemaps is null ");
+        }
+        WorldTile startNode = grid.NodeFromPosition(startPos);
+        WorldTile targetNode = grid.NodeFromPosition(targetPos);
 
         if (startNode.walkable && targetNode.walkable)
         {
-            Heap<WorldTile> openSet = new Heap<WorldTile>(CreateNodesFromTilemaps.instance.MaxSize);
+            //Heap<WorldTile> openSet = new Heap<WorldTile>(CreateNodesFromTilemaps.instance.MaxSize);
+            Heap<WorldTile> openSet = new Heap<WorldTile>(grid.MaxSize);
             HashSet<WorldTile> closedSet = new HashSet<WorldTile>();
             openSet.Add(startNode);
             while (openSet.Count > 0)
