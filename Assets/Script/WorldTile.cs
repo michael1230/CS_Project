@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorldTile : MonoBehaviour , IHeapItem<WorldTile>
+public class WorldTile :IHeapItem<WorldTile>
 {
     public int gCost;
     public int hCost;
@@ -10,9 +10,21 @@ public class WorldTile : MonoBehaviour , IHeapItem<WorldTile>
     public int gridY;
     public int heapIndex;
     public Vector3 gridPosition;
-    public bool walkable=true;
+    public bool walkable;
     public List<WorldTile> myNeighbours;
     public WorldTile parent;
+
+
+
+
+
+    public WorldTile(bool walkable, Vector3 worldPos, int gridX, int gridY)
+    {
+        this.gridX = gridX;
+        this.gridY = gridY;
+        this.walkable = walkable;
+        this.gridPosition = worldPos;
+    }
 
     public int fCost
     {

@@ -4,37 +4,36 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 public class CreateNodesFromTilemaps : MonoBehaviour
 {
-    //did some stuff to the actions in npc so they can get closer to the Nodes without the glitchyness
 
 
     public static CreateNodesFromTilemaps instance;//////////////////////////////////////////////////////////////////////////////////////
 
     //changed execution order for this and world builder
+    public bool displayGridGizmos;//////////////////////////////////////////////////////////////////////////////////
     public Grid gridBase;
     public Tilemap floor;//floor of world
     private int maxXFloor;
     private int maxYFloor;
     public List<Tilemap> obstacleLayers; //all layers that contain objects to navigate around
-    public GameObject nodePrefab;
     public int unwalkableNodeBorder = 1;
     //these are the bounds of where we are searching in the world for tiles, have to use world coords to check for tiles in the tile map
     public int scanStartX = -250, scanStartY = -250, scanFinishX = 250, scanFinishY = 250;
 
 
-    public List<GameObject> unsortedNodes;//all the nodes in the world
-    public GameObject[,] nodes; //sorted 2d array of nodes, may contain null entries if the map is of an odd shape e.g. gaps
+    //public List<GameObject> unsortedNodes;//all the nodes in the world
+    //public GameObject[,] nodes; //sorted 2d array of nodes, may contain null entries if the map is of an odd shape e.g. gaps
+
+
+    public List<WorldTile> wTYnsortedNodes;//all the nodes in the world
+    public WorldTile[,] wTNodes;
+
     // Use this for initialization
     void Awake()
     {
-        unsortedNodes = new List<GameObject>();
-        //Debug.Log ("Floor is size "+floor.size);
-        //foreach (Tilemap t in obstacleLayers) {
-        //  Debug.Log ("Obstacle " + t.name + " Is size " + t.size);
-        //}
-
-        generateNodes();
+        wTYnsortedNodes = new List<WorldTile>();
         maxXFloor = floor.size.x;//Map size
         maxYFloor = floor.size.y;
+        generateNodes();
     }
 
     public void generateNodes()
@@ -61,9 +60,9 @@ public class CreateNodesFromTilemaps : MonoBehaviour
 
     public WorldTile NodeFromPosition(Vector3 pos)//a method get the node from the position
     {
-        WorldTile firstWorldTile = nodes[0, 0].GetComponent<WorldTile>();//the first node to get the min X and Y of the map
-        int wxp = Mathf.FloorToInt(firstWorldTile.transform.position.x);//the floor of pos.x
-        int wyp = Mathf.FloorToInt(firstWorldTile.transform.position.y);//the floor of pos.y
+        WorldTile firstWorldTile = wTNodes[0, 0];//the first node to get the min X and Y of the map
+        int wxp = Mathf.FloorToInt(firstWorldTile.gridPosition.x);//the floor of pos.x
+        int wyp = Mathf.FloorToInt(firstWorldTile.gridPosition.y);//the floor of pos.y
         int rowX = 0;//the row for the nodes array
         int columnY = 0;//the column for the nodes array
         float resultX = ((float)maxXFloor / Mathf.Abs(wxp));//for the next formula
@@ -74,15 +73,13 @@ public class CreateNodesFromTilemaps : MonoBehaviour
         float percentY = (pos.y + maxYFloor / resultY) / maxYFloor;//the percent of pos.y from the grid itself
         percentX = Mathf.Clamp01(percentX);//in case we not between 0 to 1
         percentX = Mathf.Clamp01(percentX);//in case we not between 0 to 1
-		percentY = Mathf.Clamp01(percentY);//in case we not between 0 to 1
+        percentY = Mathf.Clamp01(percentY);//in case we not between 0 to 1
         rowX = Mathf.RoundToInt((maxXFloor - 1) * percentX);//the row index for the node in pos.x
         columnY = Mathf.RoundToInt((maxYFloor - 1) * percentY);//the column index for the node in pos.y
-        WorldTile worldTileOfPos = nodes[rowX, columnY].GetComponent<WorldTile>();//the node itself
+        WorldTile worldTileOfPos = wTNodes[rowX, columnY];//the node itself
         //return worldTileOfPos;//////to add later and change from void to node
         //worldTileOfPos.GetComponent<SpriteRenderer>().color = Color.blue; 
         return worldTileOfPos;
-
-
     }
 
     public int MaxSize////////////////////////////////////////////////////////////////////////////////
@@ -142,27 +139,15 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                     if (foundObstacle == false)
                     {
                         //if we havent found an obstacle then we create a walkable node and assign its grid coords
-                        GameObject node = (GameObject)Instantiate(nodePrefab, new Vector3(x + 0.5f + gridBase.transform.position.x, y + 0.5f + gridBase.transform.position.y, 0), Quaternion.Euler(0, 0, 0));
-                        WorldTile wt = node.GetComponent<WorldTile>();
-                        wt.gridX = gridX;
-                        wt.gridY = gridY;
-                        foundTileOnLastPass = true; //say that we have found a tile so we know to increment the index counters
-                        unsortedNodes.Add(node);
-                        node.name = "NODE " + gridX.ToString() + " : " + gridY.ToString();
+                        WorldTile wt = new WorldTile(true, new Vector3(x, y, 0), gridX, gridY);
+                        wTYnsortedNodes.Add(wt);
+                        foundTileOnLastPass = true;
                     }
                     else
                     {
-                        //if we have found an obstacle then we do the same but make the node unwalkable
-                        GameObject node = (GameObject)Instantiate(nodePrefab, new Vector3(x + 0.5f + gridBase.transform.position.x, y + 0.5f + gridBase.transform.position.y, 0), Quaternion.Euler(0, 0, 0));
-                        //we add the gridBase position to ensure that the nodes are ontop of the tile they relate too
-                        node.GetComponent<SpriteRenderer>().color = Color.red;
-                        WorldTile wt = node.GetComponent<WorldTile>();
-                        wt.gridX = gridX;
-                        wt.gridY = gridY;
-                        wt.walkable = false;
+                        WorldTile wt = new WorldTile(false, new Vector3(x, y, 0), gridX, gridY);
+                        wTYnsortedNodes.Add(wt);
                         foundTileOnLastPass = true;
-                        unsortedNodes.Add(node);
-                        node.name = "UNWALKABLE NODE " + gridX.ToString() + " : " + gridY.ToString();
                     }
                     gridY++; //increment the y counter
                     if (gridX > gridBoundX)
@@ -185,34 +170,51 @@ public class CreateNodesFromTilemaps : MonoBehaviour
             }
         }
         //put nodes into 2d array based on the
-        nodes = new GameObject[gridBoundX + 1, gridBoundY + 1];//initialise the 2d array that will store our nodes in their position
-        foreach (GameObject g in unsortedNodes)
+        wTNodes = new WorldTile[gridBoundX + 1, gridBoundY + 1];//initialise the 2d array that will store our nodes in their position
+        foreach (WorldTile wt in wTYnsortedNodes)
         { //go through the unsorted list of nodes and put them into the 2d array in the correct position
-            WorldTile wt = g.GetComponent<WorldTile>();
-            //Debug.Log (wt.gridX + " " + wt.gridY);
-            nodes[wt.gridX, wt.gridY] = g;
+            wTNodes[wt.gridX, wt.gridY] = wt;
         }
         //assign neighbours to nodes
         for (int x = 0; x < gridBoundX; x++)
         { //go through the 2d array and assign the neighbours of each node
             for (int y = 0; y < gridBoundY; y++)
             {
-                if (nodes[x, y] == null)
+                if (wTNodes[x, y] == null)
                 { //check if the coords in the array contain a node
                 }
                 else
                 {
-                    WorldTile wt = nodes[x, y].GetComponent<WorldTile>(); //if they do then assign the neighbours
-                    //if (wt.walkable == true) {
-                    wt.myNeighbours = getNeighbours(x, y, gridBoundX, gridBoundY);
-                    //}
+                    WorldTile wt = wTNodes[x, y]; //if they do then assign the neighbours
+                    wt.myNeighbours = GetNeighbours(wt);
                 }
             }
         }
         //after this we have our grid of nodes ready to be used by the astar algorigthm
     }
     //gets neighbours of a tile at x/y in a specific tilemap, can also have a border
-    
+
+    public List<WorldTile> path;//for test
+    void OnDrawGizmos()
+    {
+        //Gizmos.DrawWireCube(new Vector3(3, 0, 0), new Vector3(maxXFloor, maxYFloor, 0));
+        if (wTNodes != null && displayGridGizmos)
+        {
+            foreach (WorldTile n in wTNodes)
+            {
+                if(n!=null)
+                {
+                    Gizmos.color = (n.walkable) ? Color.white : Color.red;
+                    if (path != null)
+                        if (path.Contains(n))
+                            Gizmos.color = Color.black;
+                    Gizmos.DrawCube(new Vector3(n.gridPosition.x+0.5f, n.gridPosition.y+0.5f, 0), Vector3.one * (0.5f));
+                }
+
+            }
+        }
+    }
+
     public List<TileBase> getNeighbouringTiles(int x, int y, Tilemap t)
     {
         List<TileBase> retVal = new List<TileBase>();
@@ -234,408 +236,25 @@ public class CreateNodesFromTilemaps : MonoBehaviour
         }
         return retVal;
     }
+
     //gets the neighbours of the coords passed in
-    public List<WorldTile> getNeighbours(int x, int y, int width, int height)
+    public List<WorldTile> GetNeighbours(WorldTile node)
     {
-        List<WorldTile> myNeighbours = new List<WorldTile>();
-        //needs the width & height to work out if a tile is not on the edge, also needs to check if the nodes is null due to the accounting for odd shapes
-        if (x > 0 && x < width - 1)
+        List<WorldTile> neighbours = new List<WorldTile>();
+        for (int x = -1; x <= 1; x++)
         {
-            //can get tiles on both left and right of the tile
-            if (y > 0 && y < height - 1)
+            for (int y = -1; y <= 1; y++)
             {
-                //top and bottom
-                if (nodes[x + 1, y] == null)
+                if (x == 0 && y == 0)
+                    continue;
+                int checkX = node.gridX + x;
+                int checkY = node.gridY + y;
+                if (checkX >= 0 && checkX < maxXFloor && checkY >= 0 && checkY < maxYFloor)
                 {
-                }
-                else
-                {
-                    WorldTile wt1 = nodes[x + 1, y].GetComponent<WorldTile>();
-                    if (wt1 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt1);
-                    }
-                }
-                if (nodes[x - 1, y] == null)
-                {
-
-                }
-                else
-                {
-                    WorldTile wt2 = nodes[x - 1, y].GetComponent<WorldTile>();
-
-                    if (wt2 == null)
-                    {
-
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt2);
-
-                    }
-                }
-                if (nodes[x, y + 1] == null)
-                {
-
-                }
-                else
-                {
-                    WorldTile wt3 = nodes[x, y + 1].GetComponent<WorldTile>();
-                    if (wt3 == null)
-                    {
-
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt3);
-
-                    }
-                }
-                if (nodes[x, y - 1] == null)
-                {
-
-                }
-                else
-                {
-                    WorldTile wt4 = nodes[x, y - 1].GetComponent<WorldTile>();
-                    if (wt4 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt4);
-                    }
-                }
-            }
-            else if (y == 0)
-            {
-                //just top
-                if (nodes[x + 1, y] == null)
-                {
-                }
-                else
-                {
-                    WorldTile wt1 = nodes[x + 1, y].GetComponent<WorldTile>();
-                    if (wt1 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt1);
-                    }
-                }
-                if (nodes[x - 1, y] == null)
-                {
-                }
-                else
-                {
-                    WorldTile wt2 = nodes[x - 1, y].GetComponent<WorldTile>();
-                    if (wt2 == null)
-                    {
-
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt2);
-                    }
-                }
-                if (nodes[x, y + 1] == null)
-                {
-                }
-                else
-                {
-                    WorldTile wt3 = nodes[x, y + 1].GetComponent<WorldTile>();
-                    if (wt3 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt3);
-                    }
-                }
-            }
-            else if (y == height - 1)
-            {
-                //just bottom
-                if (nodes[x, y - 1] == null)
-                {
-                }
-                else
-                {
-                    WorldTile wt4 = nodes[x, y - 1].GetComponent<WorldTile>();
-                    if (wt4 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt4);
-                    }
-                }
-                if (nodes[x + 1, y] == null)
-                {
-
-                }
-                else
-                {
-                    WorldTile wt1 = nodes[x + 1, y].GetComponent<WorldTile>();
-                    if (wt1 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt1);
-                    }
-                }
-                if (nodes[x - 1, y] == null)
-                {
-                }
-                else
-                {
-                    WorldTile wt2 = nodes[x - 1, y].GetComponent<WorldTile>();
-                    if (wt2 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt2);
-                    }
+                    neighbours.Add(wTNodes[checkX, checkY]);
                 }
             }
         }
-        else if (x == 0)
-        {
-            //can't get tile on left
-            if (y > 0 && y < height - 1)
-            {
-                //top and bottom
-                if (nodes[x + 1, y] == null)
-                {
-                }
-                else
-                {
-                    WorldTile wt1 = nodes[x + 1, y].GetComponent<WorldTile>();
-                    if (wt1 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt1);
-                    }
-                }
-                if (nodes[x, y - 1] == null)
-                {
-                }
-                else
-                {
-                    WorldTile wt4 = nodes[x, y - 1].GetComponent<WorldTile>();
-                    if (wt4 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt4);
-                    }
-                }
-                if (nodes[x, y + 1] == null)
-                {
-                }
-                else
-                {
-                    WorldTile wt3 = nodes[x, y + 1].GetComponent<WorldTile>();
-                    if (wt3 == null)
-                    {
-
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt3);
-                    }
-                }
-            }
-            else if (y == 0)
-            {
-                //just top
-                if (nodes[x + 1, y] == null)
-                {
-                }
-                else
-                {
-                    WorldTile wt1 = nodes[x + 1, y].GetComponent<WorldTile>();
-                    if (wt1 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt1);
-                    }
-                }
-                if (nodes[x, y + 1] == null)
-                {
-                }
-                else
-                {
-                    WorldTile wt3 = nodes[x, y + 1].GetComponent<WorldTile>();
-                    if (wt3 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt3);
-                    }
-                }
-            }
-            else if (y == height - 1)
-            {
-                //just bottom
-                if (nodes[x + 1, y] == null)
-                {
-                }
-                else
-                {
-                    WorldTile wt1 = nodes[x + 1, y].GetComponent<WorldTile>();
-                    if (wt1 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt1);
-                    }
-                }
-                if (nodes[x, y - 1] == null)
-                {
-                }
-                else
-                {
-                    WorldTile wt4 = nodes[x, y - 1].GetComponent<WorldTile>();
-                    if (wt4 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt4);
-                    }
-                }
-            }
-        }
-        else if (x == width - 1)
-        {
-            //can't get tile on right
-            if (y > 0 && y < height - 1)
-            {
-                //top and bottom
-                if (nodes[x - 1, y] == null)
-                {
-                }
-                else
-                {
-                    WorldTile wt2 = nodes[x - 1, y].GetComponent<WorldTile>();
-                    if (wt2 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt2);
-                    }
-                }
-                if (nodes[x, y + 1] == null)
-                {
-                }
-                else
-                {
-                    WorldTile wt3 = nodes[x, y + 1].GetComponent<WorldTile>();
-                    if (wt3 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt3);
-                    }
-                }
-                if (nodes[x, y - 1] == null)
-                {
-                }
-                else
-                {
-                    WorldTile wt4 = nodes[x, y - 1].GetComponent<WorldTile>();
-                    if (wt4 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt4);
-                    }
-                }
-            }
-            else if (y == 0)
-            {
-                //just top
-                if (nodes[x - 1, y] == null)
-                {
-                }
-                else
-                {
-                    WorldTile wt2 = nodes[x - 1, y].GetComponent<WorldTile>();
-
-                    if (wt2 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt2);
-                    }
-                }
-                if (nodes[x, y + 1] == null)
-                {
-                }
-                else
-                {
-                    WorldTile wt3 = nodes[x, y + 1].GetComponent<WorldTile>();
-                    if (wt3 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt3);
-                    }
-                }
-            }
-            else if (y == height - 1)
-            {
-                //just bottom
-                if (nodes[x - 1, y] == null)
-                {
-                }
-                else
-                {
-                    WorldTile wt2 = nodes[x - 1, y].GetComponent<WorldTile>();
-
-                    if (wt2 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt2);
-                    }
-                }
-                if (nodes[x, y - 1] == null)
-                {
-                }
-                else
-                {
-                    WorldTile wt4 = nodes[x, y - 1].GetComponent<WorldTile>();
-                    if (wt4 == null)
-                    {
-                    }
-                    else
-                    {
-                        myNeighbours.Add(wt4);
-                    }
-                }
-            }
-        }
-        return myNeighbours;
-    }
+        return neighbours;
+    }  
 }
