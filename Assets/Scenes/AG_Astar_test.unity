@@ -155,6 +155,53 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a0e3af63ba27444daf7cb23c2c4c67c, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1001 &192242536
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4890444097469154, guid: d5e13b02da7c84c4ebc11540a477621e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 4890444097469154, guid: d5e13b02da7c84c4ebc11540a477621e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4890444097469154, guid: d5e13b02da7c84c4ebc11540a477621e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4890444097469154, guid: d5e13b02da7c84c4ebc11540a477621e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4890444097469154, guid: d5e13b02da7c84c4ebc11540a477621e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4890444097469154, guid: d5e13b02da7c84c4ebc11540a477621e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4890444097469154, guid: d5e13b02da7c84c4ebc11540a477621e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4890444097469154, guid: d5e13b02da7c84c4ebc11540a477621e, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874427113555298, guid: d5e13b02da7c84c4ebc11540a477621e, type: 2}
+      propertyPath: m_Name
+      value: Range Log with A* (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114389652197182492, guid: d5e13b02da7c84c4ebc11540a477621e, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: d5e13b02da7c84c4ebc11540a477621e, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &538032391
 Prefab:
   m_ObjectHideFlags: 0
@@ -8703,6 +8750,35 @@ Transform:
   m_Father: {fileID: 1321390027}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1171751415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1874427113555298, guid: d5e13b02da7c84c4ebc11540a477621e,
+    type: 2}
+  m_PrefabInternal: {fileID: 192242536}
+--- !u!114 &1171751416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1171751415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88e6d8283e0553c4caceaf40347d0f87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  maxHealth: {fileID: 11400000, guid: 5d605417cfc047e4bbaa2843dc6d58da, type: 2}
+  health: 2
+  enemyName: 
+  baseAttack: 1
+  moveSpeed: 1.5
+  deathEffect: {fileID: 0}
+  myRigidbody: {fileID: 0}
+  target: {fileID: 2092926435}
+  chaseRaidius: 0
+  attackRadius: 0
+  homePosition: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!1001 &1191012295
 Prefab:
   m_ObjectHideFlags: 0

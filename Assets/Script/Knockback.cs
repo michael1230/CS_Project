@@ -11,11 +11,35 @@ public class Knockback : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)  //kncok after checking the tag
     {
+        var player = other.GetComponent<PlayerController>();
+        var otherIsPlayer = player != null;
+        var thisIsPlayer = this.GetComponentInParent<PlayerController>() != null;
+
+        var enemy = other.GetComponent<EnemyOnMap>();
+        var otherIsEnemy = enemy != null;
+        var thisIsEnemy = this.GetComponentInParent<EnemyOnMap>() != null;
+
+
         if (other.gameObject.CompareTag("breakable") && this.gameObject.CompareTag("Player"))// tag for things that can be smashed and only by the player
         {
             other.GetComponent<potMap>().Smash();
         }
-        if (other.gameObject.CompareTag("SmallMapEnemy") || other.gameObject.CompareTag("Player"))//tag for things that can be knock
+
+        if (otherIsEnemy && thisIsEnemy) //for 2 different enemys colliding but not to overlap
+        {
+            Rigidbody2D otherRigidBody = other.GetComponent<Rigidbody2D>();
+            if (otherRigidBody != null)
+            {
+                Vector2 difference = otherRigidBody.transform.position - transform.position;
+                difference = difference.normalized;
+                otherRigidBody.AddForce(difference, ForceMode2D.Force);
+
+
+            }
+        }
+
+        //else if (other.gameObject.CompareTag("SmallMapEnemy") || other.gameObject.CompareTag("Player"))//tag for things that can be knock
+        else if ((otherIsPlayer && thisIsEnemy) || (thisIsPlayer && otherIsEnemy))//tag for things that can be knock
         {
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();//gets the rigidbody
             if (hit != null)
