@@ -42,10 +42,6 @@ public class APathfinding : MonoBehaviour {
         WorldTile targetNode = CreateNodesFromTilemaps.instance.NodeFromPosition(targetPos);
         */
 
-        if (grid == null)
-        {
-            Debug.Log("CreateNodesFromTilemaps is null ");
-        }
         WorldTile startNode = grid.NodeFromPosition(startPos);
         WorldTile targetNode = grid.NodeFromPosition(targetPos);
 
@@ -72,7 +68,6 @@ public class APathfinding : MonoBehaviour {
                     {
                         continue;
                     }
-
                     int newCostToNeighbour = currentWorldTile.gCost + GetDistance(currentWorldTile, neighbour);
                     if (newCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
                     {

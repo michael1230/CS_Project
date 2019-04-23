@@ -337,7 +337,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                                         if (node.gridPosition.y > currentNode.gridPosition.y)
                                         {
                                             currentNode.gridPosition.x += 0.5f;
-                                            currentNode.gridPosition.y += 0.5f;
+                                            currentNode.gridPosition.y -= 0.5f;
                                         }
                                         else if (node.gridPosition.y == currentNode.gridPosition.y)
                                         {
@@ -346,7 +346,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                                         else if (node.gridPosition.y < currentNode.gridPosition.y)
                                         {
                                             currentNode.gridPosition.x += 0.5f;
-                                            currentNode.gridPosition.y -= 0.5f;
+                                            currentNode.gridPosition.y += 0.5f;
                                         }
                                     }
 
