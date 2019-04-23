@@ -193,8 +193,28 @@ public class CreateNodesFromTilemaps : MonoBehaviour
         //after this we have our grid of nodes ready to be used by the astar algorigthm
     }
     //gets neighbours of a tile at x/y in a specific tilemap, can also have a border
+    /*
+        public List<WorldTile> path;//for test
+        void OnDrawGizmos()
+        {
+            //Gizmos.DrawWireCube(new Vector3(3, 0, 0), new Vector3(maxXFloor, maxYFloor, 0));
+            if (wTNodes != null && displayGridGizmos)
+            {
+                foreach (WorldTile n in wTNodes)
+                {
+                    if(n!=null)
+                    {
+                        Gizmos.color = (n.walkable) ? Color.white : Color.red;
+                        if (path != null)
+                            if (path.Contains(n))
+                                Gizmos.color = Color.black;
+                        Gizmos.DrawCube(new Vector3(n.gridPosition.x+0.5f, n.gridPosition.y+0.5f, 0), Vector3.one * (0.5f));
+                    }
 
-    public List<WorldTile> path;//for test
+                }
+            }
+        }
+        */
     void OnDrawGizmos()
     {
         //Gizmos.DrawWireCube(new Vector3(3, 0, 0), new Vector3(maxXFloor, maxYFloor, 0));
@@ -202,18 +222,16 @@ public class CreateNodesFromTilemaps : MonoBehaviour
         {
             foreach (WorldTile n in wTNodes)
             {
-                if(n!=null)
-                {
+               // if (n != null)
+               // {
                     Gizmos.color = (n.walkable) ? Color.white : Color.red;
-                    if (path != null)
-                        if (path.Contains(n))
-                            Gizmos.color = Color.black;
-                    Gizmos.DrawCube(new Vector3(n.gridPosition.x+0.5f, n.gridPosition.y+0.5f, 0), Vector3.one * (0.5f));
-                }
+                    Gizmos.DrawCube(new Vector3(n.gridPosition.x + 0.5f, n.gridPosition.y + 0.5f, 0), Vector3.one * (0.5f));
+               // }
 
             }
         }
     }
+
 
     public List<TileBase> getNeighbouringTiles(int x, int y, Tilemap t)
     {
