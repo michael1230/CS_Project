@@ -220,27 +220,17 @@ public class BattleManager : MonoBehaviour
 
             if (activeBattlers[i].currentHP == 0)
             {
-                /*
-                 * if (activeBattlers[i].isPlayer)
+                
+                  if (activeBattlers[i].isPlayer)
                     {
                     Animator anim;
                     anim = activeBattlers[i].GetComponent<Animator>();
-                    anim.Play("Reg_Atk_2");
+                    activeBattlers[i].anim.SetBool("Dying", true);
+                    }             
+                  else if(activeBattlers[i].isRegularEnemy)
+                    {
+                        activeBattlers[i].EnemyFade();
                     }
-                */
-
-
-
-                //Handle dead battler
-                /*
-                if (activeBattlers[i].isPlayer)
-                {
-                    activeBattlers[i].theSprite.sprite = activeBattlers[i].deadSprite;
-                }
-                else
-                {
-                    activeBattlers[i].EnemyFade();
-                }*/
 
             }
             else
@@ -372,7 +362,7 @@ public class BattleManager : MonoBehaviour
             float defPwr = activeBattlers[target].defense + activeBattlers[target].statusBounus[1];
             float damageCalc = (atkPwr / defPwr) * move.movePower;
             damageToGive = Mathf.RoundToInt(damageCalc);
-            if (activeBattlers[currentTurn].isPlayer)
+            if (activeBattlers[currentTurn].isPlayer)//or any kind of boss...for later to anim the bosses
             {
                 if (move.isAttck())
                 {
@@ -390,11 +380,12 @@ public class BattleManager : MonoBehaviour
                     StartCoroutine(animeteAttackMagicCo(target, damageToGive, move));
                 }
             }
-            else if (activeBattlers[currentTurn].isPlayer == false)//for enemy numbers..temp
+            else if (activeBattlers[currentTurn].isRegularEnemy == true)//for regular enemy numbers aka no anim
             {
                 Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetNotification(damageToGive);//make the damage appear on screen
+                activeBattlers[target].currentHP -= move.movePower;
             }
-        }
+        }////////////later add move for all palyer also!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         else//if the move is for all enemies 
         {//maybe another formula later
             float defPwr = 0;

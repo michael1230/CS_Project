@@ -214,17 +214,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94128aef07015584f81ea482d39ad0f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayGridGizmos: 0
   gridBase: {fileID: 175002500}
   floor: {fileID: 644329095}
   obstacleLayers:
   - {fileID: 651837855}
-  nodePrefab: {fileID: 1274234653843702, guid: 551a3debc9fd5654dbedbb7ec450d4c3, type: 2}
   unwalkableNodeBorder: 1
   scanStartX: -250
   scanStartY: -250
   scanFinishX: 250
   scanFinishY: 250
-  unsortedNodes: []
   gridBoundX: 0
   gridBoundY: 0
 --- !u!1001 &630288967
