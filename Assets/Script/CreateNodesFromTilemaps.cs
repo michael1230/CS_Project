@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -139,13 +140,13 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                     if (foundObstacle == false)
                     {
                         //if we havent found an obstacle then we create a walkable node and assign its grid coords
-                        WorldTile wt = new WorldTile(true, new Vector3(x, y, 0), gridX, gridY);
+                        WorldTile wt = new WorldTile(true, new Vector3(x+0.5f, y + 0.5f, 0), gridX, gridY);
                         wTYnsortedNodes.Add(wt);
                         foundTileOnLastPass = true;
                     }
                     else
                     {
-                        WorldTile wt = new WorldTile(false, new Vector3(x, y, 0), gridX, gridY);
+                        WorldTile wt = new WorldTile(false, new Vector3(x + 0.5f, y + 0.5f, 0), gridX, gridY);
                         wTYnsortedNodes.Add(wt);
                         foundTileOnLastPass = true;
                     }
@@ -190,6 +191,9 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                 }
             }
         }
+        WorldTilePositionFix();
+
+
         //after this we have our grid of nodes ready to be used by the astar algorigthm
     }
     //gets neighbours of a tile at x/y in a specific tilemap, can also have a border
@@ -225,7 +229,8 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                 if (n != null)
                 {
                     Gizmos.color = (n.walkable) ? Color.white : Color.red;
-                    Gizmos.DrawCube(new Vector3(n.gridPosition.x + 0.5f, n.gridPosition.y + 0.5f, 0), Vector3.one * (0.5f));
+                    //Gizmos.DrawCube(new Vector3(n.gridPosition.x + 0.5f, n.gridPosition.y + 0.5f, 0), Vector3.one * (0.5f));
+                    Gizmos.DrawCube(new Vector3(n.gridPosition.x, n.gridPosition.y, 0), Vector3.one * (0.5f));
                 }
             }
         }
@@ -268,10 +273,143 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                 int checkY = node.gridY + y;
                 if (checkX >= 0 && checkX < maxXFloor && checkY >= 0 && checkY < maxYFloor)
                 {
-                    neighbours.Add(wTNodes[checkX, checkY]);
+                    if(wTNodes[checkX, checkY]!=null)
+                        neighbours.Add(wTNodes[checkX, checkY]);
                 }
             }
         }
         return neighbours;
-    }  
+    }
+
+
+    public void WorldTilePositionFix()
+    {
+        for (int i = 0; i < wTNodes.GetLength(0); i++)
+        {
+            for (int j = 0; j < wTNodes.GetLength(1); j++)
+            {
+                if (wTNodes[i, j] != null)
+                {
+                    WorldTile currentNode = wTNodes[i, j];
+                    if (currentNode.walkable == true && currentNode.getMyNeighbours()!=null)
+                    {
+                        foreach (WorldTile node in currentNode.getMyNeighbours())
+                        {
+                            if (node != null)
+                            {
+                                if (node.walkable == false)
+                                {
+                                    float xMin = currentNode.gridPosition.x - 0.5f;
+                                    float xMax = currentNode.gridPosition.x + 0.5f;
+                                    float yMin = currentNode.gridPosition.y - 0.5f;
+                                    float yMax = currentNode.gridPosition.y + 0.5f;
+
+                                    if (node.gridPosition.x > currentNode.gridPosition.x)
+                                    {
+                                        if (node.gridPosition.y > currentNode.gridPosition.y)
+                                        {
+                                            currentNode.gridPosition.x -= 0.5f;
+                                            currentNode.gridPosition.y -= 0.5f;
+                                        }
+                                        else if (node.gridPosition.y == currentNode.gridPosition.y)
+                                        {
+                                            currentNode.gridPosition.x -= 0.5f;
+                                        }
+                                        else if (node.gridPosition.y < currentNode.gridPosition.y)
+                                        {
+                                            currentNode.gridPosition.x -= 0.5f;
+                                            currentNode.gridPosition.y += 0.5f;
+                                        }
+                                    }
+                                    else if (node.gridPosition.x == currentNode.gridPosition.x)
+                                    {
+                                        if (node.gridPosition.y > currentNode.gridPosition.y)
+                                        {
+                                            currentNode.gridPosition.y -= 0.5f;
+                                        }
+                                        else if (node.gridPosition.y < currentNode.gridPosition.y)
+                                        {
+                                            currentNode.gridPosition.y += 0.5f;
+                                        }
+                                    }
+                                    else if (node.gridPosition.x < currentNode.gridPosition.x)
+                                    {
+                                        if (node.gridPosition.y > currentNode.gridPosition.y)
+                                        {
+                                            currentNode.gridPosition.x += 0.5f;
+                                            currentNode.gridPosition.y += 0.5f;
+                                        }
+                                        else if (node.gridPosition.y == currentNode.gridPosition.y)
+                                        {
+                                            currentNode.gridPosition.x += 0.5f;
+                                        }
+                                        else if (node.gridPosition.y < currentNode.gridPosition.y)
+                                        {
+                                            currentNode.gridPosition.x += 0.5f;
+                                            currentNode.gridPosition.y -= 0.5f;
+                                        }
+                                    }
+
+                                    if (currentNode.gridPosition.x < xMin)
+                                    {
+                                        currentNode.gridPosition.x = xMin;
+                                    }
+                                    if (currentNode.gridPosition.x > xMax)
+                                    {
+                                        currentNode.gridPosition.x = xMax;
+                                    }
+                                    if (currentNode.gridPosition.y < yMin)
+                                    {
+                                        currentNode.gridPosition.y = yMin;
+                                    }
+                                    if (currentNode.gridPosition.y > yMax)
+                                    {
+                                        currentNode.gridPosition.y = yMax;
+                                    }
+                                }
+                            }
+                            /* if (wTNodes[x + 1, y + 1].walkable == false)
+                             {
+                                 wTNodes[i, j].gridPosition.x -= 0.5f;
+                                 wTNodes[i, j].gridPosition.y -= 0.5f;
+                             }
+                             if (wTNodes[x + 1, y + 0].walkable == false)
+                             {
+                                 wTNodes[i, j].gridPosition.x -= 0.5f;
+                             }
+                             if (wTNodes[x + 1, y - 1].walkable == false)
+                             {
+                                 wTNodes[i, j].gridPosition.x -= 0.5f;
+                                 wTNodes[i, j].gridPosition.y += 0.5f;
+                             }
+                             if (wTNodes[x + 0, y - 1].walkable == false)
+                             {
+                                 wTNodes[i, j].gridPosition.y += 0.5f;
+                             }
+                             if (wTNodes[x - 1, y + 1].walkable == false)
+                             {
+                                 wTNodes[i, j].gridPosition.x += 0.5f;
+                                 wTNodes[i, j].gridPosition.y += 0.5f;
+                             }
+                             if (wTNodes[x - 1, y + 0].walkable == false)
+                             {
+                                 wTNodes[i, j].gridPosition.x += 0.5f;
+                             }
+                             if (wTNodes[x - 1, y - 1].walkable == false)
+                             {
+                                 wTNodes[i, j].gridPosition.x += 0.5f;
+                                 wTNodes[i, j].gridPosition.y -= 0.5f;
+                             }
+                             if (wTNodes[x + 0, y + 1].walkable == false)
+                             {
+                                 wTNodes[i, j].gridPosition.y -= 0.5f;
+                             }*/
+                        }
+                    }
+                }
+            }
+            
+        }
+      
+    }
 }

@@ -72,7 +72,7 @@ public class LogAstar : EnemyOnMap
             for (int i = targetIndex; i < path.Length; i++)
             {
                 Gizmos.color = Color.black;
-                Gizmos.DrawCube(path[i], Vector3.one);
+                Gizmos.DrawCube(path[i], Vector3.one*0.5f);
 
                 if (i == targetIndex)
                 {

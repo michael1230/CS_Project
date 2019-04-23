@@ -223,8 +223,6 @@ public class BattleManager : MonoBehaviour
                 
                   if (activeBattlers[i].isPlayer)
                     {
-                    Animator anim;
-                    anim = activeBattlers[i].GetComponent<Animator>();
                     activeBattlers[i].anim.SetBool("Dying", true);
                     }             
                   else if(activeBattlers[i].isRegularEnemy)
