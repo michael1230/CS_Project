@@ -6,6 +6,7 @@ public class BattleChar : MonoBehaviour
 {
 
     public bool isPlayer;
+    public bool isRegularEnemy;
     public bool isMapBoss;
     public bool isGameBoss;
     public List<BattleMove> movesAvailable;
@@ -38,8 +39,8 @@ public class BattleChar : MonoBehaviour
     public bool move;
     private Transform moveTo;
 
-    // private bool shouldFade;
-    // public float fadeSpeed = 1f;
+    private bool shouldFade;
+    public float fadeSpeed = 1f;
 
     // Use this for initialization
     void Start()
@@ -50,24 +51,24 @@ public class BattleChar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (shouldFade)
+        if (shouldFade)
         {
             theSprite.color = new Color(Mathf.MoveTowards(theSprite.color.r, 1f, fadeSpeed * Time.deltaTime), Mathf.MoveTowards(theSprite.color.g, 0f, fadeSpeed * Time.deltaTime), Mathf.MoveTowards(theSprite.color.b, 0f, fadeSpeed * Time.deltaTime), Mathf.MoveTowards(theSprite.color.a, 0f, fadeSpeed * Time.deltaTime));
             if (theSprite.color.a == 0)
             {
                 gameObject.SetActive(false);
             }
-        }*/
+        }
         if(move==true)
         {
             BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].transform.position = Vector2.MoveTowards(BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].transform.position, moveTo.position, 2.5f * Time.deltaTime);
         }
     }
 
-   /* public void EnemyFade()
+    public void EnemyFade()
     {
         shouldFade = true;
-    }*/
+    }
     public void AttackEffectOn()
     {
         Debug.Log("on");
