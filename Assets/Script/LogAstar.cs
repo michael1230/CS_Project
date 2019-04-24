@@ -32,6 +32,17 @@ public class LogAstar : EnemyOnMap
         ChangeState(EnemyState.walk);
     }
 
+    // Update is called once per frame
+    void Update()
+    {//check every 30 sec
+     //CheckDistance();//check the distance bettwen log and player
+    if (Vector3.Distance(targetOldPosition, target.position) > 0)
+    {
+        PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
+        targetOldPosition = target.position;
+    }
+    }
+
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
     {
         if (pathSuccessful)
@@ -45,33 +56,35 @@ public class LogAstar : EnemyOnMap
 
     IEnumerator FollowPath()
     {
-        Vector3 currentWaypoint = path[0];
-        while (true)
+        if ((path[0] != null)||(path.Length!=0))
         {
-            if (transform.position == currentWaypoint)
+            Vector3 currentWaypoint = path[0];
+            while (true)
             {
-                targetIndex++;
-                /*
-                if (targetIndex >= path.Length)
+                if (transform.position == currentWaypoint)
                 {
-                    yield break;
-                }*/
-                if (targetIndex >= path.Length)//targetIndex should be reset
-                {
-                    targetIndex = 0;
-                    path = new Vector3[0];
-                    yield break;
+                    targetIndex++;
+                    /*
+                    if (targetIndex >= path.Length)
+                    {
+                        yield break;
+                    }*/
+                    if (targetIndex >= path.Length)//targetIndex should be reset
+                    {
+                        targetIndex = 0;
+                        path = new Vector3[0];
+                        yield break;
+                    }
+                    currentWaypoint = path[targetIndex];
                 }
-                currentWaypoint = path[targetIndex];
+
+                transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime);
+                //changeAnim(temp - transform.position);
+                // myRigidbody.MovePosition(Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime));
+                ChangeState(EnemyState.walk);
+                anim.SetBool("wakeUp", true);
+                yield return null;
             }
-
-            transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime);
-            //changeAnim(temp - transform.position);
-           // myRigidbody.MovePosition(Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime));
-            ChangeState(EnemyState.walk);
-            anim.SetBool("wakeUp", true);
-            yield return null;
-
         }
     }
     public void OnDrawGizmos()
@@ -97,16 +110,7 @@ public class LogAstar : EnemyOnMap
 
 
 
-    // Update is called once per frame
-    void Update()
-    {//check every 30 sec
-     //CheckDistance();//check the distance bettwen log and player
-        if (Vector3.Distance(targetOldPosition, target.position) > 0)
-        {
-            PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
-            targetOldPosition = target.position;
-        }
-    }
+
 
     public virtual void CheckDistance()//will to change to A star algorithm probably
     {

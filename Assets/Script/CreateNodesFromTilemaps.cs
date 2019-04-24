@@ -71,18 +71,20 @@ public class CreateNodesFromTilemaps : MonoBehaviour
         int rowX = 0;//the row for the nodes array
         int columnY = 0;//the column for the nodes array
 
-        double resultX = ((double)maxXFloor / Mathf.Abs(wxp));//for the next formula
-        double resultY = ((double)maxYFloor / Mathf.Abs(wyp));//for the next formula
-        //float percentX = (pos.position.x + maxXFloor/ resultX) / maxXFloor;//the percent of pos.x from the grid itself
-        double percentX = (pos.x + maxXFloor / resultX) / maxXFloor;//the percent of pos.x from the grid itself
-        //float percentY = (pos.position.y + maxYFloor / resultY) / maxYFloor;//the percent of pos.y from the grid itself
-        double percentY = (pos.y + maxYFloor / resultY) / maxYFloor;//the percent of pos.y from the grid itself
-        //percentX = Mathf.Clamp01(percentX);//in case we not between 0 to 1
-        //percentY = Mathf.Clamp01(percentY);//in case we not between 0 to 1
-        //rowX = Mathf.RoundToInt((maxXFloor - 1) * percentX);//the row index for the node in pos.x
-        //columnY = Mathf.RoundToInt((maxYFloor - 1) * percentY);//the column index for the node in pos.y
-        rowX = (int)Math.Round((maxXFloor - 1) * percentX);
-        columnY = (int)Math.Round((maxYFloor - 1) * percentY);//the column index for the node in pos.y
+        //double resultX = ((double)maxXFloor / Mathf.Abs(wxp));//for the next formula
+        //double resultY = ((double)maxYFloor / Mathf.Abs(wyp));//for the next formula
+        //double percentX = (pos.x + maxXFloor / resultX) / maxXFloor;//the percent of pos.x from the grid itself
+        //double percentY = (pos.y + maxYFloor / resultY) / maxYFloor;//the percent of pos.y from the grid itself
+        //rowX = (int)Math.Round((maxXFloor - 1) * percentX);
+        //columnY = (int)Math.Round((maxYFloor - 1) * percentY);//the column index for the node in pos.y
+        float resultX = ((float)maxXFloor / Mathf.Abs(wxp));//for the next formula
+        float resultY = ((float)maxYFloor / Mathf.Abs(wyp));//for the next formula
+        float percentX = (pos.x + maxXFloor/ resultX) / maxXFloor;//the percent of pos.x from the grid itself
+        float percentY = (pos.y + maxYFloor / resultY) / maxYFloor;//the percent of pos.y from the grid itself
+        percentX = Mathf.Clamp01(percentX);//in case we not between 0 to 1
+        percentY = Mathf.Clamp01(percentY);//in case we not between 0 to 1
+        rowX = Mathf.RoundToInt((maxXFloor - 1) * percentX);//the row index for the node in pos.x
+        columnY = Mathf.RoundToInt((maxYFloor - 1) * percentY);//the column index for the node in pos.y
         WorldTile worldTileOfPos = wTNodes[rowX, columnY];//the node itself
         //return worldTileOfPos;//////to add later and change from void to node
         //worldTileOfPos.GetComponent<SpriteRenderer>().color = Color.blue; 
@@ -202,7 +204,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                 }
             }
         }
-        WorldTilePositionFix();
+       // WorldTilePositionFix();
 
 
         //after this we have our grid of nodes ready to be used by the astar algorigthm
