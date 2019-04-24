@@ -37,17 +37,11 @@ public class APathfinding : MonoBehaviour {
     {
         Vector3[] waypoints = new Vector3[0];
         bool pathSuccess = false;
-        /*
-        WorldTile startNode = CreateNodesFromTilemaps.instance.NodeFromPosition(startPos);
-        WorldTile targetNode = CreateNodesFromTilemaps.instance.NodeFromPosition(targetPos);
-        */
-
         WorldTile startNode = grid.NodeFromPosition(startPos);
         WorldTile targetNode = grid.NodeFromPosition(targetPos);
 
         if (startNode.walkable && targetNode.walkable)
         {
-            //Heap<WorldTile> openSet = new Heap<WorldTile>(CreateNodesFromTilemaps.instance.MaxSize);
             Heap<WorldTile> openSet = new Heap<WorldTile>(grid.MaxSize);
             HashSet<WorldTile> closedSet = new HashSet<WorldTile>();
             openSet.Add(startNode);
@@ -58,8 +52,6 @@ public class APathfinding : MonoBehaviour {
                 if (currentWorldTile == targetNode)
                 {
                     pathSuccess = true;
-                    //RetracePath(startNode, targetNode);
-                    //return;
                     break;
                 }
                 foreach (WorldTile neighbour in currentWorldTile.getMyNeighbours())
@@ -126,10 +118,10 @@ public class APathfinding : MonoBehaviour {
 
         for (int i = 1; i < path.Count; i++)
         {
-            //Vector2 directionNew = new Vector2(path[i - 1].gridX - path[i].gridX, path[i - 1].gridY - path[i].gridY);
+            //Vector2 directionNew = new Vector2(path[i - 1].gridPosition.x - path[i].gridPosition.x, path[i - 1].gridPosition.y - path[i].gridPosition.y);
             //if (directionNew != directionOld)
-            //{
-                waypoints.Add(path[i-1].gridPosition);
+            // {
+            waypoints.Add(path[i-1].gridPosition);
             //}
             //directionOld = directionNew;
         }
@@ -138,11 +130,25 @@ public class APathfinding : MonoBehaviour {
 
     public int GetDistance(WorldTile nodeA, WorldTile nodeB)
     {
-        int dstX = Mathf.Abs(nodeA.gridX - nodeB.gridX);
-        int dstY = Mathf.Abs(nodeA.gridY - nodeB.gridY);
-
-        if (dstX > dstY)
+        //int dstX = Mathf.Abs(nodeA.gridX - nodeB.gridX);
+        //int dstY = Mathf.Abs(nodeA.gridY - nodeB.gridY);
+        float fDstX = Mathf.Abs(nodeA.gridPosition.x - nodeB.gridPosition.x);
+        float fDstY = Mathf.Abs(nodeA.gridPosition.y - nodeB.gridPosition.y);
+        /*if (dstX > dstY)
+        {
             return 14 * dstY + 10 * (dstX - dstY);
-        return 14 * dstX + 10 * (dstY - dstX);
+        }
+        else
+        {
+            return 14 * dstX + 10 * (dstY - dstX);
+        }*/
+        if (fDstX > fDstY)
+        {
+            return (int)(14 * fDstY + 10 * (fDstX - fDstY));
+        }
+        else
+        {
+            return (int)(14 * fDstX + 10 * (fDstY - fDstX));
+        }
     }
 }

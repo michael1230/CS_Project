@@ -8,6 +8,12 @@ public class WorldTile :IHeapItem<WorldTile>
     public int hCost;
     public int gridX;
     public int gridY;
+
+    public float xMin;
+    public float xMax;
+    public float yMin;
+    public float yMax;
+
     public int heapIndex;
     public Vector3 gridPosition;
     public bool walkable;
@@ -24,6 +30,10 @@ public class WorldTile :IHeapItem<WorldTile>
         this.gridY = gridY;
         this.walkable = walkable;
         this.gridPosition = worldPos;
+        this.xMin = gridPosition.x - 0.5f;
+        this.xMax = gridPosition.x + 0.5f;
+        this.yMin = gridPosition.y - 0.5f;
+        this.yMax = gridPosition.y + 0.5f;
     }
 
     public int fCost
