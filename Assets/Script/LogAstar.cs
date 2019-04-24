@@ -8,6 +8,7 @@ public class LogAstar : EnemyOnMap
 
     public Rigidbody2D myRigidbody;
     public Transform target;//moving the enemy
+    public Vector3 targetOldPosition;
     public float chaseRaidius;
     public float attackRadius;
     public Transform homePosition; //for returning to base if not attacking
@@ -26,6 +27,7 @@ public class LogAstar : EnemyOnMap
         anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform; //finds the player location
         PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
+        targetOldPosition = target.position;
         anim.SetBool("wakeUp", true);
         ChangeState(EnemyState.walk);
     }
@@ -49,8 +51,15 @@ public class LogAstar : EnemyOnMap
             if (transform.position == currentWaypoint)
             {
                 targetIndex++;
+                /*
                 if (targetIndex >= path.Length)
                 {
+                    yield break;
+                }*/
+                if (targetIndex >= path.Length)//targetIndex should be reset
+                {
+                    targetIndex = 0;
+                    path = new Vector3[0];
                     yield break;
                 }
                 currentWaypoint = path[targetIndex];
@@ -89,9 +98,14 @@ public class LogAstar : EnemyOnMap
 
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {//check every 30 sec
-        //CheckDistance();//check the distance bettwen log and player
+     //CheckDistance();//check the distance bettwen log and player
+        if (Vector3.Distance(targetOldPosition, target.position) > 0)
+        {
+            PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
+            targetOldPosition = target.position;
+        }
     }
 
     public virtual void CheckDistance()//will to change to A star algorithm probably
