@@ -123,10 +123,11 @@ public class APathfinding : MonoBehaviour {
         for (int i = 1; i < path.Count; i++)
         {
             //Vector2 directionNew = new Vector2(path[i - 1].gridPosition.x - path[i].gridPosition.x, path[i - 1].gridPosition.y - path[i].gridPosition.y);
-           // Vector2 directionNew = new Vector2(path[i - 1].gridX - path[i].gridX, path[i - 1].gridY - path[i].gridY);
+            // Vector2 directionNew = new Vector2(path[i - 1].gridX - path[i].gridX, path[i - 1].gridY - path[i].gridY);
             //if (directionNew != directionOld)
-             //{
-                waypoints.Add(path[i-1].gridPosition);
+            //{
+            waypoints.Add(path[i-1].gridPosition);
+            //waypoints.Add( new Vector3(path[i - 1].gridX, path[i - 1].gridY, 0));
              //}
            // directionOld = directionNew;
         }

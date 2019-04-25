@@ -104,6 +104,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
     {
         int gridX = 0; //use these to work out the size and where each node should be in the 2d array we'll use to store our nodes so we can work out neighbours and get paths
         int gridY = 0;
+        int gridYmax = 0;
         bool foundTileOnLastPass = false;
         //scan tiles and create nodes based on where they are
         for (int x = scanStartX; x < scanFinishX; x++)
@@ -130,7 +131,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                             foundObstacle = true;
                         }
                         //if we want to add an unwalkable edge round our unwalkable nodes then we use this to get the neighbours and make them unwalkable
-                        if (unwalkableNodeBorder > 0)
+                        /*if (unwalkableNodeBorder > 0)
                         {
                             List<TileBase> neighbours = getNeighbouringTiles(x, y, t);
                             foreach (TileBase tl in neighbours)
@@ -143,7 +144,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                                     foundObstacle = true;
                                 }
                             }
-                        }
+                        }*/
                     }
                     if (foundObstacle == false)
                     {
@@ -173,12 +174,69 @@ public class CreateNodesFromTilemaps : MonoBehaviour
             if (foundTileOnLastPass == true)
             {//since the grid is going from bottom to top on the Y axis on each iteration of the inside loop, if we have found tiles on this iteration we increment the gridX value and
                 //reset the y value
+                gridYmax = gridY;
                 gridX++;
                 gridY = 0;
                 foundTileOnLastPass = false;
             }
         }
         //put nodes into 2d array based on the
+        /*foreach (WorldTile wt in wTYnsortedNodes.ToArray())
+        {
+            if(wt.walkable==false)
+            {
+                WorldTile wt1 = new WorldTile(false, new Vector3(wt.xMax, wt.yMax, 0), gridX, gridY);
+                wTYnsortedNodes.Add(wt1);
+                wt.myNeighbours.Add(wt1);
+                if(gridY == gridYmax)
+                {
+                    gridY = 0;
+                    gridX += 1;
+                }
+                else
+                {
+                    gridY += 1;
+                }
+                wt1 = new WorldTile(false, new Vector3(wt.xMin, wt.yMin, 0), gridX, gridY);
+                wTYnsortedNodes.Add(wt1);
+                wt.myNeighbours.Add(wt1);
+                if (gridY == gridYmax)
+                {
+                    gridY = 0;
+                    gridX += 1;
+                }
+                else
+                {
+                    gridY += 1;
+                }
+                wt1 = new WorldTile(false, new Vector3(wt.xMin, wt.yMax, 0), gridX, gridY);
+                wTYnsortedNodes.Add(wt1);
+                wt.myNeighbours.Add(wt1);
+                if (gridY == gridYmax)
+                {
+                    gridY = 0;
+                    gridX += 1;
+                }
+                else
+                {
+                    gridY += 1;
+                }
+                wt1 = new WorldTile(false, new Vector3(wt.xMax, wt.yMin, 0), gridX, gridY);
+                wTYnsortedNodes.Add(wt1);
+                wt.myNeighbours.Add(wt1);
+                if (gridY == gridYmax)
+                {
+                    gridY = 0;
+                    gridX += 1;
+                }
+                else
+                {
+                    gridY += 1;
+                }
+            }
+            gridBoundX += 4;
+            gridBoundY += 4;
+        }*/
         wTNodes = new WorldTile[gridBoundX + 1, gridBoundY + 1];//initialise the 2d array that will store our nodes in their position
         foreach (WorldTile wt in wTYnsortedNodes)
         { //go through the unsorted list of nodes and put them into the 2d array in the correct position
@@ -201,12 +259,11 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                 {
                     WorldTile wt = wTNodes[x, y]; //if they do then assign the neighbours
                     wt.myNeighbours = GetNeighbours(wt);
+                    //wt.myNeighbours.AddRange(GetNeighbours(wt));
                 }
             }
         }
-       // WorldTilePositionFix();
-
-
+        // WorldTilePositionFix();      
         //after this we have our grid of nodes ready to be used by the astar algorigthm
     }
     //gets neighbours of a tile at x/y in a specific tilemap, can also have a border
@@ -243,6 +300,13 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                 if (n != null)
                 {
                     Gizmos.color = (n.walkable) ? Color.white : Color.red;
+                    /*if(n.walkable==false)
+                    {
+                        foreach (WorldTile item in n.getMyNeighbours())
+                        {
+                            Gizmos.color = Color.blue;
+                        }
+                    }*/
                     /*if (n == playerTile)
                     {
                         Gizmos.color = Color.blue;
@@ -265,6 +329,26 @@ public class CreateNodesFromTilemaps : MonoBehaviour
 
     public List<TileBase> getNeighbouringTiles(int x, int y, Tilemap t)
     {
+        /*List<TileBase> retVal = new List<TileBase>();
+
+        for (int i = x - unwalkableNodeBorder; i < x + unwalkableNodeBorder; i++)
+        {
+            for (int j = y - unwalkableNodeBorder; j < y + unwalkableNodeBorder; j++)
+            {
+                TileBase tile = t.GetTile(new Vector3Int(i, j, 0));
+                if (tile == null)
+                {
+
+                }
+                else
+                {
+                    retVal.Add(tile);
+                }
+            }
+        }
+        return retVal;*/
+
+
         List<TileBase> retVal = new List<TileBase>();
 
         for (int i = x - unwalkableNodeBorder; i < x + unwalkableNodeBorder; i++)

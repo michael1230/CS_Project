@@ -56,8 +56,6 @@ public class LogAstar : EnemyOnMap
 
     IEnumerator FollowPath()
     {
-        if ((path[0] != null)||(path.Length!=0))
-        {
             Vector3 currentWaypoint = path[0];
             while (true)
             {
@@ -78,14 +76,14 @@ public class LogAstar : EnemyOnMap
                     currentWaypoint = path[targetIndex];
                 }
 
-                transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime);
-                //changeAnim(temp - transform.position);
-                // myRigidbody.MovePosition(Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime));
-                ChangeState(EnemyState.walk);
+            transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime);
+            //transform.position = Vector2.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime);
+            //changeAnim(temp - transform.position);
+            // myRigidbody.MovePosition(Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime));
+            ChangeState(EnemyState.walk);
                 anim.SetBool("wakeUp", true);
                 yield return null;
             }
-        }
     }
     public void OnDrawGizmos()
     {
