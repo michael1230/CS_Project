@@ -6,6 +6,9 @@ using UnityEngine;
 public class LogAstar : EnemyOnMap
 {
 
+    const float minPathUpdateTime = .2f;
+    const float pathUpdateMoveThreshold = .5f;
+
     public Rigidbody2D myRigidbody;
     public Transform target;//moving the enemy
     public Vector3 targetOldPosition;
@@ -20,7 +23,7 @@ public class LogAstar : EnemyOnMap
     public Animator anim;
 
     // Use this for initialization
-    void Start()
+    /*void Start()
     {
         currentState = EnemyState.idle;//first state is idle
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -30,10 +33,25 @@ public class LogAstar : EnemyOnMap
         targetOldPosition = target.position;
         anim.SetBool("wakeUp", true);
         ChangeState(EnemyState.walk);
+    }*/
+
+
+    void Start()
+    {
+        currentState = EnemyState.idle;//first state is idle
+        myRigidbody = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        target = GameObject.FindWithTag("Player").transform; //finds the player location
+        targetOldPosition = target.position;
+        anim.SetBool("wakeUp", true);
+        ChangeState(EnemyState.walk);
+        StartCoroutine(UpdatePath());
     }
 
+
+
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {//check every 30 sec
      //CheckDistance();//check the distance bettwen log and player
     if (Vector3.Distance(targetOldPosition, target.position) > 0)
@@ -41,7 +59,7 @@ public class LogAstar : EnemyOnMap
         PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
         targetOldPosition = target.position;
     }
-    }
+    }*/
 
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
     {
@@ -54,36 +72,62 @@ public class LogAstar : EnemyOnMap
         }
     }
 
+
+    IEnumerator UpdatePath()
+    {
+
+        if (Time.timeSinceLevelLoad < .3f)
+        {
+            yield return new WaitForSeconds(.3f);
+        }
+        PathRequestManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
+
+        float sqrMoveThreshold = pathUpdateMoveThreshold * pathUpdateMoveThreshold;
+        Vector3 targetPosOld = target.position;
+
+        while (true)
+        {
+            yield return new WaitForSeconds(minPathUpdateTime);
+            if ((target.position - targetPosOld).sqrMagnitude > sqrMoveThreshold)
+            {
+                PathRequestManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
+                targetPosOld = target.position;
+            }
+        }
+    }
+
+
+
     IEnumerator FollowPath()
     {
-            Vector3 currentWaypoint = path[0];
-            while (true)
+        Vector3 currentWaypoint = path[0];
+        while (true)
+        {
+            if (transform.position == currentWaypoint)
             {
-                if (transform.position == currentWaypoint)
+                targetIndex++;
+                /*
+                if (targetIndex >= path.Length)
                 {
-                    targetIndex++;
-                    /*
-                    if (targetIndex >= path.Length)
-                    {
-                        yield break;
-                    }*/
-                    if (targetIndex >= path.Length)//targetIndex should be reset
-                    {
-                        targetIndex = 0;
-                        path = new Vector3[0];
-                        yield break;
-                    }
-                    currentWaypoint = path[targetIndex];
+                    yield break;
+                }*/
+                if (targetIndex >= path.Length)//targetIndex should be reset
+                {
+                    targetIndex = 0;
+                    path = new Vector3[0];
+                    yield break;
                 }
+                currentWaypoint = path[targetIndex];
+            }
 
             transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime);
             //transform.position = Vector2.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime);
             //changeAnim(temp - transform.position);
             // myRigidbody.MovePosition(Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime));
             ChangeState(EnemyState.walk);
-                anim.SetBool("wakeUp", true);
-                yield return null;
-            }
+            anim.SetBool("wakeUp", true);
+            yield return null;
+        }
     }
     public void OnDrawGizmos()
     {
@@ -92,7 +136,7 @@ public class LogAstar : EnemyOnMap
             for (int i = targetIndex; i < path.Length; i++)
             {
                 Gizmos.color = Color.black;
-                Gizmos.DrawCube(path[i], Vector3.one*0.5f);
+                Gizmos.DrawCube(path[i], Vector3.one * 0.5f);
 
                 if (i == targetIndex)
                 {

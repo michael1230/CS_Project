@@ -3,42 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class APathfinding : MonoBehaviour {
+public class APathfinding : MonoBehaviour
+{
 
-    //public Transform seeker;
-    //public Transform target;
 
-    PathRequestManager requestManager;
     CreateNodesFromTilemaps grid;
     public List<WorldTile> path;
 
 
     void Awake()
     {
-        requestManager = GetComponent<PathRequestManager>();
         grid = GetComponent<CreateNodesFromTilemaps>();
     }
-    void Start()
-    {
 
-    }
-    void Update()
-    {
-        //FindPath(seeker.position, target.position);
-    }
 
-    public void StartFindPath(Vector3 startPos, Vector3 targetPos)
-    {
-        StartCoroutine(FindPath(startPos, targetPos));
-    }
-
-    //public void FindPath(Vector3 startPos, Vector3 targetPos)
-    IEnumerator FindPath(Vector3 startPos, Vector3 targetPos)
+    public void FindPath(PathRequest request, Action<PathResult> callback)
     {
         Vector3[] waypoints = new Vector3[0];
         bool pathSuccess = false;
-        WorldTile startNode = grid.NodeFromPosition(startPos);
-        WorldTile targetNode = grid.NodeFromPosition(targetPos);
+        WorldTile startNode = grid.NodeFromPosition(request.pathStart);
+        WorldTile targetNode = grid.NodeFromPosition(request.pathEnd);
 
         if (startNode.walkable && targetNode.walkable)
         {
@@ -77,12 +61,12 @@ public class APathfinding : MonoBehaviour {
                 }
             }
         }
-        yield return null;
         if (pathSuccess)
         {
             waypoints = RetracePath(startNode, targetNode);
+            pathSuccess = waypoints.Length > 0;
         }
-        requestManager.FinishedProcessingPath(waypoints, pathSuccess);
+        callback(new PathResult(waypoints, pathSuccess, request.callback));
     }
 
 
@@ -114,7 +98,7 @@ public class APathfinding : MonoBehaviour {
         List<Vector3> waypoints = new List<Vector3>();
         Vector2 directionOld = Vector2.zero;
 
-        if(path.Count==1)
+        if (path.Count == 1)
         {
             waypoints.Add(path[0].gridPosition);
             return waypoints.ToArray();
@@ -126,10 +110,10 @@ public class APathfinding : MonoBehaviour {
             // Vector2 directionNew = new Vector2(path[i - 1].gridX - path[i].gridX, path[i - 1].gridY - path[i].gridY);
             //if (directionNew != directionOld)
             //{
-            waypoints.Add(path[i-1].gridPosition);
+            waypoints.Add(path[i - 1].gridPosition);
             //waypoints.Add( new Vector3(path[i - 1].gridX, path[i - 1].gridY, 0));
-             //}
-           // directionOld = directionNew;
+            //}
+            // directionOld = directionNew;
         }
         return waypoints.ToArray();
     }
