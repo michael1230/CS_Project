@@ -131,7 +131,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                             foundObstacle = true;
                         }
                         //if we want to add an unwalkable edge round our unwalkable nodes then we use this to get the neighbours and make them unwalkable
-                        /*if (unwalkableNodeBorder > 0)
+                        if (unwalkableNodeBorder > 0)
                         {
                             List<TileBase> neighbours = getNeighbouringTiles(x, y, t);
                             foreach (TileBase tl in neighbours)
@@ -144,7 +144,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                                     foundObstacle = true;
                                 }
                             }
-                        }*/
+                        }
                     }
                     if (foundObstacle == false)
                     {
