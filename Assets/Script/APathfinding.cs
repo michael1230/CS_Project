@@ -5,23 +5,40 @@ using System;
 
 public class APathfinding : MonoBehaviour {
 
+    //public Transform seeker;
+    //public Transform target;
 
+    PathRequestManager requestManager;
     CreateNodesFromTilemaps grid;
     public List<WorldTile> path;
 
 
     void Awake()
     {
+        requestManager = GetComponent<PathRequestManager>();
         grid = GetComponent<CreateNodesFromTilemaps>();
     }
+    void Start()
+    {
 
+    }
+    void Update()
+    {
+        //FindPath(seeker.position, target.position);
+    }
 
-    public void FindPath(PathRequest request, Action<PathResult> callback)
+    public void StartFindPath(Vector3 startPos, Vector3 targetPos)
+    {
+        StartCoroutine(FindPath(startPos, targetPos));
+    }
+
+    //public void FindPath(Vector3 startPos, Vector3 targetPos)
+    IEnumerator FindPath(Vector3 startPos, Vector3 targetPos)
     {
         Vector3[] waypoints = new Vector3[0];
         bool pathSuccess = false;
-        WorldTile startNode = grid.NodeFromPosition(request.pathStart);
-        WorldTile targetNode = grid.NodeFromPosition(request.pathEnd);
+        WorldTile startNode = grid.NodeFromPosition(startPos);
+        WorldTile targetNode = grid.NodeFromPosition(targetPos);
 
         if (startNode.walkable && targetNode.walkable)
         {
@@ -60,12 +77,12 @@ public class APathfinding : MonoBehaviour {
                 }
             }
         }
+        yield return null;
         if (pathSuccess)
         {
             waypoints = RetracePath(startNode, targetNode);
-            pathSuccess = waypoints.Length > 0;
         }
-        callback(new PathResult(waypoints, pathSuccess, request.callback));
+        requestManager.FinishedProcessingPath(waypoints, pathSuccess);
     }
 
 

@@ -6,9 +6,6 @@ using UnityEngine;
 public class LogAstar : EnemyOnMap
 {
 
-    const float minPathUpdateTime = .2f;
-    const float pathUpdateMoveThreshold = .5f;
-
     public Rigidbody2D myRigidbody;
     public Transform target;//moving the enemy
     public Vector3 targetOldPosition;
@@ -23,7 +20,7 @@ public class LogAstar : EnemyOnMap
     public Animator anim;
 
     // Use this for initialization
-    /*void Start()
+    void Start()
     {
         currentState = EnemyState.idle;//first state is idle
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -33,25 +30,10 @@ public class LogAstar : EnemyOnMap
         targetOldPosition = target.position;
         anim.SetBool("wakeUp", true);
         ChangeState(EnemyState.walk);
-    }*/
-
-
-    void Start()
-    {
-        currentState = EnemyState.idle;//first state is idle
-        myRigidbody = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        target = GameObject.FindWithTag("Player").transform; //finds the player location
-        targetOldPosition = target.position;
-        anim.SetBool("wakeUp", true);
-        ChangeState(EnemyState.walk);
-        StartCoroutine(UpdatePath());
     }
 
-
-
     // Update is called once per frame
-    /*void Update()
+    void Update()
     {//check every 30 sec
      //CheckDistance();//check the distance bettwen log and player
     if (Vector3.Distance(targetOldPosition, target.position) > 0)
@@ -59,7 +41,7 @@ public class LogAstar : EnemyOnMap
         PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
         targetOldPosition = target.position;
     }
-    }*/
+    }
 
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
     {
@@ -71,32 +53,6 @@ public class LogAstar : EnemyOnMap
             StartCoroutine("FollowPath");
         }
     }
-
-
-    IEnumerator UpdatePath()
-    {
-
-        if (Time.timeSinceLevelLoad < .3f)
-        {
-            yield return new WaitForSeconds(.3f);
-        }
-        PathRequestManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
-
-        float sqrMoveThreshold = pathUpdateMoveThreshold * pathUpdateMoveThreshold;
-        Vector3 targetPosOld = target.position;
-
-        while (true)
-        {
-            yield return new WaitForSeconds(minPathUpdateTime);
-            if ((target.position - targetPosOld).sqrMagnitude > sqrMoveThreshold)
-            {
-                PathRequestManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
-                targetPosOld = target.position;
-            }
-        }
-    }
-
-
 
     IEnumerator FollowPath()
     {
