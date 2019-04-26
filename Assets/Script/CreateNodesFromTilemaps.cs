@@ -39,6 +39,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
         minXFloor = floor.cellBounds.xMin;
         minYFloor = floor.cellBounds.yMin;
         generateNodes();
+
     }
 
     public void generateNodes()
@@ -70,7 +71,6 @@ public class CreateNodesFromTilemaps : MonoBehaviour
         int wyp = Mathf.FloorToInt(minYFloor);//the floor of pos.y
         int rowX = 0;//the row for the nodes array
         int columnY = 0;//the column for the nodes array
-
         //double resultX = ((double)maxXFloor / Mathf.Abs(wxp));//for the next formula
         //double resultY = ((double)maxYFloor / Mathf.Abs(wyp));//for the next formula
         //double percentX = (pos.x + maxXFloor / resultX) / maxXFloor;//the percent of pos.x from the grid itself
@@ -86,8 +86,6 @@ public class CreateNodesFromTilemaps : MonoBehaviour
         rowX = Mathf.RoundToInt((maxXFloor - 1) * percentX);//the row index for the node in pos.x
         columnY = Mathf.RoundToInt((maxYFloor - 1) * percentY);//the column index for the node in pos.y
         WorldTile worldTileOfPos = wTNodes[rowX, columnY];//the node itself
-        //return worldTileOfPos;//////to add later and change from void to node
-        //worldTileOfPos.GetComponent<SpriteRenderer>().color = Color.blue; 
         return worldTileOfPos;
     }
 
@@ -104,7 +102,6 @@ public class CreateNodesFromTilemaps : MonoBehaviour
     {
         int gridX = 0; //use these to work out the size and where each node should be in the 2d array we'll use to store our nodes so we can work out neighbours and get paths
         int gridY = 0;
-        int gridYmax = 0;
         bool foundTileOnLastPass = false;
         //scan tiles and create nodes based on where they are
         for (int x = scanStartX; x < scanFinishX; x++)
@@ -174,69 +171,13 @@ public class CreateNodesFromTilemaps : MonoBehaviour
             if (foundTileOnLastPass == true)
             {//since the grid is going from bottom to top on the Y axis on each iteration of the inside loop, if we have found tiles on this iteration we increment the gridX value and
                 //reset the y value
-                gridYmax = gridY;
+               // gridYmax = gridY;
                 gridX++;
                 gridY = 0;
                 foundTileOnLastPass = false;
             }
         }
         //put nodes into 2d array based on the
-        /*foreach (WorldTile wt in wTYnsortedNodes.ToArray())
-        {
-            if(wt.walkable==false)
-            {
-                WorldTile wt1 = new WorldTile(false, new Vector3(wt.xMax, wt.yMax, 0), gridX, gridY);
-                wTYnsortedNodes.Add(wt1);
-                wt.myNeighbours.Add(wt1);
-                if(gridY == gridYmax)
-                {
-                    gridY = 0;
-                    gridX += 1;
-                }
-                else
-                {
-                    gridY += 1;
-                }
-                wt1 = new WorldTile(false, new Vector3(wt.xMin, wt.yMin, 0), gridX, gridY);
-                wTYnsortedNodes.Add(wt1);
-                wt.myNeighbours.Add(wt1);
-                if (gridY == gridYmax)
-                {
-                    gridY = 0;
-                    gridX += 1;
-                }
-                else
-                {
-                    gridY += 1;
-                }
-                wt1 = new WorldTile(false, new Vector3(wt.xMin, wt.yMax, 0), gridX, gridY);
-                wTYnsortedNodes.Add(wt1);
-                wt.myNeighbours.Add(wt1);
-                if (gridY == gridYmax)
-                {
-                    gridY = 0;
-                    gridX += 1;
-                }
-                else
-                {
-                    gridY += 1;
-                }
-                wt1 = new WorldTile(false, new Vector3(wt.xMax, wt.yMin, 0), gridX, gridY);
-                wTYnsortedNodes.Add(wt1);
-                wt.myNeighbours.Add(wt1);
-                if (gridY == gridYmax)
-                {
-                    gridY = 0;
-                    gridX += 1;
-                }
-                else
-                {
-                    gridY += 1;
-                }
-            }
-            gridBoundX += 4;
-            gridBoundY += 4;
-        }*/
         wTNodes = new WorldTile[gridBoundX + 1, gridBoundY + 1];//initialise the 2d array that will store our nodes in their position
         foreach (WorldTile wt in wTYnsortedNodes)
         { //go through the unsorted list of nodes and put them into the 2d array in the correct position
@@ -259,11 +200,12 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                 {
                     WorldTile wt = wTNodes[x, y]; //if they do then assign the neighbours
                     wt.myNeighbours = GetNeighbours(wt);
+                    //addEdgeNeighbours(wt);
                     //wt.myNeighbours.AddRange(GetNeighbours(wt));
                 }
             }
         }
-        // WorldTilePositionFix();      
+         WorldTilePositionFix();
         //after this we have our grid of nodes ready to be used by the astar algorigthm
     }
     //gets neighbours of a tile at x/y in a specific tilemap, can also have a border
@@ -327,28 +269,44 @@ public class CreateNodesFromTilemaps : MonoBehaviour
     }
 
 
-    public List<TileBase> getNeighbouringTiles(int x, int y, Tilemap t)
+    public void  addEdgeNeighbours(WorldTile node)
     {
-        /*List<TileBase> retVal = new List<TileBase>();
-
-        for (int i = x - unwalkableNodeBorder; i < x + unwalkableNodeBorder; i++)
+        List<WorldTile> neighbours = new List<WorldTile>();
+        if (!((node.gridY > 0) || (node.gridY < maxYFloor - 1)) && (!node.walkable) )
         {
-            for (int j = y - unwalkableNodeBorder; j < y + unwalkableNodeBorder; j++)
+            WorldTile wt1 = new WorldTile(false, new Vector3(node.xMax, node.yMax, 0), node.gridX, node.gridY);//up right
+            WorldTile wt2 = new WorldTile(false, new Vector3(node.xMin, node.yMin, 0), node.gridX, node.gridY);//down left
+            WorldTile wt3 = new WorldTile(false, new Vector3(node.xMin, node.yMax, 0), node.gridX, node.gridY);//up left
+            WorldTile wt4 = new WorldTile(false, new Vector3(node.xMax, node.yMin, 0), node.gridX, node.gridY);//down right
+            neighbours = node.getMyNeighbours();
+            foreach (WorldTile neighbour in neighbours)
             {
-                TileBase tile = t.GetTile(new Vector3Int(i, j, 0));
-                if (tile == null)
+                if( ((neighbour.gridX== node.gridX+1)&&((neighbour.gridY == node.gridY +1)||(neighbour.gridY == node.gridY)))|| (neighbour.gridX == node.gridX) && (neighbour.gridY == node.gridY + 1))
                 {
-
+                    neighbour.myNeighbours.Add(wt1);
                 }
-                else
+                if (((neighbour.gridX == node.gridX + 1) && ((neighbour.gridY == node.gridY) || (neighbour.gridY == node.gridY-1))) || (neighbour.gridX == node.gridX) && (neighbour.gridY == node.gridY - 1))
                 {
-                    retVal.Add(tile);
+                    neighbour.myNeighbours.Add(wt4);
                 }
+                if (((neighbour.gridX == node.gridX - 1) && ((neighbour.gridY == node.gridY+1) || (neighbour.gridY == node.gridY))) || (neighbour.gridX == node.gridX) && (neighbour.gridY == node.gridY + 1))
+                {
+                    neighbour.myNeighbours.Add(wt3);
+                }
+                if (((neighbour.gridX == node.gridX - 1) && ((neighbour.gridY == node.gridY) || (neighbour.gridY == node.gridY-1))) || (neighbour.gridX == node.gridX) && (neighbour.gridY == node.gridY - 1))
+                {
+                    neighbour.myNeighbours.Add(wt2);
+                }
+                node.myNeighbours.Add(wt1);
+                node.myNeighbours.Add(wt2);
+                node.myNeighbours.Add(wt3);
+                node.myNeighbours.Add(wt4);
             }
         }
-        return retVal;*/
+    }
 
-
+    public List<TileBase> getNeighbouringTiles(int x, int y, Tilemap t)
+    {
         List<TileBase> retVal = new List<TileBase>();
 
         for (int i = x - unwalkableNodeBorder; i < x + unwalkableNodeBorder; i++)
@@ -393,6 +351,9 @@ public class CreateNodesFromTilemaps : MonoBehaviour
     }
 
 
+
+
+
     public void WorldTilePositionFix()
     {
         for (int i = 0; i < wTNodes.GetLength(0); i++)
@@ -404,7 +365,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                     WorldTile currentNode = wTNodes[i, j];
                     float currentNodeX = currentNode.gridPosition.x;
                     float currentNodeY = currentNode.gridPosition.y;
-
+                    float delta = 0.45f;
                     if (currentNode.walkable == true && currentNode.getMyNeighbours() != null)
                     {
                         foreach (WorldTile node in currentNode.getMyNeighbours())
@@ -417,45 +378,45 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                                     {
                                         if (node.gridPosition.y > currentNode.gridPosition.y)
                                         {
-                                            currentNodeX -= 0.5f;
-                                            currentNodeY -= 0.5f;
+                                            currentNodeX -= delta;
+                                            currentNodeY -= delta;
                                         }
                                         else if (node.gridPosition.y == currentNode.gridPosition.y)
                                         {
-                                            currentNodeX -= 0.5f;
+                                            currentNodeX -= delta;
                                         }
                                         else if (node.gridPosition.y < currentNode.gridPosition.y)
                                         {
-                                            currentNodeX -= 0.5f;
-                                            currentNodeY += 0.5f;
+                                            currentNodeX -= delta;
+                                            currentNodeY += delta;
                                         }
                                     }
                                     else if (node.gridPosition.x == currentNode.gridPosition.x)
                                     {
                                         if (node.gridPosition.y > currentNode.gridPosition.y)
                                         {
-                                            currentNodeY -= 0.5f;
+                                            currentNodeY -= delta;
                                         }
                                         else if (node.gridPosition.y < currentNode.gridPosition.y)
                                         {
-                                            currentNodeY += 0.5f;
+                                            currentNodeY += delta;
                                         }
                                     }
                                     else if (node.gridPosition.x < currentNode.gridPosition.x)
                                     {
                                         if (node.gridPosition.y > currentNode.gridPosition.y)
                                         {
-                                            currentNodeX += 0.5f;
-                                            currentNodeY -= 0.5f;
+                                            currentNodeX += delta;
+                                            currentNodeY -= delta;
                                         }
                                         else if (node.gridPosition.y == currentNode.gridPosition.y)
                                         {
-                                            currentNodeX += 0.5f;
+                                            currentNodeX += delta;
                                         }
                                         else if (node.gridPosition.y < currentNode.gridPosition.y)
                                         {
-                                            currentNodeX += 0.5f;
-                                            currentNodeY += 0.5f;
+                                            currentNodeX += delta;
+                                            currentNodeY += delta;
                                         }
                                     }
                                 }

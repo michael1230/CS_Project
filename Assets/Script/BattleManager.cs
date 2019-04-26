@@ -86,12 +86,38 @@ public class BattleManager : MonoBehaviour
                     GameManager.instance.totalItems[i].ItemAmount = 10;
                 }
             }
+            if (Input.GetKeyDown(KeyCode.M))///for test!!
+            {
+                for (int i = 0; i < activeBattlers.Count; i++)
+                {
+                    if(!activeBattlers[i].isPlayer)
+                    {
+                        activeBattlers[i].currentHP = 1;
+                    }
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.J))///for test!!
+            {
+                for (int i = 0; i < activeBattlers.Count; i++)
+                {
+                    if (activeBattlers[i].isPlayer)
+                    {
+                        activeBattlers[i].currentHP = 1;
+                    }
+                }
+            }
         }
     }
     public void BattleStart(string[] enemiesToSpawn, bool setCannotFlee)//a method for staring the battle(only runs once per battle)//add info player activation on gamemanager!
     {
         if (!battleActive)//if the battleActive is false
         {
+            FadeManager.instance.startBattleTransIn();
+            FadeManager.instance.endBattleTransIn();
+
+            StartCoroutine(FadeManager.instance.Transition(0, 1f, 2f));
+            
+
             battleActive = true;//make it true
             transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, transform.position.z);//put the camera on the battle
             battleScene.SetActive(true);//show the battleScene
@@ -130,9 +156,9 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
-            for (int i = 0; i < enemiesToSpawn.Length; i++)
+            for (int i = 0; i < enemiesToSpawn.Length; i++)///boss position check needs to add!
             {
-                if (enemiesToSpawn[i] != "")//if the enemy name is empty
+                if (enemiesToSpawn[i] != "")//if the enemy name is not empty
                 {
                     for (int j = 0; j < enemyPrefabs.Length; j++)
                     {
@@ -250,7 +276,7 @@ public class BattleManager : MonoBehaviour
             if (allEnemiesDead)
             {
                 //end battle in victory
-                // StartCoroutine(EndBattleCo());
+                 StartCoroutine(EndBattleCo());
             }
             else
             {
@@ -258,9 +284,9 @@ public class BattleManager : MonoBehaviour
                 // StartCoroutine(GameOverCo());
             }
 
-            battleScene.SetActive(false);
-            GameManager.instance.battleActive = false;
-            battleActive = false;
+            //battleScene.SetActive(false);
+            //GameManager.instance.battleActive = false;
+            //battleActive = false;
         }
         else
         {
@@ -890,5 +916,55 @@ public class BattleManager : MonoBehaviour
         }
         BattleMenus.goToMenu(3, 0);//go to item menu and the previous is main battle menu
     }
+
+    public IEnumerator EndBattleCo()
+    {
+        battleActive = false;
+        BattleMenus.goToMenu(0, 0);
+        BattleMenus.offMenu(false);
+        GameManager.instance.battleActive = false;
+        yield return new WaitForSeconds(.5f);
+
+        //UIFade.instance.FadeToBlack();/////////////////////
+        FadeManager.instance.endBattleTransIn();
+
+        yield return new WaitForSeconds(1.5f);
+
+        for (int i = 0; i < activeBattlers.Count; i++)
+        {
+            if (activeBattlers[i].isPlayer)
+            {
+                for (int j = 0; j < GameManager.instance.playerStats.Length; j++)
+                {
+                    if (activeBattlers[i].charName == GameManager.instance.playerStats[j].charName)
+                    {
+                        GameManager.instance.playerStats[j].currentHP = activeBattlers[i].maxHP;//reset to health
+                        GameManager.instance.playerStats[j].currentMP = activeBattlers[i].maxMP;//reset to MP
+                        GameManager.instance.playerStats[j].currentSP = activeBattlers[i].currentSP;//keep the sp for next battle
+                    }
+                }
+            }
+
+            Destroy(activeBattlers[i].gameObject);
+        }
+
+        //UIFade.instance.FadeFromBlack();/////////////////////
+        battleScene.SetActive(false);
+        activeBattlers.Clear();
+        currentTurn = 0;
+        /*if (fleeing)
+        {
+            GameManager.instance.battleActive = false;
+            fleeing = false;
+        }
+        else
+        {
+            BattleReward.instance.OpenRewardScreen(rewardXP, rewardItems);
+        }*/
+
+        AudioManager.instance.PlayBGM(FindObjectOfType<CameraController>().musicToPlay);
+    }
+
+
 }
 

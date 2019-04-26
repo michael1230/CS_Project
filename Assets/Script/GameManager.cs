@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public BattleItem[] totalItems;
 
     public int numberOfElement = 0;
+    public int activePartyMemberIndex = 1;
 
     public bool gameMenuOpen, dialogActive, fadingBetweenAreas, battleActive;
 
@@ -19,6 +20,9 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         DontDestroyOnLoad(gameObject);
+        playerStats[1].gameObject.SetActive(false);
+        playerStats[2].gameObject.SetActive(false);
+        playerStats[3].gameObject.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -46,7 +50,28 @@ public class GameManager : MonoBehaviour
                 numberOfElement++;
             }
         }
+        //FindObjectOfType<SimpleBlit>().TransitionMaterial
 
+    }
+    public void addElement()
+    {
+        if (numberOfElement < 3)
+        {
 
+            for (int i = 0; i < playerStats.Length; i++)
+            {
+                playerStats[i].AddBonusElementStats(numberOfElement);
+                playerStats[i].hasElement[numberOfElement] = true;
+            }
+            numberOfElement++;
+        }
+    }
+    public void addPartyMember()
+    {
+        if(activePartyMemberIndex<4)
+        {
+            playerStats[activePartyMemberIndex].gameObject.SetActive(true);
+            activePartyMemberIndex++;
+        }
     }
 }

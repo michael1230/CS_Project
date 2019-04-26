@@ -8,9 +8,6 @@ public class APathfinding : MonoBehaviour
 
 
     CreateNodesFromTilemaps grid;
-    public List<WorldTile> path;
-
-
     void Awake()
     {
         grid = GetComponent<CreateNodesFromTilemaps>();
@@ -23,7 +20,6 @@ public class APathfinding : MonoBehaviour
         bool pathSuccess = false;
         WorldTile startNode = grid.NodeFromPosition(request.pathStart);
         WorldTile targetNode = grid.NodeFromPosition(request.pathEnd);
-
         if (startNode.walkable && targetNode.walkable)
         {
             Heap<WorldTile> openSet = new Heap<WorldTile>(grid.MaxSize);
@@ -74,7 +70,7 @@ public class APathfinding : MonoBehaviour
     //public void RetracePath(WorldTile startNode, WorldTile endNode)
     Vector3[] RetracePath(WorldTile startNode, WorldTile endNode)
     {
-        path = new List<WorldTile>();
+        List<WorldTile> path = new List<WorldTile>();
         WorldTile currentNode = endNode;
 
         while (currentNode != startNode)
