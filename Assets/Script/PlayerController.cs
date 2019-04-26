@@ -65,8 +65,8 @@ public class PlayerController : MonoBehaviour
             change.x = Input.GetAxisRaw("Horizontal");//for moving
             change.y = Input.GetAxisRaw("Vertical");//for moving
             animator.SetBool("isRunning", false);//change animtion    
-            animator.SetBool("moving", false);//change animtion     (Input.GetKey(KeyCode.LeftControl)
-            if (Input.GetButtonDown("Fire1") && currentState != PlayerState.attack && currentState != PlayerState.stagger)//attack state
+            animator.SetBool("moving", false);//change animtion     (Input.GetKey(KeyCode.LeftControl)  (Input.GetButtonDown("Fire1")
+            if (Input.GetKey(KeyCode.LeftControl) && currentState != PlayerState.attack && currentState != PlayerState.stagger)//attack state
             {
                 StartCoroutine(AttackCo());
             }
