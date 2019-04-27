@@ -9,6 +9,7 @@ TagManager:
   - MapTurnEnemy
   - breakable
   - SmallMapEnemy
+  - CustomCamera
   layers:
   - Default
   - TransparentFX

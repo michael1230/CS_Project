@@ -11,22 +11,25 @@ public class EssentialsLoader : MonoBehaviour
     public GameObject gameMan;
     public GameObject audioMan;
     public GameObject battleMan;
+    public GameObject menuMan;
     //public EventSystem sceneEventSystem = FindObjectOfType<EventSystem>();
 
     // Use this for initialization
     void Start()
     {
-        if (FadeManager.instance == null)
-        {
-            FadeManager.instance = Instantiate(FadeMan).GetComponent<FadeManager>();
-        }
-
         if (PlayerController.instance == null)
         {
             PlayerController clone = Instantiate(player).GetComponent<PlayerController>();
             PlayerController.instance = clone;
         }
-
+        if (FadeManager.instance == null)
+        {
+            FadeManager.instance = Instantiate(FadeMan).GetComponent<FadeManager>();
+        }
+        if (GameMenu.instance == null)
+        {
+            GameMenu.instance = Instantiate(menuMan).GetComponent<GameMenu>();
+        }
         if (GameManager.instance == null)
         {
             GameManager.instance = Instantiate(gameMan).GetComponent<GameManager>();
@@ -42,13 +45,13 @@ public class EssentialsLoader : MonoBehaviour
             BattleManager.instance = Instantiate(battleMan).GetComponent<BattleManager>();
         }
 
-        EventSystem sceneEventSystem = FindObjectOfType<EventSystem>();
+       /* EventSystem sceneEventSystem = FindObjectOfType<EventSystem>();
         if (sceneEventSystem == null)
         {
             GameObject eventSystem = new GameObject("EventSystem");
             eventSystem.AddComponent<EventSystem>();
             eventSystem.AddComponent<StandaloneInputModule>();
-        }
+        }*/
     }
 
     // Update is called once per frame

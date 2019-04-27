@@ -171,6 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65fb1fb076ab6064181adcc3e37d7000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bonusSecondElement: 190000001e0000001e0000001e0000001e0000001e0000001e000000
+  bonusThirdElement: 19000000280000002800000028000000280000002800000028000000
+  bonusFourthElement: 19000000320000003200000032000000320000003200000032000000
   playerStats:
   - {fileID: 114883337014863132}
   - {fileID: 114446696453270072}
@@ -217,7 +220,6 @@ MonoBehaviour:
   - {fileID: 114417532709713630, guid: 7ec48dcce097b374284bbb5b526851b6, type: 2}
   - {fileID: 114417532709713630, guid: 693e9590cdda3d944a8f96028f6d58c1, type: 2}
   movesToAdd: []
-  hasElement: 000000
   charIamge: {fileID: 0}
 --- !u!114 &114769546529351650
 MonoBehaviour:
@@ -251,7 +253,6 @@ MonoBehaviour:
   - {fileID: 114417532709713630, guid: 7ec48dcce097b374284bbb5b526851b6, type: 2}
   - {fileID: 114417532709713630, guid: 693e9590cdda3d944a8f96028f6d58c1, type: 2}
   movesToAdd: []
-  hasElement: 000000
   charIamge: {fileID: 0}
 --- !u!114 &114779775681037156
 MonoBehaviour:
@@ -285,7 +286,6 @@ MonoBehaviour:
   - {fileID: 114417532709713630, guid: 7ec48dcce097b374284bbb5b526851b6, type: 2}
   - {fileID: 114417532709713630, guid: 693e9590cdda3d944a8f96028f6d58c1, type: 2}
   movesToAdd: []
-  hasElement: 000000
   charIamge: {fileID: 0}
 --- !u!114 &114883337014863132
 MonoBehaviour:
@@ -319,5 +319,4 @@ MonoBehaviour:
   - {fileID: 114417532709713630, guid: 7ec48dcce097b374284bbb5b526851b6, type: 2}
   - {fileID: 114417532709713630, guid: 693e9590cdda3d944a8f96028f6d58c1, type: 2}
   movesToAdd: []
-  hasElement: 000000
   charIamge: {fileID: 0}
