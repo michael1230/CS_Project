@@ -7,7 +7,6 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource[] sfx;
     public AudioSource[] bgm;
-
     public static AudioManager instance;
 
     // Use this for initialization

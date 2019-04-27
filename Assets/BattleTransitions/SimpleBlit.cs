@@ -5,6 +5,7 @@ using System.Collections;
 public class SimpleBlit : MonoBehaviour
 {
     public Material TransitionMaterial;
+    public static SimpleBlit instance;
 
     void OnRenderImage(RenderTexture src, RenderTexture dst)
     {

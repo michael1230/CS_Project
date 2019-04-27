@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
 {
 
     public Transform target;
-
+    //public SimpleBlit effector;
     public Tilemap theMap;
     private Vector3 bottomLeftLimit;
     private Vector3 topRightLimit;
@@ -17,7 +17,16 @@ public class CameraController : MonoBehaviour
     public int musicToPlay;
     private bool musicStarted;
 
+
+    public Material TransitionMaterial;
+
     // Use this for initialization
+    void OnRenderImage(RenderTexture src, RenderTexture dst)
+    {
+        if (TransitionMaterial != null)
+            Graphics.Blit(src, dst, TransitionMaterial);
+    }
+
     void Start()
     {
         //target = PlayerController.instance.transform;

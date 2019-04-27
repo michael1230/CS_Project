@@ -20,9 +20,9 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         DontDestroyOnLoad(gameObject);
-        playerStats[1].gameObject.SetActive(false);
+       /* playerStats[1].gameObject.SetActive(false);//for test is comma when game is ready delete comme and keep the lines!!!!
         playerStats[2].gameObject.SetActive(false);
-        playerStats[3].gameObject.SetActive(false);
+        playerStats[3].gameObject.SetActive(false);*/
     }
 	
 	// Update is called once per frame

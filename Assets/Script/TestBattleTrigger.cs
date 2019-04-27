@@ -23,7 +23,20 @@ public class TestBattleTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            BattleManager.instance.BattleStart(enemyToSpawn, canflee);
+            StartCoroutine(BattleOn());
         }
     }
+
+    public IEnumerator BattleOn()
+    {
+        StartCoroutine(BattleManager.instance.PrepareforBattleStart(enemyToSpawn));
+        yield return new WaitForSeconds(3f);
+        //Destroy(this.gameObject);
+        Destroy(gameObject);
+    }
+
+
 }
+
+
+

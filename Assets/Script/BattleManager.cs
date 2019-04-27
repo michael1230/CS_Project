@@ -11,6 +11,7 @@ public class BattleManager : MonoBehaviour
     private bool battleActive;
 
     public GameObject battleScene;
+    public GameObject battleCanves;
     public Transform[] playerPositions;
     public Transform[] enemyPositions;
 
@@ -108,24 +109,27 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-    public void BattleStart(string[] enemiesToSpawn, bool setCannotFlee)//a method for staring the battle(only runs once per battle)//add info player activation on gamemanager!
+
+    public IEnumerator PrepareforBattleStart(string[] enemiesToSpawn)//a method for activate the fade effect and then go to battle
+    {
+        GameManager.instance.battleActive = true;//rise the flag for GameManager
+        FadeManager.instance.BattleTransition("Battle");
+        AudioManager.instance.StopMusic();
+        AudioManager.instance.PlaySFX(10);
+        yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
+        BattleStart(enemiesToSpawn);
+        transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, transform.position.z);//put the camera on the battle
+        battleCanves.SetActive(false);
+        battleScene.SetActive(true);//show the battleScene
+        yield return new WaitUntil(() => FadeManager.instance.finishedTransition == true);
+        battleCanves.SetActive(true);
+    }
+    public void BattleStart(string[] enemiesToSpawn)//a method for staring the battle(only runs once per battle)//add info player activation on gamemanager!
     {
         if (!battleActive)//if the battleActive is false
-        {
-            FadeManager.instance.startBattleTransIn();
-            FadeManager.instance.endBattleTransIn();
-
-            StartCoroutine(FadeManager.instance.Transition(0, 1f, 2f));
-            
-
+        {            
             battleActive = true;//make it true
-            transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, transform.position.z);//put the camera on the battle
-            battleScene.SetActive(true);//show the battleScene
-            GameManager.instance.battleActive = true;//rise the flag for GameManager
             AudioManager.instance.PlayBGM(8);//turn on the battle music
-
-            //BattleMenus.goToMenu(0, 0);
-
             for (int i = 0; i < playerPositions.Length; i++)//put all active players with theres stats 
             {
                 if (GameManager.instance.playerStats[i].gameObject.activeInHierarchy)
@@ -156,7 +160,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
-            for (int i = 0; i < enemiesToSpawn.Length; i++)///boss position check needs to add!
+            for (int i = 0; i < enemiesToSpawn.Length; i++)//boss position check needs to add!, add all enemy prefab to this!!!!!!!!!!!!!!!!!!
             {
                 if (enemiesToSpawn[i] != "")//if the enemy name is not empty
                 {
@@ -919,16 +923,16 @@ public class BattleManager : MonoBehaviour
 
     public IEnumerator EndBattleCo()
     {
+        AudioManager.instance.StopMusic();
+        AudioManager.instance.PlayBGM(6);
         battleActive = false;
         BattleMenus.goToMenu(0, 0);
         BattleMenus.offMenu(false);
         GameManager.instance.battleActive = false;
         yield return new WaitForSeconds(.5f);
-
-        //UIFade.instance.FadeToBlack();/////////////////////
-        FadeManager.instance.endBattleTransIn();
-
-        yield return new WaitForSeconds(1.5f);
+        battleCanves.SetActive(false);
+        FadeManager.instance.BattleTransition("FadeBlack");
+       
 
         for (int i = 0; i < activeBattlers.Count; i++)
         {
@@ -947,9 +951,10 @@ public class BattleManager : MonoBehaviour
 
             Destroy(activeBattlers[i].gameObject);
         }
-
-        //UIFade.instance.FadeFromBlack();/////////////////////
+        yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
+        battleCanves.SetActive(false);
         battleScene.SetActive(false);
+        
         activeBattlers.Clear();
         currentTurn = 0;
         /*if (fleeing)
