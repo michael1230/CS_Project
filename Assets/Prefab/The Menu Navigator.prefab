@@ -9,55 +9,57 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1675490708668284}
+  m_RootGameObject: {fileID: 1261746482597438}
   m_IsPrefabAsset: 1
---- !u!1 &1675490708668284
+--- !u!1 &1261746482597438
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4146041594628100}
-  - component: {fileID: 114605038549311608}
+  - component: {fileID: 4221925219007620}
+  - component: {fileID: 114336215643429642}
   m_Layer: 0
-  m_Name: HpItem1
+  m_Name: The Menu Navigator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4146041594628100
+--- !u!4 &4221925219007620
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1675490708668284}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6874442, y: 1.7998203, z: -0.075673446}
+  m_GameObject: {fileID: 1261746482597438}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114605038549311608
+--- !u!114 &114336215643429642
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1675490708668284}
+  m_GameObject: {fileID: 1261746482597438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a20119655bdde74eb3af07c0a74e698, type: 3}
+  m_Script: {fileID: 11500000, guid: ceb8f02851951e045a4016db9d92feea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theType: 0
-  ItemName: HP1
-  ItemAmount: 10
-  ItemHp: 25
-  ItemMp: 0
-  ItemSp: 0
-  itemIndex: 0
-  moveTargetAll: 0
-  theEffect: {fileID: 114113819915843068, guid: 1133e7e0f68c3bd4ab7f8a4c5c8abc4b,
-    type: 2}
+  theMenus:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  theBattaleMenusHolder: {fileID: 0}
+  currentMenu: 0
+  previousMenu: 0
+  menuButtons: []

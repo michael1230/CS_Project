@@ -40,33 +40,7 @@ public class GameManager : MonoBehaviour
         {
             PlayerController.instance.canMovePlayer = true;
         }
-
-        /*if (Input.GetKeyDown(KeyCode.T))//for test
-        {
-            if (numberOfElement < 3)
-            {
-                
-                for (int i = 0; i < playerStats.Length; i++)
-                {
-                    playerStats[i].AddBonusElementStats(numberOfElement);
-                    playerStats[i].hasElement[numberOfElement] = true;
-                }
-                numberOfElement++;
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.Y))//for test
-        {
-            if (numberOfElement < 3)
-            {
-
-                for (int i = 0; i < playerStats.Length; i++)
-                {
-                    playerStats[i].AddBonusElementStats(numberOfElement);
-                    playerStats[i].hasElement[numberOfElement] = true;
-                }
-                numberOfElement++;
-            }
-        }*/
+     
         if (Input.GetKeyDown(KeyCode.T))//for test
         {
             addElement();

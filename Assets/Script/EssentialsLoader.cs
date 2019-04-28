@@ -45,13 +45,13 @@ public class EssentialsLoader : MonoBehaviour
             BattleManager.instance = Instantiate(battleMan).GetComponent<BattleManager>();
         }
 
-       /* EventSystem sceneEventSystem = FindObjectOfType<EventSystem>();
+        EventSystem sceneEventSystem = FindObjectOfType<EventSystem>();
         if (sceneEventSystem == null)
         {
             GameObject eventSystem = new GameObject("EventSystem");
             eventSystem.AddComponent<EventSystem>();
             eventSystem.AddComponent<StandaloneInputModule>();
-        }*/
+        }
     }
 
     // Update is called once per frame
