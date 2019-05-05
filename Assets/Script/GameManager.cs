@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;//
+using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.SceneManagement;//
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    public EnemyTracker enemyTracker;
     public int[] bonusSecondElement;
     public int[] bonusThirdElement;
     public int[] bonusFourthElement;
+    public bool[] gotElement;
 
     public CharStats[] playerStats;//work on activate playerStats if the number of element!!!!
 
@@ -20,18 +24,29 @@ public class GameManager : MonoBehaviour
     public bool gameMenuOpen, dialogActive, fadingBetweenAreas, battleActive;
 
     // Use this for initialization
+    private void Awake()
+    {
+        enemyTracker = FindObjectOfType<EnemyTracker>();
+
+    }
     void Start ()
     {
         instance = this;
         DontDestroyOnLoad(gameObject);
-       /* playerStats[1].gameObject.SetActive(false);//for test is comma when game is ready delete comme and keep the lines!!!!
-        playerStats[2].gameObject.SetActive(false);
-        playerStats[3].gameObject.SetActive(false);*/
+
+        gotElement = new bool[3];
+
+        enemyTracker=FindObjectOfType<EnemyTracker>();
+
+        /* playerStats[1].gameObject.SetActive(false);//for test is comma when game is ready delete comme and keep the lines!!!!
+         playerStats[2].gameObject.SetActive(false);
+         playerStats[3].gameObject.SetActive(false);*/
     }
 	
 	// Update is called once per frame
 	void Update ()
-    {          
+    {
+        enemyTracker = FindObjectOfType<EnemyTracker>();
         if (gameMenuOpen || dialogActive || fadingBetweenAreas || battleActive)
         {
             PlayerController.instance.canMovePlayer = false;
@@ -51,6 +66,14 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+    public void ElementGet( int index)
+    {
+        //a bool for who was defeated 
+        gotElement[index] = true;
+        addElement();
+    }
+
     public void addElement()
     {
         if (numberOfElement == 0)//add the first element (now we have two) need to add moves!
@@ -98,4 +121,5 @@ public class GameManager : MonoBehaviour
             activePartyMemberIndex++;
         }
     }
+
 }

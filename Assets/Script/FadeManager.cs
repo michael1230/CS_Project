@@ -24,6 +24,11 @@ public class FadeManager : MonoBehaviour {
     public bool finishedTransition;
     public bool midTransition;
 
+
+    private void Awake()
+    {
+        transMaterial = FindObjectOfType<SimpleBlit>().TransitionMaterial;
+    }
     void Start()
     {
         instance = this;
@@ -39,6 +44,7 @@ public class FadeManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        transMaterial = FindObjectOfType<SimpleBlit>().TransitionMaterial;
         /*if (Input.GetKeyDown(KeyCode.P))
         {
             //cutoff = transMaterial.GetFloat("_Cutoff");
@@ -61,6 +67,7 @@ public class FadeManager : MonoBehaviour {
     {
         finishedTransition = false;
         midTransition = false;
+        bool realTime = false;
         transMaterial.SetColor("_Color", Color.black);
         transMaterial.SetFloat("_Cutoff", 0f);
         transMaterial.SetFloat("_Fade", 1f);
@@ -81,8 +88,13 @@ public class FadeManager : MonoBehaviour {
         {
             currentTextureIndex = Random.Range(3, 6);
         }
+        else if (transitionEffect == "Load")
+        {
+            currentTextureIndex = 0;
+            realTime = true;
+        }
         transMaterial.SetTexture("_TransitionTex", textureList[currentTextureIndex]);
-        StartCoroutine(TransitionAll(0, 1f, 1f, "_Cutoff"));
+        StartCoroutine(TransitionAll(0, 1f, 1f, "_Cutoff", realTime));
     }
 
 
@@ -107,7 +119,7 @@ public class FadeManager : MonoBehaviour {
             fieldName = "_Fade";
         }
         transMaterial.SetTexture("_TransitionTex", textureList[currentTextureIndex]);
-        StartCoroutine(TransitionAll(0, 1f, 1f, fieldName));
+        StartCoroutine(TransitionAll(0, 1f, 1f, fieldName,false));
         }
 
 
@@ -129,7 +141,8 @@ public class FadeManager : MonoBehaviour {
     }
 
 
-    IEnumerator TransitionAll(float oldValue, float newValue, float duration,string fieldName)
+    //IEnumerator TransitionAll(float oldValue, float newValue, float duration,string fieldName)
+    IEnumerator TransitionAll(float oldValue, float newValue, float duration, string fieldName,bool realtime)
     {
         float value = 0f;
         /*midTransition = false;
@@ -143,8 +156,14 @@ public class FadeManager : MonoBehaviour {
         value = newValue;
         transMaterial.SetFloat(fieldName, value);
         midTransition = true;
-        yield return new WaitForSeconds(.3f);
-
+        if(realtime)
+        {
+            yield return new WaitForSecondsRealtime(2);
+        }
+        else
+        {
+            yield return new WaitForSeconds(.3f);
+        }
         for (float t = 0f; t < duration; t += Time.deltaTime)//for loop to Fade out
         {
             value = Mathf.Lerp(newValue, oldValue, t / duration);
