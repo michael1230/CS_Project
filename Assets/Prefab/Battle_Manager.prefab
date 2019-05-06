@@ -6352,6 +6352,7 @@ MonoBehaviour:
   - {fileID: 114789881260309676, guid: 1c96725f4bc8aee4badbd18a6e92e2d6, type: 2}
   - {fileID: 114217456850337400, guid: 134cade906e959a4e96c1beb254f822e, type: 2}
   - {fileID: 114260683632420484, guid: 68c2114fc4acb404aa7aa7162b848135, type: 2}
+  - {fileID: 114085100434676368, guid: c29d18dc81b7b7e4aa957c551773e2f7, type: 2}
   BattleMenus: {fileID: 114813330975381514}
   currentPlayerText: {fileID: 114208864421034054}
   currentMenuText: {fileID: 114684200966542428}

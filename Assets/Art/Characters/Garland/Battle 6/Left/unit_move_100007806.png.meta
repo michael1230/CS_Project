@@ -1,7 +1,11 @@
 fileFormatVersion: 2
 guid: 380a60b4e79094c4e99f358d87dba3ad
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: unit_move_100007806_1
+    21300002: unit_move_100007806_2
+    21300004: unit_move_100007806_3
+    21300006: unit_move_100007806_4
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -45,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 35
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -82,7 +86,87 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: unit_move_100007806_1
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 113
+        width: 87
+        height: 99
+      alignment: 9
+      pivot: {x: 0.282, y: 0.5155}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52e0069ce2801f449ba2c75fe850db5b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unit_move_100007806_2
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 113
+        width: 87
+        height: 99
+      alignment: 9
+      pivot: {x: 0.2935, y: 0.5155}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0692030b61b93c04e89359f49a97bf66
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unit_move_100007806_3
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 113
+        width: 87
+        height: 99
+      alignment: 9
+      pivot: {x: 0.2935, y: 0.5155}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8636b1679786944aa74124eca963dd6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unit_move_100007806_4
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 5
+        width: 87
+        height: 99
+      alignment: 9
+      pivot: {x: 0.2935, y: 0.5155}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b59046a72f2ecb42aa088a59e632ea1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

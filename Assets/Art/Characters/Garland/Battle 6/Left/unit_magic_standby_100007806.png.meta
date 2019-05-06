@@ -1,7 +1,11 @@
 fileFormatVersion: 2
 guid: 860fd239891bd154e99c5ebabaaf6f55
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: unit_magic_standby_100007806_0
+    21300002: unit_magic_standby_100007806_1
+    21300004: unit_magic_standby_100007806_2
+    21300006: unit_magic_standby_100007806_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -45,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 35
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -82,7 +86,87 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: unit_magic_standby_100007806_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 115
+        width: 85
+        height: 101
+      alignment: 9
+      pivot: {x: 0.395, y: 0.505}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54f026e770cb439459e23b6d5b458e7d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unit_magic_standby_100007806_1
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 115
+        width: 85
+        height: 101
+      alignment: 9
+      pivot: {x: 0.395, y: 0.505}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0c6c4c5b69536344afa72df07ac258d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unit_magic_standby_100007806_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 115
+        width: 85
+        height: 101
+      alignment: 9
+      pivot: {x: 0.395, y: 0.505}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 298aede5355f417439f373754ee5f280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unit_magic_standby_100007806_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 5
+        width: 85
+        height: 101
+      alignment: 9
+      pivot: {x: 0.395, y: 0.505}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 407c1a58a57e7b8448ff744b37d51649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -1,7 +1,11 @@
 fileFormatVersion: 2
 guid: 590a896c522e1bd4e93798937a6c4b86
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: unit_magic_atk_100007806_1
+    21300002: unit_magic_atk_100007806_2
+    21300004: unit_magic_atk_100007806_3
+    21300006: unit_magic_atk_100007806_4
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -45,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 35
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -82,7 +86,87 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: unit_magic_atk_100007806_1
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 113
+        width: 100
+        height: 99
+      alignment: 9
+      pivot: {x: 0.305, y: 0.515}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7409e25882fbe2845ac59ed4554ab254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unit_magic_atk_100007806_2
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 113
+        width: 100
+        height: 99
+      alignment: 9
+      pivot: {x: 0.315, y: 0.515}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac37fb0ab533f4043a95364052d37f41
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unit_magic_atk_100007806_3
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 113
+        width: 100
+        height: 99
+      alignment: 9
+      pivot: {x: 0.315, y: 0.515}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e088c4feca6beb4381271d7542f3629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unit_magic_atk_100007806_4
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 5
+        width: 100
+        height: 99
+      alignment: 9
+      pivot: {x: 0.315, y: 0.515}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c94464ea236b3ba4d892f5647ec78734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
