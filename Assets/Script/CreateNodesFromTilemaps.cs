@@ -233,7 +233,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
         */
     void OnDrawGizmos()
     {
-        //WorldTile playerTile = NodeFromPosition(GameObject.FindWithTag("Player").transform.position);
+        WorldTile playerTile = NodeFromPosition(GameObject.FindWithTag("Player").transform.position);
         //WorldTile startTile = NodeFromPosition(GameObject.FindWithTag("SmallMapEnemy").transform.position);
         if (wTNodes != null && displayGridGizmos)
         {
@@ -249,12 +249,13 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                             Gizmos.color = Color.blue;
                         }
                     }*/
-                    /*if (n == playerTile)
+                    if (n == playerTile)
                     {
                         Gizmos.color = Color.blue;
                         //Debug.Log("tile: "+playerTile.gridPosition);
                         //Debug.Log("trans: "+GameObject.FindWithTag("Player").transform.position);
                     }
+                    /*
                     if (n == startTile)
                     {
                         Gizmos.color = Color.yellow;
@@ -365,55 +366,56 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                     WorldTile currentNode = wTNodes[i, j];
                     float currentNodeX = currentNode.gridPosition.x;
                     float currentNodeY = currentNode.gridPosition.y;
-                    float delta = 0.45f;
+                    //float delta = 0.45f;
+                    float delta = 0.30f;
                     if (currentNode.walkable == true && currentNode.getMyNeighbours() != null)
                     {
-                        foreach (WorldTile node in currentNode.getMyNeighbours())
+                        foreach (WorldTile neighbor in currentNode.getMyNeighbours())
                         {
-                            if (node != null)
+                            if (neighbor != null)
                             {
-                                if (node.walkable == false)
+                                if (neighbor.walkable == false)
                                 {
-                                    if (node.gridPosition.x > currentNode.gridPosition.x)
+                                    if (neighbor.gridPosition.x > currentNode.gridPosition.x)
                                     {
-                                        if (node.gridPosition.y > currentNode.gridPosition.y)
+                                        if (neighbor.gridPosition.y > currentNode.gridPosition.y)
                                         {
                                             currentNodeX -= delta;
                                             currentNodeY -= delta;
                                         }
-                                        else if (node.gridPosition.y == currentNode.gridPosition.y)
+                                        else if (neighbor.gridPosition.y == currentNode.gridPosition.y)
                                         {
                                             currentNodeX -= delta;
                                         }
-                                        else if (node.gridPosition.y < currentNode.gridPosition.y)
+                                        else if (neighbor.gridPosition.y < currentNode.gridPosition.y)
                                         {
                                             currentNodeX -= delta;
                                             currentNodeY += delta;
                                         }
                                     }
-                                    else if (node.gridPosition.x == currentNode.gridPosition.x)
+                                    else if (neighbor.gridPosition.x == currentNode.gridPosition.x)
                                     {
-                                        if (node.gridPosition.y > currentNode.gridPosition.y)
+                                        if (neighbor.gridPosition.y > currentNode.gridPosition.y)
                                         {
                                             currentNodeY -= delta;
                                         }
-                                        else if (node.gridPosition.y < currentNode.gridPosition.y)
+                                        else if (neighbor.gridPosition.y < currentNode.gridPosition.y)
                                         {
                                             currentNodeY += delta;
                                         }
                                     }
-                                    else if (node.gridPosition.x < currentNode.gridPosition.x)
+                                    else if (neighbor.gridPosition.x < currentNode.gridPosition.x)
                                     {
-                                        if (node.gridPosition.y > currentNode.gridPosition.y)
+                                        if (neighbor.gridPosition.y > currentNode.gridPosition.y)
                                         {
                                             currentNodeX += delta;
                                             currentNodeY -= delta;
                                         }
-                                        else if (node.gridPosition.y == currentNode.gridPosition.y)
+                                        else if (neighbor.gridPosition.y == currentNode.gridPosition.y)
                                         {
                                             currentNodeX += delta;
                                         }
-                                        else if (node.gridPosition.y < currentNode.gridPosition.y)
+                                        else if (neighbor.gridPosition.y < currentNode.gridPosition.y)
                                         {
                                             currentNodeX += delta;
                                             currentNodeY += delta;
@@ -443,6 +445,6 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                     }
                 }
             }
-        }
+        }      
     }
 }

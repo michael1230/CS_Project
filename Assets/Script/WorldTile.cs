@@ -23,7 +23,6 @@ public class WorldTile :IHeapItem<WorldTile>
 
 
 
-
     public WorldTile(bool walkable, Vector3 worldPos, int gridX, int gridY)
     {
         this.myNeighbours = new List<WorldTile>();

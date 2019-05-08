@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94128aef07015584f81ea482d39ad0f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayGridGizmos: 0
+  displayGridGizmos: 1
   gridBase: {fileID: 175002500}
   floor: {fileID: 644329095}
   obstacleLayers:
