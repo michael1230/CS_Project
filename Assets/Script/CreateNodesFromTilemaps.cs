@@ -71,12 +71,14 @@ public class CreateNodesFromTilemaps : MonoBehaviour
         int wyp = Mathf.FloorToInt(minYFloor);//the floor of pos.y
         int rowX = 0;//the row for the nodes array
         int columnY = 0;//the column for the nodes array
-        //double resultX = ((double)maxXFloor / Mathf.Abs(wxp));//for the next formula
-        //double resultY = ((double)maxYFloor / Mathf.Abs(wyp));//for the next formula
-        //double percentX = (pos.x + maxXFloor / resultX) / maxXFloor;//the percent of pos.x from the grid itself
-        //double percentY = (pos.y + maxYFloor / resultY) / maxYFloor;//the percent of pos.y from the grid itself
-        //rowX = (int)Math.Round((maxXFloor - 1) * percentX);
-        //columnY = (int)Math.Round((maxYFloor - 1) * percentY);//the column index for the node in pos.y
+        /*
+        double resultX = ((double)maxXFloor / Mathf.Abs(wxp));//for the next formula
+        double resultY = ((double)maxYFloor / Mathf.Abs(wyp));//for the next formula
+        double percentX = (pos.x + maxXFloor / resultX) / maxXFloor;//the percent of pos.x from the grid itself
+        double percentY = (pos.y + maxYFloor / resultY) / maxYFloor;//the percent of pos.y from the grid itself
+        rowX = (int)Math.Round((maxXFloor - 1) * percentX);
+        columnY = (int)Math.Round((maxYFloor - 1) * percentY);//the column index for the node in pos.y
+        */
         float resultX = ((float)maxXFloor / Mathf.Abs(wxp));//for the next formula
         float resultY = ((float)maxYFloor / Mathf.Abs(wyp));//for the next formula
         float percentX = (pos.x + maxXFloor/ resultX) / maxXFloor;//the percent of pos.x from the grid itself
@@ -85,7 +87,14 @@ public class CreateNodesFromTilemaps : MonoBehaviour
         percentY = Mathf.Clamp01(percentY);//in case we not between 0 to 1
         rowX = Mathf.RoundToInt((maxXFloor - 1) * percentX);//the row index for the node in pos.x
         columnY = Mathf.RoundToInt((maxYFloor - 1) * percentY);//the column index for the node in pos.y
+        
         WorldTile worldTileOfPos = wTNodes[rowX, columnY];//the node itself
+        
+        if(worldTileOfPos.walkable==false)
+        {
+            worldTileOfPos = wTNodes[rowX, columnY-1];
+        }
+        
         return worldTileOfPos;
     }
 
@@ -234,7 +243,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
     void OnDrawGizmos()
     {
         WorldTile playerTile = NodeFromPosition(GameObject.FindWithTag("Player").transform.position);
-        //WorldTile startTile = NodeFromPosition(GameObject.FindWithTag("SmallMapEnemy").transform.position);
+        WorldTile startTile = NodeFromPosition(GameObject.FindWithTag("SmallMapEnemy").transform.position);
         if (wTNodes != null && displayGridGizmos)
         {
             foreach (WorldTile n in wTNodes)
@@ -249,20 +258,22 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                             Gizmos.color = Color.blue;
                         }
                     }*/
+                    /*
                     if (n == playerTile)
                     {
                         Gizmos.color = Color.blue;
                         //Debug.Log("tile: "+playerTile.gridPosition);
                         //Debug.Log("trans: "+GameObject.FindWithTag("Player").transform.position);
                     }
+                    */
                     /*
                     if (n == startTile)
                     {
                         Gizmos.color = Color.yellow;
                         //Debug.Log("tile: "+playerTile.gridPosition);
                         //Debug.Log("trans: "+GameObject.FindWithTag("Player").transform.position);
-                    }*/
-
+                    }
+                    */
                     Gizmos.DrawCube(new Vector3(n.gridPosition.x, n.gridPosition.y, 0), Vector3.one * (0.5f));
                 }
             }

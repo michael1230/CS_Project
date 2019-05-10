@@ -20,6 +20,7 @@ public class APathfinding : MonoBehaviour
         bool pathSuccess = false;
         WorldTile startNode = grid.NodeFromPosition(request.pathStart);
         WorldTile targetNode = grid.NodeFromPosition(request.pathEnd);
+
         if (startNode.walkable && targetNode.walkable)
         {
             Heap<WorldTile> openSet = new Heap<WorldTile>(grid.MaxSize);
@@ -116,6 +117,7 @@ public class APathfinding : MonoBehaviour
 
     public int GetDistance(WorldTile nodeA, WorldTile nodeB)
     {
+        
         int dstX = Mathf.Abs(nodeA.gridX - nodeB.gridX);
         int dstY = Mathf.Abs(nodeA.gridY - nodeB.gridY);
         if (dstX > dstY)
@@ -126,7 +128,8 @@ public class APathfinding : MonoBehaviour
         {
             return 14 * dstX + 10 * (dstY - dstX);
         }
-        /*float fDstX = Mathf.Abs(nodeA.gridPosition.x - nodeB.gridPosition.x);
+        /*
+        float fDstX = Mathf.Abs(nodeA.gridPosition.x - nodeB.gridPosition.x);
         float fDstY = Mathf.Abs(nodeA.gridPosition.y - nodeB.gridPosition.y);
         if (fDstX > fDstY)
         {
@@ -135,6 +138,7 @@ public class APathfinding : MonoBehaviour
         else
         {
             return (int)(14 * fDstX + 10 * (fDstY - fDstX));
-        }*/
+        }
+        */
     }
 }

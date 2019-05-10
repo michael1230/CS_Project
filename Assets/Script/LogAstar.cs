@@ -7,7 +7,7 @@ public class LogAstar : EnemyOnMap
 {
 
     const float minPathUpdateTime = .2f;
-    const float pathUpdateMoveThreshold = .5f;
+    const float pathUpdateMoveThreshold = .1f;
 
     public Rigidbody2D myRigidbody;
     public Transform target;//moving the enemy
@@ -122,6 +122,7 @@ public class LogAstar : EnemyOnMap
 
             transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime);
             //transform.position = Vector2.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime);
+
             //changeAnim(temp - transform.position);
             // myRigidbody.MovePosition(Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime));
             ChangeState(EnemyState.walk);
