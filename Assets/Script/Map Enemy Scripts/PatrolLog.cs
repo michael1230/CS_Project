@@ -20,6 +20,8 @@ public class PatrolLog : logEnemy {
     public override void CheckDistance()//will to change to A star algorithm probably
     {
         StopCoroutine(UpdatePath());
+        //StopCoroutine("FollowPath");
+
         if (Vector3.Distance(target.position,
                              transform.position) <= chaseRaidius
             && Vector3.Distance(target.position,
