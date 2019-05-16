@@ -1138,6 +1138,67 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &142544527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1219295101362108, guid: e8f33ffda442ddd479c6f717c9aa5653,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 142544528}
+  m_Layer: 0
+  m_Name: Patrol Points A
+  m_TagString: Dot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &142544528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4236654507871304, guid: e8f33ffda442ddd479c6f717c9aa5653,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 142544527}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 179934440}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &179934439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1853411026433740, guid: e8f33ffda442ddd479c6f717c9aa5653,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 179934440}
+  m_Layer: 0
+  m_Name: Point
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &179934440
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4056757670492852, guid: e8f33ffda442ddd479c6f717c9aa5653,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 179934439}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5, y: 3.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 142544528}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &231695437
 GameObject:
   m_ObjectHideFlags: 0
@@ -8881,11 +8942,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4588857567065908, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.64
+      value: -1.18
       objectReference: {fileID: 0}
     - target: {fileID: 4588857567065908, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.45
+      value: -1.49
       objectReference: {fileID: 0}
     - target: {fileID: 4588857567065908, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9019,7 +9080,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4174305768009834, guid: f65ec1e74a9c9eb42963bff8a9a29535, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4.5809765
+      value: 4.61
       objectReference: {fileID: 0}
     - target: {fileID: 4174305768009834, guid: f65ec1e74a9c9eb42963bff8a9a29535, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9058,12 +9119,17 @@ Prefab:
     - target: {fileID: 114668086332539722, guid: f65ec1e74a9c9eb42963bff8a9a29535,
         type: 2}
       propertyPath: chaseRaidius
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1966076525443080, guid: f65ec1e74a9c9eb42963bff8a9a29535, type: 2}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114668086332539722, guid: f65ec1e74a9c9eb42963bff8a9a29535,
+        type: 2}
+      propertyPath: AstarPoint
+      value: 
+      objectReference: {fileID: 179934440}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f65ec1e74a9c9eb42963bff8a9a29535, type: 2}
   m_IsPrefabAsset: 0
