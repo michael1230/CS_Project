@@ -8974,11 +8974,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114668086332539722, guid: f65ec1e74a9c9eb42963bff8a9a29535,
-        type: 2}
-      propertyPath: pathDot.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4174305768009834, guid: f65ec1e74a9c9eb42963bff8a9a29535, type: 2}
       propertyPath: m_LocalPosition.x
       value: -4.83
@@ -9013,20 +9008,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114668086332539722, guid: f65ec1e74a9c9eb42963bff8a9a29535,
         type: 2}
-      propertyPath: path.Array.data[0]
-      value: 
-      objectReference: {fileID: 997925950}
-    - target: {fileID: 114668086332539722, guid: f65ec1e74a9c9eb42963bff8a9a29535,
-        type: 2}
-      propertyPath: path.Array.data[1]
-      value: 
-      objectReference: {fileID: 2024287313}
-    - target: {fileID: 1966076525443080, guid: f65ec1e74a9c9eb42963bff8a9a29535, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114668086332539722, guid: f65ec1e74a9c9eb42963bff8a9a29535,
-        type: 2}
       propertyPath: pathDot.Array.data[0]
       value: 
       objectReference: {fileID: 997925950}
@@ -9035,16 +9016,6 @@ Prefab:
       propertyPath: pathDot.Array.data[1]
       value: 
       objectReference: {fileID: 2024287313}
-    - target: {fileID: 114668086332539722, guid: f65ec1e74a9c9eb42963bff8a9a29535,
-        type: 2}
-      propertyPath: chaseRaidius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 61620253493978822, guid: f65ec1e74a9c9eb42963bff8a9a29535,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f65ec1e74a9c9eb42963bff8a9a29535, type: 2}
   m_IsPrefabAsset: 0
@@ -9286,26 +9257,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1425138246 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1966076525443080, guid: f65ec1e74a9c9eb42963bff8a9a29535,
-    type: 2}
-  m_PrefabInternal: {fileID: 823157882}
---- !u!58 &1425138255
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1425138246}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.39}
-  serializedVersion: 2
-  m_Radius: 0.4275032
 --- !u!4 &1810928426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4588857567065908, guid: bc42ca0f68d878e47b70d06c2c3755df,
