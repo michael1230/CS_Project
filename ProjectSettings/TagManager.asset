@@ -10,6 +10,7 @@ TagManager:
   - breakable
   - SmallMapEnemy
   - CustomCamera
+  - Dot
   layers:
   - Default
   - TransparentFX

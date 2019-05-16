@@ -6,6 +6,7 @@ public class logEnemy : EnemyOnMap {
 
     public Rigidbody2D myRigidbody;
     public Transform target;//moving the enemy
+    public Transform targetPlayer;//moving the enemy
     public float chaseRaidius;
     public float attackRadius;
     public Transform homePosition; //for returning to base if not attacking
@@ -18,7 +19,8 @@ public class logEnemy : EnemyOnMap {
         currentState = EnemyState.idle;//first state is idle
         myRigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        target = GameObject.FindWithTag("Player").transform; //finds the player location
+        //target = GameObject.FindWithTag("Player").transform; //finds the player location
+        targetPlayer = GameObject.FindWithTag("Player").transform; //finds the player location
         anim.SetBool("wakeUp", true);
         ChangeState(EnemyState.walk);
     }
