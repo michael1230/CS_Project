@@ -20,7 +20,8 @@ public class logEnemy : EnemyOnMap {
         anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform; //finds the player location
         anim.SetBool("wakeUp", true);
-	}
+        ChangeState(EnemyState.walk);
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {//check every 30 sec
