@@ -8912,6 +8912,11 @@ Prefab:
       propertyPath: m_Size.x
       value: 0.7990656
       objectReference: {fileID: 0}
+    - target: {fileID: 61768927980660576, guid: bc42ca0f68d878e47b70d06c2c3755df,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
   m_IsPrefabAsset: 0
@@ -9146,11 +9151,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4890444097469154, guid: d5e13b02da7c84c4ebc11540a477621e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 8.13
+      value: -5.09
       objectReference: {fileID: 0}
     - target: {fileID: 4890444097469154, guid: d5e13b02da7c84c4ebc11540a477621e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.13
+      value: 5.07
       objectReference: {fileID: 0}
     - target: {fileID: 4890444097469154, guid: d5e13b02da7c84c4ebc11540a477621e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9184,7 +9189,7 @@ Prefab:
     - target: {fileID: 61366385780671792, guid: d5e13b02da7c84c4ebc11540a477621e,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 50185904574088940, guid: d5e13b02da7c84c4ebc11540a477621e,
         type: 2}
@@ -9210,6 +9215,10 @@ Prefab:
         type: 2}
       propertyPath: m_Size.y
       value: 0.76435876
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874427113555298, guid: d5e13b02da7c84c4ebc11540a477621e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114389652197182492, guid: d5e13b02da7c84c4ebc11540a477621e, type: 2}
@@ -9246,3 +9255,18 @@ MonoBehaviour:
   attackRadius: 0
   homePosition: {fileID: 0}
   anim: {fileID: 0}
+--- !u!58 &1826486353
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1826486344}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.39}
+  serializedVersion: 2
+  m_Radius: 0.42750317

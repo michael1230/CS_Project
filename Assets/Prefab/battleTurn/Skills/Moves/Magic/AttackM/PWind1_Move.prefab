@@ -9,17 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1390922482846796}
+  m_RootGameObject: {fileID: 1197150782164042}
   m_IsPrefabAsset: 1
---- !u!1 &1390922482846796
+--- !u!1 &1197150782164042
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4425767125561620}
-  - component: {fileID: 114102729691059236}
+  - component: {fileID: 4543966139587444}
+  - component: {fileID: 114003018935393536}
   m_Layer: 0
   m_Name: PWind1_Move
   m_TagString: Untagged
@@ -27,25 +27,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4425767125561620
+--- !u!4 &4543966139587444
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1390922482846796}
+  m_GameObject: {fileID: 1197150782164042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 444.53217, y: 185.47845, z: -2.5908813}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114102729691059236
+--- !u!114 &114003018935393536
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1390922482846796}
+  m_GameObject: {fileID: 1197150782164042}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9437c8f2a94ccb3488cf9f0ca74c6062, type: 3}
@@ -56,9 +56,9 @@ MonoBehaviour:
   statusBuff: 
   animateName: Magic
   numOfSFXs: 
-  movePower: 60
-  moveMpCost: 7
+  movePower: 70
+  moveMpCost: 10
   moveSpCost: 0
   moveTargetAll: 0
-  theEffect: {fileID: 114808239258459262, guid: 88c3a534266236f4fa3e9bc8a6fe33e3,
+  theEffect: {fileID: 114069487435852172, guid: 1062c565959647742ad758f3fa1d043a,
     type: 2}

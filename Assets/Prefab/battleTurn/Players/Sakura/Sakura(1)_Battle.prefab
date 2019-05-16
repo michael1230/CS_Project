@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 1
+  isRegularEnemy: 0
   isMapBoss: 0
   isGameBoss: 0
   movesAvailable: []
@@ -86,12 +87,17 @@ MonoBehaviour:
   defense: 0
   dexterity: 0
   anim: {fileID: 95032685916083490}
+  effect1: 0
+  effect2: 0
+  Idle: 0
   hasDied: 0
   bounusTurn: 000000000000000000000000
   statusBounus: 000000000000000000000000
   theSprite: {fileID: 0}
   deadSprite: {fileID: 0}
   aliveSprite: {fileID: 0}
+  move: 0
+  fadeSpeed: 1
 --- !u!212 &212300829887664718
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -125,7 +131,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -64319833
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 8eac600dec4ba8a47a55db1645e3e767, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

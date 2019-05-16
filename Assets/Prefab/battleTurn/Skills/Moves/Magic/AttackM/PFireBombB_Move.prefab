@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theType: 4
-  moveName: Fire Bomb 2
+  moveName: Fire Bomb
   statusBuff: 
   animateName: Magic
   numOfSFXs: 

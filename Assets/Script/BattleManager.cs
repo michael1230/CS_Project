@@ -16,6 +16,7 @@ public class BattleManager : MonoBehaviour
     public Transform[] enemyPositions;
 
     public Transform playerAcionPosition;
+    public Transform enemyAcionPosition;
 
     public BattleChar[] playerPrefabs;
     public BattleChar[] enemyPrefabs;
@@ -40,6 +41,7 @@ public class BattleManager : MonoBehaviour
     public List<BattleChar> activeBattlers = new List<BattleChar>();
     public int currentTurn;
     public bool turnWaiting;
+    public bool bossBattle;
 
 
     public bool next=false;////////////////////////
@@ -48,7 +50,6 @@ public class BattleManager : MonoBehaviour
     {
         instance = this;
         DontDestroyOnLoad(gameObject);
-
     }
 
     // Update is called once per frame
@@ -114,22 +115,27 @@ public class BattleManager : MonoBehaviour
     {
         GameManager.instance.battleActive = true;//rise the flag for GameManager
         FadeManager.instance.BattleTransition("Battle");
-        AudioManager.instance.StopMusic();
-        AudioManager.instance.PlaySFX(10);
+        AudioManager.instance.StopMusic();//stop the current music
+        AudioManager.instance.PlaySFX(10);//the transition sound
         yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
+        bossBattle = false;//reset every new battle
         BattleStart(enemiesToSpawn);
         transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, transform.position.z);//put the camera on the battle
-        battleCanves.SetActive(false);
+        battleCanves.SetActive(false);//wait until we fade in
         battleScene.SetActive(true);//show the battleScene
         yield return new WaitUntil(() => FadeManager.instance.finishedTransition == true);
-        battleCanves.SetActive(true);
+        battleCanves.SetActive(true);//now show the canves
     }
     public void BattleStart(string[] enemiesToSpawn)//a method for staring the battle(only runs once per battle)//add info player activation on gamemanager!
     {
         if (!battleActive)//if the battleActive is false
         {            
             battleActive = true;//make it true
+
+
             AudioManager.instance.PlayBGM(8);//turn on the battle music
+
+
             for (int i = 0; i < playerPositions.Length; i++)//put all active players with theres stats 
             {
                 if (GameManager.instance.playerStats[i].gameObject.activeInHierarchy)
@@ -160,7 +166,8 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
-            for (int i = 0; i < enemiesToSpawn.Length; i++)//boss position check needs to add!, add all enemy prefab to this!!!!!!!!!!!!!!!!!!
+
+            for (int i = 0; i < enemiesToSpawn.Length; i++)//only 3 enemies at once!!!, add all enemy prefab to this!!!!!!!!!!!!!!!!!!
             {
                 if (enemiesToSpawn[i] != "")//if the enemy name is not empty
                 {
@@ -168,7 +175,16 @@ public class BattleManager : MonoBehaviour
                     {
                         if (enemyPrefabs[j].charName == enemiesToSpawn[i])
                         {
-                            BattleChar newEnemy = Instantiate(enemyPrefabs[j], enemyPositions[i].position, enemyPositions[i].rotation);
+                            BattleChar newEnemy;
+                            if (enemyPrefabs[j].isMapBoss|| enemyPrefabs[j].isGameBoss)//put the boos in his position
+                            {
+                                 newEnemy = Instantiate(enemyPrefabs[j], enemyPositions[2].position, enemyPositions[i].rotation);
+                                 bossBattle = true;
+                            }
+                            else//if not then regular position
+                            {
+                                 newEnemy = Instantiate(enemyPrefabs[j], enemyPositions[i].position, enemyPositions[i].rotation);
+                            }
                             newEnemy.transform.parent = enemyPositions[i];
                             activeBattlers.Add(newEnemy);//add the Enemy to the list
                         }
@@ -411,7 +427,7 @@ public class BattleManager : MonoBehaviour
             else if (activeBattlers[currentTurn].isRegularEnemy == true)//for regular enemy numbers aka no anim
             {
                 Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetNotification(damageToGive);//make the damage appear on screen
-                activeBattlers[target].currentHP -= move.movePower;
+                activeBattlers[target].currentHP -= damageToGive;
             }
         }////////////later add move for all palyer also!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         else//if the move is for all enemies 
@@ -488,14 +504,17 @@ public class BattleManager : MonoBehaviour
     public IEnumerator animeteAttackSpecialCo(List<int> targets, int damage, BattleMove move)//for Attacking all enemy.. one effect 
     {
         activeBattlers[currentTurn].anim.SetBool(move.animateName, true);
-        yield return new WaitWhile(() => activeBattlers[currentTurn].effect1 == false);
+        if(move.animateName== "Limt_Atk")//if the move animName is magic then dont wait
+        {
+            yield return new WaitWhile(() => activeBattlers[currentTurn].effect1 == false);
+        }
         for (int i = 0; i < targets.Count; i++)//for every enemy
         {
             Instantiate(move.theEffect, activeBattlers[targets[i]].transform.position, activeBattlers[targets[i]].transform.rotation);
             activeBattlers[targets[i]].currentHP -= damage;//take hp
             Instantiate(theDamageNumber, activeBattlers[targets[i]].transform.position, activeBattlers[targets[i]].transform.rotation).SetNotification(damage);//make the damage appear on screen
         }           
-        yield return new WaitWhile(() => activeBattlers[currentTurn].Idle == false);
+        yield return new WaitForSecondsRealtime(move.theEffect.effectLength);
         activeBattlers[currentTurn].anim.SetBool(move.animateName, false);
         StartCoroutine(moveBackAndNextTurnCo());
     }
@@ -529,16 +548,15 @@ public class BattleManager : MonoBehaviour
         Instantiate(move.theEffect, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation);
         activeBattlers[target].currentHP -= damage;//take hp
         Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetNotification(damage);//make the damage appear on screen
-        yield return new WaitForSeconds(move.theEffect.effectLength);
+        yield return new WaitForSecondsRealtime(move.theEffect.effectLength);
         activeBattlers[currentTurn].anim.SetBool(move.animateName, false);
-        //NextTurn();
         StartCoroutine(moveBackAndNextTurnCo());
     }
     public IEnumerator animeteSelfMagicCo(int target, BattleMove move)//for support one ally.. skill effects 
     {
         activeBattlers[currentTurn].anim.SetBool(move.animateName, true);
         Instantiate(move.theEffect, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation);       
-        yield return new WaitForSeconds(move.theEffect.effectLength);
+        yield return new WaitForSecondsRealtime(move.theEffect.effectLength);
         activeBattlers[currentTurn].anim.SetBool(move.animateName, false);
         StartCoroutine(moveBackAndNextTurnCo());
     }
@@ -558,7 +576,7 @@ public class BattleManager : MonoBehaviour
                 }
             }
         }
-        yield return new WaitForSeconds(move.theEffect.effectLength);
+        yield return new WaitForSecondsRealtime(move.theEffect.effectLength);
         yield return new WaitWhile(() => activeBattlers[currentTurn].Idle == false);
         activeBattlers[currentTurn].anim.SetBool(move.animateName, false);
         StartCoroutine(moveBackAndNextTurnCo());

@@ -242,8 +242,8 @@ public class CreateNodesFromTilemaps : MonoBehaviour
         */
     void OnDrawGizmos()
     {
-        WorldTile playerTile = NodeFromPosition(GameObject.FindWithTag("Player").transform.position);
-        WorldTile startTile = NodeFromPosition(GameObject.FindWithTag("SmallMapEnemy").transform.position);
+        //WorldTile playerTile = NodeFromPosition(GameObject.FindWithTag("Player").transform.position);
+        //WorldTile startTile = NodeFromPosition(GameObject.FindWithTag("SmallMapEnemy").transform.position);
         if (wTNodes != null && displayGridGizmos)
         {
             foreach (WorldTile n in wTNodes)
