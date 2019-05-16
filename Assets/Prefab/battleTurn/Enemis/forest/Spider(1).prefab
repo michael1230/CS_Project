@@ -56,7 +56,9 @@ MonoBehaviour:
   isRegularEnemy: 1
   isMapBoss: 0
   isGameBoss: 0
-  movesAvailable: []
+  movesAvailable:
+  - {fileID: 114055494465312062, guid: ba8a70522ab11f045901e0c1c9f4772f, type: 2}
+  - {fileID: 114641226933197416, guid: 1fa5b811859ad1f4d8900e73673f7dae, type: 2}
   charName: Spider
   currentHP: 130
   maxHP: 130

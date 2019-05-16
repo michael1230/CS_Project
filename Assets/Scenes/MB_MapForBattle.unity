@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94128aef07015584f81ea482d39ad0f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayGridGizmos: 1
+  displayGridGizmos: 0
   gridBase: {fileID: 175002500}
   floor: {fileID: 644329095}
   obstacleLayers:
@@ -39474,58 +39474,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4550204951345178, guid: fb788f09051430047a72ef3646b2d990,
     type: 2}
   m_PrefabInternal: {fileID: 706130229}
---- !u!1001 &799896469
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4178822131277732, guid: fda4b0a07c60a454e80c2da2dd2e0306, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4178822131277732, guid: fda4b0a07c60a454e80c2da2dd2e0306, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4178822131277732, guid: fda4b0a07c60a454e80c2da2dd2e0306, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4178822131277732, guid: fda4b0a07c60a454e80c2da2dd2e0306, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4178822131277732, guid: fda4b0a07c60a454e80c2da2dd2e0306, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4178822131277732, guid: fda4b0a07c60a454e80c2da2dd2e0306, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4178822131277732, guid: fda4b0a07c60a454e80c2da2dd2e0306, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4178822131277732, guid: fda4b0a07c60a454e80c2da2dd2e0306, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114118174469863828, guid: fda4b0a07c60a454e80c2da2dd2e0306,
-        type: 2}
-      propertyPath: battleImeg
-      value: 
-      objectReference: {fileID: 799896470}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fda4b0a07c60a454e80c2da2dd2e0306, type: 2}
-  m_IsPrefabAsset: 0
---- !u!212 &799896470 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 212020127701090892, guid: fda4b0a07c60a454e80c2da2dd2e0306,
-    type: 2}
-  m_PrefabInternal: {fileID: 799896469}
 --- !u!1001 &802834415
 Prefab:
   m_ObjectHideFlags: 0
@@ -40315,7 +40263,7 @@ Prefab:
     - target: {fileID: 114724422642565792, guid: fb788f09051430047a72ef3646b2d990,
         type: 2}
       propertyPath: enemyToSpawn.Array.data[0]
-      value: Garland
+      value: DarkRoselia
       objectReference: {fileID: 0}
     - target: {fileID: 114724422642565792, guid: fb788f09051430047a72ef3646b2d990,
         type: 2}
