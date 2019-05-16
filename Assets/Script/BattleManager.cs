@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour
@@ -12,6 +13,13 @@ public class BattleManager : MonoBehaviour
 
     public GameObject battleScene;
     public GameObject battleCanves;
+
+    //public GameObject battleImeg;
+    public SpriteRenderer currenctBattleImeg;
+    public Sprite[] battleImeges;
+    //0 if forest
+    //1 is desert
+
     public Transform[] playerPositions;
     public Transform[] enemyPositions;
 
@@ -131,11 +139,6 @@ public class BattleManager : MonoBehaviour
         if (!battleActive)//if the battleActive is false
         {            
             battleActive = true;//make it true
-
-
-            AudioManager.instance.PlayBGM(8);//turn on the battle music
-
-
             for (int i = 0; i < playerPositions.Length; i++)//put all active players with theres stats 
             {
                 if (GameManager.instance.playerStats[i].gameObject.activeInHierarchy)
@@ -178,6 +181,7 @@ public class BattleManager : MonoBehaviour
                             BattleChar newEnemy;
                             if (enemyPrefabs[j].isMapBoss|| enemyPrefabs[j].isGameBoss)//put the boos in his position
                             {
+                                Debug.Log(enemyPrefabs[j].charName);
                                  newEnemy = Instantiate(enemyPrefabs[j], enemyPositions[2].position, enemyPositions[i].rotation);
                                  bossBattle = true;
                             }
@@ -191,6 +195,40 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
+            if (bossBattle == true)
+            {
+                if(enemiesToSpawn[0]== "Garland")//the first is always the boss!!!
+                {
+                    AudioManager.instance.PlayBGM(9);
+                }
+                else if (enemiesToSpawn[0] == "DarkRoselia")//change to other boss name and music
+                {
+                    AudioManager.instance.PlayBGM(12);
+                }
+                
+                /*else if (enemiesToSpawn[0] == "otherBoss")//change to other boss name and music
+                {
+                    AudioManager.instance.PlayBGM(9);
+                }*/
+            }
+            else
+            {
+                string sceneName = SceneManager.GetActiveScene().name;
+
+                if (sceneName == "MB_MapForBattle")//later for forest battles
+                {
+                    currenctBattleImeg.sprite = battleImeges[0];
+                    AudioManager.instance.PlayBGM(8);//turn on the battle music
+                }
+                else if (sceneName == "MB_SceneMoveTest")//later for other battles
+                {
+                    currenctBattleImeg.sprite = battleImeges[1];
+                    AudioManager.instance.PlayBGM(10);//turn on the battle music
+                }
+            }
+
+
+
             turnWaiting = true;//rise the flag
             currentTurn = 0;//the first turn
             UpdateUIStats();//update the stats
@@ -617,7 +655,11 @@ public class BattleManager : MonoBehaviour
     }
     public IEnumerator moveToAtkPosAndActCo(BattleMove move, BattleItem item, int selectedTarget, bool offense)
     {
-        activeBattlers[currentTurn].anim.SetBool("Move", true);       
+        activeBattlers[currentTurn].anim.SetBool("Move", true);
+        if (activeBattlers[currentTurn].isPlayer)
+        {
+
+        }
         activeBattlers[currentTurn].moveToPostion(activeBattlers[currentTurn].transform, playerAcionPosition.transform);
         yield return new WaitWhile(() => activeBattlers[currentTurn].transform.position != playerAcionPosition.position);
         activeBattlers[currentTurn].anim.SetBool("Move", false);

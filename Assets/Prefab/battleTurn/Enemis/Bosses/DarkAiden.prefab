@@ -9,31 +9,32 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1542517695813956}
+  m_RootGameObject: {fileID: 1843504148306724}
   m_IsPrefabAsset: 1
---- !u!1 &1542517695813956
+--- !u!1 &1843504148306724
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4727138769290270}
-  - component: {fileID: 212992915063901592}
-  - component: {fileID: 114837068741237134}
+  - component: {fileID: 4273403856781632}
+  - component: {fileID: 212876355847029090}
+  - component: {fileID: 95329052689579918}
+  - component: {fileID: 114624830500340846}
   m_Layer: 0
-  m_Name: EyeBall (1)
-  m_TagString: Untagged
+  m_Name: DarkAiden
+  m_TagString: BattlePlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4727138769290270
+--- !u!4 &4273403856781632
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1542517695813956}
+  m_GameObject: {fileID: 1843504148306724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -41,12 +42,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114837068741237134
+--- !u!95 &95329052689579918
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1843504148306724}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a3019786949a9b24e92efc23e2296cf1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114624830500340846
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1542517695813956}
+  m_GameObject: {fileID: 1843504148306724}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 626a9542f651e154f98716c6c971af31, type: 3}
@@ -54,37 +73,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayer: 0
   isRegularEnemy: 0
-  isMapBoss: 0
+  isMapBoss: 1
   isGameBoss: 0
   movesAvailable: []
-  charName: EyeBall
-  currentHP: 0
-  maxHP: 150
-  currentMP: 0
-  maxMP: 0
-  currentSP: 0
-  maxSP: 0
-  strength: 10
-  defense: 0
-  dexterity: 0
-  anim: {fileID: 0}
+  charName: DarkAiden
+  currentHP: 100
+  maxHP: 100
+  currentMP: 100
+  maxMP: 100
+  currentSP: 50
+  maxSP: 50
+  strength: 20
+  defense: 20
+  dexterity: 20
+  anim: {fileID: 95329052689579918}
   effect1: 0
   effect2: 0
   Idle: 0
   hasDied: 0
-  bounusTurn: 
-  statusBounus: 
+  bounusTurn: 000000000000000000000000
+  statusBounus: 000000000000000000000000
   theSprite: {fileID: 0}
   deadSprite: {fileID: 0}
   aliveSprite: {fileID: 0}
   move: 0
   fadeSpeed: 1
---- !u!212 &212992915063901592
+--- !u!212 &212876355847029090
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1542517695813956}
+  m_GameObject: {fileID: 1843504148306724}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -114,12 +133,12 @@ SpriteRenderer:
   m_SortingLayerID: -544897899
   m_SortingLayer: 5
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300010, guid: 988d560df8d322a468c97243cbfd76e8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: 21300000, guid: 0ec2e0ace22b9514e9b797146ae874e4, type: 3}
+  m_Color: {r: 0.5943396, g: 0.4737896, b: 0.4737896, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.1875, y: 1.6875}
+  m_Size: {x: 2.9714286, y: 3.8285713}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
