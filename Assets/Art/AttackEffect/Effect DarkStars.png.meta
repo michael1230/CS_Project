@@ -1,27 +1,55 @@
 fileFormatVersion: 2
-guid: 9588b5f4c3441fb43b5a9083d5a154ff
+guid: 2850f65595544534eafe5e4bed0fb062
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Temp_LifeSphere_20FPS_0
-    21300002: Temp_LifeSphere_20FPS_1
-    21300004: Temp_LifeSphere_20FPS_2
-    21300006: Temp_LifeSphere_20FPS_3
-    21300008: Temp_LifeSphere_20FPS_4
-    21300010: Temp_LifeSphere_20FPS_5
-    21300012: Temp_LifeSphere_20FPS_6
-    21300014: Temp_LifeSphere_20FPS_7
-    21300016: Temp_LifeSphere_20FPS_8
-    21300018: Temp_LifeSphere_20FPS_9
-    21300020: Temp_LifeSphere_20FPS_10
-    21300022: Temp_LifeSphere_20FPS_11
-    21300024: Temp_LifeSphere_20FPS_12
-    21300026: Temp_LifeSphere_20FPS_13
-    21300028: Temp_LifeSphere_20FPS_14
-    21300030: Temp_LifeSphere_20FPS_15
-    21300032: Temp_LifeSphere_20FPS_16
-    21300034: Temp_LifeSphere_20FPS_17
-    21300036: Temp_LifeSphere_20FPS_18
-    21300038: Temp_LifeSphere_20FPS_19
+    21300000: Temp_Protect_20FPS_0
+    21300002: Temp_Protect_20FPS_1
+    21300004: Temp_Protect_20FPS_2
+    21300006: Temp_Protect_20FPS_3
+    21300008: Temp_Protect_20FPS_4
+    21300010: Temp_Protect_20FPS_5
+    21300012: Temp_Protect_20FPS_6
+    21300014: Temp_Protect_20FPS_7
+    21300016: Temp_Protect_20FPS_8
+    21300018: Temp_Protect_20FPS_9
+    21300020: Temp_Protect_20FPS_10
+    21300022: Temp_Protect_20FPS_11
+    21300024: Temp_Protect_20FPS_12
+    21300026: Temp_Protect_20FPS_13
+    21300028: Temp_Protect_20FPS_14
+    21300030: Temp_Protect_20FPS_15
+    21300032: Temp_Protect_20FPS_16
+    21300034: Temp_Protect_20FPS_17
+    21300036: Temp_Protect_20FPS_18
+    21300038: Effect DarkStars_0
+    21300040: Effect DarkStars_1
+    21300042: Effect DarkStars_2
+    21300044: Effect DarkStars_3
+    21300046: Effect DarkStars_4
+    21300048: Effect DarkStars_5
+    21300050: Effect DarkStars_6
+    21300052: Effect DarkStars_7
+    21300054: Effect DarkStars_8
+    21300056: Effect DarkStars_9
+    21300058: Effect DarkStars_10
+    21300060: Effect DarkStars_11
+    21300062: Effect DarkStars_12
+    21300064: Effect DarkStars_13
+    21300066: Effect DarkStars_14
+    21300068: Effect DarkStars_15
+    21300070: Effect DarkStars_16
+    21300072: Effect DarkStars_17
+    21300074: Effect DarkStars_18
+    21300076: Effect DarkStars_19
+    21300078: Effect DarkStars_20
+    21300080: Effect DarkStars_21
+    21300082: Effect DarkStars_22
+    21300084: Effect DarkStars_23
+    21300086: Effect DarkStars_24
+    21300088: Effect DarkStars_25
+    21300090: Effect DarkStars_26
+    21300092: Effect DarkStars_27
+    21300094: Effect DarkStars_28
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -65,7 +93,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 35
+  spritePixelsToUnits: 60
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,27 +132,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 576
-        width: 192
-        height: 192
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7461314903d8f7941955bc2433c357e4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_1
+      name: Effect DarkStars_0
       rect:
         serializedVersion: 2
         x: 192
@@ -132,19 +140,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a36e4308ed943f4681c52ceb9cc4d15
+      spriteID: 8f0b537735774d1499c6e4c94e13e97e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_2
+      name: Effect DarkStars_1
       rect:
         serializedVersion: 2
         x: 384
@@ -152,19 +160,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b294c264c7bcaba49ad009cbc6628160
+      spriteID: a09bba65457ecdd48ba042bdbe2f5779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_3
+      name: Effect DarkStars_2
       rect:
         serializedVersion: 2
         x: 576
@@ -172,19 +180,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23a465dd0aa849f469f358bd6d1c1ad4
+      spriteID: 7ded715cf96662940a5d139ae2ac8885
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_4
+      name: Effect DarkStars_3
       rect:
         serializedVersion: 2
         x: 768
@@ -192,19 +200,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdc0b170e2a99f047a61259ecbdc2fd5
+      spriteID: 8fd1d4409f5d63142a570f28e62154c0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_5
+      name: Effect DarkStars_4
       rect:
         serializedVersion: 2
         x: 0
@@ -212,19 +220,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c270b7e59f4e644a9a2966bd8c4c3ae
+      spriteID: de1d63435f9296c47bbb4ceb259605a0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_6
+      name: Effect DarkStars_5
       rect:
         serializedVersion: 2
         x: 192
@@ -232,19 +240,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddd5716bd6d54f84bbfc93640c0afd9e
+      spriteID: b0ddf69138ed90f41baf30688f16c11f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_7
+      name: Effect DarkStars_6
       rect:
         serializedVersion: 2
         x: 384
@@ -252,19 +260,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71eb1bd33a2c9774f84ffb2d710147a0
+      spriteID: 5b0841507c8d5da41943deb5581bbc7c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_8
+      name: Effect DarkStars_7
       rect:
         serializedVersion: 2
         x: 576
@@ -272,19 +280,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a38cc2dc0e8c88e47adc5c83bfd84833
+      spriteID: c52e1398d11127a499fd50709568a71e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_9
+      name: Effect DarkStars_8
       rect:
         serializedVersion: 2
         x: 768
@@ -292,19 +300,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10d5b114e73ae924ab10ea079e0420ad
+      spriteID: 1cbdd22774b541c41872aae7950fd43e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_10
+      name: Effect DarkStars_9
       rect:
         serializedVersion: 2
         x: 0
@@ -312,19 +320,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c29bf485f53764241a83e947452433c1
+      spriteID: 689bbfa46fb126747ba83a69fe971a18
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_11
+      name: Effect DarkStars_10
       rect:
         serializedVersion: 2
         x: 192
@@ -332,19 +340,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfdae91bd604a6c459b6b90b5a372ddc
+      spriteID: f02ff9737f774cc43b72ee979ab07102
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_12
+      name: Effect DarkStars_11
       rect:
         serializedVersion: 2
         x: 384
@@ -352,19 +360,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20d369b51dba23f41a9cb74d83c22699
+      spriteID: 7e7a32b8ca779e045863bab26a7c5200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_13
+      name: Effect DarkStars_12
       rect:
         serializedVersion: 2
         x: 576
@@ -372,19 +380,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e5b7e6abe85e48428da4d89d998ff12
+      spriteID: d36530d48cb03fb4181691b8f13e6c44
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_14
+      name: Effect DarkStars_13
       rect:
         serializedVersion: 2
         x: 768
@@ -392,19 +400,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8524cc5d1557ad94fb24930f0cd37f1f
+      spriteID: b3072deff30023b488d68c9b7a64c3d4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_15
+      name: Effect DarkStars_14
       rect:
         serializedVersion: 2
         x: 0
@@ -412,19 +420,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 618078fad7a06dd4abadb39867a0a11b
+      spriteID: ecaa30e61a0d00246804f9d075ec16d3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_16
+      name: Effect DarkStars_15
       rect:
         serializedVersion: 2
         x: 192
@@ -432,19 +440,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b6bc4992d69aff44a3977cc2b608483
+      spriteID: ea2b722ffff785445b3e36520bf2f009
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_17
+      name: Effect DarkStars_16
       rect:
         serializedVersion: 2
         x: 384
@@ -452,19 +460,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f568b5058c5935b48bc2e00509fd4892
+      spriteID: 195ea6cb17cf5ee42ac2173824b3f4e3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_18
+      name: Effect DarkStars_17
       rect:
         serializedVersion: 2
         x: 576
@@ -472,19 +480,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f363f41b4d38b34eac9a579d1cc3ae9
+      spriteID: 4eca5e6444cd027438dfabc28790b489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_LifeSphere_20FPS_19
+      name: Effect DarkStars_18
       rect:
         serializedVersion: 2
         x: 768
@@ -492,13 +500,13 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.45, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64d43ce517aeafc49b5982f39ceffb0c
+      spriteID: d25f8683308ff934abcde3d63f1aef59
       vertices: []
       indices: 
       edges: []
@@ -506,7 +514,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ff203d266c38b754499524df534f17cd
+    spriteID: e0f46eaf58ca62b44918f4741895e796
     vertices: []
     indices: 
     edges: []

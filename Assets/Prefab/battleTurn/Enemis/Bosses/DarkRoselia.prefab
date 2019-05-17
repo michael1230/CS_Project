@@ -76,11 +76,11 @@ MonoBehaviour:
   isMapBoss: 1
   isGameBoss: 0
   movesAvailable:
+  - {fileID: 114801499741064502, guid: 9c101bf1aecf03a48b6e0f1efe69cf13, type: 2}
+  - {fileID: 114085579474057474, guid: 3221061a4c083594da6181aa658768eb, type: 2}
   - {fileID: 114806301489941652, guid: 65ad07a7e08a17d4dbba6a36f54ec66a, type: 2}
-  - {fileID: 114641226933197416, guid: 1fa5b811859ad1f4d8900e73673f7dae, type: 2}
-  - {fileID: 114976865980528210, guid: f06b478cc909b954da04633a5297c17e, type: 2}
   charName: DarkRoselia
-  currentHP: 100
+  currentHP: 50
   maxHP: 100
   currentMP: 100
   maxMP: 100

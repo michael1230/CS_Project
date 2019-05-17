@@ -30,6 +30,34 @@ TextureImporter:
     21300050: Temp_light_003_25
     21300052: Temp_light_003_26
     21300054: Temp_light_003_27
+    21300056: Effect Dark3_0
+    21300058: Effect Dark3_1
+    21300060: Effect Dark3_2
+    21300062: Effect Dark3_3
+    21300064: Effect Dark3_4
+    21300066: Effect Dark3_5
+    21300068: Effect Dark3_6
+    21300070: Effect Dark3_7
+    21300072: Effect Dark3_8
+    21300074: Effect Dark3_9
+    21300076: Effect Dark3_10
+    21300078: Effect Dark3_11
+    21300080: Effect Dark3_12
+    21300082: Effect Dark3_13
+    21300084: Effect Dark3_14
+    21300086: Effect Dark3_15
+    21300088: Effect Dark3_16
+    21300090: Effect Dark3_17
+    21300092: Effect Dark3_18
+    21300094: Effect Dark3_19
+    21300096: Effect Dark3_20
+    21300098: Effect Dark3_21
+    21300100: Effect Dark3_22
+    21300102: Effect Dark3_23
+    21300104: Effect Dark3_24
+    21300106: Effect Dark3_25
+    21300108: Effect Dark3_26
+    21300110: Effect Dark3_27
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -73,7 +101,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 35
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -112,7 +140,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Temp_light_003_0
+      name: Effect Dark3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -120,19 +148,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3c6d8e75f402844b9f697d8d9b2ad50
+      spriteID: 61a0d4507122d0745b5d993d1d80e447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_1
+      name: Effect Dark3_1
       rect:
         serializedVersion: 2
         x: 192
@@ -140,19 +168,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07fd1339e36bcb34080d1e9a019dccfc
+      spriteID: af6f3a518ece8d5438c0974aab080520
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_2
+      name: Effect Dark3_2
       rect:
         serializedVersion: 2
         x: 384
@@ -160,19 +188,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba65015ebef23fc4d8051daadb6f3e58
+      spriteID: dcdde9f1e3593124c8efb89eaa8921df
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_3
+      name: Effect Dark3_3
       rect:
         serializedVersion: 2
         x: 576
@@ -180,19 +208,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 803b7861ef6872f4388e9e152e888dd5
+      spriteID: a8b8d80e4b782dd45ab6cb16a9ef2333
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_4
+      name: Effect Dark3_4
       rect:
         serializedVersion: 2
         x: 768
@@ -200,19 +228,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d712bade17bf56b4888e2ade254d17fe
+      spriteID: d6475fad8b1df0d45911ed63170623e8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_5
+      name: Effect Dark3_5
       rect:
         serializedVersion: 2
         x: 0
@@ -220,19 +248,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52934590da4548a4e8d1ec4936ee2bda
+      spriteID: 55dc6fe847427684d80ec994c1c65fe3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_6
+      name: Effect Dark3_6
       rect:
         serializedVersion: 2
         x: 192
@@ -240,19 +268,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 110ffe0358ab0cd46b15eb627095c9fc
+      spriteID: afa992d662082c74ca8ffcf0b615809c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_7
+      name: Effect Dark3_7
       rect:
         serializedVersion: 2
         x: 384
@@ -260,19 +288,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b36da2b46b468db48bd1d02153170286
+      spriteID: 6efd737e3e2d4d242884c3c9e517a553
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_8
+      name: Effect Dark3_8
       rect:
         serializedVersion: 2
         x: 576
@@ -280,19 +308,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55ed7575470eec7408665d7aba565b52
+      spriteID: 7e30bbe0fda7d864eb95cf6c70512383
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_9
+      name: Effect Dark3_9
       rect:
         serializedVersion: 2
         x: 768
@@ -300,19 +328,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88d26eed19e1a2c4a838a24ff225c03b
+      spriteID: 6f9c10f1cb57dcf4aad649478b61192c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_10
+      name: Effect Dark3_10
       rect:
         serializedVersion: 2
         x: 0
@@ -320,19 +348,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51e793e79efd88249a47544ddfaf7821
+      spriteID: 9310210718bbf27439af902025b612ae
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_11
+      name: Effect Dark3_11
       rect:
         serializedVersion: 2
         x: 192
@@ -340,19 +368,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1561ab44877adaf47a6e1ee9673c2123
+      spriteID: fee3cf9a6828896428baee75430181bb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_12
+      name: Effect Dark3_12
       rect:
         serializedVersion: 2
         x: 384
@@ -360,19 +388,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61e2cf4d854df234f89b6e493e225682
+      spriteID: fb32000a43a13c14cacbdce941dac2c2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_13
+      name: Effect Dark3_13
       rect:
         serializedVersion: 2
         x: 576
@@ -380,19 +408,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 659488bc3fc0a2d479cfa4d10b230d12
+      spriteID: 56d3ce1b6cbfc9a46af16cfaf6c130bf
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_14
+      name: Effect Dark3_14
       rect:
         serializedVersion: 2
         x: 768
@@ -400,19 +428,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df2d33bd185133040a9d66039b63e687
+      spriteID: 78ce52c5cee8a6c449fb41ea388c6b32
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_15
+      name: Effect Dark3_15
       rect:
         serializedVersion: 2
         x: 0
@@ -420,19 +448,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c518632a18058dc4fa751fd4cea71451
+      spriteID: 2effa9bd4581d5f4a99f3dbb22fe7834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_16
+      name: Effect Dark3_16
       rect:
         serializedVersion: 2
         x: 192
@@ -440,19 +468,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5db561b5510f45f49a88db843b03f781
+      spriteID: 3e579e46030a6fc4886db5df72f20575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_17
+      name: Effect Dark3_17
       rect:
         serializedVersion: 2
         x: 384
@@ -460,19 +488,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98d189228dcf24d4d889b5aa9e21622c
+      spriteID: 134389f8d6de45749962723f5de2082b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_18
+      name: Effect Dark3_18
       rect:
         serializedVersion: 2
         x: 576
@@ -480,19 +508,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3796f4808e22514c8d3973608c905e3
+      spriteID: c3c0762928259274aba5c7661237afb1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_19
+      name: Effect Dark3_19
       rect:
         serializedVersion: 2
         x: 768
@@ -500,19 +528,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8cda11b13f0aaf4eb40cafe84e5732c
+      spriteID: e6128c096f6b8354b814f042f69b0950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_20
+      name: Effect Dark3_20
       rect:
         serializedVersion: 2
         x: 0
@@ -520,19 +548,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e6c21fed4a33a84aac031a6eec2346e
+      spriteID: 8a9b7ded63ac4284fbb35e9a0c44adb6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_21
+      name: Effect Dark3_21
       rect:
         serializedVersion: 2
         x: 192
@@ -540,19 +568,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b951e65006e94744faf3020c7fef422c
+      spriteID: fde1f9f80fdd58b458dc8a96de71a33d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_22
+      name: Effect Dark3_22
       rect:
         serializedVersion: 2
         x: 384
@@ -560,19 +588,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c29e8f7bdd4f25d4093733a3328e171c
+      spriteID: c3e922c0821397a46ab65d27bdf6738c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_23
+      name: Effect Dark3_23
       rect:
         serializedVersion: 2
         x: 576
@@ -580,19 +608,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b45a76a162e4c434a8c8e76f73e5c374
+      spriteID: 2bb3137e2162dc543b26b66dce9663c6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_24
+      name: Effect Dark3_24
       rect:
         serializedVersion: 2
         x: 768
@@ -600,19 +628,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f664a22fc83a9a4e8e763041333c2cb
+      spriteID: df9a95bf5e4f64545afb67aadb9bbc5b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_25
+      name: Effect Dark3_25
       rect:
         serializedVersion: 2
         x: 0
@@ -620,19 +648,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fdd045c1fc80c74485e3005df30b05f
+      spriteID: ee5e02e038f05e04d9a7a1222d411908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_26
+      name: Effect Dark3_26
       rect:
         serializedVersion: 2
         x: 192
@@ -640,19 +668,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c35fa04cba823274fb9ac0e3ff0882e7
+      spriteID: 152e95cab2568154592f6cf32c5b9a3f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_light_003_27
+      name: Effect Dark3_27
       rect:
         serializedVersion: 2
         x: 384
@@ -660,13 +688,13 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.47, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ebd332ceb8e02445a218b9e482a81b8
+      spriteID: a965da714bfe7ed4ebf3a671d432ee01
       vertices: []
       indices: 
       edges: []

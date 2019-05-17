@@ -27,6 +27,31 @@ TextureImporter:
     21300044: Temp_StateDown2_22
     21300046: Temp_StateDown2_23
     21300048: Temp_StateDown2_24
+    21300050: Effect Dark Bind_0
+    21300052: Effect Dark Bind_1
+    21300054: Effect Dark Bind_2
+    21300056: Effect Dark Bind_3
+    21300058: Effect Dark Bind_4
+    21300060: Effect Dark Bind_5
+    21300062: Effect Dark Bind_6
+    21300064: Effect Dark Bind_7
+    21300066: Effect Dark Bind_8
+    21300068: Effect Dark Bind_9
+    21300070: Effect Dark Bind_10
+    21300072: Effect Dark Bind_11
+    21300074: Effect Dark Bind_12
+    21300076: Effect Dark Bind_13
+    21300078: Effect Dark Bind_14
+    21300080: Effect Dark Bind_15
+    21300082: Effect Dark Bind_16
+    21300084: Effect Dark Bind_17
+    21300086: Effect Dark Bind_18
+    21300088: Effect Dark Bind_19
+    21300090: Effect Dark Bind_20
+    21300092: Effect Dark Bind_21
+    21300094: Effect Dark Bind_22
+    21300096: Effect Dark Bind_23
+    21300098: Effect Dark Bind_24
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -70,7 +95,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 70
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,7 +134,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Temp_StateDown2_0
+      name: Effect Dark Bind_0
       rect:
         serializedVersion: 2
         x: 0
@@ -117,19 +142,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 097672ad9c6984b479d9718e3bf43081
+      spriteID: b9003c35ae5c36c449ca639c0c29de16
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_1
+      name: Effect Dark Bind_1
       rect:
         serializedVersion: 2
         x: 192
@@ -137,19 +162,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9483c1bf6c9fa1944b56857bf28b5258
+      spriteID: 72ef4360efc8e1f4bb2f2a6e4ed0a57a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_2
+      name: Effect Dark Bind_2
       rect:
         serializedVersion: 2
         x: 384
@@ -157,19 +182,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd3efa770b33e794cb256b9ac70ec11a
+      spriteID: 9f20288e427c8db42a191693bc99ee63
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_3
+      name: Effect Dark Bind_3
       rect:
         serializedVersion: 2
         x: 576
@@ -177,19 +202,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66dcb12fe99544048a8f578a07062b48
+      spriteID: 3e7e43dad70a40e408db1f7ea29b9a05
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_4
+      name: Effect Dark Bind_4
       rect:
         serializedVersion: 2
         x: 768
@@ -197,19 +222,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0b667e0a2e2acd4ca37a961e987e3b5
+      spriteID: b2d923a0e584a724babd5acac4d0bab2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_5
+      name: Effect Dark Bind_5
       rect:
         serializedVersion: 2
         x: 0
@@ -217,19 +242,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90360189f00df90479aaa67ca0bab250
+      spriteID: 1f7d5f859130aa44ba6d10beac415401
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_6
+      name: Effect Dark Bind_6
       rect:
         serializedVersion: 2
         x: 192
@@ -237,19 +262,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01efe00898e99cc45b5ca4577c11a654
+      spriteID: 7a118baa92fc27146821d6ead1f072c4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_7
+      name: Effect Dark Bind_7
       rect:
         serializedVersion: 2
         x: 384
@@ -257,19 +282,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 753e0d7d3f270e64caddfbbf940e25fd
+      spriteID: 6a6fe7fb88d392a4d8ac6ac70dc37f4c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_8
+      name: Effect Dark Bind_8
       rect:
         serializedVersion: 2
         x: 576
@@ -277,19 +302,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e4cae8d52c1a8943a8552c4cf8eaa09
+      spriteID: 9ea3b13a2f9748c43ab7061dc9a40b12
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_9
+      name: Effect Dark Bind_9
       rect:
         serializedVersion: 2
         x: 768
@@ -297,19 +322,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e13b4f1c872ecb40841c6501e808d57
+      spriteID: c7638255ac3667647a0cfe53fd32d29b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_10
+      name: Effect Dark Bind_10
       rect:
         serializedVersion: 2
         x: 0
@@ -317,19 +342,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83623e056abde384d8cb17313108ab78
+      spriteID: e46feb7608e914f4b9afadcd86137e0f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_11
+      name: Effect Dark Bind_11
       rect:
         serializedVersion: 2
         x: 192
@@ -337,19 +362,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a221b432c8c3f947876647f098b5898
+      spriteID: e2a7fcc45b07cbb4684994d4bd72ad74
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_12
+      name: Effect Dark Bind_12
       rect:
         serializedVersion: 2
         x: 384
@@ -357,19 +382,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 844029d94e193894bb78463e21e7ebd0
+      spriteID: 3abc74583843bbc4986d61360116c288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_13
+      name: Effect Dark Bind_13
       rect:
         serializedVersion: 2
         x: 576
@@ -377,19 +402,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 320857c738134e544a7d9d2da03fd774
+      spriteID: b7979c5ef8951594f9a3c33bfd9819bb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_14
+      name: Effect Dark Bind_14
       rect:
         serializedVersion: 2
         x: 768
@@ -397,19 +422,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 354218eb32fc1bd48a32f71270ebaac8
+      spriteID: ba3fcdc9f635554409a1df7ce84e027a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_15
+      name: Effect Dark Bind_15
       rect:
         serializedVersion: 2
         x: 0
@@ -417,19 +442,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 848b0d423c8a46043a54b24172cc49e1
+      spriteID: 1dc11778655199d458f99eef6354851f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_16
+      name: Effect Dark Bind_16
       rect:
         serializedVersion: 2
         x: 192
@@ -437,19 +462,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 808c3da1d24987f4882acfca835df4e9
+      spriteID: 7d8b1f6f9ed090e4a95c6370fb5afdf4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_17
+      name: Effect Dark Bind_17
       rect:
         serializedVersion: 2
         x: 384
@@ -457,19 +482,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e173d122ecc3b248a9e8630ebcac0ab
+      spriteID: 5718383630dc27a44a0e4e94ee146961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_18
+      name: Effect Dark Bind_18
       rect:
         serializedVersion: 2
         x: 576
@@ -477,19 +502,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4905186ee380b2a48a9140289b580173
+      spriteID: 6a8a607c897f8f6439d2e12eee429af0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_19
+      name: Effect Dark Bind_19
       rect:
         serializedVersion: 2
         x: 768
@@ -497,19 +522,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8db4f66e5ff57ea4c95ada29c97cbd14
+      spriteID: 59541d7dd5cf92940b35f209ba7c0487
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_20
+      name: Effect Dark Bind_20
       rect:
         serializedVersion: 2
         x: 0
@@ -517,19 +542,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c29e6a4e686da94d93699890d1b1178
+      spriteID: d0454e2aaeca9c049b0446134bbcd08e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_21
+      name: Effect Dark Bind_21
       rect:
         serializedVersion: 2
         x: 192
@@ -537,19 +562,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99e084f034ab22643b0441f19133e8fd
+      spriteID: 56b94c9be774c3f449e7ee6aac1f99dd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_22
+      name: Effect Dark Bind_22
       rect:
         serializedVersion: 2
         x: 384
@@ -557,19 +582,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f945d7476b6ba474f8c0b01525c0e809
+      spriteID: dd6173b2a2400044e8a3425328e16477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_23
+      name: Effect Dark Bind_23
       rect:
         serializedVersion: 2
         x: 576
@@ -577,19 +602,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a23bebb602f4ca547b5e5764f9ce8ebd
+      spriteID: 470386423196eb748ae23b88d8843d49
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_StateDown2_24
+      name: Effect Dark Bind_24
       rect:
         serializedVersion: 2
         x: 768
@@ -597,13 +622,13 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.42, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06ed6202d8debe4458dd4bdabcb9b437
+      spriteID: fdf70d6a0d6bd5d41989c0cf8b5827d9
       vertices: []
       indices: 
       edges: []

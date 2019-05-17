@@ -21,6 +21,30 @@ TextureImporter:
     21300032: Temp_Teleport_20FPS_16
     21300034: Temp_Teleport_20FPS_17
     21300036: Temp_Teleport_20FPS_18
+    21300038: Effect DarkAura_0
+    21300040: Effect DarkAura_1
+    21300042: Effect DarkAura_2
+    21300044: Effect DarkAura_3
+    21300046: Effect DarkAura_4
+    21300048: Effect DarkAura_5
+    21300050: Effect DarkAura_6
+    21300052: Effect DarkAura_7
+    21300054: Effect DarkAura_8
+    21300056: Effect DarkAura_9
+    21300058: Effect DarkAura_10
+    21300060: Effect DarkAura_11
+    21300062: Effect DarkAura_12
+    21300064: Effect DarkAura_13
+    21300066: Effect DarkAura_14
+    21300068: Effect DarkAura_15
+    21300070: Effect DarkAura_16
+    21300072: Effect DarkAura_17
+    21300074: Effect DarkAura_18
+    21300076: Effect DarkAura_19
+    21300078: Effect DarkAura_20
+    21300080: Effect DarkAura_21
+    21300082: Effect DarkAura_22
+    21300084: Effect DarkAura_23
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -64,7 +88,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 55
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Temp_Teleport_20FPS_0
+      name: Effect DarkAura_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,19 +135,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74fcb4116893aa842bf524aedab76a1e
+      spriteID: 2eae35612fb3c0142aeb38d27eebc3be
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_Teleport_20FPS_1
+      name: Effect DarkAura_1
       rect:
         serializedVersion: 2
         x: 192
@@ -131,19 +155,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93f050995d825ee4ab20fa8136fc98f1
+      spriteID: 0913d508cf3b21b428230fc05417d587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_Teleport_20FPS_2
+      name: Effect DarkAura_2
       rect:
         serializedVersion: 2
         x: 384
@@ -151,19 +175,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba95a79d4e009b94cb1c8d97f21d233f
+      spriteID: 208e240c2fe1a8d4cb1d29257c8e1e0d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_Teleport_20FPS_3
+      name: Effect DarkAura_3
       rect:
         serializedVersion: 2
         x: 576
@@ -171,19 +195,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3beeaeef897077741a1309e34f5a1dc7
+      spriteID: c9977a92490a2194f8a5d259a8d2ac40
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_Teleport_20FPS_4
+      name: Effect DarkAura_4
       rect:
         serializedVersion: 2
         x: 768
@@ -191,19 +215,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87a3222bb967ec944baabf99dbf4c04f
+      spriteID: 881ab20cdb12849489afcd153036afa0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_Teleport_20FPS_5
+      name: Effect DarkAura_5
       rect:
         serializedVersion: 2
         x: 0
@@ -211,19 +235,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd8dc3f28f6a9c2428a232873fa8fb8c
+      spriteID: 9104ed649ab4c7f429ab4a1a35806eab
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_Teleport_20FPS_6
+      name: Effect DarkAura_6
       rect:
         serializedVersion: 2
         x: 192
@@ -231,19 +255,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e733cee759bd914795d2d5cda7a3e4a
+      spriteID: 300ce83ccba39a54798e37bfb337af1d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_Teleport_20FPS_7
+      name: Effect DarkAura_7
       rect:
         serializedVersion: 2
         x: 384
@@ -251,19 +275,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97fe0678a7277a548bc8eef6c387ca76
+      spriteID: b357ce2629f4fac41a1866c502722919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_Teleport_20FPS_8
+      name: Effect DarkAura_8
       rect:
         serializedVersion: 2
         x: 576
@@ -271,19 +295,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87303146c91a89d4d9f804900a4be96b
+      spriteID: 45e674ea69939374697720d07c77c986
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_Teleport_20FPS_9
+      name: Effect DarkAura_9
       rect:
         serializedVersion: 2
         x: 768
@@ -291,19 +315,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bea9da55596e32b4f8f472eb8247e5bc
+      spriteID: 3ca5fc55235bca64ab34aca19c09f6b7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_Teleport_20FPS_10
+      name: Effect DarkAura_10
       rect:
         serializedVersion: 2
         x: 0
@@ -311,19 +335,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29c780fcf6c64a74c95f74938f54fd09
+      spriteID: 0a7dbd19037d4be46a7234d9fc886769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_Teleport_20FPS_11
+      name: Effect DarkAura_11
       rect:
         serializedVersion: 2
         x: 192
@@ -331,19 +355,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25b74192591df7b47a9d82290fb610bb
+      spriteID: a12f38d884373da4886c37a37c6d1869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_Teleport_20FPS_12
+      name: Effect DarkAura_12
       rect:
         serializedVersion: 2
         x: 384
@@ -351,19 +375,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0417f3c580944544183634f4b831d1ea
+      spriteID: 76d22653db0a29c488987c3cf6c35795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_Teleport_20FPS_13
+      name: Effect DarkAura_13
       rect:
         serializedVersion: 2
         x: 576
@@ -371,19 +395,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7abf73932aed074e9759ef2557602ff
+      spriteID: 7355555429344164c8a91e2944ec2705
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_Teleport_20FPS_14
+      name: Effect DarkAura_14
       rect:
         serializedVersion: 2
         x: 768
@@ -391,19 +415,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d6035646affc224587e15998d8caef4
+      spriteID: 2a3d44b6284499b41b592470187f1b8d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_Teleport_20FPS_15
+      name: Effect DarkAura_15
       rect:
         serializedVersion: 2
         x: 0
@@ -411,19 +435,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30182ad5a1012f04fb9e099db27d93bb
+      spriteID: 5cc7e1184ad9c1b419be84543958196b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_Teleport_20FPS_16
+      name: Effect DarkAura_16
       rect:
         serializedVersion: 2
         x: 192
@@ -431,19 +455,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e468211d56fea244db10386099d1e506
+      spriteID: fdfa349537b2cbf4fbad3f3ef14c903c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_Teleport_20FPS_17
+      name: Effect DarkAura_17
       rect:
         serializedVersion: 2
         x: 384
@@ -451,19 +475,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f1d1bb1b1c80784ea85bc37b2af4466
+      spriteID: cb60625040ac6a94f9ca675ce0c2744b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_Teleport_20FPS_18
+      name: Effect DarkAura_18
       rect:
         serializedVersion: 2
         x: 576
@@ -471,13 +495,13 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f447e508ab8d234090cb49457c47b3a
+      spriteID: e4df811195dd78d45aecf3d6b4e5dbaf
       vertices: []
       indices: 
       edges: []
