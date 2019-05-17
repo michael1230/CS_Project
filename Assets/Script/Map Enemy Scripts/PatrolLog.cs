@@ -28,10 +28,10 @@ public class PatrolLog : logEnemy {
        // WorldTile dotNode = grid.NodeFromPosition(AstarPoint.position);
         target = AstarPoint.transform;
         StartCoroutine(UpdatePath());
-        Debug.Log("here1");
+        //Debug.Log("here1");
         //yield return new WaitWhile(() => thisNode.gridPosition != dotNode.gridPosition);
         yield return new WaitWhile(() => transform.position != target.position);
-        Debug.Log("here contuie");
+        //Debug.Log("here contuie");
         toPoint = false;
 
     }
