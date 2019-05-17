@@ -27,6 +27,7 @@ public class EnemyOnMap : MonoBehaviour {
     [Header("Death Effects")]
     public GameObject deathEffect;
     private float deathEffectDelay = 1f;
+    public LootTable thisLoot;
 
     private void Awake()
     {
@@ -47,10 +48,24 @@ public class EnemyOnMap : MonoBehaviour {
         if(health <= 0)
         {
             DeathEffect();
+            MakeLoot();//after death drop item
             this.gameObject.SetActive(false); //better then destroy for memory
             isAlive = false;
         }
     }
+
+    private void MakeLoot()// for hearts and powerUp
+    {
+        if (thisLoot != null)
+        {
+            Powerup current = thisLoot.LootPowerup();
+            if (current != null)
+            {
+                Instantiate(current.gameObject, transform.position, Quaternion.identity);//drop in the enemy place, Quaternion.identity == no rotation 
+            }
+        }
+    }
+
     private void DeathEffect() //effect for enemy death
     {
         if (deathEffect != null)

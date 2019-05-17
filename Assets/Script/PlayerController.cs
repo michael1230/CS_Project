@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,7 +27,10 @@ public class PlayerController : MonoBehaviour
     private Vector3 topRightLimit; //the second limit of the  map
     public FloatValue currentHealth; //player current health
     public Signal playerHealthSignal; //reference to current health
+    public Signal reduceMagic;
     public GameObject projectile;
+    public MapInventory playerInventory;
+
 
     void Start()
     {
@@ -55,6 +58,11 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        //is the player in an interaction
+        if(currentState == PlayerState.interact)
+        {
+            return;
+        }
         if (canMovePlayer)//if the flag is true
         {
             if (currentState == PlayerState.interact)
@@ -70,7 +78,7 @@ public class PlayerController : MonoBehaviour
             {
                 StartCoroutine(AttackCo());
             }
-            else if (Input.GetButtonDown("FireBall") && currentState != PlayerState.attack && currentState != PlayerState.stagger)
+            else if (Input.GetButtonDown("FireBall") && currentState != PlayerState.attack && currentState != PlayerState.stagger && playerInventory.currentMagic > 0)
             {
                 StartCoroutine(SecondAttackCo());
             }
@@ -97,7 +105,10 @@ public class PlayerController : MonoBehaviour
         yield return null;
         animator.SetBool("attacking", false);//stop the attack anim
         yield return new WaitForSeconds(.3f);
-        currentState = PlayerState.walk;
+        if(currentState != PlayerState.interact)
+        {
+            currentState = PlayerState.walk;
+        } 
     }
 
     private IEnumerator SecondAttackCo() //attack Coroutine
@@ -108,14 +119,22 @@ public class PlayerController : MonoBehaviour
         MakeFireBall();
         animator.SetBool("attacking", false);//stop the attack anim
         yield return new WaitForSeconds(.3f);
-        currentState = PlayerState.walk;
+        if (currentState != PlayerState.interact)
+        {
+            currentState = PlayerState.walk;
+        }
     }
 
     private void MakeFireBall()
     {
-        Vector2 temp = new Vector2(animator.GetFloat("moveX"), animator.GetFloat("moveY"));
-        FireBall fireBall = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<FireBall>();
-        fireBall.Setup(temp, ChooseFireBallDirection());
+        if(playerInventory.currentMagic > 0)
+        {
+            Vector2 temp = new Vector2(animator.GetFloat("moveX"), animator.GetFloat("moveY"));
+            FireBall fireBall = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<FireBall>();
+            fireBall.Setup(temp, ChooseFireBallDirection());
+            reduceMagic.Raise();
+        }
+
     }
 
     Vector3 ChooseFireBallDirection()

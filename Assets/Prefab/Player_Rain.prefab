@@ -350,7 +350,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1393728808900118}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 3549f2a87143c2348ba8369b6a9ca1b5, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -456,7 +456,9 @@ MonoBehaviour:
   areaTransitionName: 
   currentHealth: {fileID: 11400000, guid: 867c4c96ffc6e7f428c5bf92eace0277, type: 2}
   playerHealthSignal: {fileID: 11400000, guid: e33c07a445f20244a8f41e4cebfdd5eb, type: 2}
+  reduceMagic: {fileID: 11400000, guid: 01c04b16504250548a2d8579464944bd, type: 2}
   projectile: {fileID: 1987229610183826, guid: 3a865e55ca249724ca2346f8eef460d7, type: 2}
+  playerInventory: {fileID: 11400000, guid: 5b694e7d3746d28489ff1b0feea3e6b3, type: 2}
 --- !u!114 &114518133026385070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -518,7 +520,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 707867589
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 3b79b2a9b30024845b197d048b29dc31, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
