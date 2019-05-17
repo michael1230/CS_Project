@@ -17,6 +17,21 @@ TextureImporter:
     21300024: Temp_PlasmaAura_20FPS_12
     21300026: Temp_PlasmaAura_20FPS_13
     21300028: Temp_PlasmaAura_20FPS_14
+    21300030: Effect DarkRise_0
+    21300032: Effect DarkRise_1
+    21300034: Effect DarkRise_2
+    21300036: Effect DarkRise_3
+    21300038: Effect DarkRise_4
+    21300040: Effect DarkRise_5
+    21300042: Effect DarkRise_6
+    21300044: Effect DarkRise_7
+    21300046: Effect DarkRise_8
+    21300048: Effect DarkRise_9
+    21300050: Effect DarkRise_10
+    21300052: Effect DarkRise_11
+    21300054: Effect DarkRise_12
+    21300056: Effect DarkRise_13
+    21300058: Effect DarkRise_14
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -60,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 60
+  spritePixelsToUnits: 70
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -99,7 +114,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Temp_PlasmaAura_20FPS_0
+      name: Effect DarkRise_0
       rect:
         serializedVersion: 2
         x: 192
@@ -107,19 +122,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.46, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bd65fa754b3b4247920818e85c5f677
+      spriteID: bfa0f903ac292ae4fad5501c05a078c4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_PlasmaAura_20FPS_1
+      name: Effect DarkRise_1
       rect:
         serializedVersion: 2
         x: 384
@@ -127,19 +142,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.46, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16582c4748e6ca547b077d1c6cfa5825
+      spriteID: a864bdc33bfe152488f38d26e08ce874
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_PlasmaAura_20FPS_2
+      name: Effect DarkRise_2
       rect:
         serializedVersion: 2
         x: 576
@@ -147,19 +162,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.46, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b25e035ed6116fa45a1d1d7e367402ad
+      spriteID: 2e2b8c463ead447458dd484fe0ff45f0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_PlasmaAura_20FPS_3
+      name: Effect DarkRise_3
       rect:
         serializedVersion: 2
         x: 768
@@ -167,19 +182,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.46, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 773fba513d259d04c8a72b9bc0816f2a
+      spriteID: 7c322be5a077cd745b3d9c2fdf681969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_PlasmaAura_20FPS_4
+      name: Effect DarkRise_4
       rect:
         serializedVersion: 2
         x: 0
@@ -187,19 +202,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.46, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d860d4a5931f1d84199357fa9b031ba0
+      spriteID: 786a0ff3f23b5d24b93016dbb098bbf0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_PlasmaAura_20FPS_5
+      name: Effect DarkRise_5
       rect:
         serializedVersion: 2
         x: 192
@@ -207,19 +222,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.46, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50ec68f0cbd129043a28a6f29a384728
+      spriteID: ad633e4828a8b50409b89a16e63f03f3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_PlasmaAura_20FPS_6
+      name: Effect DarkRise_6
       rect:
         serializedVersion: 2
         x: 384
@@ -227,19 +242,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.46, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf96530cbef24e140a078ea55824b2b2
+      spriteID: 1be9b86e6e3823a4db9993cb2ce242b3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_PlasmaAura_20FPS_7
+      name: Effect DarkRise_7
       rect:
         serializedVersion: 2
         x: 576
@@ -247,19 +262,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.46, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 712e10d511072f54d9217b94395b848d
+      spriteID: 4e0083a9323cf154db6f92533d841990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_PlasmaAura_20FPS_8
+      name: Effect DarkRise_8
       rect:
         serializedVersion: 2
         x: 768
@@ -267,19 +282,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.46, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7766ed14ed776f94191a3a6ba4622d63
+      spriteID: 4264ccff904b4a147b7189a6387f1a65
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_PlasmaAura_20FPS_9
+      name: Effect DarkRise_9
       rect:
         serializedVersion: 2
         x: 0
@@ -287,19 +302,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.46, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59c573aeef6dc824186134f9d82fa940
+      spriteID: f3ab68134a8577447ba51faa7b59d281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_PlasmaAura_20FPS_10
+      name: Effect DarkRise_10
       rect:
         serializedVersion: 2
         x: 192
@@ -307,19 +322,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.46, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89b7fcabc41117d4dad70ea66ec5ad8a
+      spriteID: d44067c8a4ec0a142b87d80cad2a4908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_PlasmaAura_20FPS_11
+      name: Effect DarkRise_11
       rect:
         serializedVersion: 2
         x: 384
@@ -327,19 +342,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.46, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05c15f53aeffd954dbd258dbea81fe82
+      spriteID: 713b4ba10b9b72848bbfaa757df22152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_PlasmaAura_20FPS_12
+      name: Effect DarkRise_12
       rect:
         serializedVersion: 2
         x: 576
@@ -347,19 +362,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.46, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45f6a43ebc45a104bafc34163ba8ff12
+      spriteID: 15a00c722cb9b844388bb4450ae224fe
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_PlasmaAura_20FPS_13
+      name: Effect DarkRise_13
       rect:
         serializedVersion: 2
         x: 768
@@ -367,19 +382,19 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.46, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dbfcc3a7df154f418f8b045e36cc4b5
+      spriteID: 2760220c18a671a478afb3ea28e6fb76
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_PlasmaAura_20FPS_14
+      name: Effect DarkRise_14
       rect:
         serializedVersion: 2
         x: 0
@@ -387,13 +402,13 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.46, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 233710ef86c99674a975fec8b8c47bb2
+      spriteID: 9a6cdb655a9d5bc49a1edbade15f848d
       vertices: []
       indices: 
       edges: []
