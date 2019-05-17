@@ -47,6 +47,7 @@ public class PatrolLog : logEnemy {
                              transform.position) <= chaseRaidius
             && Vector3.Distance(targetPlayer.position,
                                 transform.position) > attackRadius)
+        //if (Vector3.Distance(target.position, transform.position) <= chaseRaidius)
         {
             if (currentState == EnemyState.idle || currentState == EnemyState.walk
                 && currentState != EnemyState.stagger)

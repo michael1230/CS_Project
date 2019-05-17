@@ -34,8 +34,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1542517695813956}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.07, y: -0.41000044, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,20 +53,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
+  isRegularEnemy: 0
+  isMapBoss: 0
+  isGameBoss: 0
   movesAvailable: []
   charName: EyeBall
-  currentHp: 150
+  currentHP: 0
   maxHP: 150
   currentMP: 0
   maxMP: 0
+  currentSP: 0
+  maxSP: 0
   strength: 10
-  defence: 10
-  wpnPower: 5
-  armrPower: 5
+  defense: 0
+  dexterity: 0
+  anim: {fileID: 0}
+  effect1: 0
+  effect2: 0
+  Idle: 0
   hasDied: 0
+  bounusTurn: 
+  statusBounus: 
   theSprite: {fileID: 0}
   deadSprite: {fileID: 0}
   aliveSprite: {fileID: 0}
+  move: 0
+  fadeSpeed: 1
 --- !u!212 &212992915063901592
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -100,7 +112,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -544897899
-  m_SortingLayer: 2
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300010, guid: 988d560df8d322a468c97243cbfd76e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

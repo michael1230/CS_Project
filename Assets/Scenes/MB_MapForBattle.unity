@@ -364,6 +364,8 @@ GameObject:
   - component: {fileID: 175002501}
   - component: {fileID: 175002500}
   - component: {fileID: 175002502}
+  - component: {fileID: 175002504}
+  - component: {fileID: 175002503}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -420,6 +422,28 @@ MonoBehaviour:
   scanFinishY: 250
   gridBoundX: 0
   gridBoundY: 0
+--- !u!114 &175002503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 175002499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c81669f4a53444a81f5601d5a88410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &175002504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 175002499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9667e46654fd2542b7b384224c0cf78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &412869919
 Prefab:
   m_ObjectHideFlags: 0
@@ -40239,7 +40263,7 @@ Prefab:
     - target: {fileID: 114724422642565792, guid: fb788f09051430047a72ef3646b2d990,
         type: 2}
       propertyPath: enemyToSpawn.Array.data[0]
-      value: Garland
+      value: DarkRoselia
       objectReference: {fileID: 0}
     - target: {fileID: 114724422642565792, guid: fb788f09051430047a72ef3646b2d990,
         type: 2}

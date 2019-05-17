@@ -6433,6 +6433,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleScene: {fileID: 1935146375639736}
   battleCanves: {fileID: 1677320228146478}
+  currenctBattleImeg: {fileID: 212020127701090892}
+  battleImeges:
+  - {fileID: 21300000, guid: 4c38a2b9041c88748add8abf7c31433c, type: 3}
+  - {fileID: 21300000, guid: 92609e186aa6f9347a6513f9b7766702, type: 3}
   playerPositions:
   - {fileID: 4864725483362994}
   - {fileID: 4986765680515272}
@@ -6454,6 +6458,9 @@ MonoBehaviour:
   - {fileID: 114217456850337400, guid: 134cade906e959a4e96c1beb254f822e, type: 2}
   - {fileID: 114260683632420484, guid: 68c2114fc4acb404aa7aa7162b848135, type: 2}
   - {fileID: 114085100434676368, guid: c29d18dc81b7b7e4aa957c551773e2f7, type: 2}
+  - {fileID: 114624830500340846, guid: 151c79add5b634a4c80a39759573f7e4, type: 2}
+  - {fileID: 114875038835581000, guid: 54541c0b5efc71f4cba411da2c26edb6, type: 2}
+  - {fileID: 114642676237376796, guid: 71cb9bb2670ab474fad0031f2103489e, type: 2}
   BattleMenus: {fileID: 114813330975381514}
   currentPlayerText: {fileID: 114208864421034054}
   currentMenuText: {fileID: 114684200966542428}
@@ -6522,6 +6529,7 @@ MonoBehaviour:
   activeBattlers: []
   currentTurn: 0
   turnWaiting: 0
+  bossBattle: 0
   next: 0
 --- !u!114 &114120396633160902
 MonoBehaviour:
