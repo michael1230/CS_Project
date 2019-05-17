@@ -9,56 +9,56 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1334941031025818}
+  m_RootGameObject: {fileID: 1998538366368580}
   m_IsPrefabAsset: 1
---- !u!1 &1334941031025818
+--- !u!1 &1998538366368580
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4591912310645580}
-  - component: {fileID: 114336687314183930}
+  - component: {fileID: 4798023405640990}
+  - component: {fileID: 114801499741064502}
   m_Layer: 0
-  m_Name: EDark3_Move
+  m_Name: EDarkUp_Move
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4591912310645580
+--- !u!4 &4798023405640990
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1334941031025818}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 1998538366368580}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.864457, y: -0.06851779, z: 0.1471995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114336687314183930
+--- !u!114 &114801499741064502
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1334941031025818}
+  m_GameObject: {fileID: 1998538366368580}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9437c8f2a94ccb3488cf9f0ca74c6062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theType: 4
-  moveName: Dark3
-  statusBuff: 
+  theType: 2
+  moveName: Dark Up
+  statusBuff: ALL
   animateName: Magic
   numOfSFXs: 
-  movePower: 90
-  moveMpCost: 10
-  moveSpCost: 0
-  moveTargetAll: 0
-  theEffect: {fileID: 114559874876509812, guid: 045d9ee0dc8398d4d8eca4275cc5975d,
+  movePower: 100
+  moveMpCost: 20
+  moveSpCost: 20
+  moveTargetAll: 1
+  theEffect: {fileID: 114578762299943168, guid: 7a99f3172707bf6479482dae1cb713ed,
     type: 2}

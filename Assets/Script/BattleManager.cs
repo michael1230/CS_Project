@@ -181,8 +181,7 @@ public class BattleManager : MonoBehaviour
                             BattleChar newEnemy;
                             if (enemyPrefabs[j].isMapBoss|| enemyPrefabs[j].isGameBoss)//put the boos in his position
                             {
-                                Debug.Log(enemyPrefabs[j].charName);
-                                 newEnemy = Instantiate(enemyPrefabs[j], enemyPositions[2].position, enemyPositions[i].rotation);
+                                newEnemy = Instantiate(enemyPrefabs[j], enemyPositions[2].position, enemyPositions[i].rotation);
                                 newEnemy.transform.parent = enemyPositions[2];
                                 bossBattle = true;
                             }
@@ -228,9 +227,6 @@ public class BattleManager : MonoBehaviour
                     AudioManager.instance.PlayBGM(10);//turn on the battle music
                 }
             }
-
-
-
             turnWaiting = true;//rise the flag
             currentTurn = 0;//the first turn
             UpdateUIStats();//update the stats
@@ -264,7 +260,6 @@ public class BattleManager : MonoBehaviour
                     {
                         playerData.currentSP = playerData.maxSP;
                     }
-                    ///StatusBuffsCheck(playerData);////
                 }
                 else//if its not a player
                 {
@@ -495,7 +490,18 @@ public class BattleManager : MonoBehaviour
                     break;
             }
 
-            if (successfullyChosen == true)//if we can use the move then
+            Debug.Log("enemyMove.moveName: "+enemyMove.moveName);
+
+            if ((enemyMove.statusBuff=="HP")&& (activeBattlers[currentTurn].currentHP == activeBattlers[currentTurn].maxHP))
+            {
+                successfullyChosen = false;
+            }
+            if ((enemyMove.statusBuff == "ALL") && (activeBattlers[currentTurn].bounusTurn[0]>0))
+            {
+                successfullyChosen = false;
+            }
+
+            if (successfullyChosen == true)//if we can use the move then  
             {
                 float chance = Random.Range(0, 100);
                 if ((chance >= minChance) && (chance < maxChance))//check randomly if the chance is between the min max chance of the move type
@@ -508,6 +514,7 @@ public class BattleManager : MonoBehaviour
                 moveChosen = false;
             }
         }
+        Debug.Log("enemyMove.moveName2: " + enemyMove.moveName);
         if (offense==true)//if the move its an attack move
         {
             int selectedTarget = players[Random.Range(0, players.Count)];//random select targets from the list
@@ -525,11 +532,7 @@ public class BattleManager : MonoBehaviour
         {
             Dealdefense(enemyMove,null, currentTurn, false,false);
         }
-
-
-
     }
-
     public void StatusBuffsCheck(BattleChar playerData)//a method to check the status of the char;
     {
         for (int j = 0; j < playerData.bounusTurn.Length; j++)//status buff check
@@ -541,46 +544,7 @@ public class BattleManager : MonoBehaviour
             else//if there still turn left
             {
                 playerData.bounusTurn[j]--;//minus this turn
-                Debug.Log("charName: " + playerData.charName);
-                Debug.Log("bounusTurn: " + playerData.bounusTurn[j]);
             }
-        }
-    }
-    public void StatusBuffs(BattleMove move, int target,bool playerOrEnemy)//a method to apply status buffs
-    {
-        if (move.moveTargetAll == false)//if the move is not on all targets
-        {
-            if (move.statusBuff == "Attack")//if the buff is Attack
-            {
-                activeBattlers[target].bounusTurn[0] = 3;//the bonus turn time is will last
-                activeBattlers[target].statusBounus[0] = move.movePower;//the bonus itself
-            }
-            else if (move.statusBuff == "Defense")//if the buff is Defense
-            {
-                activeBattlers[target].bounusTurn[1] = 3;//the bonus turn time is will last
-                activeBattlers[target].statusBounus[1] = move.movePower;//the bonus itself
-            }
-            StartCoroutine(AnimeteSelfMagicCo(target, move, playerOrEnemy));
-        }
-        else//all target
-        {
-            for (int i = 0; i < activeBattlers.Count; i++)//go in all the battlers
-            {
-                if (activeBattlers[i].isPlayer && activeBattlers[i].currentHP > 0)//if it player and still alive
-                {
-                    if (move.statusBuff == "Attack")//if the buff is Attack
-                    {
-                        activeBattlers[i].bounusTurn[0] = 3;//the bonus turn time is will last
-                        activeBattlers[i].statusBounus[0] = move.movePower;//the bonus itself
-                    }
-                    else if (move.statusBuff == "Defense")//if the buff is Defense
-                    {
-                        activeBattlers[i].bounusTurn[1] = 3;//the bonus turn time is will last
-                        activeBattlers[i].statusBounus[1] = move.movePower;//the bonus itself
-                    }
-                }
-            }
-            StartCoroutine(AnimeteSelfSpecialCo(move));//
         }
     }
     public void DealDamage(int target, BattleMove move,bool playerOrEnemy)//later to add miss, critical, res , magic? ,playerOrEnemy->true player,false enemy
@@ -659,23 +623,77 @@ public class BattleManager : MonoBehaviour
     {
         if (moveOrItem == false)//move
         {
-            if (move.statusBuff == "HP")//if its a hp refile move then
+            if (move.moveTargetAll == false)//one target
             {
-                if (move.moveTargetAll == false)
+                if ((move.statusBuff == "Attack") || (move.statusBuff == "ALL"))//if the buff is Attack
+                {
+                    activeBattlers[target].bounusTurn[0] = 3;//the bonus turn time is will last
+                    activeBattlers[target].statusBounus[0] = move.movePower;//the bonus itself
+                }
+                if ((move.statusBuff == "Defense") || (move.statusBuff == "ALL"))//if the buff is Defense
+                {
+                    activeBattlers[target].bounusTurn[1] = 3;//the bonus turn time is will last
+                    activeBattlers[target].statusBounus[1] = move.movePower;//the bonus itself
+                }
+                if (move.statusBuff == "HP")
                 {
                     activeBattlers[target].currentHP += move.movePower;
+                    if (activeBattlers[target].currentHP > activeBattlers[target].maxHP)
+                    {
+                        activeBattlers[target].maxHP = activeBattlers[target].currentHP;
+                    }
                     Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetNotification(move.movePower, "Health");//make the damage appear on screen
-                    StartCoroutine(AnimeteSelfMagicCo(target, move, playerOrEnemy));
                 }
-                else
-                {                  
-                    StartCoroutine(AnimeteSelfSpecialCo(move));//
-                }
+                StartCoroutine(AnimeteSelfMagicCo(target, move, playerOrEnemy));
             }
-            else if (move.statusBuff != "")
+            else//all targets
             {
-                StatusBuffs(move, target, playerOrEnemy);//
-            }
+                List<int> Targets = new List<int>();//list of enemies
+                if (playerOrEnemy)//true->player
+                {                     
+                    for (int i = 0; i < activeBattlers.Count; i++)//for adding the enemies
+                    {
+                        if ((activeBattlers[i].isPlayer) && (activeBattlers[i].currentHP > 0))//list of players
+                        {
+                            Targets.Add(i);
+                            Debug.Log("players: " + activeBattlers[i].charName);
+                        }
+                    }
+                }
+                else//false->enemy
+                {
+                    for (int i = 0; i < activeBattlers.Count; i++)//for adding the enemies
+                    {
+                        if (!(activeBattlers[i].isPlayer) && (activeBattlers[i].currentHP > 0))//list of enemy
+                        {
+                            Targets.Add(i);
+                            Debug.Log("enemy: " + activeBattlers[i].charName);
+                        }
+                    }
+                }
+                for (int i = 0; i < Targets.Count; i++)//go in all the battlers
+                {
+                    if ((move.statusBuff == "Attack")|| (move.statusBuff == "ALL"))//if the buff is Attack
+                    {
+                        activeBattlers[Targets[i]].bounusTurn[0] = 3;//the bonus turn time is will last
+                        activeBattlers[Targets[i]].statusBounus[0] = move.movePower;//the bonus itself
+                    }
+                    if ((move.statusBuff == "Defense") || (move.statusBuff == "ALL"))//if the buff is Defense
+                    {
+                        activeBattlers[Targets[i]].bounusTurn[1] = 3;//the bonus turn time is will last
+                        activeBattlers[Targets[i]].statusBounus[1] = move.movePower;//the bonus itself
+                    }
+                    if (move.statusBuff == "HP")
+                    {
+                        activeBattlers[Targets[i]].currentHP += move.movePower;
+                        if (activeBattlers[Targets[i]].currentHP> activeBattlers[Targets[i]].maxHP)
+                        {
+                            activeBattlers[Targets[i]].maxHP = activeBattlers[Targets[i]].currentHP;
+                        }
+                    }
+                }
+                StartCoroutine(AnimeteSelfSpecialCo(Targets, move, playerOrEnemy));
+            }            
         }
         else if (moveOrItem == true)//item
         {
@@ -713,8 +731,6 @@ public class BattleManager : MonoBehaviour
         activeBattlers[currentTurn].anim.SetBool("Magic_Standby", false);
         StartCoroutine(MoveBackAndNextTurnCo());
     }
-
-
     public IEnumerator AnimeteAttackSpecialCo(List<int> targets, int damage, BattleMove move,bool playerOrEnemy)//for Attacking all enemy.. one effect 
     {
         activeBattlers[currentTurn].anim.SetBool(move.animateName, true);
@@ -790,8 +806,11 @@ public class BattleManager : MonoBehaviour
     public IEnumerator AnimeteSelfMagicCo(int target, BattleMove move,bool playerOrEnemy)//for support one ally.. skill effects 
     {
         activeBattlers[currentTurn].anim.SetBool(move.animateName, true);
-        Instantiate(move.theEffect, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation);       
+        Instantiate(move.theEffect, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation);
+        Debug.Log("before SelfMagic ");
+        Debug.Log("move.moveName: " + move.moveName);
         yield return new WaitForSecondsRealtime(move.theEffect.effectLength);
+        Debug.Log("after SelfMagic ");
         activeBattlers[currentTurn].anim.SetBool(move.animateName, false);
         if (playerOrEnemy == true)
         {
@@ -802,26 +821,35 @@ public class BattleManager : MonoBehaviour
             StartCoroutine(MoveBackEnemyAndNextTurnCo());
         }
     }
-    public IEnumerator AnimeteSelfSpecialCo(BattleMove move)//for support all enemy.. one effect 
+    public IEnumerator AnimeteSelfSpecialCo(List<int> targets,BattleMove move, bool playerOrEnemy)//for support all enemy.. one effect 
     {
         activeBattlers[currentTurn].anim.SetBool(move.animateName, true);
-        yield return new WaitWhile(() => activeBattlers[currentTurn].effect1 == false);
-        for (int i = 0; i < activeBattlers.Count; i++)
+        if (move.animateName == "Limt_Atk")//if the move animName is magic then dont wait
         {
-            if (activeBattlers[i].isPlayer && activeBattlers[i].currentHP > 0)
+            yield return new WaitWhile(() => activeBattlers[currentTurn].effect1 == false);
+        }
+        for (int i = 0; i < targets.Count; i++)//for every enemy
+        {
+            Instantiate(move.theEffect, activeBattlers[targets[i]].transform.position, activeBattlers[targets[i]].transform.rotation);
+            if (move.statusBuff == "HP")
             {
-                Instantiate(move.theEffect, activeBattlers[i].transform.position, activeBattlers[i].transform.rotation);
-                if (move.statusBuff == "HP")
-                {
-                    activeBattlers[i].currentHP += move.movePower;
-                    Instantiate(theDamageNumber, activeBattlers[i].transform.position, activeBattlers[i].transform.rotation).SetNotification(move.movePower, "Health");//make the damage appear on screen
-                }
+                Instantiate(theDamageNumber, activeBattlers[targets[i]].transform.position, activeBattlers[targets[i]].transform.rotation).SetNotification(move.movePower, "Health");//make the damage appear on screen
             }
         }
         yield return new WaitForSecondsRealtime(move.theEffect.effectLength);
-        yield return new WaitWhile(() => activeBattlers[currentTurn].Idle == false);
+        if (move.animateName == "Limt_Atk")//if the move animName is magic then dont wait
+        {
+            yield return new WaitWhile(() => activeBattlers[currentTurn].Idle == false);
+        }
         activeBattlers[currentTurn].anim.SetBool(move.animateName, false);
-        StartCoroutine(MoveBackAndNextTurnCo());
+        if (playerOrEnemy == true)
+        {
+            StartCoroutine(MoveBackAndNextTurnCo());
+        }
+        else
+        {
+            StartCoroutine(MoveBackEnemyAndNextTurnCo());
+        }
     }
     public IEnumerator MoveBackAndNextTurnCo()//for moving back to original position
     {
@@ -836,7 +864,6 @@ public class BattleManager : MonoBehaviour
         BattleMenus.buttonSelect();
         NextTurn();
     }
-
     public IEnumerator MoveBackEnemyAndNextTurnCo()//for moving back to original position
     {
         activeBattlers[currentTurn].effect1 = false;
@@ -846,11 +873,8 @@ public class BattleManager : MonoBehaviour
         activeBattlers[currentTurn].moveToPostion(activeBattlers[currentTurn].transform, activeBattlers[currentTurn].transform.parent);
         yield return new WaitWhile(() => activeBattlers[currentTurn].transform.position != activeBattlers[currentTurn].transform.parent.position);
         activeBattlers[currentTurn].anim.SetBool("Move", false);
-        //BattleMenus.goToMenu(0, 0);
-        //BattleMenus.buttonSelect();
         NextTurn();
     }
-
     public IEnumerator MoveToAtkPosAndActCo(BattleMove move, BattleItem item, int selectedTarget, bool offense)
     {
         activeBattlers[currentTurn].anim.SetBool("Move", true);
@@ -874,7 +898,6 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-
     public IEnumerator MoveToEnemyAtkPosAndActCo()
     {
         activeBattlers[currentTurn].anim.SetBool("Move", true);
@@ -884,7 +907,6 @@ public class BattleManager : MonoBehaviour
         activeBattlers[currentTurn].move = false;
         BossTrun();
     }
-
     public void PlayerAction(BattleMove move, BattleItem item, int selectedTarget,bool offense)//a method for player attack//////////////add animation //////////////
     {
         BattleMenus.offButtons();
