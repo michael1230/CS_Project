@@ -22,16 +22,16 @@ public class PatrolLog : logEnemy {
   //  WorldTile thisNode;
 
 
-    IEnumerator Moveback()
+    IEnumerator Moveback()//NEED TO PUT THE DOT IN THE MIDDLE AND ROUND IT 4.485 == 4.5
     {
        // WorldTile thisNode = grid.NodeFromPosition(transform.position);
        // WorldTile dotNode = grid.NodeFromPosition(AstarPoint.position);
         target = AstarPoint.transform;
         StartCoroutine(UpdatePath());
-        Debug.Log("here1");
+        //Debug.Log("here1");
         //yield return new WaitWhile(() => thisNode.gridPosition != dotNode.gridPosition);
         yield return new WaitWhile(() => transform.position != target.position);
-        Debug.Log("here contuie");
+        //Debug.Log("here contuie");
         toPoint = false;
 
     }
