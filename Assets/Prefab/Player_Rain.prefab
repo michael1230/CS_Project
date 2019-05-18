@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 2
-  knockTime: 0.2
+  knockTime: 0.3
   damage: 1
 --- !u!114 &114191439632840566
 MonoBehaviour:
@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 2
-  knockTime: 0.2
+  knockTime: 0.3
   damage: 1
 --- !u!114 &114274969119176896
 MonoBehaviour:
@@ -459,6 +459,12 @@ MonoBehaviour:
   reduceMagic: {fileID: 11400000, guid: 01c04b16504250548a2d8579464944bd, type: 2}
   projectile: {fileID: 1987229610183826, guid: 3a865e55ca249724ca2346f8eef460d7, type: 2}
   playerInventory: {fileID: 11400000, guid: 5b694e7d3746d28489ff1b0feea3e6b3, type: 2}
+  flashColor: {r: 0.9529412, g: 0, b: 0, a: 0.59607846}
+  regularColor: {r: 1, g: 1, b: 1, a: 1}
+  flashDuration: 0.07
+  numberOfFlashes: 3
+  triggerCollider: {fileID: 61943415165131474}
+  mySprite: {fileID: 212140802640073654}
 --- !u!114 &114518133026385070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -471,7 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 2
-  knockTime: 0.2
+  knockTime: 0.3
   damage: 1
 --- !u!114 &114827888908643970
 MonoBehaviour:
@@ -485,7 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 2
-  knockTime: 0.2
+  knockTime: 0.3
   damage: 1
 --- !u!212 &212140802640073654
 SpriteRenderer:

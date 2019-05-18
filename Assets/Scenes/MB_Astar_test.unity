@@ -306,7 +306,7 @@ Tilemap:
   - first: {x: 1, y: -3, z: 0}
     second:
       m_TileIndex: 5
-      m_TileSpriteIndex: 7
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -351,7 +351,7 @@ Tilemap:
   - first: {x: 6, y: -3, z: 0}
     second:
       m_TileIndex: 3
-      m_TileSpriteIndex: 6
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -526,10 +526,10 @@ Tilemap:
     m_Data: {fileID: 21301098, guid: 9589500635eeaef4fa211db6fa452780, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 21301100, guid: 9589500635eeaef4fa211db6fa452780, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21301096, guid: 9589500635eeaef4fa211db6fa452780, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300966, guid: 9589500635eeaef4fa211db6fa452780, type: 3}
   - m_RefCount: 4
@@ -538,8 +538,8 @@ Tilemap:
     m_Data: {fileID: 21301598, guid: 9589500635eeaef4fa211db6fa452780, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: 21301600, guid: 9589500635eeaef4fa211db6fa452780, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21301096, guid: 9589500635eeaef4fa211db6fa452780, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300962, guid: 9589500635eeaef4fa211db6fa452780, type: 3}
   m_TileMatrixArray:
@@ -9100,6 +9100,20 @@ Prefab:
       propertyPath: pathDot.Array.data[1]
       value: 
       objectReference: {fileID: 462289797}
+    - target: {fileID: 1966076525443080, guid: f65ec1e74a9c9eb42963bff8a9a29535, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 58510098210019088, guid: f65ec1e74a9c9eb42963bff8a9a29535,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -0.36377263
+      objectReference: {fileID: 0}
+    - target: {fileID: 58510098210019088, guid: f65ec1e74a9c9eb42963bff8a9a29535,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.40127587
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f65ec1e74a9c9eb42963bff8a9a29535, type: 2}
   m_IsPrefabAsset: 0
@@ -9284,7 +9298,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 707867589
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300002, guid: 1b73f0687779b634e866c77069493e10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9426,6 +9440,7 @@ MonoBehaviour:
   moveSpeed: 1.5
   isAlive: 0
   deathEffect: {fileID: 0}
+  thisLoot: {fileID: 0}
   myRigidbody: {fileID: 0}
   target: {fileID: 1810928426}
   targetOldPosition: {x: 0, y: 0, z: 0}

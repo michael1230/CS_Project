@@ -218,6 +218,8 @@ public class PatrolLog : logEnemy {
                 targetPosOld = target.position;
             }
         }
+   
+        
     }
 
 

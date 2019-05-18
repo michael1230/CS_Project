@@ -31,6 +31,15 @@ public class PlayerController : MonoBehaviour
     public GameObject projectile;
     public MapInventory playerInventory;
 
+    [Header("IFrame Stuff")]
+    public Color flashColor;
+    public Color regularColor;
+    public float flashDuration;
+    public int numberOfFlashes;
+    public Collider2D triggerCollider;
+    public SpriteRenderer mySprite;
+
+
 
     void Start()
     {
@@ -205,11 +214,26 @@ public class PlayerController : MonoBehaviour
     {
         if (myRigidbody != null)
         {
+            StartCoroutine(FlashCo());
             yield return new WaitForSeconds(knockTime);
             myRigidbody.velocity = Vector2.zero;
             currentState = PlayerState.idle;
             myRigidbody.velocity = Vector2.zero;
         }
+    }
+    private IEnumerator FlashCo()//for flashinng after hit
+    {
+        int temp = 0;
+        triggerCollider.enabled = false;
+        while(temp < numberOfFlashes)
+        {
+            mySprite.color = flashColor;
+            yield return new WaitForSeconds(flashDuration);
+            mySprite.color = regularColor;
+            yield return new WaitForSeconds(flashDuration);
+            temp++;
+        }
+        triggerCollider.enabled = true;
     }
 
     public void SetBounds(Vector3 botLeft, Vector3 topRight)//for the camera

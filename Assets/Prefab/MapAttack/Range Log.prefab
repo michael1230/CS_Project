@@ -57,7 +57,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -165,12 +165,15 @@ MonoBehaviour:
   enemyName: Bob
   baseAttack: 1
   moveSpeed: 1.5
+  isAlive: 0
   deathEffect: {fileID: 1574220630175308, guid: c1784592266c8664aa898ba93c58ea07,
     type: 2}
+  thisLoot: {fileID: 11400000, guid: 7af8fcfc7c18096489016f8e5fc0a08b, type: 2}
   myRigidbody: {fileID: 0}
   target: {fileID: 0}
+  targetPlayer: {fileID: 0}
   chaseRaidius: 4
-  attackRadius: 1
+  attackRadius: 0.5
   homePosition: {fileID: 0}
   anim: {fileID: 0}
 --- !u!212 &212899699969733760
@@ -206,7 +209,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 707867589
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1b73f0687779b634e866c77069493e10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

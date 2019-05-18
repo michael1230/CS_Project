@@ -1114,20 +1114,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114668086332539722, guid: f65ec1e74a9c9eb42963bff8a9a29535,
-        type: 2}
-      propertyPath: path.Array.data[0]
-      value: 
-      objectReference: {fileID: 1941161738}
-    - target: {fileID: 114668086332539722, guid: f65ec1e74a9c9eb42963bff8a9a29535,
-        type: 2}
-      propertyPath: path.Array.data[1]
-      value: 
-      objectReference: {fileID: 2078914942}
-    - target: {fileID: 1966076525443080, guid: f65ec1e74a9c9eb42963bff8a9a29535, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f65ec1e74a9c9eb42963bff8a9a29535, type: 2}
   m_IsPrefabAsset: 0
@@ -1185,6 +1171,21 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 7af8fcfc7c18096489016f8e5fc0a08b,
         type: 2}
+    - target: {fileID: 50546398988008978, guid: 60331d046f34c3c4ca8cca1a1742463f,
+        type: 2}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114738163793111546, guid: 60331d046f34c3c4ca8cca1a1742463f,
+        type: 2}
+      propertyPath: thrust
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114738163793111546, guid: 60331d046f34c3c4ca8cca1a1742463f,
+        type: 2}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60331d046f34c3c4ca8cca1a1742463f, type: 2}
   m_IsPrefabAsset: 0
@@ -53810,17 +53811,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114389652197182492, guid: d5e13b02da7c84c4ebc11540a477621e,
+    - target: {fileID: 50185904574088940, guid: d5e13b02da7c84c4ebc11540a477621e,
         type: 2}
-      propertyPath: attackRadius
-      value: 0.5
+      propertyPath: m_Mass
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114389652197182492, guid: d5e13b02da7c84c4ebc11540a477621e,
-        type: 2}
-      propertyPath: thisLoot
-      value: 
-      objectReference: {fileID: 11400000, guid: 7af8fcfc7c18096489016f8e5fc0a08b,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5e13b02da7c84c4ebc11540a477621e, type: 2}
   m_IsPrefabAsset: 0
