@@ -113,11 +113,11 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator SecondAttackCo() //attack Coroutine
     {
-        animator.SetBool("attacking", true);//start the attack anim
+        animator.SetBool("attackingFire", true);//start the attack anim
         currentState = PlayerState.attack;
         yield return null;
         MakeFireBall();
-        animator.SetBool("attacking", false);//stop the attack anim
+        animator.SetBool("attackingFire", false);//stop the attack anim
         yield return new WaitForSeconds(.3f);
         if (currentState != PlayerState.interact)
         {

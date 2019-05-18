@@ -11,6 +11,7 @@ TagManager:
   - SmallMapEnemy
   - CustomCamera
   - Dot
+  - FireBall
   layers:
   - Default
   - TransparentFX
