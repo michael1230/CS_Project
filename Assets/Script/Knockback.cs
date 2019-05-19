@@ -70,7 +70,11 @@ public class Knockback : MonoBehaviour
 
             //Vector2 difference = other.transform.position - transform.position;
             //Vector2 difference = transform.position - other.transform.position;
-            StartCoroutine(waitfortime());
+            if (this.gameObject == isActiveAndEnabled)//for stopping if enemy was killed
+            {
+                StartCoroutine(waitfortime());
+            }
+            //StartCoroutine(waitfortime());
             this.GetComponent<EnemyOnMap>().knock(hit, other.GetComponent<Knockback>().knockTime, other.GetComponent<Knockback>().damage);
         }
 

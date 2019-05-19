@@ -78,7 +78,10 @@ public class EnemyOnMap : MonoBehaviour {
 
     public void knock(Rigidbody2D myRigidbody, float knockTime, float damage)//enemy knock call function
     {
-        StartCoroutine(KnockCo(myRigidbody, knockTime));
+        if (this.gameObject == isActiveAndEnabled)//for stopping if enemy was killed
+        {
+            StartCoroutine(KnockCo(myRigidbody, knockTime));
+        }
         TakeDamage(damage);
     }
 
