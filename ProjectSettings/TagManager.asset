@@ -12,6 +12,7 @@ TagManager:
   - CustomCamera
   - Dot
   - FireBall
+  - tempAttack
   layers:
   - Default
   - TransparentFX

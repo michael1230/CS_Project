@@ -40268,7 +40268,7 @@ Prefab:
     - target: {fileID: 114724422642565792, guid: fb788f09051430047a72ef3646b2d990,
         type: 2}
       propertyPath: enemyToSpawn.Array.data[1]
-      value: 
+      value: Slime
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb788f09051430047a72ef3646b2d990, type: 2}
@@ -40282,11 +40282,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4555458388292926, guid: 73badb3513d9d9240905dea5af901ae7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.51
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4555458388292926, guid: 73badb3513d9d9240905dea5af901ae7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.35
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4555458388292926, guid: 73badb3513d9d9240905dea5af901ae7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -40320,27 +40320,27 @@ Prefab:
     - target: {fileID: 212902519086405102, guid: 73badb3513d9d9240905dea5af901ae7,
         type: 2}
       propertyPath: m_Color.r
-      value: 0
+      value: 0.16078432
       objectReference: {fileID: 0}
     - target: {fileID: 212902519086405102, guid: 73badb3513d9d9240905dea5af901ae7,
         type: 2}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.05490196
       objectReference: {fileID: 0}
     - target: {fileID: 212902519086405102, guid: 73badb3513d9d9240905dea5af901ae7,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.05098033
+      value: 0.05490196
       objectReference: {fileID: 0}
     - target: {fileID: 212902519086405102, guid: 73badb3513d9d9240905dea5af901ae7,
         type: 2}
       propertyPath: m_Size.x
-      value: 3.84
+      value: 5.4857144
       objectReference: {fileID: 0}
     - target: {fileID: 212902519086405102, guid: 73badb3513d9d9240905dea5af901ae7,
         type: 2}
       propertyPath: m_Size.y
-      value: 3.84
+      value: 5.4857144
       objectReference: {fileID: 0}
     - target: {fileID: 212902519086405102, guid: 73badb3513d9d9240905dea5af901ae7,
         type: 2}

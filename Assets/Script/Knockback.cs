@@ -38,6 +38,7 @@ public class Knockback : MonoBehaviour
         }
         else if ((otherIsPlayer && thisIsEnemy) || (thisIsPlayer && otherIsEnemy) || (other.gameObject.CompareTag("FireBall") && thisIsEnemy) || (this.gameObject.CompareTag("FireBall") && otherIsEnemy))//tag for things that can be knock
         {
+            //StartCoroutine(waitfortime());
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
            // thisEnemy.position = new Vector2(thisEnemy.transform.position.x - 5, thisEnemy.transform.position.y - 5);
             if (hit != null)
@@ -61,6 +62,30 @@ public class Knockback : MonoBehaviour
                 }
             }
         }
+
+        else if(other.tag=="tempAttack")
+        {
+            //Rigidbody2D hit = this.GetComponent<PatrolLog>().myRigidbody;
+            Rigidbody2D hit = this.GetComponent<Rigidbody2D>();
+
+            //Vector2 difference = other.transform.position - transform.position;
+            //Vector2 difference = transform.position - other.transform.position;
+            StartCoroutine(waitfortime());
+            this.GetComponent<EnemyOnMap>().knock(hit, other.GetComponent<Knockback>().knockTime, other.GetComponent<Knockback>().damage);
+        }
+
     }
+
+
+    public IEnumerator waitfortime()
+    {
+        //float movespeed= this.GetComponent<EnemyOnMap>().moveSpeed;//פעם שנייה זה אפס לכן צריך להיות משהו מוגדר
+        float movespeed = 2;//אולי לשמור בגיימאנגר או משהו 
+        this.GetComponent<EnemyOnMap>().moveSpeed = 0;
+        yield return new WaitForSecondsRealtime(2);
+        Debug.Log("here");
+        this.GetComponent<EnemyOnMap>().moveSpeed = movespeed;
+    }
+
 }
 

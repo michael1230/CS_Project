@@ -53943,6 +53943,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1911523434174010, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
+      propertyPath: m_TagString
+      value: tempAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658832561608360, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
+      propertyPath: m_TagString
+      value: tempAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307587975358936, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
+      propertyPath: m_TagString
+      value: tempAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148038089447850, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
+      propertyPath: m_TagString
+      value: tempAttack
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
   m_IsPrefabAsset: 0
@@ -54705,6 +54721,7 @@ MonoBehaviour:
   thrust: 4
   knockTime: 0.2
   damage: 1
+  thisEnemy: {fileID: 0}
 --- !u!61 &1948718948
 BoxCollider2D:
   m_ObjectHideFlags: 0

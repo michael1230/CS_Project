@@ -251,7 +251,7 @@ public class PatrolLog : logEnemy {
             myRigidbody.MovePosition(temp);
             //ChangeState(EnemyState.walk);
             anim.SetBool("wakeUp", true);
-            //yield return new WaitForSecondsRealtime(10f);
+            //yield return new WaitForSecondsRealtime(10);
             yield return null;
         }
     }
