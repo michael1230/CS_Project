@@ -86,8 +86,8 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftControl) && currentState != PlayerState.attack && currentState != PlayerState.stagger)//attack state
             {
                 StartCoroutine(AttackCo());
-            }
-            else if (Input.GetButtonDown("FireBall") && currentState != PlayerState.attack && currentState != PlayerState.stagger && playerInventory.currentMagic > 0)
+            }//Input.GetButtonDown("FireBall")
+            else if (Input.GetKey(KeyCode.Z) && currentState != PlayerState.attack && currentState != PlayerState.stagger && playerInventory.currentMagic > 0)
             {
                 StartCoroutine(SecondAttackCo());
             }
