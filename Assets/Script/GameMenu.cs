@@ -4,8 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
-using System.IO;//
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 public class GameMenu : MonoBehaviour
@@ -37,7 +36,8 @@ public class GameMenu : MonoBehaviour
 	void Update ()
     {
         theMenuCanves.worldCamera = Camera.main;//get the main camera and use it
-        if (Input.GetKeyDown(KeyCode.Escape))//if the button is pressed
+       // if (Input.GetKeyDown(KeyCode.Escape))//if the button is pressed
+        if ((Input.GetKeyDown(KeyCode.Escape))&&(GameManager.instance.gameOver==false))//if the button is pressed and GameOver is false(if we are in gameOver or loading from GameOver then its false)
         {
             if (theMenu.activeInHierarchy)//if the menu is open
             {
@@ -187,6 +187,8 @@ public class GameMenu : MonoBehaviour
         SceneManager.LoadScene(data.SceneName);
         yield return new WaitForSecondsRealtime(1);
         LoadData(data);
+        yield return new WaitUntil(() => FadeManager.instance.finishedTransition == true);
+        GameManager.instance.gameOver = false;//after loading back from menu or feom gameOver wait until Transition finished and then can walk/open menu
     }
     public void LoadData(GameData data)
     {
@@ -214,6 +216,7 @@ public class GameMenu : MonoBehaviour
                 GameManager.instance.enemyTracker.theEnemies[i].transform.position = new Vector3(data.EnemiesPos[i, 0], data.EnemiesPos[i, 1], data.EnemiesPos[i, 2]);
             }
         }
+        
     }
     public void PrepareLoadData(int slot)
     {

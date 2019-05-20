@@ -68,6 +68,7 @@ public class FadeManager : MonoBehaviour {
         finishedTransition = false;
         midTransition = false;
         bool realTime = false;
+        float duration = 1f;
         transMaterial.SetColor("_Color", Color.black);
         transMaterial.SetFloat("_Cutoff", 0f);
         transMaterial.SetFloat("_Fade", 1f);
@@ -78,6 +79,7 @@ public class FadeManager : MonoBehaviour {
         else if (transitionEffect == "GameOver")
         {
             currentTextureIndex = 1;
+            duration = 2f;
         }
         else if (transitionEffect == "Teleport")
         {
@@ -94,11 +96,11 @@ public class FadeManager : MonoBehaviour {
             realTime = true;
         }
         transMaterial.SetTexture("_TransitionTex", textureList[currentTextureIndex]);
-        StartCoroutine(TransitionAll(0, 1f, 1f, "_Cutoff", realTime));
+        StartCoroutine(TransitionAll(0, 1f, duration, "_Cutoff", realTime));
+        //StartCoroutine(TransitionAll(0, 1f, 1f, "_Cutoff", realTime));
     }
 
 
-    //public void startTransition(string transitionEffect)
     public void BattleTransition(string transitionEffect)
     {
         finishedTransition = false;
@@ -126,8 +128,6 @@ public class FadeManager : MonoBehaviour {
     IEnumerator TransitionOnce(float oldValue, float newValue, float duration)
     {
         float value = 0f;
-        //midTransition = false;
-        //finishedTransition = false;
         for (float t = 0f; t < duration; t += Time.deltaTime)//for loop to Fade in
         {
             value = Mathf.Lerp(oldValue, newValue, t / duration);
@@ -141,12 +141,9 @@ public class FadeManager : MonoBehaviour {
     }
 
 
-    //IEnumerator TransitionAll(float oldValue, float newValue, float duration,string fieldName)
     IEnumerator TransitionAll(float oldValue, float newValue, float duration, string fieldName,bool realtime)
     {
         float value = 0f;
-        /*midTransition = false;
-        finishedTransition = false;*/
         for (float t = 0f; t < duration; t += Time.deltaTime)//for loop to Fade in
         {
             value = Mathf.Lerp(oldValue, newValue, t / duration);

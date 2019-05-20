@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4371714082595970}
   - component: {fileID: 114784100942386204}
   m_Layer: 0
-  m_Name: PDarkSword_Move
+  m_Name: EDarkSword_Move
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

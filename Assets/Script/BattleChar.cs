@@ -27,6 +27,7 @@ public class BattleChar : MonoBehaviour
     public bool effect1;
     public bool effect2;
     public bool Idle;
+    public bool goToWin;
 
     public bool hasDied;
     public int[] bounusTurn;//0->attack 1->defense
@@ -71,20 +72,21 @@ public class BattleChar : MonoBehaviour
     }
     public void AttackEffectOn()
     {
-        Debug.Log("on");
         effect1 = true;
     }
 
     public void AttackEffectOn2()
     {
-        Debug.Log("on");
         effect2 = true;
     }
 
     public void ReturnToIdle()
     {
-        Debug.Log("idle");
         Idle= true;
+    }
+    public void GoToWinAim()
+    {
+        goToWin = true;
     }
 
 
