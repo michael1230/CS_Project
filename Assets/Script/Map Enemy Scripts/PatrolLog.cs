@@ -58,14 +58,14 @@ public class PatrolLog : logEnemy {
                                                    target.position,
                                                    moveSpeed * Time.deltaTime); //the log will move to the player
                 changeAnim(temp - transform.position);
-                myRigidbody.MovePosition(temp);
-                //ChangeState(EnemyState.walk);*/
+                myRigidbody.MovePosition(temp);*/
+                ChangeState(EnemyState.walk);
                 anim.SetBool("wakeUp", true);
                 toPoint = true;
             }
         }
         else if (Vector3.Distance(targetPlayer.position,
-                          transform.position) > chaseRaidius)
+                          transform.position) > chaseRaidius )
         {
 
             if(toPoint == false)
@@ -192,7 +192,7 @@ public class PatrolLog : logEnemy {
             path = newPath;
             targetIndex = 0;
             StopCoroutine("FollowPath");
-            if (this.gameObject == isActiveAndEnabled)//for stopping if enemy was killed
+            if (this.gameObject == isActiveAndEnabled && currentState != EnemyState.stagger)//for stopping if enemy was killed
             {
                 StartCoroutine("FollowPath");
             }
@@ -203,7 +203,6 @@ public class PatrolLog : logEnemy {
 
     IEnumerator UpdatePath()
     {
-
         if (Time.timeSinceLevelLoad < .3f)
         {
             yield return new WaitForSeconds(.3f);

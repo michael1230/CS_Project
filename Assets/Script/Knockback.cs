@@ -36,11 +36,11 @@ public class Knockback : MonoBehaviour
 
             }
         }//|| (other.gameObject.CompareTag("FireBall") && thisIsEnemy) || (this.gameObject.CompareTag("FireBall") && otherIsEnemy)
-        else if ((otherIsPlayer && thisIsEnemy) || (thisIsPlayer && otherIsEnemy) )//tag for things that can be knock
+        else if ((otherIsPlayer && thisIsEnemy) || (thisIsPlayer && otherIsEnemy) || (this.tag == "Player" && otherIsEnemy) || (other.gameObject.CompareTag("FireBall") && thisIsEnemy) || (this.gameObject.CompareTag("FireBall") && otherIsEnemy))//tag for things that can be knock
         {
             //StartCoroutine(waitfortime());
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
-           // thisEnemy.position = new Vector2(thisEnemy.transform.position.x - 5, thisEnemy.transform.position.y - 5);
+            // thisEnemy.position = new Vector2(thisEnemy.transform.position.x - 5, thisEnemy.transform.position.y - 5);
             if (hit != null)
             {
                 //transform.position = new Vector2(transform.position.x-5, transform.position.y-5);
@@ -62,12 +62,11 @@ public class Knockback : MonoBehaviour
                 }
             }
         }
-
+        /*
         else if(other.tag=="tempAttack" || other.gameObject.CompareTag("FireBall"))
         {
             //Rigidbody2D hit = this.GetComponent<PatrolLog>().myRigidbody;
-            Rigidbody2D hit = this.GetComponent<Rigidbody2D>();
-
+        
             //Vector2 difference = other.transform.position - transform.position;
             //Vector2 difference = transform.position - other.transform.position;
             if (this.gameObject == isActiveAndEnabled)//for stopping if enemy was killed
@@ -75,7 +74,7 @@ public class Knockback : MonoBehaviour
                 StartCoroutine(waitfortime());
             }
             //StartCoroutine(waitfortime());
-            this.GetComponent<EnemyOnMap>().knock(hit, other.GetComponent<Knockback>().knockTime, other.GetComponent<Knockback>().damage);
+            //this.GetComponent<EnemyOnMap>().knock(hit, other.GetComponent<Knockback>().knockTime, other.GetComponent<Knockback>().damage);
         }
 
     }
@@ -83,13 +82,28 @@ public class Knockback : MonoBehaviour
 
     public IEnumerator waitfortime()
     {
+        //yield return new WaitForSecondsRealtime(2);
         //float movespeed= this.GetComponent<EnemyOnMap>().moveSpeed;//פעם שנייה זה אפס לכן צריך להיות משהו מוגדר
         float movespeed = 2;//אולי לשמור בגיימאנגר או משהו 
-        this.GetComponent<EnemyOnMap>().moveSpeed = 0;
-        yield return new WaitForSecondsRealtime(1);
+        //this.GetComponent<EnemyOnMap>().moveSpeed = 0;
+        Rigidbody2D hit = this.GetComponent<Rigidbody2D>();
+        Vector2 difference =  GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>().transform.position- hit.transform.position ;
+        difference = difference.normalized * thrust;
+        hit.AddForce(difference, ForceMode2D.Impulse);
+        //hit.GetComponent<EnemyOnMap>().currentState = EnemyState.stagger;
+        //this.GetComponent<EnemyOnMap>().knock(hit, knockTime, damage);
+        //yield return new WaitForSeconds(knockTime);
+       
+        //currentState = EnemyState.idle;
+      
+        yield return new WaitForSecondsRealtime(2);
+        hit.velocity = Vector2.zero;
+        hit.GetComponent<EnemyOnMap>().currentState = EnemyState.idle;
+        hit.velocity = Vector2.zero;
         Debug.Log("here");
-        this.GetComponent<EnemyOnMap>().moveSpeed = movespeed;
+        //this.GetComponent<EnemyOnMap>().moveSpeed = movespeed;
     }
-
+    */
+    }
 }
 
