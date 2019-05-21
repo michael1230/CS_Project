@@ -7,7 +7,7 @@ public class Knockback : MonoBehaviour
     public float thrust;
     public float knockTime;
     public float damage;
-    public Transform thisEnemy;
+    //public Transform thisEnemy;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -35,8 +35,8 @@ public class Knockback : MonoBehaviour
 
 
             }
-        }
-        else if ((otherIsPlayer && thisIsEnemy) || (thisIsPlayer && otherIsEnemy) || (other.gameObject.CompareTag("FireBall") && thisIsEnemy) || (this.gameObject.CompareTag("FireBall") && otherIsEnemy))//tag for things that can be knock
+        }//|| (other.gameObject.CompareTag("FireBall") && thisIsEnemy) || (this.gameObject.CompareTag("FireBall") && otherIsEnemy)
+        else if ((otherIsPlayer && thisIsEnemy) || (thisIsPlayer && otherIsEnemy) )//tag for things that can be knock
         {
             //StartCoroutine(waitfortime());
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
@@ -63,14 +63,18 @@ public class Knockback : MonoBehaviour
             }
         }
 
-        else if(other.tag=="tempAttack")
+        else if(other.tag=="tempAttack" || other.gameObject.CompareTag("FireBall"))
         {
             //Rigidbody2D hit = this.GetComponent<PatrolLog>().myRigidbody;
             Rigidbody2D hit = this.GetComponent<Rigidbody2D>();
 
             //Vector2 difference = other.transform.position - transform.position;
             //Vector2 difference = transform.position - other.transform.position;
-            StartCoroutine(waitfortime());
+            if (this.gameObject == isActiveAndEnabled)//for stopping if enemy was killed
+            {
+                StartCoroutine(waitfortime());
+            }
+            //StartCoroutine(waitfortime());
             this.GetComponent<EnemyOnMap>().knock(hit, other.GetComponent<Knockback>().knockTime, other.GetComponent<Knockback>().damage);
         }
 
@@ -82,7 +86,7 @@ public class Knockback : MonoBehaviour
         //float movespeed= this.GetComponent<EnemyOnMap>().moveSpeed;//פעם שנייה זה אפס לכן צריך להיות משהו מוגדר
         float movespeed = 2;//אולי לשמור בגיימאנגר או משהו 
         this.GetComponent<EnemyOnMap>().moveSpeed = 0;
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(1);
         Debug.Log("here");
         this.GetComponent<EnemyOnMap>().moveSpeed = movespeed;
     }

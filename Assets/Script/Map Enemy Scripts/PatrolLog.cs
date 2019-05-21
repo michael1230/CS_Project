@@ -192,7 +192,11 @@ public class PatrolLog : logEnemy {
             path = newPath;
             targetIndex = 0;
             StopCoroutine("FollowPath");
-            StartCoroutine("FollowPath");
+            if (this.gameObject == isActiveAndEnabled)//for stopping if enemy was killed
+            {
+                StartCoroutine("FollowPath");
+            }
+            
         }
     }
 

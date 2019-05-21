@@ -54721,7 +54721,6 @@ MonoBehaviour:
   thrust: 4
   knockTime: 0.2
   damage: 1
-  thisEnemy: {fileID: 0}
 --- !u!61 &1948718948
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55051,7 +55050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df3a523543147b4fb9e6d0150ec2945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupSignal: {fileID: 0}
+  powerupSignal: {fileID: 11400000, guid: e33c07a445f20244a8f41e4cebfdd5eb, type: 2}
 --- !u!1 &2078914941
 GameObject:
   m_ObjectHideFlags: 0
