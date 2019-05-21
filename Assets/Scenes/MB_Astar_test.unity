@@ -1160,7 +1160,7 @@ GameObject:
   m_Layer: 0
   m_Name: Point
   m_TagString: Untagged
-  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -8956,57 +8956,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 61768927980660576, guid: bc42ca0f68d878e47b70d06c2c3755df,
-        type: 2}
-      propertyPath: m_AutoTiling
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 61943415165131474, guid: bc42ca0f68d878e47b70d06c2c3755df,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61768927980660576, guid: bc42ca0f68d878e47b70d06c2c3755df,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 1.0877497
-      objectReference: {fileID: 0}
-    - target: {fileID: 61768927980660576, guid: bc42ca0f68d878e47b70d06c2c3755df,
-        type: 2}
-      propertyPath: m_Offset.y
-      value: -0.100302964
-      objectReference: {fileID: 0}
-    - target: {fileID: 61768927980660576, guid: bc42ca0f68d878e47b70d06c2c3755df,
-        type: 2}
-      propertyPath: m_Offset.x
-      value: -0.0020040274
-      objectReference: {fileID: 0}
-    - target: {fileID: 61768927980660576, guid: bc42ca0f68d878e47b70d06c2c3755df,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 0.7990656
-      objectReference: {fileID: 0}
-    - target: {fileID: 61768927980660576, guid: bc42ca0f68d878e47b70d06c2c3755df,
-        type: 2}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911523434174010, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
-      propertyPath: m_TagString
-      value: tempAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658832561608360, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
-      propertyPath: m_TagString
-      value: tempAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307587975358936, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
-      propertyPath: m_TagString
-      value: tempAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 1148038089447850, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
-      propertyPath: m_TagString
-      value: tempAttack
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc42ca0f68d878e47b70d06c2c3755df, type: 2}
   m_IsPrefabAsset: 0
@@ -9108,33 +9057,14 @@ Prefab:
       objectReference: {fileID: 1734569636}
     - target: {fileID: 114668086332539722, guid: f65ec1e74a9c9eb42963bff8a9a29535,
         type: 2}
-      propertyPath: AstarPoint
-      value: 
-      objectReference: {fileID: 179934440}
-    - target: {fileID: 114668086332539722, guid: f65ec1e74a9c9eb42963bff8a9a29535,
-        type: 2}
       propertyPath: pathDot.Array.data[1]
       value: 
       objectReference: {fileID: 462289797}
-    - target: {fileID: 1966076525443080, guid: f65ec1e74a9c9eb42963bff8a9a29535, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 58510098210019088, guid: f65ec1e74a9c9eb42963bff8a9a29535,
+    - target: {fileID: 114668086332539722, guid: f65ec1e74a9c9eb42963bff8a9a29535,
         type: 2}
-      propertyPath: m_Offset.y
-      value: -0.36377263
-      objectReference: {fileID: 0}
-    - target: {fileID: 58510098210019088, guid: f65ec1e74a9c9eb42963bff8a9a29535,
-        type: 2}
-      propertyPath: m_Radius
-      value: 0.40127587
-      objectReference: {fileID: 0}
-    - target: {fileID: 212944384222701134, guid: f65ec1e74a9c9eb42963bff8a9a29535,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: AstarPoint
+      value: 
+      objectReference: {fileID: 179934440}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f65ec1e74a9c9eb42963bff8a9a29535, type: 2}
   m_IsPrefabAsset: 0
