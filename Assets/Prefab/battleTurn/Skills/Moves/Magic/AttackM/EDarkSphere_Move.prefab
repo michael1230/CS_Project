@@ -56,8 +56,8 @@ MonoBehaviour:
   statusBuff: 
   animateName: Magic
   numOfSFXs: 
-  movePower: 100
-  moveMpCost: 20
+  movePower: 45
+  moveMpCost: 0
   moveSpCost: 0
   moveTargetAll: 0
   theEffect: {fileID: 114106384026566502, guid: 35207a62fae52134bbe20e32304771d7,

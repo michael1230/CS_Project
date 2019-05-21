@@ -15,7 +15,7 @@ public class GameData
     private float[] bossPos;//the pos of the Boss..0-x,1-y,2-z
     private int numOfEnemies;//the number of enemies on this map
     private bool[] deadOrAliveEnemy;//the number of enemies on this map
-    private bool[] elementGot;//the number of enemies on this map
+    private bool[] elementGot;//the number of element we have
     private float[,] enemiesPos;//the pos of the enemies..first index is the enemy number second index is the pos: 0-x,1-y,2-z
 
     public string SceneName

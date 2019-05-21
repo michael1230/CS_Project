@@ -58,7 +58,18 @@ public class GameManager : MonoBehaviour
      
         if (Input.GetKeyDown(KeyCode.T))//for test
         {
-            addElement();
+            //addElement();
+            ElementGet(0);
+        }
+        if (Input.GetKeyDown(KeyCode.R))//for test
+        {
+            //addElement();
+            ElementGet(1);
+        }
+        if (Input.GetKeyDown(KeyCode.E))//for test
+        {
+            //addElement();
+            ElementGet(2);
         }
         if (Input.GetKeyDown(KeyCode.Y))//for test
         {
@@ -67,50 +78,53 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void ElementGet( int index)
+    public void ElementGet( int index)//activate when we defeate a mapBoss
     {
         //a bool for who was defeated 
         gotElement[index] = true;
+        numberOfElement++;//this for when we defeate a mapBoss..only after numberOfElement++ we call addElement
         addElement();
     }
 
     public void addElement()
     {
-        if (numberOfElement == 0)//add the first element (now we have two) need to add moves!
+        switch (numberOfElement)
         {
-
-            for (int i = 0; i < playerStats.Length; i++)
-            {
-                playerStats[i].AddBonusElementStats(bonusSecondElement);
-             ;
-            }
-            numberOfElement++;
-            addPartyMember();
-            //AddBonusElementMoves need to add moves!
-        }
-        else if (numberOfElement ==1)
-        {
-
-            for (int i = 0; i < playerStats.Length; i++)
-            {
-                playerStats[i].AddBonusElementStats(bonusThirdElement);
-                ;
-            }
-            numberOfElement++;
-            addPartyMember();
-            //AddBonusElementMoves need to add moves!
-        }
-        else if (numberOfElement ==2)
-        {
-
-            for (int i = 0; i < playerStats.Length; i++)
-            {
-                playerStats[i].AddBonusElementStats(bonusFourthElement);
-                ;
-            }
-            numberOfElement++;
-            addPartyMember();
-            //AddBonusElementMoves need to add moves!
+            case 0:
+                for (int i = 0; i < playerStats.Length; i++)
+                {
+                    playerStats[i].movesAvailable = playerStats[i].movesSet1;
+                }
+                break;
+            case 1:
+                for (int i = 0; i < playerStats.Length; i++)
+                {
+                    playerStats[i].AddBonusElementStats(bonusSecondElement);
+                    playerStats[i].movesAvailable = playerStats[i].movesSet2;
+                    addPartyMember();
+                }
+                break;
+            case 2:
+                for (int i = 0; i < playerStats.Length; i++)
+                {
+                    playerStats[i].AddBonusElementStats(bonusSecondElement);
+                    playerStats[i].AddBonusElementStats(bonusThirdElement);
+                    playerStats[i].movesAvailable = playerStats[i].movesSet3;
+                    addPartyMember();
+                }
+                break;
+            case 3:
+                for (int i = 0; i < playerStats.Length; i++)
+                {
+                    playerStats[i].AddBonusElementStats(bonusSecondElement);
+                    playerStats[i].AddBonusElementStats(bonusThirdElement);
+                    playerStats[i].AddBonusElementStats(bonusFourthElement);
+                    playerStats[i].movesAvailable = playerStats[i].movesSet4;
+                    addPartyMember();
+                }
+                break;
+            default:
+                break;
         }
     }
     public void addPartyMember()
@@ -121,5 +135,4 @@ public class GameManager : MonoBehaviour
             activePartyMemberIndex++;
         }
     }
-
 }

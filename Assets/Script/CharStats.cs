@@ -18,7 +18,10 @@ public class CharStats : MonoBehaviour
     public int defense;
     public int dexterity;
     public List<BattleMove> movesAvailable = new List<BattleMove>();
-    public List<BattleMove> movesToAdd = new List<BattleMove>();//later
+    public List<BattleMove> movesSet1 = new List<BattleMove>();
+    public List<BattleMove> movesSet2 = new List<BattleMove>();
+    public List<BattleMove> movesSet3 = new List<BattleMove>();
+    public List<BattleMove> movesSet4 = new List<BattleMove>();
     //public bool[] hasElement;
     //public int[][] bonusElement;
     public Sprite charIamge;
@@ -55,16 +58,8 @@ public class CharStats : MonoBehaviour
         maxHP += bonusElement[1];
         maxMP += bonusElement[2];
         maxSP += bonusElement[3];
-        strength += bonusElement[4];
-        defense += bonusElement[5];
-        dexterity += bonusElement[6];
-        //hasElement[whichElement] = true;
         currentHP = maxHP;
         currentMP = maxMP;
         currentSP = maxSP;
-    }
-    public void AddBonusElementMoves(int whichElement)//later
-    {
-
     }
 }

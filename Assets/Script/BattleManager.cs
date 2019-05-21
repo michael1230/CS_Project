@@ -175,6 +175,7 @@ public class BattleManager : MonoBehaviour
                             playersInfos[i].hpSlider.maxValue = thePlayer.maxHP;
                             playersInfos[i].mpSlider.maxValue = thePlayer.maxMP;
                             playersInfos[i].spSlider.maxValue = thePlayer.maxSP;//////////////////////////
+                            activeBattlers[i].level = thePlayer.playerLevel;
                             activeBattlers[i].currentHP = thePlayer.currentHP;
                             activeBattlers[i].maxHP = thePlayer.maxHP;
                             activeBattlers[i].currentMP = thePlayer.currentMP;
@@ -564,7 +565,19 @@ public class BattleManager : MonoBehaviour
         {
             float atkPwr = activeBattlers[currentTurn].strength + activeBattlers[currentTurn].statusBounus[0];
             float defPwr = activeBattlers[target].defense + activeBattlers[target].statusBounus[1];
-            float damageCalc = (atkPwr / defPwr) * move.movePower;
+            //float damageCalc = (atkPwr / defPwr) * move.movePower;//V1
+            /*
+            float damageCalc = 0;
+            if (activeBattlers[currentTurn].level==1)//v2
+            {
+                damageCalc = (float)((atkPwr / defPwr) * move.movePower);
+            }
+            else
+            {
+                 damageCalc = (float)((atkPwr / defPwr) * move.movePower * (0.2 * activeBattlers[currentTurn].level));//V2
+            }
+            */
+            float damageCalc = (atkPwr / defPwr)* move.movePower* activeBattlers[currentTurn].level;//v3
             damageToGive = Mathf.RoundToInt(damageCalc);
             if ((impossibleBattle==true)&&(playerOrEnemy==true))//if impossibleBattle is true and the currentTurn is player then no damage!
             {
@@ -614,7 +627,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
                 atkPwr = (activeBattlers[currentTurn].strength + activeBattlers[currentTurn].statusBounus[0]) * Enemies.Count;//the strength of the current player times the number of enemies
-                float damageCalc = (atkPwr / defPwr) * move.movePower;
+                float damageCalc = (atkPwr / defPwr) * move.movePower * activeBattlers[currentTurn].level;//v3
                 damageToGive = Mathf.RoundToInt(damageCalc);//to int
                 if ((impossibleBattle == true) && (playerOrEnemy == true))//if impossibleBattle is true and the currentTurn is player then no damage!
                 {
@@ -662,21 +675,24 @@ public class BattleManager : MonoBehaviour
                 if ((move.statusBuff == "Attack") || (move.statusBuff == "ALL"))//if the buff is Attack
                 {
                     activeBattlers[target].bounusTurn[0] = 3;//the bonus turn time is will last
-                    activeBattlers[target].statusBounus[0] = move.movePower;//the bonus itself
+                    float bonus = (float)(activeBattlers[target].strength * (move.movePower / 100.0));//add movePower percent to status
+                    activeBattlers[target].statusBounus[0] = Mathf.RoundToInt(bonus);//the bonus itself
                 }
                 if ((move.statusBuff == "Defense") || (move.statusBuff == "ALL"))//if the buff is Defense
                 {
                     activeBattlers[target].bounusTurn[1] = 3;//the bonus turn time is will last
-                    activeBattlers[target].statusBounus[1] = move.movePower;//the bonus itself
+                    float bonus = (float)(activeBattlers[target].defense * (move.movePower / 100.0));//add movePower percent to status
+                    activeBattlers[target].statusBounus[1] = Mathf.RoundToInt(bonus);//the bonus itself
                 }
                 if (move.statusBuff == "HP")
                 {
-                    activeBattlers[target].currentHP += move.movePower;
+                    float bonus = (float)(activeBattlers[target].maxHP * (move.movePower / 100.0));//heal with movePower percent from max
+                    activeBattlers[target].currentHP += Mathf.RoundToInt(bonus);
                     if (activeBattlers[target].currentHP > activeBattlers[target].maxHP)
                     {
-                        activeBattlers[target].maxHP = activeBattlers[target].currentHP;
+                        activeBattlers[target].currentHP = activeBattlers[target].maxHP;
                     }
-                    Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetNotification(move.movePower, "Health");//make the damage appear on screen
+                    Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetNotification(Mathf.RoundToInt(bonus), "Health");//make the damage appear on screen
                 }
                 StartCoroutine(AnimeteSelfMagicCo(target, move, playerOrEnemy));
             }
@@ -690,7 +706,6 @@ public class BattleManager : MonoBehaviour
                         if ((activeBattlers[i].isPlayer) && (activeBattlers[i].currentHP > 0))//list of players
                         {
                             Targets.Add(i);
-                            Debug.Log("players: " + activeBattlers[i].charName);
                         }
                     }
                 }
@@ -701,7 +716,6 @@ public class BattleManager : MonoBehaviour
                         if (!(activeBattlers[i].isPlayer) && (activeBattlers[i].currentHP > 0))//list of enemy
                         {
                             Targets.Add(i);
-                            Debug.Log("enemy: " + activeBattlers[i].charName);
                         }
                     }
                 }
@@ -710,19 +724,22 @@ public class BattleManager : MonoBehaviour
                     if ((move.statusBuff == "Attack")|| (move.statusBuff == "ALL"))//if the buff is Attack
                     {
                         activeBattlers[Targets[i]].bounusTurn[0] = 3;//the bonus turn time is will last
-                        activeBattlers[Targets[i]].statusBounus[0] = move.movePower;//the bonus itself
+                        float bonus = (float)(activeBattlers[Targets[i]].strength * (move.movePower / 100.0)) ;//add movePower percent to status
+                        activeBattlers[Targets[i]].statusBounus[0] = Mathf.RoundToInt(bonus);//the bonus itself
                     }
                     if ((move.statusBuff == "Defense") || (move.statusBuff == "ALL"))//if the buff is Defense
                     {
                         activeBattlers[Targets[i]].bounusTurn[1] = 3;//the bonus turn time is will last
-                        activeBattlers[Targets[i]].statusBounus[1] = move.movePower;//the bonus itself
+                        float bonus = (float)(activeBattlers[Targets[i]].defense * (move.movePower / 100.0));//add movePower percent to status
+                        activeBattlers[Targets[i]].statusBounus[1] = Mathf.RoundToInt(bonus);//the bonus itself
                     }
                     if (move.statusBuff == "HP")
                     {
-                        activeBattlers[Targets[i]].currentHP += move.movePower;
+                        float bonus = (float)(activeBattlers[Targets[i]].maxHP * (move.movePower / 100.0));//heal with movePower percent from max
+                        activeBattlers[Targets[i]].currentHP += Mathf.RoundToInt(bonus);
                         if (activeBattlers[Targets[i]].currentHP> activeBattlers[Targets[i]].maxHP)
                         {
-                            activeBattlers[Targets[i]].maxHP = activeBattlers[Targets[i]].currentHP;
+                            activeBattlers[Targets[i]].currentHP = activeBattlers[Targets[i]].maxHP;
                         }
                     }
                 }
@@ -848,10 +865,7 @@ public class BattleManager : MonoBehaviour
     {
         activeBattlers[currentTurn].anim.SetBool(move.animateName, true);
         Instantiate(move.theEffect, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation);
-        Debug.Log("before SelfMagic ");
-        Debug.Log("move.moveName: " + move.moveName);
         yield return new WaitForSecondsRealtime(move.theEffect.effectLength);
-        Debug.Log("after SelfMagic ");
         activeBattlers[currentTurn].anim.SetBool(move.animateName, false);
         if (playerOrEnemy == true)
         {
@@ -1246,18 +1260,10 @@ public class BattleManager : MonoBehaviour
         }
         BattleMenus.goToMenu(3, 0);//go to item menu and the previous is main battle menu
     }
-
     public IEnumerator EndBattleCo()
     {
         AudioManager.instance.StopMusic();
         AudioManager.instance.PlayBGM(6);
-        /*
-        activeBattlers[0].anim.SetBool("Win_Full", true);
-        activeBattlers[1].anim.SetBool("Win_Full", true);
-        activeBattlers[2].anim.SetBool("Win_Full", true);
-        activeBattlers[3].anim.SetBool("Win_Full", true);
-        */
-
         for (int i = 0; i < activeBattlers.Count; i++)
         {
             if (activeBattlers[i].currentHP > 0)
@@ -1265,30 +1271,11 @@ public class BattleManager : MonoBehaviour
                 activeBattlers[i].anim.SetBool("Win_Full", true);
             }
         }
-
         BattleMenus.goToMenu(0, 0);
         BattleMenus.offMenu(false);
         BattleMenus.ShowVictoryPanel(true);
         battleActive = false;
-        /*
-        for (int i = 0; i < activeBattlers.Capacity; i++)
-        {
-            if ((activeBattlers[i].isPlayer) && (activeBattlers[i].currentHP > 0))
-            {
-                activeBattlers[i].anim.SetBool("Win_Full", true);
-            }
-        }
-        */
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
-        /*
-        for (int i = 0; i < activeBattlers.Capacity; i++)
-        {
-            if ((activeBattlers[i].isPlayer) && (activeBattlers[i].currentHP > 0))
-            {
-                activeBattlers[i].goToWin = false;
-            }
-        }
-        */
         BattleMenus.ShowVictoryPanel(false);
         GameManager.instance.battleActive = false;
         yield return new WaitForSeconds(.5f);
@@ -1315,69 +1302,11 @@ public class BattleManager : MonoBehaviour
         BattleMenus.theInfoHolder.SetActive(true);
         battleCanves.SetActive(false);
         battleScene.SetActive(false);
-
         activeBattlers.Clear();
         currentTurn = 0;
-        /*if (fleeing)
-        {
-            GameManager.instance.battleActive = false;
-            fleeing = false;
-        }
-        else
-        {
-            BattleReward.instance.OpenRewardScreen(rewardXP, rewardItems);  
-        }*/
 
-        AudioManager.instance.PlayBGM(FindObjectOfType<CameraController>().musicToPlay);
-
-
-        /*
-        battleActive = false;
-        BattleMenus.goToMenu(0, 0);
-        BattleMenus.offMenu(false);
-        GameManager.instance.battleActive = false;
-        yield return new WaitForSeconds(.5f);
-        battleCanves.SetActive(false);
-        FadeManager.instance.BattleTransition("FadeBlack");
-       
-
-        for (int i = 0; i < activeBattlers.Count; i++)
-        {
-            if (activeBattlers[i].isPlayer)
-            {
-                for (int j = 0; j < GameManager.instance.playerStats.Length; j++)
-                {
-                    if (activeBattlers[i].charName == GameManager.instance.playerStats[j].charName)
-                    {
-                        GameManager.instance.playerStats[j].currentHP = activeBattlers[i].maxHP;//reset to health
-                        GameManager.instance.playerStats[j].currentMP = activeBattlers[i].maxMP;//reset to MP
-                        GameManager.instance.playerStats[j].currentSP = activeBattlers[i].currentSP;//keep the sp for next battle
-                    }
-                }
-            }
-
-            Destroy(activeBattlers[i].gameObject);
-        }
-        yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
-        battleCanves.SetActive(false);
-        battleScene.SetActive(false);
-        
-        activeBattlers.Clear();
-        currentTurn = 0;
-        /*if (fleeing)
-        {
-            GameManager.instance.battleActive = false;
-            fleeing = false;
-        }
-        else
-        {
-            BattleReward.instance.OpenRewardScreen(rewardXP, rewardItems);  
-        }*/
-
-       // AudioManager.instance.PlayBGM(FindObjectOfType<CameraController>().musicToPlay);
-        
+        AudioManager.instance.PlayBGM(FindObjectOfType<CameraController>().musicToPlay);        
     }
-
     public IEnumerator GameOverCo()
     {
         AudioManager.instance.StopMusic();//stop the battle music

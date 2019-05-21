@@ -12,6 +12,7 @@ public class BattleChar : MonoBehaviour
     public List<BattleMove> movesAvailable;
 
     public string charName;
+    public int level;
     public int currentHP;
     public int maxHP;
     public int currentMP;

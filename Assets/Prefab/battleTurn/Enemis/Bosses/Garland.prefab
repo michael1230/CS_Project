@@ -88,6 +88,7 @@ MonoBehaviour:
   - {fileID: 114082081807922250, guid: 3468ba05139f88e4597c6e0e46e88674, type: 2}
   - {fileID: 114555565588452270, guid: 93d0bbe9b6dd4ab44b5ee15fb0826649, type: 2}
   charName: Garland
+  level: 5
   currentHP: 1000
   maxHP: 1000
   currentMP: 200
@@ -101,6 +102,7 @@ MonoBehaviour:
   effect1: 0
   effect2: 0
   Idle: 0
+  goToWin: 0
   hasDied: 0
   bounusTurn: 000000000000000000000000
   statusBounus: 000000000000000000000000
