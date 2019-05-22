@@ -60,15 +60,15 @@ MonoBehaviour:
   - {fileID: 114102729691059236, guid: e62c43880c26a094e9f5c236a2041d1b, type: 2}
   - {fileID: 114806301489941652, guid: dfd0f72ff7a68fe419db042d0eb0242c, type: 2}
   charName: Snake
-  level: 1
-  currentHP: 200
-  maxHP: 200
+  level: 2
+  currentHP: 120
+  maxHP: 120
   currentMP: 0
   maxMP: 0
   currentSP: 0
   maxSP: 0
   strength: 13
-  defense: 30
+  defense: 26
   dexterity: 0
   anim: {fileID: 0}
   effect1: 0

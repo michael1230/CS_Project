@@ -55,10 +55,9 @@ MonoBehaviour:
   moveName: Slash2
   statusBuff: 
   animateName: Req_Atk_2
-  numOfSFXs: 2
-  movePower: 10
+  movePower: 20
   moveMpCost: 0
-  moveSpCost: 0
+  moveSpCost: 5
   moveTargetAll: 0
   theEffect: {fileID: 114646681490339962, guid: 9dcc9a6a23b563143b659b5663df4f05,
     type: 2}

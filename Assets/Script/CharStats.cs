@@ -6,7 +6,8 @@ public class CharStats : MonoBehaviour
 {
 
     public string charName;
-    public int playerLevel;
+    // public int playerLevel;
+    public float playerLevel;
 
     public int currentHP;
     public int maxHP;

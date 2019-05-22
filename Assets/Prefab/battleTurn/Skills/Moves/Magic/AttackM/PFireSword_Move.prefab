@@ -55,9 +55,8 @@ MonoBehaviour:
   moveName: Fire Sword
   statusBuff: 
   animateName: Magic
-  numOfSFXs: 
   movePower: 35
-  moveMpCost: 0
+  moveMpCost: 15
   moveSpCost: 0
   moveTargetAll: 0
   theEffect: {fileID: 114807372853149678, guid: 404062f5410f6e34fb507f698c54f458,

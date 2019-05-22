@@ -75,21 +75,31 @@ MonoBehaviour:
   isRegularEnemy: 0
   isMapBoss: 1
   isGameBoss: 0
-  movesAvailable: []
+  movesAvailable:
+  - {fileID: 114806301489941652, guid: 65ad07a7e08a17d4dbba6a36f54ec66a, type: 2}
+  - {fileID: 114055494465312062, guid: 7ce6b02b23d9b7c49a2919ab2a0f34f7, type: 2}
+  - {fileID: 114085579474057474, guid: 3221061a4c083594da6181aa658768eb, type: 2}
+  - {fileID: 114801499741064502, guid: 9c101bf1aecf03a48b6e0f1efe69cf13, type: 2}
+  - {fileID: 114641226933197416, guid: 1fa5b811859ad1f4d8900e73673f7dae, type: 2}
+  - {fileID: 114976865980528210, guid: f06b478cc909b954da04633a5297c17e, type: 2}
+  - {fileID: 114784100942386204, guid: 5ddbebea816718e4dabbcd93b0d25c96, type: 2}
+  - {fileID: 114444373464702530, guid: c901102ce92105c4cbdc612840720591, type: 2}
   charName: DarkAiden
-  currentHP: 100
-  maxHP: 100
+  level: 2.1
+  currentHP: 300
+  maxHP: 300
   currentMP: 100
   maxMP: 100
   currentSP: 50
   maxSP: 50
   strength: 20
-  defense: 20
-  dexterity: 20
+  defense: 40
+  dexterity: 25
   anim: {fileID: 95329052689579918}
   effect1: 0
   effect2: 0
   Idle: 0
+  goToWin: 0
   hasDied: 0
   bounusTurn: 000000000000000000000000
   statusBounus: 000000000000000000000000

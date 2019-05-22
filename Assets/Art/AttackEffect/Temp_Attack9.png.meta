@@ -1,14 +1,18 @@
 fileFormatVersion: 2
-guid: a34a5ba2e1d139f4e9837de79492ef74
+guid: 22597e1efbefbbb4a9cdb06d946771ef
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Temp_HitSpecial2_0
-    21300002: Temp_HitSpecial2_1
-    21300004: Temp_HitSpecial2_2
-    21300006: Temp_HitSpecial2_3
-    21300008: Temp_HitSpecial2_4
-    21300010: Temp_HitSpecial2_5
-    21300012: Temp_HitSpecial2_6
+    21300000: Temp_Attack9_0
+    21300002: Temp_Attack9_1
+    21300004: Temp_Attack9_2
+    21300006: Temp_Attack9_3
+    21300008: Temp_Attack9_4
+    21300010: Temp_Attack9_5
+    21300012: Temp_Attack9_6
+    21300014: Temp_Attack9_7
+    21300016: Temp_Attack9_8
+    21300018: Temp_Attack9_9
+    21300020: Temp_Attack9_10
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -52,7 +56,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 80
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -91,7 +95,107 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Temp_HitSpecial2_0
+      name: Temp_Attack9_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e17c7d51463e1c46bbd02b1d4edb1b0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Temp_Attack9_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89c69f13b3a004d4ea135ca1f0148fdf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Temp_Attack9_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6a27d76df6fc904db6e154d1322dd36
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Temp_Attack9_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf515abafc6389141aac447a18d8e9dc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Temp_Attack9_4
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c02d3f38ff6675e4f837b5182a442953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Temp_Attack9_5
       rect:
         serializedVersion: 2
         x: 0
@@ -105,13 +209,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfd0bcaf0a96a364e9e1ebb05ef0e709
+      spriteID: 59ca7d5df1f41ee40bb860101d3bd02d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_HitSpecial2_1
+      name: Temp_Attack9_6
       rect:
         serializedVersion: 2
         x: 192
@@ -125,13 +229,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94a5c07751562e246b0f2c74160b20c2
+      spriteID: c73f22066decdba46ba506afa93451b1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_HitSpecial2_2
+      name: Temp_Attack9_7
       rect:
         serializedVersion: 2
         x: 384
@@ -145,13 +249,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0992052c557c45f48ab680b74322e781
+      spriteID: 89fc540d63e0b754c989536dc037f67c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_HitSpecial2_3
+      name: Temp_Attack9_8
       rect:
         serializedVersion: 2
         x: 576
@@ -165,13 +269,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 247b6847b9332e74baec86f4cb271d47
+      spriteID: 7b8f6455105aac344b10eb8a77a15c28
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_HitSpecial2_4
+      name: Temp_Attack9_9
       rect:
         serializedVersion: 2
         x: 768
@@ -185,13 +289,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 816cf118ba8224849b9e40645e646d56
+      spriteID: 7734891a9ffb3544489e379f0eb257ba
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Temp_HitSpecial2_5
+      name: Temp_Attack9_10
       rect:
         serializedVersion: 2
         x: 0
@@ -205,27 +309,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ca2e7934681d574982af992dd4606fe
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Temp_HitSpecial2_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 192
-        height: 192
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 80069de2e822dce4696d1a1335fde757
+      spriteID: 4e7d591561be6f747a52c43c10bab19c
       vertices: []
       indices: 
       edges: []
@@ -233,7 +317,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 72553f8cf31277b4d9f5ba50d24560ee
+    spriteID: bc2929beede0c9f43b6c4e5a7659c005
     vertices: []
     indices: 
     edges: []

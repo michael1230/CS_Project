@@ -79,11 +79,13 @@ MonoBehaviour:
   - {fileID: 114801499741064502, guid: 9c101bf1aecf03a48b6e0f1efe69cf13, type: 2}
   - {fileID: 114085579474057474, guid: 3221061a4c083594da6181aa658768eb, type: 2}
   - {fileID: 114806301489941652, guid: 65ad07a7e08a17d4dbba6a36f54ec66a, type: 2}
+  - {fileID: 114641226933197416, guid: 1fa5b811859ad1f4d8900e73673f7dae, type: 2}
   charName: DarkRoselia
-  currentHP: 50
+  level: 1.1
+  currentHP: 100
   maxHP: 100
-  currentMP: 100
-  maxMP: 100
+  currentMP: 70
+  maxMP: 70
   currentSP: 50
   maxSP: 50
   strength: 20
@@ -93,6 +95,7 @@ MonoBehaviour:
   effect1: 0
   effect2: 0
   Idle: 0
+  goToWin: 0
   hasDied: 0
   bounusTurn: 000000000000000000000000
   statusBounus: 000000000000000000000000

@@ -55,10 +55,9 @@ MonoBehaviour:
   moveName: Fire wave
   statusBuff: 
   animateName: Limt_Atk
-  numOfSFXs: 
   movePower: 15
-  moveMpCost: 0
-  moveSpCost: 0
+  moveMpCost: 6
+  moveSpCost: 6
   moveTargetAll: 1
   theEffect: {fileID: 114744008556882946, guid: 6c9a9fb5d16b92f41a07593f2af5101f,
     type: 2}

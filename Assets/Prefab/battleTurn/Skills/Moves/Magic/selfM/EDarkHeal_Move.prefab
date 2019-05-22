@@ -55,9 +55,8 @@ MonoBehaviour:
   moveName: Dark Heal
   statusBuff: HP
   animateName: Magic
-  numOfSFXs: 
-  movePower: 40
-  moveMpCost: 0
+  movePower: 30
+  moveMpCost: 35
   moveSpCost: 0
   moveTargetAll: 0
   theEffect: {fileID: 114710637900749470, guid: 3c037030feb539241b15e5c9a4c60c5e,

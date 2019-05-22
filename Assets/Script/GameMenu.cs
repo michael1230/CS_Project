@@ -37,7 +37,7 @@ public class GameMenu : MonoBehaviour
     {
         theMenuCanves.worldCamera = Camera.main;//get the main camera and use it
        // if (Input.GetKeyDown(KeyCode.Escape))//if the button is pressed
-        if ((Input.GetKeyDown(KeyCode.Escape))&&(GameManager.instance.gameOver==false) && (GameManager.instance.battleActive == false))//if the button is pressed and GameOver is false or battleActive is false (if we are in gameOver or loading from GameOver or in battle) then dont activate menu
+        if ((Input.GetKeyDown(KeyCode.Escape))&&(GameManager.instance.gameOver==false) && (GameManager.instance.battleActive == false) && (GameManager.instance.fadingBetweenAreas==false))//if the button is pressed and GameOver is false or battleActive is false (if we are in gameOver or loading from GameOver or in battle) then dont activate menu
         {
             if (theMenu.activeInHierarchy)//if the menu is open
             {
@@ -133,6 +133,10 @@ public class GameMenu : MonoBehaviour
         save.EnemyOnMap = GameManager.instance.enemyTracker.enemyOnMap;
         save.ItemsAmount = new int[3] { GameManager.instance.totalItems[0].ItemAmount, GameManager.instance.totalItems[1].ItemAmount, GameManager.instance.totalItems[2].ItemAmount };
         save.PlayerPos = new float[3] { PlayerController.instance.transform.position.x, PlayerController.instance.transform.position.y, PlayerController.instance.transform.position.z };
+        save.PlayersHP = new int[4] { GameManager.instance.playerStats[0].maxHP, GameManager.instance.playerStats[1].maxHP, GameManager.instance.playerStats[2].maxHP, GameManager.instance.playerStats[3].maxHP};
+        save.PlayersMP = new int[4] { GameManager.instance.playerStats[0].maxMP, GameManager.instance.playerStats[1].maxMP, GameManager.instance.playerStats[2].maxMP, GameManager.instance.playerStats[3].maxMP };
+        save.PlayersSP = new int[4] { GameManager.instance.playerStats[0].maxSP, GameManager.instance.playerStats[1].maxSP, GameManager.instance.playerStats[2].maxSP, GameManager.instance.playerStats[3].maxSP };
+        save.PlayersLevel=new float[4] { GameManager.instance.playerStats[0].playerLevel, GameManager.instance.playerStats[1].playerLevel, GameManager.instance.playerStats[2].playerLevel, GameManager.instance.playerStats[3].playerLevel };
         save.ElementGot = GameManager.instance.gotElement;
         save.BossOnMap = GameManager.instance.enemyTracker.bossOnMap;
         if (GameManager.instance.enemyTracker.enemyOnMap)
@@ -182,6 +186,7 @@ public class GameMenu : MonoBehaviour
 
     public IEnumerator SceneLoad(GameData data)
     {
+        GameManager.instance.fadingBetweenAreas = true;
         FadeManager.instance.ScenenTransition("Load");
         yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
         AudioManager.instance.StopMusic();
@@ -191,6 +196,7 @@ public class GameMenu : MonoBehaviour
         LoadData(data);
         yield return new WaitUntil(() => FadeManager.instance.finishedTransition == true);
         GameManager.instance.gameOver = false;//after loading back from menu or feom gameOver wait until Transition finished and then can walk/open menu
+        GameManager.instance.fadingBetweenAreas = false;
     }
     public void LoadData(GameData data)
     {
@@ -198,6 +204,16 @@ public class GameMenu : MonoBehaviour
         GameManager.instance.totalItems[0].ItemAmount = data.ItemsAmount[0];
         GameManager.instance.totalItems[1].ItemAmount = data.ItemsAmount[1];
         GameManager.instance.totalItems[2].ItemAmount = data.ItemsAmount[2];
+        for (int i = 0; i <4; i++)
+        {
+            GameManager.instance.playerStats[i].maxHP = data.PlayersHP[i];
+            GameManager.instance.playerStats[i].maxMP = data.PlayersMP[i];
+            GameManager.instance.playerStats[i].maxSP = data.PlayersSP[i];
+            GameManager.instance.playerStats[i].currentHP = GameManager.instance.playerStats[i].maxHP;
+            GameManager.instance.playerStats[i].currentMP = GameManager.instance.playerStats[i].maxMP;
+            GameManager.instance.playerStats[i].currentSP = GameManager.instance.playerStats[i].maxSP;
+            GameManager.instance.playerStats[i].playerLevel = data.PlayersLevel[i];
+        }
         for (int i = 0; i < Elements.Length; i++)
         {
             if (i<= data.NumOfElement-1)//its -1 because Elements its from 0 to 2..its start from ice

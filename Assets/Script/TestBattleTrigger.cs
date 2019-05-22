@@ -31,7 +31,7 @@ public class TestBattleTrigger : MonoBehaviour
     {
         StartCoroutine(BattleManager.instance.PrepareforBattleStart(enemyToSpawn));
         yield return new WaitForSeconds(3f);
-        Destroy(gameObject);
+        this.gameObject.SetActive(false);
     }
 
 

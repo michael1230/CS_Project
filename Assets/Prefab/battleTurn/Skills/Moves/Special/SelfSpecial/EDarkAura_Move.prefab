@@ -56,7 +56,7 @@ MonoBehaviour:
   statusBuff: ALL
   animateName: Magic
   numOfSFXs: 
-  movePower: 100
+  movePower: 65
   moveMpCost: 0
   moveSpCost: 0
   moveTargetAll: 1

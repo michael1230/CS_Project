@@ -17,6 +17,10 @@ public class GameData
     private bool[] deadOrAliveEnemy;//the number of enemies on this map
     private bool[] elementGot;//the number of element we have
     private float[,] enemiesPos;//the pos of the enemies..first index is the enemy number second index is the pos: 0-x,1-y,2-z
+    private float[] playersLevel;//the level of the players
+    private int[] playersHP;//the hp of the players
+    private int[] playersMP;//the mp of the players
+    private int[] playersSP;//the sp of the players
 
     public string SceneName
     {
@@ -138,6 +142,50 @@ public class GameData
         set
         {
             this.enemiesPos = value;
+        }
+    }
+    public float[] PlayersLevel
+    {
+        get
+        {
+            return this.playersLevel;
+        }
+        set
+        {
+            this.playersLevel = value;
+        }
+    }
+    public int[] PlayersHP
+    {
+        get
+        {
+            return this.playersHP;
+        }
+        set
+        {
+            this.playersHP = value;
+        }
+    }
+    public int[] PlayersMP
+    {
+        get
+        {
+            return this.playersMP;
+        }
+        set
+        {
+            this.playersMP = value;
+        }
+    }
+    public int[] PlayersSP
+    {
+        get
+        {
+            return this.playersSP;
+        }
+        set
+        {
+            this.playersSP = value;
         }
     }
 

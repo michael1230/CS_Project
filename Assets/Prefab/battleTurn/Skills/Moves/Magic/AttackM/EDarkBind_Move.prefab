@@ -9,30 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1569228274243422}
+  m_RootGameObject: {fileID: 1654169904685626}
   m_IsPrefabAsset: 1
---- !u!1 &1569228274243422
+--- !u!1 &1654169904685626
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4538692384563830}
-  - component: {fileID: 114718500462454202}
+  - component: {fileID: 4901761079792594}
+  - component: {fileID: 114604766687365444}
   m_Layer: 0
-  m_Name: PFire3_Move
+  m_Name: EDarkBind_Move
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4538692384563830
+--- !u!4 &4901761079792594
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1569228274243422}
+  m_GameObject: {fileID: 1654169904685626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,24 +40,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114718500462454202
+--- !u!114 &114604766687365444
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1569228274243422}
+  m_GameObject: {fileID: 1654169904685626}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9437c8f2a94ccb3488cf9f0ca74c6062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   theType: 4
-  moveName: Fire3
+  moveName: Dark Bind
   statusBuff: 
   animateName: Magic
-  movePower: 40
-  moveMpCost: 20
+  numOfSFXs: 
+  movePower: 50
+  moveMpCost: 0
   moveSpCost: 0
   moveTargetAll: 0
-  theEffect: {fileID: 114370648862659386, guid: d38945d3c8e8977459ee660c469d2f5c,
+  theEffect: {fileID: 114220345892603822, guid: c806254ee7ff23944a2013f4b5ec025b,
     type: 2}

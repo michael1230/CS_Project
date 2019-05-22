@@ -526,6 +526,8 @@ public class BattleManager : MonoBehaviour
                 moveChosen = false;
             }
         }
+        activeBattlers[currentTurn].currentMP -= enemyMove.moveMpCost;
+        activeBattlers[currentTurn].currentSP -= enemyMove.moveSpCost;
         if (offense==true)//if the move its an attack move
         {
             int selectedTarget = players[Random.Range(0, players.Count)];//random select targets from the list
@@ -565,18 +567,6 @@ public class BattleManager : MonoBehaviour
         {
             float atkPwr = activeBattlers[currentTurn].strength + activeBattlers[currentTurn].statusBounus[0];
             float defPwr = activeBattlers[target].defense + activeBattlers[target].statusBounus[1];
-            //float damageCalc = (atkPwr / defPwr) * move.movePower;//V1
-            /*
-            float damageCalc = 0;
-            if (activeBattlers[currentTurn].level==1)//v2
-            {
-                damageCalc = (float)((atkPwr / defPwr) * move.movePower);
-            }
-            else
-            {
-                 damageCalc = (float)((atkPwr / defPwr) * move.movePower * (0.2 * activeBattlers[currentTurn].level));//V2
-            }
-            */
             float damageCalc = (atkPwr / defPwr)* move.movePower* activeBattlers[currentTurn].level;//v3
             damageToGive = Mathf.RoundToInt(damageCalc);
             if ((impossibleBattle==true)&&(playerOrEnemy==true))//if impossibleBattle is true and the currentTurn is player then no damage!
@@ -596,14 +586,8 @@ public class BattleManager : MonoBehaviour
             {
                 if (move.isAttck())
                 {
-                    if (move.numOfSFXs == "1")
-                    {
-                        StartCoroutine(AnimeteAttckCo(target, damageToGive, move, playerOrEnemy));
-                    }
-                    else if (move.numOfSFXs == "2")
-                    {
-                        StartCoroutine(AnimeteAttckCo2(target, damageToGive, move, playerOrEnemy));
-                    }
+                  StartCoroutine(AnimeteAttckCo(target, damageToGive, move, playerOrEnemy));
+
                 }
                 else if (move.isAttackMagic())
                 {
@@ -651,7 +635,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
                 atkPwr = (activeBattlers[currentTurn].strength + activeBattlers[currentTurn].statusBounus[0]) * Players.Count;//the strength of the current enemy times the number of players
-                float damageCalc = (atkPwr / defPwr) * move.movePower;
+                float damageCalc = (atkPwr / defPwr) * move.movePower * activeBattlers[currentTurn].level;//v3
                 damageToGive = Mathf.RoundToInt(damageCalc);//to int
                 if ((impossibleBattle == true) && (playerOrEnemy == true))//if impossibleBattle is true and the currentTurn is player then no damage!
                 {
@@ -796,6 +780,10 @@ public class BattleManager : MonoBehaviour
             Instantiate(theDamageNumber, activeBattlers[targets[i]].transform.position, activeBattlers[targets[i]].transform.rotation).SetNotification(damage);//make the damage appear on screen
         }           
         yield return new WaitForSecondsRealtime(move.theEffect.effectLength);
+        if (move.animateName == "Limt_Atk")//if the move animName is magic then dont wait
+        {
+            yield return new WaitWhile(() => activeBattlers[currentTurn].Idle == false);
+        }
         activeBattlers[currentTurn].anim.SetBool(move.animateName, false);
         if (playerOrEnemy == true)
         {
@@ -816,26 +804,6 @@ public class BattleManager : MonoBehaviour
         yield return new WaitWhile(() => activeBattlers[currentTurn].Idle == false);
         activeBattlers[currentTurn].anim.SetBool(move.animateName, false);
         if (playerOrEnemy==true)
-        {
-            StartCoroutine(MoveBackAndNextTurnCo());
-        }
-        else
-        {
-            StartCoroutine(MoveBackEnemyAndNextTurnCo());
-        }
-    }
-    public IEnumerator AnimeteAttckCo2(int target, int damage, BattleMove move, bool playerOrEnemy)//for Attacking one enemy.. two effects 
-    {
-        activeBattlers[currentTurn].anim.SetBool(move.animateName, true);
-        yield return new WaitWhile(() => activeBattlers[currentTurn].effect1 == false);
-        Instantiate(move.theEffect, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation);
-        yield return new WaitWhile(() => activeBattlers[currentTurn].effect2 == false);
-        Instantiate(move.theEffect, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation);
-        activeBattlers[target].currentHP -= damage;//take hp
-        Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetNotification(damage);//make the damage appear on screen
-        yield return new WaitWhile(() => activeBattlers[currentTurn].Idle == false);
-        activeBattlers[currentTurn].anim.SetBool(move.animateName, false);
-        if (playerOrEnemy == true)
         {
             StartCoroutine(MoveBackAndNextTurnCo());
         }

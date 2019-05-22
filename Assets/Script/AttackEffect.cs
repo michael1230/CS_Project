@@ -18,5 +18,9 @@ public class AttackEffect : MonoBehaviour {
     {
         Destroy(gameObject, effectLength);//Destroy this object after effectLength
     }
+    void PlayThisEffectSound()//play again for sime attacks
+    {
+        AudioManager.instance.PlaySFX(soundEffect);
+    }
 
 }

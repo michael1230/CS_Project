@@ -60,15 +60,15 @@ MonoBehaviour:
   - {fileID: 114055494465312062, guid: ba8a70522ab11f045901e0c1c9f4772f, type: 2}
   - {fileID: 114641226933197416, guid: 1fa5b811859ad1f4d8900e73673f7dae, type: 2}
   charName: Spider
-  level: 1
-  currentHP: 130
-  maxHP: 130
+  level: 2
+  currentHP: 140
+  maxHP: 140
   currentMP: 0
   maxMP: 0
   currentSP: 0
   maxSP: 0
   strength: 15
-  defense: 25
+  defense: 27
   dexterity: 0
   anim: {fileID: 0}
   effect1: 0

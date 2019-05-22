@@ -61,8 +61,8 @@ MonoBehaviour:
   - {fileID: 114806301489941652, guid: dfd0f72ff7a68fe419db042d0eb0242c, type: 2}
   charName: Slime
   level: 1
-  currentHP: 50
-  maxHP: 50
+  currentHP: 25
+  maxHP: 25
   currentMP: 0
   maxMP: 0
   currentSP: 0

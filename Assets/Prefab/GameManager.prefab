@@ -172,10 +172,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTracker: {fileID: 0}
-  bonusSecondElement: 01000000000000000000000000000000
-  bonusThirdElement: 01000000000000000000000000000000
-  bonusFourthElement: 01000000000000000000000000000000
+  bonusSecondElement: 01000000320000004600000000000000
+  bonusThirdElement: 01000000c80000006400000000000000
+  bonusFourthElement: 01000000bc0200006400000000000000
   gotElement: 
+  mapCanves: {fileID: 1304993484030352, guid: 78b4152e4d04cd940bf673857e489ff7, type: 2}
   playerStats:
   - {fileID: 114883337014863132}
   - {fileID: 114446696453270072}
@@ -186,7 +187,6 @@ MonoBehaviour:
   - {fileID: 114205956424164794, guid: 4fee9fcab8c0b354494040a656a2fdfd, type: 2}
   - {fileID: 114261064787111316, guid: 11d55eefb7152dc43bc43723b4a221ea, type: 2}
   numberOfElement: 0
-  activePartyMemberIndex: 1
   gameMenuOpen: 0
   dialogActive: 0
   fadingBetweenAreas: 0
@@ -216,17 +216,6 @@ MonoBehaviour:
   dexterity: 15
   movesAvailable:
   - {fileID: 114806301489941652, guid: 65ad07a7e08a17d4dbba6a36f54ec66a, type: 2}
-  movesToAdd1:
-  - {fileID: 114473837748287862, guid: b96f9b082a8bea443a8a322f4fcfb1c4, type: 2}
-  - {fileID: 114784100942386204, guid: e8d76b8480bb110458a3189195eadd30, type: 2}
-  - {fileID: 114444373464702530, guid: 6e211abe67964964d91e11839d6185f0, type: 2}
-  - {fileID: 114626165699448806, guid: 32215c772ba4e944583af9417967def8, type: 2}
-  - {fileID: 114019361100289904, guid: 7f461842466120341b729b8304cef48a, type: 2}
-  movesToAdd2:
-  - {fileID: 114827294459047278, guid: dfe6c6933563b284fbd4ae65d5ebebc5, type: 2}
-  - {fileID: 114388328556835074, guid: 91024f94ced036b4db8a270dc06d3639, type: 2}
-  movesToAdd3:
-  - {fileID: 114585410376524806, guid: a859e98e9bec2144e90c2ac64d7268a7, type: 2}
   movesSet1:
   - {fileID: 114806301489941652, guid: 65ad07a7e08a17d4dbba6a36f54ec66a, type: 2}
   movesSet2:
@@ -282,16 +271,6 @@ MonoBehaviour:
   - {fileID: 114806301489941652, guid: 65ad07a7e08a17d4dbba6a36f54ec66a, type: 2}
   - {fileID: 114055494465312062, guid: 7ce6b02b23d9b7c49a2919ab2a0f34f7, type: 2}
   - {fileID: 114003018935393536, guid: cf03a318b03c0584f854e85d6468fb67, type: 2}
-  movesToAdd1:
-  - {fileID: 114346052129600348, guid: 701193cd51290304ebd8aeb46d0ec128, type: 2}
-  - {fileID: 114784100942386204, guid: 316bc8d0bdd19974a84fd588624768cc, type: 2}
-  - {fileID: 114444373464702530, guid: e0b72025066fc514088e45c89ed80c1c, type: 2}
-  movesToAdd2:
-  - {fileID: 114555041479869004, guid: 63e3bbdfc92978b4ca3d2b4d2a694803, type: 2}
-  - {fileID: 114054797884662858, guid: 908561f5cb4c64b4e8eca0c2ddf02c7c, type: 2}
-  - {fileID: 114447846774214176, guid: 65d59a0fae2def64fa244ec7401bdc90, type: 2}
-  movesToAdd3:
-  - {fileID: 114822445977656862, guid: 0a54bf30d5d10154494e30b53856a030, type: 2}
   movesSet1:
   - {fileID: 114806301489941652, guid: 65ad07a7e08a17d4dbba6a36f54ec66a, type: 2}
   - {fileID: 114055494465312062, guid: 7ce6b02b23d9b7c49a2919ab2a0f34f7, type: 2}
@@ -350,17 +329,6 @@ MonoBehaviour:
   movesAvailable:
   - {fileID: 114806301489941652, guid: 65ad07a7e08a17d4dbba6a36f54ec66a, type: 2}
   - {fileID: 114055494465312062, guid: 7ce6b02b23d9b7c49a2919ab2a0f34f7, type: 2}
-  movesToAdd1:
-  - {fileID: 114784100942386204, guid: 57f8435961291aa459657e3118201a0a, type: 2}
-  - {fileID: 114444373464702530, guid: d75ff691c8429434a893e20b593fe026, type: 2}
-  - {fileID: 114838845317529528, guid: a79061448cd39c94b86591e2e5f3944b, type: 2}
-  - {fileID: 114924573050877742, guid: d0576043b514f9244b349b8c74211e70, type: 2}
-  - {fileID: 114784100942386204, guid: d7effc3d1051454419019e76c4a7e643, type: 2}
-  movesToAdd2:
-  - {fileID: 114941992678065994, guid: 793192183c6e3364ca8df9b1726de2b3, type: 2}
-  - {fileID: 114668688244807104, guid: e4af3b43a9162454a9228cfc54328798, type: 2}
-  movesToAdd3:
-  - {fileID: 114444373464702530, guid: ba92970c4331f9448865e46f5a9a054d, type: 2}
   movesSet1:
   - {fileID: 114806301489941652, guid: 65ad07a7e08a17d4dbba6a36f54ec66a, type: 2}
   - {fileID: 114055494465312062, guid: 7ce6b02b23d9b7c49a2919ab2a0f34f7, type: 2}
@@ -421,16 +389,6 @@ MonoBehaviour:
   - {fileID: 114055494465312062, guid: 7ce6b02b23d9b7c49a2919ab2a0f34f7, type: 2}
   - {fileID: 114084563384403506, guid: 325ebcf67c4747143afa039580b840c3, type: 2}
   - {fileID: 114384706252748100, guid: e718a6db7e7a52146bd777ac7297ec20, type: 2}
-  movesToAdd1:
-  - {fileID: 114240931484629162, guid: ddad36f17c344bf4fa1a2a8a68ee5e76, type: 2}
-  - {fileID: 114784100942386204, guid: c708343666b9eb247ae179cc97d28fe2, type: 2}
-  - {fileID: 114444373464702530, guid: 694b62fbe7e573f498b7cbcaaded26ab, type: 2}
-  movesToAdd2:
-  - {fileID: 114718500462454202, guid: 888079ab207202848af3ea0087e9d988, type: 2}
-  - {fileID: 114802743291203858, guid: 69582a8969757fd4183e51b07ec94db3, type: 2}
-  movesToAdd3:
-  - {fileID: 114871754334901526, guid: fa491add8d789594ab027f11031d6a5d, type: 2}
-  - {fileID: 114384706252748100, guid: 1291d6dd404b5df4c8fdfc5e13780f7b, type: 2}
   movesSet1:
   - {fileID: 114806301489941652, guid: 65ad07a7e08a17d4dbba6a36f54ec66a, type: 2}
   - {fileID: 114055494465312062, guid: 7ce6b02b23d9b7c49a2919ab2a0f34f7, type: 2}

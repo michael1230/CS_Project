@@ -5,8 +5,14 @@ using UnityEngine;
 // can be active through different sences
 [CreateAssetMenu]
 public class FloatValue : ScriptableObject, ISerializationCallbackReceiver {
-
     public float initialValue;
+
+    public FloatValue(float value)
+    {
+        initialValue = value;
+    }
+
+   // public float initialValue;
 
     [HideInInspector]
     public float RuntimeValue;

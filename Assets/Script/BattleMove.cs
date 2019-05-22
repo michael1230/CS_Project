@@ -10,7 +10,6 @@ public class BattleMove : MonoBehaviour
     public string moveName;//the name of the move
     public string statusBuff;//the name of the move
     public string animateName;//the name of the move
-    public string numOfSFXs;//the number of the effects this move has
     public int movePower;// the power(for damage) 
     public int moveMpCost;//how much it cost
     public int moveSpCost;//how much it cost

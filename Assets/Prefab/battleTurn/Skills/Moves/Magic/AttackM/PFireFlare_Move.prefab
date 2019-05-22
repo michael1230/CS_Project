@@ -55,9 +55,8 @@ MonoBehaviour:
   moveName: Fire Flare
   statusBuff: 
   animateName: Magic
-  numOfSFXs: 
   movePower: 45
-  moveMpCost: 0
+  moveMpCost: 25
   moveSpCost: 0
   moveTargetAll: 0
   theEffect: {fileID: 114957370295965414, guid: f06705fe5183b85468080499967a58fa,

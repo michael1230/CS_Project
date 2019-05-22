@@ -133,7 +133,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1538020165288686
 GameObject:
   m_ObjectHideFlags: 1
@@ -594,8 +594,7 @@ MonoBehaviour:
   halfFullHeart: {fileID: 21300010, guid: 6cac031bed6779c46a20745f38894b77, type: 3}
   emptyHeart: {fileID: 21300014, guid: 6cac031bed6779c46a20745f38894b77, type: 3}
   heartContainers: {fileID: 11400000, guid: a0ee49aba596641448b6cd289d36f734, type: 2}
-  playerCurrentHealth: {fileID: 11400000, guid: 867c4c96ffc6e7f428c5bf92eace0277,
-    type: 2}
+  playerCurrentHealth: {fileID: 0}
 --- !u!114 &114398549504335694
 MonoBehaviour:
   m_ObjectHideFlags: 1

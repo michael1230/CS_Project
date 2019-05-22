@@ -6512,6 +6512,7 @@ MonoBehaviour:
   - {fileID: 114624830500340846, guid: 151c79add5b634a4c80a39759573f7e4, type: 2}
   - {fileID: 114875038835581000, guid: 54541c0b5efc71f4cba411da2c26edb6, type: 2}
   - {fileID: 114642676237376796, guid: 71cb9bb2670ab474fad0031f2103489e, type: 2}
+  - {fileID: 114898768606868544, guid: bac3fea0d7abdf34b831f5716711cafe, type: 2}
   BattleMenus: {fileID: 114813330975381514}
   currentPlayerText: {fileID: 114208864421034054}
   currentMenuText: {fileID: 114684200966542428}
@@ -6895,6 +6896,7 @@ MonoBehaviour:
   isGameBoss: 0
   movesAvailable: []
   charName: Snake
+  level: 0
   currentHP: 0
   maxHP: 200
   currentMP: 0
@@ -6908,6 +6910,7 @@ MonoBehaviour:
   effect1: 0
   effect2: 0
   Idle: 0
+  goToWin: 0
   hasDied: 0
   bounusTurn: 
   statusBounus: 
@@ -7855,6 +7858,7 @@ MonoBehaviour:
   isGameBoss: 0
   movesAvailable: []
   charName: Snake
+  level: 0
   currentHP: 0
   maxHP: 200
   currentMP: 0
@@ -7868,6 +7872,7 @@ MonoBehaviour:
   effect1: 0
   effect2: 0
   Idle: 0
+  goToWin: 0
   hasDied: 0
   bounusTurn: 
   statusBounus: 
@@ -8772,6 +8777,7 @@ MonoBehaviour:
   isGameBoss: 1
   movesAvailable: []
   charName: Garland
+  level: 0
   currentHP: 1000
   maxHP: 1000
   currentMP: 0
@@ -8785,6 +8791,7 @@ MonoBehaviour:
   effect1: 0
   effect2: 0
   Idle: 0
+  goToWin: 0
   hasDied: 0
   bounusTurn: 
   statusBounus: 
@@ -9542,6 +9549,7 @@ MonoBehaviour:
   isGameBoss: 0
   movesAvailable: []
   charName: Rain
+  level: 0
   currentHP: 0
   maxHP: 0
   currentMP: 0
@@ -9555,6 +9563,7 @@ MonoBehaviour:
   effect1: 0
   effect2: 0
   Idle: 0
+  goToWin: 0
   hasDied: 0
   bounusTurn: 0000000000000000
   statusBounus: 0000000000000000
@@ -9758,6 +9767,7 @@ MonoBehaviour:
   isGameBoss: 0
   movesAvailable: []
   charName: Roselia
+  level: 0
   currentHP: 0
   maxHP: 0
   currentMP: 0
@@ -9771,6 +9781,7 @@ MonoBehaviour:
   effect1: 0
   effect2: 0
   Idle: 0
+  goToWin: 0
   hasDied: 0
   bounusTurn: 
   statusBounus: 
@@ -12227,6 +12238,7 @@ MonoBehaviour:
   isGameBoss: 0
   movesAvailable: []
   charName: Rain
+  level: 0
   currentHP: 0
   maxHP: 0
   currentMP: 0
@@ -12240,6 +12252,7 @@ MonoBehaviour:
   effect1: 0
   effect2: 0
   Idle: 0
+  goToWin: 0
   hasDied: 0
   bounusTurn: 0000000000000000
   statusBounus: 0000000000000000
@@ -12731,6 +12744,7 @@ MonoBehaviour:
   isGameBoss: 0
   movesAvailable: []
   charName: Sakura
+  level: 0
   currentHP: 0
   maxHP: 0
   currentMP: 0
@@ -12744,6 +12758,7 @@ MonoBehaviour:
   effect1: 0
   effect2: 0
   Idle: 0
+  goToWin: 0
   hasDied: 0
   bounusTurn: 0000000000000000
   statusBounus: 0000000000000000
@@ -14736,6 +14751,7 @@ MonoBehaviour:
   isGameBoss: 0
   movesAvailable: []
   charName: Snake
+  level: 0
   currentHP: 0
   maxHP: 200
   currentMP: 0
@@ -14749,6 +14765,7 @@ MonoBehaviour:
   effect1: 0
   effect2: 0
   Idle: 0
+  goToWin: 0
   hasDied: 0
   bounusTurn: 
   statusBounus: 
@@ -16020,6 +16037,7 @@ MonoBehaviour:
   isGameBoss: 0
   movesAvailable: []
   charName: Aiden
+  level: 0
   currentHP: 0
   maxHP: 0
   currentMP: 0
@@ -16033,6 +16051,7 @@ MonoBehaviour:
   effect1: 0
   effect2: 0
   Idle: 0
+  goToWin: 0
   hasDied: 0
   bounusTurn: 
   statusBounus: 
