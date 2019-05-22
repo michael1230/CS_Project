@@ -8,7 +8,9 @@ public class Sign : MonoBehaviour {
 
     public GameObject dialogBox; //reference for the dialog box
     public Text dialogText; //reference for the text
+    public Text dialogText2;
     public string dialog; //reference to the string that shows up in place og the dialog
+    public string dialog2;
     public bool playerInRange; //for activating the dialog
 
     // Use this for initialization
@@ -28,6 +30,7 @@ public class Sign : MonoBehaviour {
             {
                 dialogBox.SetActive(true);
                 dialogText.text = dialog;
+                dialogText2.text = dialog2;
             }
         }
     }

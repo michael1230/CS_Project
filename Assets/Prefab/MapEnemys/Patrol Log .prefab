@@ -184,7 +184,7 @@ MonoBehaviour:
   isAlive: 0
   deathEffect: {fileID: 1574220630175308, guid: c1784592266c8664aa898ba93c58ea07,
     type: 2}
-  thisLoot: {fileID: 0}
+  thisLoot: {fileID: 11400000, guid: 7af8fcfc7c18096489016f8e5fc0a08b, type: 2}
   myRigidbody: {fileID: 0}
   target: {fileID: 0}
   targetPlayer: {fileID: 0}
