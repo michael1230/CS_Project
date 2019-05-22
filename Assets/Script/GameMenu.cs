@@ -20,6 +20,11 @@ public class GameMenu : MonoBehaviour
     public TextMeshProUGUI[] currentPotionAmountText;
     public Button[] loadButtons;
 
+    public GameObject dialogBox;
+    public GameObject healthHolder;
+    public HeartManager heartContainers;
+    public FireBarManager sliderHolder;
+
     private void Awake()
     {
         theMenuCanves.worldCamera = Camera.main;//get the main camera and use it
@@ -139,6 +144,27 @@ public class GameMenu : MonoBehaviour
         save.PlayersLevel=new float[4] { GameManager.instance.playerStats[0].playerLevel, GameManager.instance.playerStats[1].playerLevel, GameManager.instance.playerStats[2].playerLevel, GameManager.instance.playerStats[3].playerLevel };
         save.ElementGot = GameManager.instance.gotElement;
         save.BossOnMap = GameManager.instance.enemyTracker.bossOnMap;
+        save.HeartContainers = heartContainers.heartContainers.initialValue;
+ //       save.CurrentHealthInitialValue = PlayerController.instance.currentHealth.initialValue;
+        save.CurrentHealthRuntimeValue = PlayerController.instance.currentHealth.RuntimeValue;
+        save.MaxMagic = sliderHolder.playerInventory.maxMagic;
+        save.CurrentMagic = sliderHolder.playerInventory.currentMagic;
+        save.CurrentHearts = new int[5];
+        for (int i = 0; i < 5; i++)
+        {
+            if (heartContainers.hearts[i].sprite== heartContainers.fullHeart)
+            {
+                save.CurrentHearts[i] = 1;
+            }
+            else if (heartContainers.hearts[i].sprite == heartContainers.halfFullHeart)
+            {
+                save.CurrentHearts[i] = 2;
+            }
+            else if (heartContainers.hearts[i].sprite == heartContainers.emptyHeart)
+            {
+                save.CurrentHearts[i] = 3;
+            }
+        }
         if (GameManager.instance.enemyTracker.enemyOnMap)
         {
             if(GameManager.instance.enemyTracker.bossOnMap)
@@ -204,6 +230,36 @@ public class GameMenu : MonoBehaviour
         GameManager.instance.totalItems[0].ItemAmount = data.ItemsAmount[0];
         GameManager.instance.totalItems[1].ItemAmount = data.ItemsAmount[1];
         GameManager.instance.totalItems[2].ItemAmount = data.ItemsAmount[2];
+        heartContainers.heartContainers.initialValue = data.HeartContainers;
+
+        healthHolder.SetActive(true);
+        PlayerController.instance.MyRigidbody.constraints = RigidbodyConstraints2D.None;
+        PlayerController.instance.MyRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        PlayerController.instance.imAlive = true;
+        GameManager.instance.imReallyDead = true;
+
+//        PlayerController.instance.currentHealth.initialValue = data.CurrentHealthInitialValue;
+        PlayerController.instance.currentHealth.RuntimeValue = data.CurrentHealthRuntimeValue;
+        sliderHolder.fireSlider.value = data.CurrentMagic;
+        sliderHolder.playerInventory.maxMagic = data.MaxMagic;
+        sliderHolder.playerInventory.currentMagic = data.CurrentMagic;
+        for (int i = 0; i < 5; i++)
+        {
+            if (data.CurrentHearts[i]==1)
+            {
+                heartContainers.hearts[i].sprite = heartContainers.fullHeart;
+            }
+            else if (data.CurrentHearts[i] == 2)
+            {
+                heartContainers.hearts[i].sprite = heartContainers.halfFullHeart;
+            }
+            else if (data.CurrentHearts[i] == 3)
+            {
+                heartContainers.hearts[i].sprite = heartContainers.emptyHeart;
+            }
+        }
+
         for (int i = 0; i <4; i++)
         {
             GameManager.instance.playerStats[i].maxHP = data.PlayersHP[i];

@@ -13,8 +13,10 @@ public class GameManager : MonoBehaviour
     public int[] bonusThirdElement;
     public int[] bonusFourthElement;
     public bool[] gotElement;
-    public GameObject mapCanves;
-
+    public bool inForest = true;
+    public bool inDesert = true;
+    public bool imReallyDead = true;
+    public string sceneName;
     public CharStats[] playerStats;//work on activate playerStats if the number of element!!!!
 
     public BattleItem[] totalItems;
@@ -47,17 +49,27 @@ public class GameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        sceneName = SceneManager.GetActiveScene().name;
         enemyTracker = FindObjectOfType<EnemyTracker>();
         if (gameMenuOpen || dialogActive || fadingBetweenAreas || battleActive|| gameOver)
         {
             PlayerController.instance.canMovePlayer = false;
             enemyTracker.EnemyMovment(false);
+            GameMenu.instance.healthHolder.SetActive(false);
         }
         else
         {
             PlayerController.instance.canMovePlayer = true;
             enemyTracker.EnemyMovment(true);
+            GameMenu.instance.healthHolder.SetActive(true);
         }
+
+        if ((PlayerController.instance.imAlive==false)&&(imReallyDead==true))
+        {
+            StartCoroutine(BattleManager.instance.GameOverCo());
+            imReallyDead = false;
+        }
+
 
         if (Input.GetKeyDown(KeyCode.T))//for test
         {
@@ -74,28 +86,46 @@ public class GameManager : MonoBehaviour
             //addElement();
             ElementGet(2);
         }
+        if ((sceneName == "MB_MapForBattle")&&(battleActive==false)&&(inForest==true))//later for forest battles
+        {
+            GameMenu.instance.healthHolder.SetActive(true);
+            GameMenu.instance.heartContainers.heartContainers.initialValue = 2;
+            PlayerController.instance.currentHealth.initialValue = 4;
+            GameMenu.instance.heartContainers.InitHearts();
+            GameMenu.instance.sliderHolder.playerInventory.currentMagic = GameMenu.instance.sliderHolder.playerInventory.maxMagic;
+            GameMenu.instance.sliderHolder.fireSlider.value = GameMenu.instance.sliderHolder.fireSlider.maxValue;
+            inForest = false;
+        }
+        else if ((sceneName == "MB_SceneMoveTest")&& (battleActive == false) && (inDesert == true))//later for other battles
+        {
+            GameMenu.instance.healthHolder.SetActive(true);
+            GameMenu.instance.heartContainers.heartContainers.initialValue = 4;
+            PlayerController.instance.currentHealth.initialValue = 8;
+            GameMenu.instance.heartContainers.InitHearts();
+            GameMenu.instance.sliderHolder.playerInventory.currentMagic = GameMenu.instance.sliderHolder.playerInventory.maxMagic;
+            GameMenu.instance.sliderHolder.fireSlider.value = GameMenu.instance.sliderHolder.playerInventory.currentMagic;
+            inDesert = false;
+        }
+    }
 
-        string sceneName = SceneManager.GetActiveScene().name;
+   /* public void HeartLoad()
+    {
         if (sceneName == "MB_MapForBattle")//later for forest battles
         {
-            mapCanves.SetActive(false);
-           // mapCanves.GetComponentInChildren<HeartManager>().playerCurrentHealth = new FloatValue(2);
-           // PlayerController.instance.currentHealth =  new FloatValue(4);
+            //Debug.Log(GameMenu.instance.healthHolder.active);
+            //GameMenu.instance.heartContainers.heartContainers.initialValue = 2;
+            //PlayerController.instance.currentHealth.initialValue = 4;
+            GameMenu.instance.heartContainers.InitHearts();
 
         }
         else if (sceneName == "MB_SceneMoveTest")//later for other battles
         {
-            mapCanves.SetActive(false);
-           // mapCanves.GetComponentInChildren<HeartManager>().playerCurrentHealth = new FloatValue(4);
-            //PlayerController.instance.currentHealth =  new FloatValue(8);
+           // GameMenu.instance.heartContainers.heartContainers.initialValue = 4;
+            //PlayerController.instance.currentHealth.initialValue = 8;
+            GameMenu.instance.heartContainers.InitHearts();
         }
-        else
-        {
-            mapCanves.SetActive(false);
-        }
+    }*/
 
-
-    }
 
     public void ElementGet( int index)//activate when we defeate a mapBoss
     {

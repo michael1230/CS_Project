@@ -1245,7 +1245,6 @@ public class BattleManager : MonoBehaviour
         battleActive = false;
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
         BattleMenus.ShowVictoryPanel(false);
-        GameManager.instance.battleActive = false;
         yield return new WaitForSeconds(.5f);
         battleCanves.SetActive(false);
         FadeManager.instance.BattleTransition("FadeBlack");
@@ -1272,6 +1271,8 @@ public class BattleManager : MonoBehaviour
         battleScene.SetActive(false);
         activeBattlers.Clear();
         currentTurn = 0;
+        yield return new WaitUntil(() => FadeManager.instance.finishedTransition == true);
+        GameManager.instance.battleActive = false;
 
         AudioManager.instance.PlayBGM(FindObjectOfType<CameraController>().musicToPlay);        
     }
@@ -1280,10 +1281,11 @@ public class BattleManager : MonoBehaviour
         AudioManager.instance.StopMusic();//stop the battle music
         AudioManager.instance.PlaySFX(0);//start the death music
         battleActive = false;
-        GameManager.instance.battleActive = false;
+        //GameManager.instance.battleActive = false;
         battleCanves.SetActive(false);
         FadeManager.instance.ScenenTransition("GameOver");
         yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
+        GameManager.instance.battleActive = false;
         battleScene.SetActive(false);
         for (int i = 0; i < activeBattlers.Count; i++)
 

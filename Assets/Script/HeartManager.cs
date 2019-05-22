@@ -23,10 +23,22 @@ public class HeartManager : MonoBehaviour {
 
     public void InitHearts() //initiate all the hearts as full hearts
     {
-        for (int i = 0; i < heartContainers.initialValue; i++) //go throughout all the heart array
+        /*for (int i = 0; i < heartContainers.initialValue; i++) //go throughout all the heart array
         {
             hearts[i].gameObject.SetActive(true);
             hearts[i].sprite = fullHeart;
+        }*/
+        for (int i = 0; i < 5; i++) //go throughout all the heart array
+        {
+            if (i< heartContainers.initialValue)
+            {
+                hearts[i].gameObject.SetActive(true);
+                hearts[i].sprite = fullHeart;
+            }
+            else
+            {
+                hearts[i].gameObject.SetActive(false);
+            }
         }
     }
 

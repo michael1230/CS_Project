@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public Signal reduceMagic;
     public GameObject projectile;
     public MapInventory playerInventory;
+    public bool imAlive;
 
     [Header("IFrame Stuff")]
     public Color flashColor;
@@ -38,6 +39,19 @@ public class PlayerController : MonoBehaviour
     public int numberOfFlashes;
     public Collider2D triggerCollider;
     public SpriteRenderer mySprite;
+
+    public Rigidbody2D MyRigidbody
+    {
+        get
+        {
+            return this.myRigidbody;
+        }
+        set
+        {
+            this.myRigidbody = value;
+        }
+    }
+
 
 
 
@@ -48,6 +62,7 @@ public class PlayerController : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         animator.SetFloat("moveX", 0);//first direction of player
         animator.SetFloat("moveY", -1);//first direction of player
+        imAlive = true;
 
         //for not deleting the player bettwen sence
         if (instance == null)
@@ -205,7 +220,10 @@ public class PlayerController : MonoBehaviour
         }
         else
         {//kill the player- for now just inactive
-            this.gameObject.SetActive(false);
+            imAlive = false;
+            mySprite.enabled = false;
+            myRigidbody.constraints= RigidbodyConstraints2D.FreezeAll;
+            //this.gameObject.SetActive(false);
         }
 
     }

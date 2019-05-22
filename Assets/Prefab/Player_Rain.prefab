@@ -459,6 +459,7 @@ MonoBehaviour:
   reduceMagic: {fileID: 11400000, guid: 01c04b16504250548a2d8579464944bd, type: 2}
   projectile: {fileID: 1987229610183826, guid: 3a865e55ca249724ca2346f8eef460d7, type: 2}
   playerInventory: {fileID: 11400000, guid: 5b694e7d3746d28489ff1b0feea3e6b3, type: 2}
+  imAlive: 0
   flashColor: {r: 0.9529412, g: 0, b: 0, a: 0.59607846}
   regularColor: {r: 1, g: 1, b: 1, a: 1}
   flashDuration: 0.07

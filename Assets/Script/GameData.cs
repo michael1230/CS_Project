@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [Serializable]
 public class GameData 
@@ -21,6 +22,15 @@ public class GameData
     private int[] playersHP;//the hp of the players
     private int[] playersMP;//the mp of the players
     private int[] playersSP;//the sp of the players
+    //
+    //bool from GameManager for all the maps like inForest
+    //
+    private float heartContainers;
+    private float currentHealthInitialValue;
+    private float currentHealthRuntimeValue;
+    private float maxMagic;
+    private float currentMagic;
+    private int[] currentHearts;
 
     public string SceneName
     {
@@ -186,6 +196,77 @@ public class GameData
         set
         {
             this.playersSP = value;
+        }
+    }
+
+
+
+    public float HeartContainers
+    {
+        get
+        {
+            return this.heartContainers;
+        }
+        set
+        {
+            this.heartContainers = value;
+        }
+    }
+    public float CurrentHealthInitialValue
+    {
+        get
+        {
+            return this.currentHealthInitialValue;
+        }
+        set
+        {
+            this.currentHealthInitialValue = value;
+        }
+    }
+    public float CurrentHealthRuntimeValue
+    {
+        get
+        {
+            return this.currentHealthRuntimeValue;
+        }
+        set
+        {
+            this.currentHealthRuntimeValue = value;
+        }
+    }
+
+    public float MaxMagic
+    {
+        get
+        {
+            return this.maxMagic;
+        }
+        set
+        {
+            this.maxMagic = value;
+        }
+    }
+    public float CurrentMagic
+    {
+        get
+        {
+            return this.currentMagic;
+        }
+        set
+        {
+            this.currentMagic = value;
+        }
+    }
+
+    public int[] CurrentHearts
+    {
+        get
+        {
+            return this.currentHearts;
+        }
+        set
+        {
+            this.currentHearts = value;
         }
     }
 

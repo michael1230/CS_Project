@@ -42,13 +42,6 @@ public class AreaExit : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            //SceneManager.LoadScene(areaToLoad);
-            //shouldLoadAfterFade = true;
-            //PlayerController.instance.areaTransitionName = areaTransitionName;
-            //GameManager.instance.fadingBetweenAreas = true;
-
-            //FadeManager.instance.startTransition("FadeBlack");///אולי צריך בנפרד להדליק ולכבות
-
             StartCoroutine(SceneSwitch());
         }
     }
@@ -59,7 +52,7 @@ public class AreaExit : MonoBehaviour
         GameManager.instance.fadingBetweenAreas = true;
         // yield return new WaitForSeconds(3f);
         yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
-        SceneManager.LoadScene(areaToLoad);
+        SceneManager.LoadScene(areaToLoad);       
         GameManager.instance.fadingBetweenAreas = false;
         PlayerController.instance.areaTransitionName = areaTransitionName;
     }

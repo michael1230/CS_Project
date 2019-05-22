@@ -24,6 +24,8 @@ public class GameOver : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        PlayerController.instance.mySprite.enabled = true;
+        //GameMenu.instance.healthHolder.SetActive(false);
         PlayerController.instance.transform.position = new Vector2(0,0);
         GameManager.instance.gameOver = true;
         headLine.alpha = 0;
@@ -79,7 +81,7 @@ public class GameOver : MonoBehaviour
 
     public void LoadButtonsEnable()
     {
-        for (int i = 0; i < loadButtons.Length - 1; i++)
+        for (int i = 0; i < loadButtons.Length; i++)
         {
             string path = Application.persistentDataPath + "/" + (i + 1) + "Save.MBAG";
             if (File.Exists(path))
@@ -90,7 +92,7 @@ public class GameOver : MonoBehaviour
             {
                 loadButtons[i].interactable = false;
             }
-            if (i == 7)
+            if (i == 8)
             {
                 loadButtons[i].interactable = true;
             }
