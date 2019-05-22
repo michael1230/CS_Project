@@ -17,55 +17,42 @@ public class PatrolLog : logEnemy {
     public Transform AstarPoint;
     public float roundingDistance;
     public bool toPoint = false;
-    //   yield return new WaitWhile(() => activeBattlers[currentTurn].transform.position != playerPositions[index].transform.position);
-  //  CreateNodesFromTilemaps grid;
-  //  WorldTile thisNode;
+
+    public Collider2D boundary;
+
+
+
 
 
     IEnumerator Moveback()//NEED TO PUT THE DOT IN THE MIDDLE AND ROUND IT 4.485 == 4.5
     {
-       // WorldTile thisNode = grid.NodeFromPosition(transform.position);
-       // WorldTile dotNode = grid.NodeFromPosition(AstarPoint.position);
         target = AstarPoint.transform;
         StartCoroutine(UpdatePath());
-        //Debug.Log("here1");
-        //yield return new WaitWhile(() => thisNode.gridPosition != dotNode.gridPosition);
         yield return new WaitWhile(() => transform.position != target.position);
-        //Debug.Log("here contuie");
         toPoint = false;
 
     }
 
     public override void CheckDistance()//will to change to A star algorithm probably
     {
-       // grid = GetComponent<CreateNodesFromTilemaps>();
-        //thisNode = grid.NodeFromPosition(transform.position);
-        //StopCoroutine(UpdatePath());
-        //StopCoroutine("FollowPath");
-
         if (Vector3.Distance(targetPlayer.position,
                              transform.position) <= chaseRaidius
             && Vector3.Distance(targetPlayer.position,
-                                transform.position) > attackRadius)
-        //if (Vector3.Distance(target.position, transform.position) <= chaseRaidius)
+                                transform.position) > attackRadius
+            && boundary.bounds.Contains(targetPlayer.transform.position))
         {
             if (currentState == EnemyState.idle || currentState == EnemyState.walk
                 && currentState != EnemyState.stagger)
             {
                 target = targetPlayer;
                 StartCoroutine(UpdatePath());
-                /*Vector3 temp = Vector3.MoveTowards(transform.position,
-                                                   target.position,
-                                                   moveSpeed * Time.deltaTime); //the log will move to the player
-                changeAnim(temp - transform.position);
-                myRigidbody.MovePosition(temp);*/
                 ChangeState(EnemyState.walk);
                 anim.SetBool("wakeUp", true);
                 toPoint = true;
             }
         }
         else if (Vector3.Distance(targetPlayer.position,
-                          transform.position) > chaseRaidius )
+                          transform.position) > chaseRaidius || !boundary.bounds.Contains(targetPlayer.transform.position))
         {
 
             if(toPoint == false)
@@ -73,8 +60,6 @@ public class PatrolLog : logEnemy {
 
                 if (Vector3.Distance(transform.position, pathDot[currentPoint].position) > roundingDistance && currentState != EnemyState.stagger)
                 {
-                 //   target = AstarPoint.transform;
-                 //   StartCoroutine(UpdatePath());
                     Vector3 temp = Vector3.MoveTowards(transform.position,
                                        pathDot[currentPoint].position,//moves to the point
                                        moveSpeed * Time.deltaTime); //the log will move to the player

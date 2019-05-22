@@ -9,7 +9,6 @@ public class logEnemy : EnemyOnMap {
     public Transform targetPlayer;//moving the enemy
     public float chaseRaidius;
     public float attackRadius;
-    public Transform homePosition; //for returning to base if not attacking
 
     [Header("Animator")]
     public Animator anim;
