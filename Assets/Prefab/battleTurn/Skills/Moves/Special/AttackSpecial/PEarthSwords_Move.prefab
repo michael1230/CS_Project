@@ -56,9 +56,9 @@ MonoBehaviour:
   statusBuff: 
   animateName: Limt_Atk
   numOfSFXs: 
-  movePower: 100
-  moveMpCost: 10
-  moveSpCost: 10
+  movePower: 25
+  moveMpCost: 0
+  moveSpCost: 0
   moveTargetAll: 1
   theEffect: {fileID: 114881123743172374, guid: cffff52dd798924419e835161cc9abf6,
     type: 2}

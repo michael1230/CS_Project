@@ -26,7 +26,8 @@ public class logEnemy : EnemyOnMap {
     }
 	
 	// Update is called once per frame
-	void FixedUpdate () {//check every 30 sec
+	void FixedUpdate ()
+    {//check every 30 sec
         CheckDistance();//check the distance bettwen log and player
 	}
 

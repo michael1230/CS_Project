@@ -56,21 +56,26 @@ MonoBehaviour:
   isRegularEnemy: 1
   isMapBoss: 0
   isGameBoss: 0
-  movesAvailable: []
+  movesAvailable:
+  - {fileID: 114806301489941652, guid: dfd0f72ff7a68fe419db042d0eb0242c, type: 2}
+  - {fileID: 114055494465312062, guid: ba8a70522ab11f045901e0c1c9f4772f, type: 2}
+  - {fileID: 114084563384403506, guid: 4421a07ad27abc4458bd56c80cb50f18, type: 2}
   charName: Turtle
+  level: 1
   currentHP: 100
   maxHP: 100
   currentMP: 0
   maxMP: 0
   currentSP: 0
   maxSP: 0
-  strength: 13
-  defense: 30
+  strength: 25
+  defense: 25
   dexterity: 0
   anim: {fileID: 0}
   effect1: 0
   effect2: 0
   Idle: 0
+  goToWin: 0
   hasDied: 0
   bounusTurn: 000000000000000000000000
   statusBounus: 000000000000000000000000
@@ -112,7 +117,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -544897899
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300016, guid: 988d560df8d322a468c97243cbfd76e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

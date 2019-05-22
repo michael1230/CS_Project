@@ -57,7 +57,7 @@ MonoBehaviour:
   animateName: Magic
   numOfSFXs: 
   movePower: 70
-  moveMpCost: 10
+  moveMpCost: 0
   moveSpCost: 0
   moveTargetAll: 0
   theEffect: {fileID: 114060415000957872, guid: 6a06cee01d7a08c4a94cbba6911f8620,

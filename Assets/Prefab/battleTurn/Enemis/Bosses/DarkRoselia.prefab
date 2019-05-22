@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114875038835581000}
   m_Layer: 0
   m_Name: DarkRoselia
-  m_TagString: Untagged
+  m_TagString: BattlePlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +134,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -544897899
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: fcd8edb2aada48a4d9135239e2359186, type: 3}
   m_Color: {r: 0.5943396, g: 0.4737896, b: 0.4737896, a: 1}

@@ -4,8 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
-using System.IO;//
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 public class GameMenu : MonoBehaviour
@@ -37,7 +36,8 @@ public class GameMenu : MonoBehaviour
 	void Update ()
     {
         theMenuCanves.worldCamera = Camera.main;//get the main camera and use it
-        if (Input.GetKeyDown(KeyCode.Escape))//if the button is pressed
+       // if (Input.GetKeyDown(KeyCode.Escape))//if the button is pressed
+        if ((Input.GetKeyDown(KeyCode.Escape))&&(GameManager.instance.gameOver==false) && (GameManager.instance.battleActive == false))//if the button is pressed and GameOver is false or battleActive is false (if we are in gameOver or loading from GameOver or in battle) then dont activate menu
         {
             if (theMenu.activeInHierarchy)//if the menu is open
             {
@@ -184,24 +184,36 @@ public class GameMenu : MonoBehaviour
     {
         FadeManager.instance.ScenenTransition("Load");
         yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
+        AudioManager.instance.StopMusic();
         SceneManager.LoadScene(data.SceneName);
         yield return new WaitForSecondsRealtime(1);
+        AudioManager.instance.PlayBGM(FindObjectOfType<CameraController>().musicToPlay);
         LoadData(data);
+        yield return new WaitUntil(() => FadeManager.instance.finishedTransition == true);
+        GameManager.instance.gameOver = false;//after loading back from menu or feom gameOver wait until Transition finished and then can walk/open menu
     }
     public void LoadData(GameData data)
     {
-        GameManager.instance.numberOfElement = data.NumOfElement;
+        GameManager.instance.numberOfElement = data.NumOfElement;    
         GameManager.instance.totalItems[0].ItemAmount = data.ItemsAmount[0];
         GameManager.instance.totalItems[1].ItemAmount = data.ItemsAmount[1];
         GameManager.instance.totalItems[2].ItemAmount = data.ItemsAmount[2];
-        PlayerController.instance.transform.position = new Vector3(data.PlayerPos[0], data.PlayerPos[1], data.PlayerPos[2]);
-        for (int i = 0; i < data.ElementGot.Length; i++)
+        for (int i = 0; i < Elements.Length; i++)
         {
-            if (data.ElementGot[i])
+            if (i<= data.NumOfElement-1)//its -1 because Elements its from 0 to 2..its start from ice
             {
-                GameManager.instance.ElementGet(i);
+                Elements[i].SetActive(true);//show the element
+                partyImages[i].SetActive(true);//show the img of the players
+            }
+            else
+            {
+                Elements[i].SetActive(false);//dont show the element
+                partyImages[i].SetActive(false);//dont show the img of the players
             }
         }
+        GameManager.instance.gotElement = data.ElementGot;
+        PlayerController.instance.transform.position = new Vector3(data.PlayerPos[0], data.PlayerPos[1], data.PlayerPos[2]);
+        GameManager.instance.addElement();//no need to call ElementGet only addElement
         if (data.EnemyOnMap)
         {
             if (data.BossOnMap)
@@ -214,6 +226,7 @@ public class GameMenu : MonoBehaviour
                 GameManager.instance.enemyTracker.theEnemies[i].transform.position = new Vector3(data.EnemiesPos[i, 0], data.EnemiesPos[i, 1], data.EnemiesPos[i, 2]);
             }
         }
+        
     }
     public void PrepareLoadData(int slot)
     {

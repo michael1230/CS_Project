@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4371714082595970}
   - component: {fileID: 114784100942386204}
   m_Layer: 0
-  m_Name: PDarkSword_Move
+  m_Name: EDarkSword_Move
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,8 +56,8 @@ MonoBehaviour:
   statusBuff: 
   animateName: Magic
   numOfSFXs: 
-  movePower: 70
-  moveMpCost: 10
+  movePower: 35
+  moveMpCost: 0
   moveSpCost: 0
   moveTargetAll: 0
   theEffect: {fileID: 114779673415130186, guid: ff91dcc013f98704db444746329f6166,

@@ -8,6 +8,8 @@ public class MenuNavigation : MonoBehaviour
 {
     public GameObject[] theMenus;//all the battle menus
     public GameObject theBattaleMenusHolder;//all the battle menus
+    public GameObject theInfoHolder;//all the battle menus
+    public GameObject victoryPanel;
     public int currentMenu = 0;//the current menu
     public int previousMenu = 0;//the previous menu for knowing where to go back from target and self menu
     public Button[] menuButtons;//the buttons on the current menu
@@ -44,6 +46,14 @@ public class MenuNavigation : MonoBehaviour
             }
         }
     }
+
+    public void ShowVictoryPanel(bool onnOff)
+    {
+        victoryPanel.SetActive(onnOff);
+        theInfoHolder.SetActive(false);
+        theBattaleMenusHolder.SetActive(false);
+    }
+
     public void backMenu()//a method forgoing to the previous Menu
     {
         if (currentMenu == 5 || currentMenu == 6)//if we are in the target or self menu

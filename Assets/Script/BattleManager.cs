@@ -50,6 +50,7 @@ public class BattleManager : MonoBehaviour
     public int currentTurn;
     public bool turnWaiting;
     public bool bossBattle;
+    public bool impossibleBattle;
 
 
     public bool next=false;////////////////////////
@@ -116,6 +117,24 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
+            if (Input.GetKeyDown(KeyCode.P))///for test!!
+            {
+                for (int i = 0; i < activeBattlers.Count; i++)
+                {
+                    if (activeBattlers[i].isPlayer)
+                    {
+                        if(i==0)
+                        {
+                            activeBattlers[i].currentHP = 1;
+                        }                           
+                        else
+                        {
+                            activeBattlers[i].currentHP = 0;
+                        }
+                        
+                    }
+                }
+            }
         }
     }
 
@@ -127,6 +146,7 @@ public class BattleManager : MonoBehaviour
         AudioManager.instance.PlaySFX(10);//the transition sound
         yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
         bossBattle = false;//reset every new battle
+        impossibleBattle = false;
         BattleStart(enemiesToSpawn);
         transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, transform.position.z);//put the camera on the battle
         battleCanves.SetActive(false);//wait until we fade in
@@ -155,11 +175,12 @@ public class BattleManager : MonoBehaviour
                             playersInfos[i].hpSlider.maxValue = thePlayer.maxHP;
                             playersInfos[i].mpSlider.maxValue = thePlayer.maxMP;
                             playersInfos[i].spSlider.maxValue = thePlayer.maxSP;//////////////////////////
+                            activeBattlers[i].level = thePlayer.playerLevel;
                             activeBattlers[i].currentHP = thePlayer.currentHP;
                             activeBattlers[i].maxHP = thePlayer.maxHP;
                             activeBattlers[i].currentMP = thePlayer.currentMP;
                             activeBattlers[i].maxMP = thePlayer.maxMP;
-                            activeBattlers[i].currentSP = thePlayer.currentSP;
+                            activeBattlers[i].currentSP = thePlayer.maxSP;
                             activeBattlers[i].maxSP = thePlayer.maxSP;
                             activeBattlers[i].strength = thePlayer.strength;
                             activeBattlers[i].defense = thePlayer.defense;
@@ -196,36 +217,38 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
+
+            string sceneName = SceneManager.GetActiveScene().name;
+
+            if (sceneName == "MB_MapForBattle")//later for forest battles
+            {
+                currenctBattleImeg.sprite = battleImeges[0];
+                AudioManager.instance.PlayBGM(8);//turn on the battle music
+            }
+            else if (sceneName == "MB_SceneMoveTest")//later for other battles
+            {
+                currenctBattleImeg.sprite = battleImeges[1];
+                AudioManager.instance.PlayBGM(10);//turn on the battle music
+            }
             if (bossBattle == true)
             {
-                if(enemiesToSpawn[0]== "Garland")//the first is always the boss!!!
+                if (enemiesToSpawn[0] == "Garland")//the first is always the boss!!!
                 {
                     AudioManager.instance.PlayBGM(9);
+                    if (GameManager.instance.numberOfElement<3)//check for elements number
+                    {
+                        impossibleBattle = true;
+                    }
                 }
                 else if (enemiesToSpawn[0] == "DarkRoselia")//change to other boss name and music
                 {
                     AudioManager.instance.PlayBGM(12);
                 }
-                
+
                 /*else if (enemiesToSpawn[0] == "otherBoss")//change to other boss name and music
                 {
                     AudioManager.instance.PlayBGM(9);
                 }*/
-            }
-            else
-            {
-                string sceneName = SceneManager.GetActiveScene().name;
-
-                if (sceneName == "MB_MapForBattle")//later for forest battles
-                {
-                    currenctBattleImeg.sprite = battleImeges[0];
-                    AudioManager.instance.PlayBGM(8);//turn on the battle music
-                }
-                else if (sceneName == "MB_SceneMoveTest")//later for other battles
-                {
-                    currenctBattleImeg.sprite = battleImeges[1];
-                    AudioManager.instance.PlayBGM(10);//turn on the battle music
-                }
             }
             turnWaiting = true;//rise the flag
             currentTurn = 0;//the first turn
@@ -302,23 +325,20 @@ public class BattleManager : MonoBehaviour
 
             if (activeBattlers[i].currentHP == 0)
             {
-                
-                  if (activeBattlers[i].isPlayer)
-                    {
+                if ((activeBattlers[i].isPlayer)||(activeBattlers[i].isMapBoss) ||(activeBattlers[i].isGameBoss))
+                {
                     activeBattlers[i].anim.SetBool("Dying", true);
-                    }             
-                  else if(activeBattlers[i].isRegularEnemy)
-                    {
-                        activeBattlers[i].EnemyFade();
-                    }
-
+                }
+                else if (activeBattlers[i].isRegularEnemy)
+                {
+                    activeBattlers[i].EnemyFade();
+                }
             }
             else
             {
                 if (activeBattlers[i].isPlayer)
                 {
                     allPlayersDead = false;
-                    // activeBattlers[i].theSprite.sprite = activeBattlers[i].aliveSprite;
                 }
                 else
                 {
@@ -332,17 +352,13 @@ public class BattleManager : MonoBehaviour
             if (allEnemiesDead)
             {
                 //end battle in victory
-                 StartCoroutine(EndBattleCo());
+                StartCoroutine(EndBattleCo());
             }
             else
             {
                 //end battle in failure
-                // StartCoroutine(GameOverCo());
+                 StartCoroutine(GameOverCo());
             }
-
-            //battleScene.SetActive(false);
-            //GameManager.instance.battleActive = false;
-            //battleActive = false;
         }
         else
         {
@@ -371,7 +387,7 @@ public class BattleManager : MonoBehaviour
             StartCoroutine(MoveToEnemyAtkPosAndActCo());
         }
     }
-    public void EnemyAttack()// a method for enemy attack//// later for boss/////////////sp add////////////////////
+    public void EnemyAttack()// a method for enemy attack
     {
         BattleMove enemyMove;
         List<int> players = new List<int>();//the list for all players
@@ -389,8 +405,7 @@ public class BattleManager : MonoBehaviour
         Instantiate(enemyAttackEffect, activeBattlers[currentTurn].transform.position, activeBattlers[currentTurn].transform.rotation);//white circle on the attacking enemy to know which one is attacking
         DealDamage(selectedTarget, enemyMove,false);//deal the damage
     }
-
-    public void BossTrun()
+    public void BossTrun()// a method for Boss attack
     {
         BattleMove enemyMove = activeBattlers[currentTurn].movesAvailable[0];//initialize to temp value
         List<int> players = new List<int>();//the list for all players
@@ -489,9 +504,6 @@ public class BattleManager : MonoBehaviour
                 default:
                     break;
             }
-
-            Debug.Log("enemyMove.moveName: "+enemyMove.moveName);
-
             if ((enemyMove.statusBuff=="HP")&& (activeBattlers[currentTurn].currentHP == activeBattlers[currentTurn].maxHP))
             {
                 successfullyChosen = false;
@@ -514,7 +526,6 @@ public class BattleManager : MonoBehaviour
                 moveChosen = false;
             }
         }
-        Debug.Log("enemyMove.moveName2: " + enemyMove.moveName);
         if (offense==true)//if the move its an attack move
         {
             int selectedTarget = players[Random.Range(0, players.Count)];//random select targets from the list
@@ -554,8 +565,28 @@ public class BattleManager : MonoBehaviour
         {
             float atkPwr = activeBattlers[currentTurn].strength + activeBattlers[currentTurn].statusBounus[0];
             float defPwr = activeBattlers[target].defense + activeBattlers[target].statusBounus[1];
-            float damageCalc = (atkPwr / defPwr) * move.movePower;
+            //float damageCalc = (atkPwr / defPwr) * move.movePower;//V1
+            /*
+            float damageCalc = 0;
+            if (activeBattlers[currentTurn].level==1)//v2
+            {
+                damageCalc = (float)((atkPwr / defPwr) * move.movePower);
+            }
+            else
+            {
+                 damageCalc = (float)((atkPwr / defPwr) * move.movePower * (0.2 * activeBattlers[currentTurn].level));//V2
+            }
+            */
+            float damageCalc = (atkPwr / defPwr)* move.movePower* activeBattlers[currentTurn].level;//v3
             damageToGive = Mathf.RoundToInt(damageCalc);
+            if ((impossibleBattle==true)&&(playerOrEnemy==true))//if impossibleBattle is true and the currentTurn is player then no damage!
+            {
+                damageToGive = 0;
+            }
+            else if ((impossibleBattle == true) && (playerOrEnemy == false))
+            {
+                damageToGive = 9999;
+            }
             if (activeBattlers[currentTurn].isRegularEnemy == true)//for regular enemy numbers aka no anim
             {
                 Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetNotification(damageToGive);//make the damage appear on screen
@@ -571,7 +602,7 @@ public class BattleManager : MonoBehaviour
                     }
                     else if (move.numOfSFXs == "2")
                     {
-                        StartCoroutine(AnimeteAttckCo2(target, damageToGive, move));
+                        StartCoroutine(AnimeteAttckCo2(target, damageToGive, move, playerOrEnemy));
                     }
                 }
                 else if (move.isAttackMagic())
@@ -596,8 +627,16 @@ public class BattleManager : MonoBehaviour
                     }
                 }
                 atkPwr = (activeBattlers[currentTurn].strength + activeBattlers[currentTurn].statusBounus[0]) * Enemies.Count;//the strength of the current player times the number of enemies
-                float damageCalc = (atkPwr / defPwr) * move.movePower;
+                float damageCalc = (atkPwr / defPwr) * move.movePower * activeBattlers[currentTurn].level;//v3
                 damageToGive = Mathf.RoundToInt(damageCalc);//to int
+                if ((impossibleBattle == true) && (playerOrEnemy == true))//if impossibleBattle is true and the currentTurn is player then no damage!
+                {
+                    damageToGive = 0;
+                }
+                else if ((impossibleBattle == true) && (playerOrEnemy == false))
+                {
+                    damageToGive = 9999;
+                }
                 StartCoroutine(AnimeteAttackSpecialCo(Enemies, damageToGive, move, playerOrEnemy));
             }
             else//false->enemy
@@ -614,6 +653,14 @@ public class BattleManager : MonoBehaviour
                 atkPwr = (activeBattlers[currentTurn].strength + activeBattlers[currentTurn].statusBounus[0]) * Players.Count;//the strength of the current enemy times the number of players
                 float damageCalc = (atkPwr / defPwr) * move.movePower;
                 damageToGive = Mathf.RoundToInt(damageCalc);//to int
+                if ((impossibleBattle == true) && (playerOrEnemy == true))//if impossibleBattle is true and the currentTurn is player then no damage!
+                {
+                    damageToGive = 0;
+                }
+                else if ((impossibleBattle == true) && (playerOrEnemy == false))
+                {
+                    damageToGive = 9999;
+                }
                 StartCoroutine(AnimeteAttackSpecialCo(Players, damageToGive, move, playerOrEnemy));
             }
         }
@@ -628,21 +675,24 @@ public class BattleManager : MonoBehaviour
                 if ((move.statusBuff == "Attack") || (move.statusBuff == "ALL"))//if the buff is Attack
                 {
                     activeBattlers[target].bounusTurn[0] = 3;//the bonus turn time is will last
-                    activeBattlers[target].statusBounus[0] = move.movePower;//the bonus itself
+                    float bonus = (float)(activeBattlers[target].strength * (move.movePower / 100.0));//add movePower percent to status
+                    activeBattlers[target].statusBounus[0] = Mathf.RoundToInt(bonus);//the bonus itself
                 }
                 if ((move.statusBuff == "Defense") || (move.statusBuff == "ALL"))//if the buff is Defense
                 {
                     activeBattlers[target].bounusTurn[1] = 3;//the bonus turn time is will last
-                    activeBattlers[target].statusBounus[1] = move.movePower;//the bonus itself
+                    float bonus = (float)(activeBattlers[target].defense * (move.movePower / 100.0));//add movePower percent to status
+                    activeBattlers[target].statusBounus[1] = Mathf.RoundToInt(bonus);//the bonus itself
                 }
                 if (move.statusBuff == "HP")
                 {
-                    activeBattlers[target].currentHP += move.movePower;
+                    float bonus = (float)(activeBattlers[target].maxHP * (move.movePower / 100.0));//heal with movePower percent from max
+                    activeBattlers[target].currentHP += Mathf.RoundToInt(bonus);
                     if (activeBattlers[target].currentHP > activeBattlers[target].maxHP)
                     {
-                        activeBattlers[target].maxHP = activeBattlers[target].currentHP;
+                        activeBattlers[target].currentHP = activeBattlers[target].maxHP;
                     }
-                    Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetNotification(move.movePower, "Health");//make the damage appear on screen
+                    Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetNotification(Mathf.RoundToInt(bonus), "Health");//make the damage appear on screen
                 }
                 StartCoroutine(AnimeteSelfMagicCo(target, move, playerOrEnemy));
             }
@@ -656,7 +706,6 @@ public class BattleManager : MonoBehaviour
                         if ((activeBattlers[i].isPlayer) && (activeBattlers[i].currentHP > 0))//list of players
                         {
                             Targets.Add(i);
-                            Debug.Log("players: " + activeBattlers[i].charName);
                         }
                     }
                 }
@@ -667,7 +716,6 @@ public class BattleManager : MonoBehaviour
                         if (!(activeBattlers[i].isPlayer) && (activeBattlers[i].currentHP > 0))//list of enemy
                         {
                             Targets.Add(i);
-                            Debug.Log("enemy: " + activeBattlers[i].charName);
                         }
                     }
                 }
@@ -676,19 +724,22 @@ public class BattleManager : MonoBehaviour
                     if ((move.statusBuff == "Attack")|| (move.statusBuff == "ALL"))//if the buff is Attack
                     {
                         activeBattlers[Targets[i]].bounusTurn[0] = 3;//the bonus turn time is will last
-                        activeBattlers[Targets[i]].statusBounus[0] = move.movePower;//the bonus itself
+                        float bonus = (float)(activeBattlers[Targets[i]].strength * (move.movePower / 100.0)) ;//add movePower percent to status
+                        activeBattlers[Targets[i]].statusBounus[0] = Mathf.RoundToInt(bonus);//the bonus itself
                     }
                     if ((move.statusBuff == "Defense") || (move.statusBuff == "ALL"))//if the buff is Defense
                     {
                         activeBattlers[Targets[i]].bounusTurn[1] = 3;//the bonus turn time is will last
-                        activeBattlers[Targets[i]].statusBounus[1] = move.movePower;//the bonus itself
+                        float bonus = (float)(activeBattlers[Targets[i]].defense * (move.movePower / 100.0));//add movePower percent to status
+                        activeBattlers[Targets[i]].statusBounus[1] = Mathf.RoundToInt(bonus);//the bonus itself
                     }
                     if (move.statusBuff == "HP")
                     {
-                        activeBattlers[Targets[i]].currentHP += move.movePower;
+                        float bonus = (float)(activeBattlers[Targets[i]].maxHP * (move.movePower / 100.0));//heal with movePower percent from max
+                        activeBattlers[Targets[i]].currentHP += Mathf.RoundToInt(bonus);
                         if (activeBattlers[Targets[i]].currentHP> activeBattlers[Targets[i]].maxHP)
                         {
-                            activeBattlers[Targets[i]].maxHP = activeBattlers[Targets[i]].currentHP;
+                            activeBattlers[Targets[i]].currentHP = activeBattlers[Targets[i]].maxHP;
                         }
                     }
                 }
@@ -773,7 +824,7 @@ public class BattleManager : MonoBehaviour
             StartCoroutine(MoveBackEnemyAndNextTurnCo());
         }
     }
-    public IEnumerator AnimeteAttckCo2(int target, int damage, BattleMove move)//for Attacking one enemy.. two effects 
+    public IEnumerator AnimeteAttckCo2(int target, int damage, BattleMove move, bool playerOrEnemy)//for Attacking one enemy.. two effects 
     {
         activeBattlers[currentTurn].anim.SetBool(move.animateName, true);
         yield return new WaitWhile(() => activeBattlers[currentTurn].effect1 == false);
@@ -784,7 +835,14 @@ public class BattleManager : MonoBehaviour
         Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetNotification(damage);//make the damage appear on screen
         yield return new WaitWhile(() => activeBattlers[currentTurn].Idle == false);
         activeBattlers[currentTurn].anim.SetBool(move.animateName, false);
-        StartCoroutine(MoveBackAndNextTurnCo());
+        if (playerOrEnemy == true)
+        {
+            StartCoroutine(MoveBackAndNextTurnCo());
+        }
+        else
+        {
+            StartCoroutine(MoveBackEnemyAndNextTurnCo());
+        }
     }
     public IEnumerator AnimeteAttackMagicCo(int target, int damage, BattleMove move, bool playerOrEnemy)//for Attacking one enemy.. skill effects 
     {
@@ -807,10 +865,7 @@ public class BattleManager : MonoBehaviour
     {
         activeBattlers[currentTurn].anim.SetBool(move.animateName, true);
         Instantiate(move.theEffect, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation);
-        Debug.Log("before SelfMagic ");
-        Debug.Log("move.moveName: " + move.moveName);
         yield return new WaitForSecondsRealtime(move.theEffect.effectLength);
-        Debug.Log("after SelfMagic ");
         activeBattlers[currentTurn].anim.SetBool(move.animateName, false);
         if (playerOrEnemy == true)
         {
@@ -1205,20 +1260,27 @@ public class BattleManager : MonoBehaviour
         }
         BattleMenus.goToMenu(3, 0);//go to item menu and the previous is main battle menu
     }
-
     public IEnumerator EndBattleCo()
     {
         AudioManager.instance.StopMusic();
         AudioManager.instance.PlayBGM(6);
-        battleActive = false;
+        for (int i = 0; i < activeBattlers.Count; i++)
+        {
+            if (activeBattlers[i].currentHP > 0)
+            {
+                activeBattlers[i].anim.SetBool("Win_Full", true);
+            }
+        }
         BattleMenus.goToMenu(0, 0);
         BattleMenus.offMenu(false);
+        BattleMenus.ShowVictoryPanel(true);
+        battleActive = false;
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+        BattleMenus.ShowVictoryPanel(false);
         GameManager.instance.battleActive = false;
         yield return new WaitForSeconds(.5f);
         battleCanves.SetActive(false);
         FadeManager.instance.BattleTransition("FadeBlack");
-       
-
         for (int i = 0; i < activeBattlers.Count; i++)
         {
             if (activeBattlers[i].isPlayer)
@@ -1237,24 +1299,31 @@ public class BattleManager : MonoBehaviour
             Destroy(activeBattlers[i].gameObject);
         }
         yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
+        BattleMenus.theInfoHolder.SetActive(true);
         battleCanves.SetActive(false);
         battleScene.SetActive(false);
-        
         activeBattlers.Clear();
         currentTurn = 0;
-        /*if (fleeing)
-        {
-            GameManager.instance.battleActive = false;
-            fleeing = false;
-        }
-        else
-        {
-            BattleReward.instance.OpenRewardScreen(rewardXP, rewardItems);
-        }*/
 
-        AudioManager.instance.PlayBGM(FindObjectOfType<CameraController>().musicToPlay);
+        AudioManager.instance.PlayBGM(FindObjectOfType<CameraController>().musicToPlay);        
     }
+    public IEnumerator GameOverCo()
+    {
+        AudioManager.instance.StopMusic();//stop the battle music
+        AudioManager.instance.PlaySFX(0);//start the death music
+        battleActive = false;
+        GameManager.instance.battleActive = false;
+        battleCanves.SetActive(false);
+        FadeManager.instance.ScenenTransition("GameOver");
+        yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
+        battleScene.SetActive(false);
+        for (int i = 0; i < activeBattlers.Count; i++)
+
+            Destroy(activeBattlers[i].gameObject);
+        activeBattlers.Clear();
+        SceneManager.LoadScene("GameOver");
 
 
+    }
 }
 

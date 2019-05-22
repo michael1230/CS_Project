@@ -54,8 +54,9 @@ MonoBehaviour:
   theType: 0
   moveName: Slash2
   statusBuff: 
-  animeName: 
-  movePower: 50
+  animateName: 
+  numOfSFXs: 
+  movePower: 10
   moveMpCost: 0
   moveSpCost: 5
   moveTargetAll: 0

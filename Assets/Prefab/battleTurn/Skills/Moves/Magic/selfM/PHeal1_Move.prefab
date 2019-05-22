@@ -56,8 +56,8 @@ MonoBehaviour:
   statusBuff: HP
   animateName: Magic
   numOfSFXs: 
-  movePower: 40
-  moveMpCost: 5
+  movePower: 20
+  moveMpCost: 0
   moveSpCost: 0
   moveTargetAll: 0
   theEffect: {fileID: 114601813335369868, guid: be9f9372823c60e4293c7392b852b887,

@@ -56,9 +56,9 @@ MonoBehaviour:
   statusBuff: Defense
   animateName: Limt_Atk
   numOfSFXs: 
-  movePower: 20
-  moveMpCost: 15
-  moveSpCost: 15
+  movePower: 30
+  moveMpCost: 0
+  moveSpCost: 0
   moveTargetAll: 1
   theEffect: {fileID: 114624465972892556, guid: cf93ef78fc74ac84496b89b342db17e3,
     type: 2}

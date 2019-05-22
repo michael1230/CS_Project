@@ -57,8 +57,8 @@ MonoBehaviour:
   animateName: Limt_Atk
   numOfSFXs: 
   movePower: 90
-  moveMpCost: 20
-  moveSpCost: 20
+  moveMpCost: 0
+  moveSpCost: 0
   moveTargetAll: 1
   theEffect: {fileID: 114924581344367750, guid: a304742b28b2d1f4e8a1709f07a9c477,
     type: 2}

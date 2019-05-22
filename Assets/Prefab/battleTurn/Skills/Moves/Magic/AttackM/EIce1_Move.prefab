@@ -56,8 +56,8 @@ MonoBehaviour:
   statusBuff: 
   animateName: 
   numOfSFXs: 
-  movePower: 60
-  moveMpCost: 7
+  movePower: 20
+  moveMpCost: 0
   moveSpCost: 0
   moveTargetAll: 0
   theEffect: {fileID: 114937804617692794, guid: 050a9c7dc5ed6984bb0d38ef7f21126b,
