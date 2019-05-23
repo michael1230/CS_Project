@@ -141,6 +141,7 @@ public class BattleManager : MonoBehaviour
     public IEnumerator PrepareforBattleStart(string[] enemiesToSpawn)//a method for activate the fade effect and then go to battle
     {
         GameManager.instance.battleActive = true;//rise the flag for GameManager
+        GameManager.instance.dialogActive = false;//for the knights
         FadeManager.instance.BattleTransition("Battle");
         AudioManager.instance.StopMusic();//stop the current music
         AudioManager.instance.PlaySFX(10);//the transition sound
@@ -220,7 +221,7 @@ public class BattleManager : MonoBehaviour
 
             string sceneName = SceneManager.GetActiveScene().name;
 
-            if (sceneName == "MB_MapForBattle")//later for forest battles
+            if ((sceneName == "MB_MapForBattle")|| (sceneName == "DeltaForest"))//later for forest battles
             {
                 currenctBattleImeg.sprite = battleImeges[0];
                 AudioManager.instance.PlayBGM(8);//turn on the battle music

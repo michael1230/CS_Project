@@ -847,6 +847,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1555188751217882
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 224323237038663434}
+  - component: {fileID: 222014213066023944}
+  - component: {fileID: 114402658932258224}
+  m_Layer: 5
+  m_Name: line1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1576732766476710
 GameObject:
   m_ObjectHideFlags: 1
@@ -1204,7 +1221,7 @@ GameObject:
   - component: {fileID: 222289729906948394}
   - component: {fileID: 114083852983569220}
   m_Layer: 5
-  m_Name: Text
+  m_Name: name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1221,7 +1238,7 @@ GameObject:
   - component: {fileID: 222093055034507132}
   - component: {fileID: 114131004938288000}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: line2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2153,11 +2170,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 51
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2248,11 +2265,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 43
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3558,6 +3575,39 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114402658932258224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1555188751217882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 41
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 47
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Run!!!
 --- !u!114 &114436430023470664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3906,6 +3956,9 @@ MonoBehaviour:
   - {fileID: 114604682957501540}
   - {fileID: 114784573297250508}
   dialogBox: {fileID: 1498040573257620}
+  dialogBoxLine1: {fileID: 114083852983569220}
+  dialogBoxLine2: {fileID: 114402658932258224}
+  dialogBoxLine3: {fileID: 114131004938288000}
   healthHolder: {fileID: 1585528715024058}
   heartContainers: {fileID: 114718665466851426}
   sliderHolder: {fileID: 114929960504915912}
@@ -6202,6 +6255,13 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1065312698652550}
   m_CullTransparentMesh: 0
+--- !u!222 &222014213066023944
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1555188751217882}
+  m_CullTransparentMesh: 0
 --- !u!222 &222019868911086130
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -6756,15 +6816,15 @@ RectTransform:
   m_GameObject: {fileID: 1861318333997788}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99999833, y: 0.99999833, z: 0.99999833}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224596899971349514}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.100342, y: -26}
-  m_SizeDelta: {x: 1430.3, y: 165.8}
+  m_AnchoredPosition: {x: -5.100342, y: -58}
+  m_SizeDelta: {x: 1430, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224051090190938246
 RectTransform:
@@ -7162,6 +7222,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &224323237038663434
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1555188751217882}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999833, y: 0.99999833, z: 0.99999833}
+  m_Children: []
+  m_Father: {fileID: 224596899971349514}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -5.100342, y: 17.6}
+  m_SizeDelta: {x: 1430, y: 70}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224347698581132428
 RectTransform:
   m_ObjectHideFlags: 1
@@ -7404,8 +7482,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.1, y: 5.1}
-  m_SizeDelta: {x: 1430.3, y: 228.1}
+  m_AnchoredPosition: {x: -603.4, y: 95}
+  m_SizeDelta: {x: 233.9, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224523869145890800
 RectTransform:
@@ -7510,6 +7588,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224513081089041202}
+  - {fileID: 224323237038663434}
   - {fileID: 224047247649686072}
   m_Father: {fileID: 224706814791820810}
   m_RootOrder: 4

@@ -21,6 +21,9 @@ public class GameMenu : MonoBehaviour
     public Button[] loadButtons;
 
     public GameObject dialogBox;
+    public Text dialogBoxLine1;
+    public Text dialogBoxLine2;
+    public Text dialogBoxLine3;
     public GameObject healthHolder;
     public HeartManager heartContainers;
     public FireBarManager sliderHolder;
@@ -42,7 +45,7 @@ public class GameMenu : MonoBehaviour
     {
         theMenuCanves.worldCamera = Camera.main;//get the main camera and use it
        // if (Input.GetKeyDown(KeyCode.Escape))//if the button is pressed
-        if ((Input.GetKeyDown(KeyCode.Escape))&&(GameManager.instance.gameOver==false) && (GameManager.instance.battleActive == false) && (GameManager.instance.fadingBetweenAreas==false))//if the button is pressed and GameOver is false or battleActive is false (if we are in gameOver or loading from GameOver or in battle) then dont activate menu
+        if ((Input.GetKeyDown(KeyCode.Escape))&&(GameManager.instance.gameOver==false) && (GameManager.instance.battleActive == false) && (GameManager.instance.fadingBetweenAreas==false) && (GameManager.instance.dialogActive == false))//if the button is pressed and GameOver is false or battleActive is false (if we are in gameOver or loading from GameOver or in battle) then dont activate menu
         {
             if (theMenu.activeInHierarchy)//if the menu is open
             {

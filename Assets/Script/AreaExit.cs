@@ -27,20 +27,12 @@ public class AreaExit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (shouldLoadAfterFade)
-        {
-            waitToLoad -= Time.deltaTime;
-            if (waitToLoad <= 0)
-            {
-                shouldLoadAfterFade = false;
-                SceneManager.LoadScene(areaToLoad);
-            }
-        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if ((other.tag == "Player")&&(areaToLoad!=""))
         {
             StartCoroutine(SceneSwitch());
         }

@@ -6,9 +6,10 @@ public class TestBattleTrigger : MonoBehaviour
 {
     public string[] enemyToSpawn;
     public bool canflee;
+    public KightsAttack kight;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
 		
 	}
@@ -29,7 +30,11 @@ public class TestBattleTrigger : MonoBehaviour
 
     public IEnumerator BattleOn()
     {
-        StartCoroutine(BattleManager.instance.PrepareforBattleStart(enemyToSpawn));
+        if (kight!=null)
+        {
+            kight.triggerBox.gameObject.SetActive(false);
+        }
+        StartCoroutine(BattleManager.instance.PrepareforBattleStart(enemyToSpawn));        
         yield return new WaitForSeconds(3f);
         this.gameObject.SetActive(false);
     }

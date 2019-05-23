@@ -92,7 +92,7 @@ MonoBehaviour:
   level: 4.1
   currentHP: 3000
   maxHP: 3000
-  currentMP: 200
+  currentMP: 400
   maxMP: 400
   currentSP: 200
   maxSP: 200

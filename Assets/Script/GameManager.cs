@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public bool inForest = true;
     public bool inDesert = true;
     public bool imReallyDead = true;
+    public bool canAttack = true;
     public string sceneName;
     public CharStats[] playerStats;//work on activate playerStats if the number of element!!!!
 
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
     public int numberOfElement = 0;
     //public int activePartyMemberIndex = 1;
 
-    public bool gameMenuOpen, dialogActive, fadingBetweenAreas, battleActive,gameOver;
+    public bool gameMenuOpen, dialogActive, fadingBetweenAreas, battleActive,gameOver,noMenu;
 
     // Use this for initialization
     private void Awake()
@@ -53,13 +54,17 @@ public class GameManager : MonoBehaviour
         enemyTracker = FindObjectOfType<EnemyTracker>();
         if (gameMenuOpen || dialogActive || fadingBetweenAreas || battleActive|| gameOver)
         {
+            noMenu = true;
             PlayerController.instance.canMovePlayer = false;
+            PlayerController.instance.PlyerIdle(false);
             enemyTracker.EnemyMovment(false);
             GameMenu.instance.healthHolder.SetActive(false);
         }
         else
         {
+            noMenu = false;
             PlayerController.instance.canMovePlayer = true;
+            PlayerController.instance.PlyerIdle(true);
             enemyTracker.EnemyMovment(true);
             GameMenu.instance.healthHolder.SetActive(true);
         }
@@ -86,11 +91,17 @@ public class GameManager : MonoBehaviour
             //addElement();
             ElementGet(2);
         }
-        if ((sceneName == "MB_MapForBattle")&&(battleActive==false)&&(inForest==true))//later for forest battles
+        if (sceneName == "OldManHouse")
         {
+            canAttack = false;
+            GameMenu.instance.healthHolder.SetActive(false);
+        }
+        else if (((sceneName == "MB_MapForBattle")||(sceneName=="DeltaForest"))&&(battleActive==false)&&(inForest==true))//later for forest battles
+        {
+            canAttack = true;
             GameMenu.instance.healthHolder.SetActive(true);
-            GameMenu.instance.heartContainers.heartContainers.initialValue = 2;
-            PlayerController.instance.currentHealth.initialValue = 4;
+            GameMenu.instance.heartContainers.heartContainers.initialValue = 3;
+            PlayerController.instance.currentHealth.initialValue = 6;
             GameMenu.instance.heartContainers.InitHearts();
             GameMenu.instance.sliderHolder.playerInventory.currentMagic = GameMenu.instance.sliderHolder.playerInventory.maxMagic;
             GameMenu.instance.sliderHolder.fireSlider.value = GameMenu.instance.sliderHolder.fireSlider.maxValue;
@@ -98,6 +109,7 @@ public class GameManager : MonoBehaviour
         }
         else if ((sceneName == "MB_SceneMoveTest")&& (battleActive == false) && (inDesert == true))//later for other battles
         {
+            canAttack = true;
             GameMenu.instance.healthHolder.SetActive(true);
             GameMenu.instance.heartContainers.heartContainers.initialValue = 4;
             PlayerController.instance.currentHealth.initialValue = 8;
@@ -106,6 +118,7 @@ public class GameManager : MonoBehaviour
             GameMenu.instance.sliderHolder.fireSlider.value = GameMenu.instance.sliderHolder.playerInventory.currentMagic;
             inDesert = false;
         }
+
     }
 
    /* public void HeartLoad()

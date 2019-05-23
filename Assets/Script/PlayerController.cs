@@ -20,7 +20,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D myRigidbody; //reference the Rigidbody2D
     private Vector3 change; //players Vector3
     private Animator animator; //reference the Animator
+
     public bool canMovePlayer = true; //a flag to spot the player when needed
+    public bool canMoveAnimte = true; //a flag to spot the player when needed
+
     public static PlayerController instance; //makes only one instance of player
     public string areaTransitionName; //the name to next area
     private Vector3 bottomLeftLimit; //the first limit of the  map
@@ -98,21 +101,21 @@ public class PlayerController : MonoBehaviour
             change.y = Input.GetAxisRaw("Vertical");//for moving
             animator.SetBool("isRunning", false);//change animtion    
             animator.SetBool("moving", false);//change animtion     (Input.GetKey(KeyCode.LeftControl)  (Input.GetButtonDown("Fire1")
-            if (Input.GetKey(KeyCode.LeftControl) && currentState != PlayerState.attack && currentState != PlayerState.stagger)//attack state
+            if ((Input.GetKey(KeyCode.LeftControl) && currentState != PlayerState.attack && currentState != PlayerState.stagger)&&(GameManager.instance.canAttack))//attack state
             {
                 StartCoroutine(AttackCo());
             }//Input.GetButtonDown("FireBall")
-            else if (Input.GetKey(KeyCode.Z) && currentState != PlayerState.attack && currentState != PlayerState.stagger && playerInventory.currentMagic > 0)
+            else if ((Input.GetKey(KeyCode.Z) && currentState != PlayerState.attack && currentState != PlayerState.stagger && playerInventory.currentMagic > 0)&& (GameManager.instance.canAttack))
             {
                 StartCoroutine(SecondAttackCo());
             }
-            else if ((currentState == PlayerState.walk || currentState == PlayerState.idle || currentState == PlayerState.run)
-                      && Input.GetKey(KeyCode.LeftShift) && (Input.GetButton("Horizontal") || Input.GetButton("Vertical")))//running state
+            else if (((currentState == PlayerState.walk || currentState == PlayerState.idle || currentState == PlayerState.run)
+                      && Input.GetKey(KeyCode.LeftShift) && (Input.GetButton("Horizontal") || Input.GetButton("Vertical")))&&(canMoveAnimte==true))//running state
             {
                 animator.SetBool("moving", true);
                 UpdateAnimationAndRun();
             }
-            else if (currentState == PlayerState.walk || currentState == PlayerState.idle)//walking state
+            else if ((currentState == PlayerState.walk || currentState == PlayerState.idle) && (canMoveAnimte == true))//walking state
             {
 
                 UpdateAnimationAndMove();
@@ -260,6 +263,21 @@ public class PlayerController : MonoBehaviour
         topRightLimit = topRight + new Vector3(-.5f, -1f, 0f);
     }
 
+    public void PlyerIdle(bool anime)//a method to  stooping player anim
+    {
+        if (!anime)
+        {
+            canMoveAnimte = false;
+            animator.SetBool("isRunning", false);
+            animator.SetBool("moving", false);
+            animator.SetBool("attacking", false);
+            animator.SetBool("attackingFire", false);
+        }
+        else
+        {
+            canMoveAnimte = true;
+        }
+    }
 
     /*
     public enum PlayerState

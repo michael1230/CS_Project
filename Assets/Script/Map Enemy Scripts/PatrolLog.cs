@@ -134,6 +134,7 @@ public class PatrolLog : logEnemy {
     IEnumerator FollowPath()
     {
         Vector3 currentWaypoint = path[0];
+
         while (true)
         {
             if (transform.position == currentWaypoint)

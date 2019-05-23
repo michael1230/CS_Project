@@ -24,6 +24,7 @@ public class GameOver : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        PlayerController.instance.currentState = PlayerState.idle;
         PlayerController.instance.mySprite.enabled = true;
         //GameMenu.instance.healthHolder.SetActive(false);
         PlayerController.instance.transform.position = new Vector2(0,0);

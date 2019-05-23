@@ -21,9 +21,14 @@ GameObject:
   - component: {fileID: 4521619858475722}
   - component: {fileID: 95329096154489956}
   - component: {fileID: 212253632527719050}
-  m_Layer: 0
+  - component: {fileID: 50551382867001712}
+  - component: {fileID: 61054058414358974}
+  - component: {fileID: 58486419281754788}
+  - component: {fileID: 114386756104713572}
+  - component: {fileID: 114170483338570906}
+  m_Layer: 8
   m_Name: Graland-Map
-  m_TagString: Untagged
+  m_TagString: SmallMapEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,6 +46,66 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50551382867001712
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1605278043346736}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!58 &58486419281754788
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1605278043346736}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.21973652, y: -0.09530699}
+  serializedVersion: 2
+  m_Radius: 0.539815
+--- !u!61 &61054058414358974
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1605278043346736}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.046328247, y: 0.12310445}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.45, y: 0.5}
+    oldSize: {x: 2.8857143, y: 2.9142857}
+    newSize: {x: 2.8857143, y: 2.9142857}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.4568338, y: 2.5568855}
+  m_EdgeRadius: 0
 --- !u!95 &95329096154489956
 Animator:
   serializedVersion: 3
@@ -59,6 +124,58 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114170483338570906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1605278043346736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb067b085c825f4089595565f8cd9cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 4
+  knockTime: 0.2
+  damage: 1
+--- !u!114 &114386756104713572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1605278043346736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7176ac691b7d7394fbf3553775163883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  maxHealth: {fileID: 11400000, guid: 5d605417cfc047e4bbaa2843dc6d58da, type: 2}
+  health: 0
+  enemyName: 
+  baseAttack: 1
+  moveSpeed: 100
+  isAlive: 0
+  deathEffect: {fileID: 1574220630175308, guid: c1784592266c8664aa898ba93c58ea07,
+    type: 2}
+  thisLoot: {fileID: 11400000, guid: 7af8fcfc7c18096489016f8e5fc0a08b, type: 2}
+  myRigidbody: {fileID: 0}
+  target: {fileID: 0}
+  targetPlayer: {fileID: 0}
+  chaseRaidius: 10
+  attackRadius: 0.5
+  anim: {fileID: 0}
+  targetOldPosition: {x: 0, y: 0, z: 0}
+  pathDot:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentPoint: 0
+  currentGoal: {fileID: 0}
+  AstarPoint: {fileID: 0}
+  roundingDistance: 0.1
+  toPoint: 0
+  boundary: {fileID: 0}
 --- !u!212 &212253632527719050
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -92,8 +209,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 707867589
-  m_SortingLayer: 3
-  m_SortingOrder: 1
+  m_SortingLayer: 4
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300004, guid: adb1a6baa7a16d246b4d6299b7e06ff1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
