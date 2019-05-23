@@ -55,9 +55,8 @@ MonoBehaviour:
   moveName: Dark Bind
   statusBuff: 
   animateName: Magic
-  numOfSFXs: 
   movePower: 50
-  moveMpCost: 0
+  moveMpCost: 30
   moveSpCost: 0
   moveTargetAll: 0
   theEffect: {fileID: 114220345892603822, guid: c806254ee7ff23944a2013f4b5ec025b,

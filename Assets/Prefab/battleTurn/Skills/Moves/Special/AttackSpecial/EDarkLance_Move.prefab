@@ -55,10 +55,9 @@ MonoBehaviour:
   moveName: Dark Rise
   statusBuff: 
   animateName: Limt_Atk
-  numOfSFXs: 
   movePower: 45
-  moveMpCost: 0
-  moveSpCost: 0
+  moveMpCost: 30
+  moveSpCost: 30
   moveTargetAll: 1
   theEffect: {fileID: 114262508045246350, guid: 32e40781003c2c249b4b32c4eafd3dc4,
     type: 2}

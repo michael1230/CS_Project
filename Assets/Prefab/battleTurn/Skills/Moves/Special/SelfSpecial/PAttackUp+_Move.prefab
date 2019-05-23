@@ -55,10 +55,9 @@ MonoBehaviour:
   moveName: Attack Up +
   statusBuff: Attack
   animateName: Limt_Atk
-  numOfSFXs: 
   movePower: 30
-  moveMpCost: 0
-  moveSpCost: 0
+  moveMpCost: 15
+  moveSpCost: 15
   moveTargetAll: 1
   theEffect: {fileID: 114305094383222256, guid: df7e151ee23156b4698ac546aa4373c7,
     type: 2}

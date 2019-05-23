@@ -55,9 +55,8 @@ MonoBehaviour:
   moveName: Heal2
   statusBuff: HP
   animateName: Magic
-  numOfSFXs: 
   movePower: 40
-  moveMpCost: 0
+  moveMpCost: 25
   moveSpCost: 0
   moveTargetAll: 0
   theEffect: {fileID: 114002638523561764, guid: 0349a1b397a09a647b6400dba9c7534d,

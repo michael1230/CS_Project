@@ -55,10 +55,9 @@ MonoBehaviour:
   moveName: DarkAura
   statusBuff: ALL
   animateName: Magic
-  numOfSFXs: 
-  movePower: 65
-  moveMpCost: 0
-  moveSpCost: 0
+  movePower: 45
+  moveMpCost: 20
+  moveSpCost: 20
   moveTargetAll: 1
   theEffect: {fileID: 114756682537371724, guid: 75160898cf17b0b4a9e4408f07c972b5,
     type: 2}

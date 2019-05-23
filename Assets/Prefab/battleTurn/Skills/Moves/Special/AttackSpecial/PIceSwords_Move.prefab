@@ -55,10 +55,9 @@ MonoBehaviour:
   moveName: Ice Swords
   statusBuff: 
   animateName: Limt_Atk
-  numOfSFXs: 
   movePower: 25
-  moveMpCost: 0
-  moveSpCost: 0
+  moveMpCost: 12
+  moveSpCost: 12
   moveTargetAll: 1
   theEffect: {fileID: 114158573010696736, guid: 1d142e62f34b04c4192dd3278bcb606d,
     type: 2}

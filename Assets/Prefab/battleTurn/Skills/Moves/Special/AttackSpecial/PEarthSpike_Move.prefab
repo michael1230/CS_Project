@@ -55,10 +55,9 @@ MonoBehaviour:
   moveName: EarthSpike
   statusBuff: 
   animateName: Limt_Atk
-  numOfSFXs: 
   movePower: 40
-  moveMpCost: 0
-  moveSpCost: 0
+  moveMpCost: 20
+  moveSpCost: 20
   moveTargetAll: 1
   theEffect: {fileID: 114275132365539090, guid: 7a122749006acc045b3cbe16ca02d031,
     type: 2}

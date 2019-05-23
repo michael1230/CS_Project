@@ -88,11 +88,11 @@ MonoBehaviour:
   level: 2.1
   currentHP: 300
   maxHP: 300
-  currentMP: 100
-  maxMP: 100
+  currentMP: 200
+  maxMP: 200
   currentSP: 50
   maxSP: 50
-  strength: 20
+  strength: 15
   defense: 40
   dexterity: 25
   anim: {fileID: 95329052689579918}

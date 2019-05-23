@@ -55,10 +55,9 @@ MonoBehaviour:
   moveName: WindScythe
   statusBuff: 
   animateName: Limt_Atk
-  numOfSFXs: 
   movePower: 40
-  moveMpCost: 0
-  moveSpCost: 0
+  moveMpCost: 20
+  moveSpCost: 20
   moveTargetAll: 1
   theEffect: {fileID: 114848449326134994, guid: b0aed8dd5a8234146b8d749ab824c2fd,
     type: 2}

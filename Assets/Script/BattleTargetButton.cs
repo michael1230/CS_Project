@@ -35,8 +35,10 @@ public class BattleTargetButton : MonoBehaviour
             }
             else if ((theMove.isSelfMagic()) || (theMove.isSelfSpecial()))
             {
-                BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= theMove.moveMpCost;
-                BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentSP -= theMove.moveSpCost;
+                float mpCost= (float)(BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].maxMP * (theMove.moveMpCost / 100.0));
+                float spCost = (float)(BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].maxSP * (theMove.moveSpCost / 100.0));
+                BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP -= Mathf.RoundToInt(mpCost);
+                BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentSP -= Mathf.RoundToInt(spCost);
                 BattleManager.instance.PlayerAction(theMove, theItem, activeBattlerTarget, false);
             }
         }

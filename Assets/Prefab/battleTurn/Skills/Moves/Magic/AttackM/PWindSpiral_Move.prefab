@@ -55,9 +55,8 @@ MonoBehaviour:
   moveName: WindSpiral
   statusBuff: 
   animateName: Magic
-  numOfSFXs: 
   movePower: 45
-  moveMpCost: 0
+  moveMpCost: 25
   moveSpCost: 0
   moveTargetAll: 0
   theEffect: {fileID: 114274128234486912, guid: eaec1be29f7d4c14d8ab96f841ff8db2,

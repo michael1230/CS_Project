@@ -55,10 +55,9 @@ MonoBehaviour:
   moveName: Wind Swords
   statusBuff: 
   animateName: Magic
-  numOfSFXs: 
   movePower: 25
-  moveMpCost: 0
-  moveSpCost: 0
+  moveMpCost: 12
+  moveSpCost: 12
   moveTargetAll: 1
   theEffect: {fileID: 114628931709426924, guid: 3ba2cf7424596704695494079999f232,
     type: 2}

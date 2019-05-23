@@ -55,9 +55,8 @@ MonoBehaviour:
   moveName: Wind2
   statusBuff: 
   animateName: Magic
-  numOfSFXs: 
   movePower: 30
-  moveMpCost: 0
+  moveMpCost: 10
   moveSpCost: 0
   moveTargetAll: 0
   theEffect: {fileID: 114315913443144650, guid: 5384936d4385f4e4f886c355dae4966f,

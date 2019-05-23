@@ -56,7 +56,7 @@ MonoBehaviour:
   statusBuff: HP
   animateName: Magic
   movePower: 30
-  moveMpCost: 35
+  moveMpCost: 45
   moveSpCost: 0
   moveTargetAll: 0
   theEffect: {fileID: 114710637900749470, guid: 3c037030feb539241b15e5c9a4c60c5e,

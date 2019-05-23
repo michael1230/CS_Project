@@ -55,9 +55,8 @@ MonoBehaviour:
   moveName: DarkSword
   statusBuff: 
   animateName: Magic
-  numOfSFXs: 
   movePower: 35
-  moveMpCost: 0
+  moveMpCost: 15
   moveSpCost: 0
   moveTargetAll: 0
   theEffect: {fileID: 114779673415130186, guid: ff91dcc013f98704db444746329f6166,

@@ -55,10 +55,9 @@ MonoBehaviour:
   moveName: Dark Rise
   statusBuff: 
   animateName: Magic
-  numOfSFXs: 
   movePower: 35
-  moveMpCost: 0
-  moveSpCost: 0
+  moveMpCost: 20
+  moveSpCost: 20
   moveTargetAll: 1
   theEffect: {fileID: 114509103420490688, guid: 7f854d698607ac54c8ee3276614d745a,
     type: 2}

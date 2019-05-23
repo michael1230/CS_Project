@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e968fa2f4b6c281429c7b50c8f20ded8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectLength: 0.7
+  effectLength: 1
   soundEffect: 2
 --- !u!212 &212737719860691368
 SpriteRenderer:
@@ -106,7 +106,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -64319833
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: ebdcc75e58893f6449de553d0ff15d1d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

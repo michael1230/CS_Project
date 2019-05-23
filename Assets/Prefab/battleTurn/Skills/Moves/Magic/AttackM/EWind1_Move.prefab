@@ -55,9 +55,8 @@ MonoBehaviour:
   moveName: Wind1
   statusBuff: 
   animateName: 
-  numOfSFXs: 
   movePower: 20
-  moveMpCost: 0
+  moveMpCost: 5
   moveSpCost: 0
   moveTargetAll: 0
   theEffect: {fileID: 114808239258459262, guid: 88c3a534266236f4fa3e9bc8a6fe33e3,

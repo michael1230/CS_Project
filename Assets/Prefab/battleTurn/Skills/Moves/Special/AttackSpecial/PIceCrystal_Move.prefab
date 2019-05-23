@@ -55,10 +55,9 @@ MonoBehaviour:
   moveName: Ice Crystal
   statusBuff: 
   animateName: Limt_Atk
-  numOfSFXs: 
   movePower: 40
-  moveMpCost: 0
-  moveSpCost: 0
+  moveMpCost: 20
+  moveSpCost: 20
   moveTargetAll: 1
   theEffect: {fileID: 114136993998795836, guid: cb916408466a1594d9c1c5efc66fb7c0,
     type: 2}

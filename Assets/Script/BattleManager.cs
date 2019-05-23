@@ -439,7 +439,7 @@ public class BattleManager : MonoBehaviour
                 case BattleMove.moveType.Attack:
                     if (((enemyMove.moveSpCost>0)&&(activeBattlers[currentTurn].currentSP> enemyMove.moveSpCost))|| enemyMove.moveSpCost==0)//check if we can use this move
                     {
-                        minChance = 60;
+                        minChance = 75;
                         maxChance = 100;
                         offense = true;
                         successfullyChosen = true;//if we cant then true
@@ -453,7 +453,7 @@ public class BattleManager : MonoBehaviour
                     if ((activeBattlers[currentTurn].currentSP > enemyMove.moveSpCost) && (activeBattlers[currentTurn].currentMP > enemyMove.moveMpCost))//check if we can use this move
                     {
                         minChance = 0;
-                        maxChance = 15;
+                        maxChance = 35;
                         offense = true;
                         successfullyChosen = true;//if we cant then true
                     }
@@ -465,8 +465,8 @@ public class BattleManager : MonoBehaviour
                 case BattleMove.moveType.SelfSpecial:
                     if ((activeBattlers[currentTurn].currentSP > enemyMove.moveSpCost) && (activeBattlers[currentTurn].currentMP > enemyMove.moveMpCost))//check if we can use this move
                     {
-                        minChance = 15;
-                        maxChance = 25;
+                        minChance = 35;
+                        maxChance = 50;
                         offense = false;
                         successfullyChosen = true;//if we cant then true
                     }
@@ -478,8 +478,8 @@ public class BattleManager : MonoBehaviour
                 case BattleMove.moveType.SelfMagic:
                     if (activeBattlers[currentTurn].currentMP > enemyMove.moveMpCost)//check if we can use this move
                     {
-                        minChance = 15;
-                        maxChance = 25;
+                        minChance = 35;
+                        maxChance = 50;
                         offense = false;
                         successfullyChosen = true;//if we cant then true
                     }
@@ -491,8 +491,8 @@ public class BattleManager : MonoBehaviour
                 case BattleMove.moveType.AttackMagic:
                     if (activeBattlers[currentTurn].currentMP > enemyMove.moveMpCost)//check if we can use this move
                     {
-                        minChance = 25;
-                        maxChance = 60;
+                        minChance = 50;
+                        maxChance = 75;
                         offense = true;
                         successfullyChosen = true;//if we cant then true
                     }
@@ -526,8 +526,18 @@ public class BattleManager : MonoBehaviour
                 moveChosen = false;
             }
         }
-        activeBattlers[currentTurn].currentMP -= enemyMove.moveMpCost;
-        activeBattlers[currentTurn].currentSP -= enemyMove.moveSpCost;
+        if(enemyMove.statusBuff=="")
+        {
+            activeBattlers[currentTurn].currentMP -= enemyMove.moveMpCost;
+            activeBattlers[currentTurn].currentSP -= enemyMove.moveSpCost;
+        }
+        else
+        {
+            float mpCost = (float)(activeBattlers[currentTurn].maxMP * (enemyMove.moveMpCost / 100.0));
+            float spCost = (float)(activeBattlers[currentTurn].maxSP * (enemyMove.moveSpCost / 100.0));
+            activeBattlers[currentTurn].currentMP -= Mathf.RoundToInt(mpCost);
+            activeBattlers[currentTurn].currentSP -= Mathf.RoundToInt(spCost);
+        }
         if (offense==true)//if the move its an attack move
         {
             int selectedTarget = players[Random.Range(0, players.Count)];//random select targets from the list
@@ -1074,8 +1084,16 @@ public class BattleManager : MonoBehaviour
                     magicButtons[i].gameObject.SetActive(true);//turn on the button
                     activeMagicButon.Add(magicButtons[i].gameObject.GetComponent<Button>());//add the button           
                     magicButtons[i].theMove = activeBattlers[currentTurn].movesAvailable[j];//add the move
+
                     magicButtons[i].nameText.text = magicButtons[i].theMove.moveName;//show the move name 
-                    magicButtons[i].costText.text = magicButtons[i].theMove.moveMpCost.ToString();//show the move mp cost 
+                    if (magicButtons[i].theMove.isSelfMagic())
+                    {
+                        magicButtons[i].costText.text = magicButtons[i].theMove.moveMpCost.ToString()+"%";//show the move mp cost 
+                    }
+                    else
+                    {
+                        magicButtons[i].costText.text = magicButtons[i].theMove.moveMpCost.ToString();//show the move mp cost 
+                    }
                     i++;//next button
                     j++;//next move
                 }
@@ -1159,8 +1177,17 @@ public class BattleManager : MonoBehaviour
                     activeSpecialButon.Add(specialButtons[i].gameObject.GetComponent<Button>());//add the button
                     specialButtons[i].theMove = activeBattlers[currentTurn].movesAvailable[j];//add the move
                     specialButtons[i].nameText.text = specialButtons[i].theMove.moveName;//show the move name 
-                    specialButtons[i].mpCostText.text = specialButtons[i].theMove.moveMpCost.ToString();//show the move mp cost 
-                    specialButtons[i].spCostText.text = specialButtons[i].theMove.moveSpCost.ToString();//show the move sp cost 
+
+                    if (specialButtons[i].theMove.isSelfSpecial())
+                    {
+                        specialButtons[i].mpCostText.text = specialButtons[i].theMove.moveMpCost.ToString() + "%";//show the move mp cost 
+                        specialButtons[i].spCostText.text = specialButtons[i].theMove.moveSpCost.ToString() + "%";//show the move sp cost     
+                    }
+                    else
+                    {
+                        specialButtons[i].mpCostText.text = specialButtons[i].theMove.moveMpCost.ToString();//show the move mp cost 
+                        specialButtons[i].spCostText.text = specialButtons[i].theMove.moveSpCost.ToString();//show the move sp cost                     
+                    }
                     i++;//next button
                     j++;//next move
                 }

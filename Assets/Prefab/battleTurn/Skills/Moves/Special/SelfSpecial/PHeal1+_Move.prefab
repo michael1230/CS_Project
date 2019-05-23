@@ -55,10 +55,9 @@ MonoBehaviour:
   moveName: Heal1+
   statusBuff: HP
   animateName: Limt_Atk
-  numOfSFXs: 
   movePower: 15
-  moveMpCost: 0
-  moveSpCost: 0
+  moveMpCost: 20
+  moveSpCost: 20
   moveTargetAll: 1
   theEffect: {fileID: 114047501396436432, guid: 29fd25a9c5acd0445a0bd6d57ff6b097,
     type: 2}

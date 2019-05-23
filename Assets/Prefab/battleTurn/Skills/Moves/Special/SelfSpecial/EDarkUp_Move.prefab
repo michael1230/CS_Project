@@ -55,7 +55,7 @@ MonoBehaviour:
   moveName: Dark Up
   statusBuff: ALL
   animateName: Magic
-  movePower: 60
+  movePower: 40
   moveMpCost: 15
   moveSpCost: 15
   moveTargetAll: 1

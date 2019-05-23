@@ -87,14 +87,14 @@ MonoBehaviour:
   - {fileID: 114444373464702530, guid: c901102ce92105c4cbdc612840720591, type: 2}
   charName: DarkSakura
   level: 3.1
-  currentHP: 600
-  maxHP: 600
-  currentMP: 100
-  maxMP: 100
+  currentHP: 800
+  maxHP: 800
+  currentMP: 300
+  maxMP: 300
   currentSP: 50
   maxSP: 50
   strength: 25
-  defense: 40
+  defense: 50
   dexterity: 30
   anim: {fileID: 95136829582347260}
   effect1: 0

@@ -55,9 +55,8 @@ MonoBehaviour:
   moveName: Attack Up
   statusBuff: Attack
   animateName: Magic
-  numOfSFXs: 
   movePower: 50
-  moveMpCost: 0
+  moveMpCost: 15
   moveSpCost: 0
   moveTargetAll: 0
   theEffect: {fileID: 114182681524785084, guid: c81284e0164079641b379ad48aed9152,
