@@ -26,22 +26,17 @@ public class PatrolLog : logEnemy {
 
     IEnumerator Moveback()//NEED TO PUT THE DOT IN THE MIDDLE AND ROUND IT 4.485 == 4.5
     {
-        target = AstarPoint.transform;
-        StartCoroutine(UpdatePath());
-        //yield return new WaitWhile(() => transform.position != target.position);
+        yield return new WaitForSecondsRealtime(1);
         toPoint = false;
-        yield return null;
+       
 
     }
 
     public override void CheckDistance()//will to change to A star algorithm probably
     {
-        if (transform.position == AstarPoint.position)
-        //if (grid.NodeFromPosition(transform.position) == grid.NodeFromPosition(AstarPoint.position))
+        if ((transform.position == AstarPoint.position)&&(target== AstarPoint.transform))
         {
-            toPoint = false;
-            StopCoroutine(UpdatePath());
-            StopCoroutine(FollowPath());
+            StartCoroutine(Moveback());
         }
             if (Vector3.Distance(targetPlayer.position,
                      transform.position) <= chaseRaidius
@@ -81,9 +76,6 @@ public class PatrolLog : logEnemy {
             }
             else
             {
-
-
-                //StartCoroutine(Moveback());
                 target = AstarPoint.transform;
             }
 
