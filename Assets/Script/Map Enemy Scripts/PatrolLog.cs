@@ -20,6 +20,7 @@ public class PatrolLog : logEnemy {
 
     public Collider2D boundary;
 
+    public CreateNodesFromTilemaps grid;
 
 
 
@@ -27,13 +28,21 @@ public class PatrolLog : logEnemy {
     {
         target = AstarPoint.transform;
         StartCoroutine(UpdatePath());
-        yield return new WaitWhile(() => transform.position != target.position);
+        //yield return new WaitWhile(() => transform.position != target.position);
         toPoint = false;
+        yield return null;
 
     }
 
     public override void CheckDistance()//will to change to A star algorithm probably
     {
+        if (transform.position == AstarPoint.position)
+        //if (grid.NodeFromPosition(transform.position) == grid.NodeFromPosition(AstarPoint.position))
+        {
+            toPoint = false;
+            StopCoroutine(UpdatePath());
+            StopCoroutine(FollowPath());
+        }
             if (Vector3.Distance(targetPlayer.position,
                      transform.position) <= chaseRaidius
                     && Vector3.Distance(targetPlayer.position,
@@ -54,24 +63,31 @@ public class PatrolLog : logEnemy {
                               transform.position) > chaseRaidius || !boundary.bounds.Contains(targetPlayer.transform.position))
             {
 
-                if (toPoint == false)
-                {
+            if (toPoint == false)
+            {
 
-                    if (Vector3.Distance(transform.position, pathDot[currentPoint].position) > roundingDistance && currentState != EnemyState.stagger)
-                    {
-                        Vector3 temp = Vector3.MoveTowards(transform.position,
-                                           pathDot[currentPoint].position,//moves to the point
-                                           moveSpeed * Time.deltaTime); //the log will move to the player
-                        changeAnim(temp - transform.position);
-                        myRigidbody.MovePosition(temp);
-                    }
-                    else
-                    {
-                        ChangeGoal();
-                    }
+                if (Vector3.Distance(transform.position, pathDot[currentPoint].position) > roundingDistance && currentState != EnemyState.stagger)
+                {
+                    Vector3 temp = Vector3.MoveTowards(transform.position,
+                                       pathDot[currentPoint].position,//moves to the point
+                                       moveSpeed * Time.deltaTime); //the log will move to the player
+                    changeAnim(temp - transform.position);
+                    myRigidbody.MovePosition(temp);
                 }
-                else StartCoroutine(Moveback());
-            }       
+                else
+                {
+                    ChangeGoal();
+                }
+            }
+            else
+            {
+
+
+                //StartCoroutine(Moveback());
+                target = AstarPoint.transform;
+            }
+
+        }       
     }
 
     private void ChangeGoal() //check to see what the current goal is

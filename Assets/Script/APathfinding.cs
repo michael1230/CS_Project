@@ -108,7 +108,6 @@ public class APathfinding : MonoBehaviour
             //if (directionNew != directionOld)
             //{
             waypoints.Add(path[i - 1].gridPosition);
-            Debug.Log("gridPosition: "+ path[i - 1].gridPosition);
             //waypoints.Add( new Vector3(path[i - 1].gridX, path[i - 1].gridY, 0));
             //}
             // directionOld = directionNew;
