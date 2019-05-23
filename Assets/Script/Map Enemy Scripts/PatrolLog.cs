@@ -16,7 +16,7 @@ public class PatrolLog : logEnemy {
     public Transform currentGoal;
     public Transform AstarPoint;
     public float roundingDistance;
-    public bool toPoint = false;
+    public bool toPoint = true;
 
     public Collider2D boundary;
 
@@ -27,10 +27,12 @@ public class PatrolLog : logEnemy {
 
     IEnumerator Moveback()//NEED TO PUT THE DOT IN THE MIDDLE AND ROUND IT 4.485 == 4.5
     {
-        yield return new WaitForSecondsRealtime(1);
-        StopAllCoroutines();
-        toPoint = false;
-        yield return null;
+        yield return new WaitForSecondsRealtime(0.1f);
+
+        //yield return new WaitForSeconds(0.3f);
+        //StopAllCoroutines();
+        toPoint = true;
+        //yield return null;
     }
 
     public override void CheckDistance()//will to change to A star algorithm probably
@@ -46,30 +48,30 @@ public class PatrolLog : logEnemy {
                 && boundary.bounds.Contains(targetPlayer.transform.position))
         */
 
-        if (enterOrExit == true)
+        if ((enterOrExit == true))
             {
-                if (currentState == EnemyState.idle || currentState == EnemyState.walk
+            toPoint = false;
+            if (currentState == EnemyState.idle || currentState == EnemyState.walk
                     && currentState != EnemyState.stagger)
                 {
-                    target = targetPlayer;
+                target = targetPlayer;
                 if (once==false)
                 {
                     StartCoroutine(UpdatePath());
                     once = true;
                 }
-                   //StartCoroutine(UpdatePath());
-                    ChangeState(EnemyState.walk);
-                    anim.SetBool("wakeUp", true);
-                    toPoint = true;
+                //StartCoroutine(UpdatePath());
+                ChangeState(EnemyState.walk);
+                anim.SetBool("wakeUp", true);
+                // toPoint = false;
                 }
             }
             //else if (Vector3.Distance(targetPlayer.position, transform.position) > chaseRaidius || !boundary.bounds.Contains(targetPlayer.transform.position))
-            else if (enterOrExit == false)
-            {
+        else if (enterOrExit == false)
+        {
             once = false;
-            if (toPoint == false)
+            if ((toPoint == true))
             {
-
                 if (Vector3.Distance(transform.position, pathDot[currentPoint].position) > roundingDistance && currentState != EnemyState.stagger)
                 {
                     Vector3 temp = Vector3.MoveTowards(transform.position,

@@ -31,6 +31,7 @@ public class BoundaryCheck : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             myEnemy.enterOrExit = false;
+            //myEnemy.toPoint = true;
         }
     }
 
