@@ -23,9 +23,9 @@ public class logEnemy : EnemyOnMap {
         anim.SetBool("wakeUp", true);
         ChangeState(EnemyState.walk);
     }
-	
-	// Update is called once per frame
-	void FixedUpdate ()
+
+    // Update is called once per frame
+    void FixedUpdate ()
     {//check every 30 sec
         CheckDistance();//check the distance bettwen log and player
 	}
@@ -55,6 +55,7 @@ public class logEnemy : EnemyOnMap {
             anim.SetBool("wakeUp", false);
         }
     }
+    
     private void SetAnimFloat(Vector2 setVector)//change animation
     {
         anim.SetFloat("moveX", setVector.x);
@@ -86,7 +87,7 @@ public class logEnemy : EnemyOnMap {
 
         }
     }
-
+    
     public void ChangeState(EnemyState newState)
     {
         if (currentState != newState)
@@ -94,4 +95,5 @@ public class logEnemy : EnemyOnMap {
             currentState = newState;
         }
     }
+    
 }

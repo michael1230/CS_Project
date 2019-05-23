@@ -20,16 +20,17 @@ public class PatrolLog : logEnemy {
 
     public Collider2D boundary;
 
-    public CreateNodesFromTilemaps grid;
+    public bool enterOrExit;
+    public bool once=false;
 
 
 
     IEnumerator Moveback()//NEED TO PUT THE DOT IN THE MIDDLE AND ROUND IT 4.485 == 4.5
     {
         yield return new WaitForSecondsRealtime(1);
+        StopAllCoroutines();
         toPoint = false;
-       
-
+        yield return null;
     }
 
     public override void CheckDistance()//will to change to A star algorithm probably
@@ -38,26 +39,34 @@ public class PatrolLog : logEnemy {
         {
             StartCoroutine(Moveback());
         }
-            if (Vector3.Distance(targetPlayer.position,
-                     transform.position) <= chaseRaidius
-                    && Vector3.Distance(targetPlayer.position,
-                        transform.position) > attackRadius
-                    && boundary.bounds.Contains(targetPlayer.transform.position))
+        /*if (Vector3.Distance(targetPlayer.position,
+                 transform.position) <= chaseRaidius
+                && Vector3.Distance(targetPlayer.position,
+                    transform.position) > attackRadius
+                && boundary.bounds.Contains(targetPlayer.transform.position))
+        */
+
+        if (enterOrExit == true)
             {
                 if (currentState == EnemyState.idle || currentState == EnemyState.walk
                     && currentState != EnemyState.stagger)
                 {
                     target = targetPlayer;
+                if (once==false)
+                {
                     StartCoroutine(UpdatePath());
+                    once = true;
+                }
+                   //StartCoroutine(UpdatePath());
                     ChangeState(EnemyState.walk);
                     anim.SetBool("wakeUp", true);
                     toPoint = true;
                 }
             }
-            else if (Vector3.Distance(targetPlayer.position,
-                              transform.position) > chaseRaidius || !boundary.bounds.Contains(targetPlayer.transform.position))
+            //else if (Vector3.Distance(targetPlayer.position, transform.position) > chaseRaidius || !boundary.bounds.Contains(targetPlayer.transform.position))
+            else if (enterOrExit == false)
             {
-
+            once = false;
             if (toPoint == false)
             {
 
