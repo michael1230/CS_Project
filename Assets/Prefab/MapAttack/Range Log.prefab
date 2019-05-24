@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114389652197182492}
   - component: {fileID: 61198791292799332}
   - component: {fileID: 114359798368041554}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Range Log
   m_TagString: SmallMapEnemy
   m_Icon: {fileID: 0}
@@ -174,7 +174,6 @@ MonoBehaviour:
   targetPlayer: {fileID: 0}
   chaseRaidius: 4
   attackRadius: 0.5
-  homePosition: {fileID: 0}
   anim: {fileID: 0}
 --- !u!212 &212899699969733760
 SpriteRenderer:

@@ -146,8 +146,6 @@ public class BattleManager : MonoBehaviour
         AudioManager.instance.StopMusic();//stop the current music
         AudioManager.instance.PlaySFX(10);//the transition sound
         yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
-        bossBattle = false;//reset every new battle
-        impossibleBattle = false;
         BattleStart(enemiesToSpawn);
         transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, transform.position.z);//put the camera on the battle
         battleCanves.SetActive(false);//wait until we fade in
@@ -1271,6 +1269,8 @@ public class BattleManager : MonoBehaviour
         BattleMenus.offMenu(false);
         BattleMenus.ShowVictoryPanel(true);
         battleActive = false;
+        bossBattle = false;//reset every new battle
+        impossibleBattle = false;
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
         BattleMenus.ShowVictoryPanel(false);
         yield return new WaitForSeconds(.5f);
@@ -1309,6 +1309,8 @@ public class BattleManager : MonoBehaviour
         AudioManager.instance.StopMusic();//stop the battle music
         AudioManager.instance.PlaySFX(0);//start the death music
         battleActive = false;
+        bossBattle = false;//reset every new battle
+        impossibleBattle = false;
         //GameManager.instance.battleActive = false;
         battleCanves.SetActive(false);
         FadeManager.instance.ScenenTransition("GameOver");

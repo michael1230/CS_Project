@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114097997983501538}
   - component: {fileID: 58638956779825192}
   - component: {fileID: 95608803757543596}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: FlowerBlueEnemy
   m_TagString: SmallMapEnemy
   m_Icon: {fileID: 0}
@@ -188,6 +188,8 @@ MonoBehaviour:
   roundingDistance: 0.1
   toPoint: 0
   boundary: {fileID: 0}
+  enterOrExit: 0
+  once: 0
 --- !u!114 &114552446483109464
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1266,6 +1266,10 @@ SpriteAtlas:
   - {fileID: 21300238, guid: 6cac031bed6779c46a20745f38894b77, type: 3}
   - {fileID: 21300218, guid: 6cac031bed6779c46a20745f38894b77, type: 3}
   - {fileID: 21300216, guid: 6cac031bed6779c46a20745f38894b77, type: 3}
+  - {fileID: 21300002, guid: 7caeee9dcf89aee47969378c198989e2, type: 3}
+  - {fileID: 21300000, guid: 7caeee9dcf89aee47969378c198989e2, type: 3}
+  - {fileID: 21300006, guid: 7caeee9dcf89aee47969378c198989e2, type: 3}
+  - {fileID: 21300004, guid: 7caeee9dcf89aee47969378c198989e2, type: 3}
   - {fileID: 21300218, guid: 11793ecdfba75614a95d7b3aae4a5934, type: 3}
   - {fileID: 21300216, guid: 11793ecdfba75614a95d7b3aae4a5934, type: 3}
   - {fileID: 21300252, guid: 11793ecdfba75614a95d7b3aae4a5934, type: 3}
@@ -2629,6 +2633,10 @@ SpriteAtlas:
   - objects_119
   - objects_109
   - objects_108
+  - pokemon_tree_tiles_01_by_wraitex_dbw6f8d_5
+  - pokemon_tree_tiles_01_by_wraitex_dbw6f8d_4
+  - pokemon_tree_tiles_01_by_wraitex_dbw6f8d_7
+  - pokemon_tree_tiles_01_by_wraitex_dbw6f8d_6
   - SF_Outside_A5_109
   - SF_Outside_A5_108
   - SF_Outside_A5_126

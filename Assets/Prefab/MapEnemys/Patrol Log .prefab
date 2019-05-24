@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114645629773962818}
   - component: {fileID: 114779974583956362}
   - component: {fileID: 58195419316624676}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: 'Patrol Log '
   m_TagString: SmallMapEnemy
   m_Icon: {fileID: 0}
@@ -202,6 +202,8 @@ MonoBehaviour:
   roundingDistance: 0.1
   toPoint: 0
   boundary: {fileID: 0}
+  enterOrExit: 0
+  once: 0
 --- !u!212 &212351977911960034
 SpriteRenderer:
   m_ObjectHideFlags: 1

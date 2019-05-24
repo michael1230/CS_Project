@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114407346804015274}
   - component: {fileID: 58133473333621514}
   - component: {fileID: 95773213584452912}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: ScorpionEnemy
   m_TagString: SmallMapEnemy
   m_Icon: {fileID: 0}
@@ -202,6 +202,8 @@ MonoBehaviour:
   roundingDistance: 0.1
   toPoint: 0
   boundary: {fileID: 0}
+  enterOrExit: 0
+  once: 0
 --- !u!212 &212378115224291142
 SpriteRenderer:
   m_ObjectHideFlags: 1

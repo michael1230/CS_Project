@@ -13,6 +13,7 @@ TagManager:
   - Dot
   - FireBall
   - tempAttack
+  - TheBoss
   layers:
   - Default
   - TransparentFX
@@ -22,10 +23,10 @@ TagManager:
   - UI
   - 
   - 
+  - TheBoss
   - MapEnemy
   - Player Projectile
   - Player
-  - 
   - 
   - 
   - 

@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114877853349367994}
   - component: {fileID: 58675457405551736}
   - component: {fileID: 95948596041442864}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: WarmEnemy
   m_TagString: SmallMapEnemy
   m_Icon: {fileID: 0}
@@ -188,6 +188,8 @@ MonoBehaviour:
   roundingDistance: 0.1
   toPoint: 0
   boundary: {fileID: 0}
+  enterOrExit: 0
+  once: 0
 --- !u!114 &114922626707916602
 MonoBehaviour:
   m_ObjectHideFlags: 1
