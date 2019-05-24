@@ -39,7 +39,11 @@ public class GralandChase : MonoBehaviour
 
     public void SpeedMore()
     {
-        moveSpeed += 0.05f;
+        if (GameManager.instance.noMenu==false)
+        {
+            moveSpeed += 0.05f;
+        }
+
     }
 
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
