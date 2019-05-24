@@ -79,17 +79,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))//for test
         {
             //addElement();
-            ElementGet(0);
-        }
-        if (Input.GetKeyDown(KeyCode.R))//for test
-        {
-            //addElement();
-            ElementGet(1);
-        }
-        if (Input.GetKeyDown(KeyCode.E))//for test
-        {
-            //addElement();
-            ElementGet(2);
+            ElementGet();
         }
         if (sceneName == "OldManHouse")
         {
@@ -140,7 +130,7 @@ public class GameManager : MonoBehaviour
     }*/
 
 
-    public void ElementGet( int index)//activate when we defeate a mapBoss
+    public void ElementGet()//activate when we defeate a mapBoss
     {
         //a bool for who was defeated 
        // gotElement[index] = true;

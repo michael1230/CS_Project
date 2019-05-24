@@ -20,22 +20,27 @@ public class EnemyTracker : MonoBehaviour
             {
                 if (enemyOnMap)
                 {
-                    theEnemies[i].GetComponent<EnemyOnMap>().moveSpeed = 2;
+                    //theEnemies[i].GetComponent<EnemyOnMap>().moveSpeed = 2; logEnemy
+
+                    theEnemies[i].GetComponent<logEnemy>().myRigidbody.constraints = RigidbodyConstraints2D.None;
+                    theEnemies[i].GetComponent<logEnemy>().myRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
                 }
                 if (bossOnMap)
                 {
-                    theBoss.GetComponent<EnemyOnMap>().moveSpeed = 2;//later other script!!!!!
+                    theBoss.GetComponent<GralandChase>().myRigidbody.constraints = RigidbodyConstraints2D.None;
+                    theBoss.GetComponent<GralandChase>().myRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
                 }
             }
             else
             {
                 if (enemyOnMap)
                 {
-                    theEnemies[i].GetComponent<EnemyOnMap>().moveSpeed = 0;
+                    //theEnemies[i].GetComponent<EnemyOnMap>().moveSpeed = 0;
+                    theEnemies[i].GetComponent<logEnemy>().myRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
                 }
                 if (bossOnMap)
                 {
-                    theBoss.GetComponent<EnemyOnMap>().moveSpeed = 0;//later other script!!!!!
+                    theBoss.GetComponent<GralandChase>().myRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
                 }
             }
         }

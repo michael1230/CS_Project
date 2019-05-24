@@ -25,13 +25,22 @@ public class GralandChase : MonoBehaviour
         anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform; //finds the player location
         StartCoroutine(UpdatePath());
+        InvokeRepeating("SpeedMore", 1f, 1f);
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update ()
     {
-		
+        if (moveSpeed==12)
+        {
+            CancelInvoke();
+        }
 	}
+
+    public void SpeedMore()
+    {
+        moveSpeed += 0.05f;
+    }
 
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
     {

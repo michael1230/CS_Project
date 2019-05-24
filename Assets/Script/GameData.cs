@@ -22,6 +22,9 @@ public class GameData
     private int[] playersHP;//the hp of the players
     private int[] playersMP;//the mp of the players
     private int[] playersSP;//the sp of the players
+    private float bossSpeed;//the number of enemies on this map
+    private bool bossActive;//if we have enemies on this map
+
     //
     //bool from GameManager for all the maps like inForest
     //
@@ -269,5 +272,27 @@ public class GameData
             this.currentHearts = value;
         }
     }
+    public float BossSpeed
+    {
+        get
+        {
+            return this.bossSpeed;
+        }
+        set
+        {
+            this.bossSpeed = value;
+        }
+    }
 
+    public bool BossActive
+    {
+        get
+        {
+            return this.bossActive;
+        }
+        set
+        {
+            this.bossActive = value;
+        }
+    }
 }

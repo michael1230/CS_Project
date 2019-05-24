@@ -148,10 +148,13 @@ public class GameMenu : MonoBehaviour
         save.ElementGot = GameManager.instance.gotElement;
         save.BossOnMap = GameManager.instance.enemyTracker.bossOnMap;
         save.HeartContainers = heartContainers.heartContainers.initialValue;
- //       save.CurrentHealthInitialValue = PlayerController.instance.currentHealth.initialValue;
+        save.BossSpeed = GameManager.instance.enemyTracker.theBoss.GetComponent<GralandChase>().moveSpeed;
+        save.BossActive = GameManager.instance.enemyTracker.theBoss.GetComponent<GralandChase>().gameObject.active;
+        //       save.CurrentHealthInitialValue = PlayerController.instance.currentHealth.initialValue;
         save.CurrentHealthRuntimeValue = PlayerController.instance.currentHealth.RuntimeValue;
         save.MaxMagic = sliderHolder.playerInventory.maxMagic;
         save.CurrentMagic = sliderHolder.playerInventory.currentMagic;
+
         save.CurrentHearts = new int[5];
         for (int i = 0; i < 5; i++)
         {
@@ -241,8 +244,10 @@ public class GameMenu : MonoBehaviour
 
         PlayerController.instance.imAlive = true;
         GameManager.instance.imReallyDead = true;
+        GameManager.instance.enemyTracker.theBoss.GetComponent<GralandChase>().moveSpeed = data.BossSpeed;
+        GameManager.instance.enemyTracker.theBoss.GetComponent<GralandChase>().gameObject.SetActive(data.BossActive);
 
-//        PlayerController.instance.currentHealth.initialValue = data.CurrentHealthInitialValue;
+        //        PlayerController.instance.currentHealth.initialValue = data.CurrentHealthInitialValue;
         PlayerController.instance.currentHealth.RuntimeValue = data.CurrentHealthRuntimeValue;
         sliderHolder.fireSlider.value = data.CurrentMagic;
         sliderHolder.playerInventory.maxMagic = data.MaxMagic;

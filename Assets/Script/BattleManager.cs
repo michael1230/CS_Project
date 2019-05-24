@@ -1265,6 +1265,10 @@ public class BattleManager : MonoBehaviour
                 activeBattlers[i].anim.SetBool("Win_Full", true);
             }
         }
+        if ((bossBattle==true)&&(impossibleBattle==false))
+        {
+            GameManager.instance.ElementGet();
+        }
         BattleMenus.goToMenu(0, 0);
         BattleMenus.offMenu(false);
         BattleMenus.ShowVictoryPanel(true);
