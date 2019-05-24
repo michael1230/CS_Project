@@ -24,6 +24,7 @@ public class TestBattleTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            PlayerController.instance.MyRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
             StartCoroutine(BattleOn());
         }
     }

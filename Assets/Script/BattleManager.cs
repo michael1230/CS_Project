@@ -1294,6 +1294,8 @@ public class BattleManager : MonoBehaviour
             Destroy(activeBattlers[i].gameObject);
         }
         yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
+        PlayerController.instance.MyRigidbody.constraints = RigidbodyConstraints2D.None;
+        PlayerController.instance.MyRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         BattleMenus.theInfoHolder.SetActive(true);
         battleCanves.SetActive(false);
         battleScene.SetActive(false);

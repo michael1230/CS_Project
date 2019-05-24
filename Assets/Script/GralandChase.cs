@@ -86,16 +86,9 @@ public class GralandChase : MonoBehaviour
                 }
                 currentWaypoint = path[targetIndex];
             }
-
-           // transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime);
-            //transform.position = Vector2.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime);
-
-            //changeAnim(temp - transform.position);
-            // myRigidbody.MovePosition(Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime));
             Vector3 temp = Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime); //the log will move to the player
-            ChangeAnim(temp - transform.position);
+            ChangeAnim(temp.x , transform.position.x);
             myRigidbody.MovePosition(temp);
-            Debug.Log("thjiiskn");
 
             yield return null;
         }
@@ -104,34 +97,31 @@ public class GralandChase : MonoBehaviour
     private void SetAnimFloat(Vector2 setVector)//change animation
     {
         anim.SetFloat("moveX", setVector.x);
-        anim.SetFloat("moveY", setVector.y);
     }
 
-    public void ChangeAnim(Vector2 direction)//change animation direction
+    public void ChangeAnim(float pointTo, float pointFrom)//change animation direction
     {
-        Debug.Log("how many");
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        if (pointFrom>0)
         {
-            if (direction.x > 0)
+            if (pointTo- pointFrom>=0)
             {
                 SetAnimFloat(Vector2.right);
             }
-            else if (direction.x < 0)
+            else
             {
                 SetAnimFloat(Vector2.left);
             }
         }
-        else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y))
+        else
         {
-            if (direction.y > 0)
+            if (pointTo - pointFrom >= 0)
             {
-                SetAnimFloat(Vector2.up);
+                SetAnimFloat(Vector2.left);
             }
-            else if (direction.y < 0)
+            else
             {
-                SetAnimFloat(Vector2.down);
+                SetAnimFloat(Vector2.right);
             }
-
         }
     }
 

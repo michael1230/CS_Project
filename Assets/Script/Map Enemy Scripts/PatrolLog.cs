@@ -16,7 +16,7 @@ public class PatrolLog : logEnemy {
     public Transform currentGoal;
     public Transform AstarPoint;
     public float roundingDistance;
-    public bool toPoint = true;
+   // public bool toPoint = true;
 
     public Collider2D boundary;
 

@@ -10,6 +10,8 @@ public class logEnemy : EnemyOnMap {
     public float chaseRaidius;
     public float attackRadius;
 
+    public bool toPoint = true;
+
     [Header("Animator")]
     public Animator anim;
 
@@ -22,7 +24,8 @@ public class logEnemy : EnemyOnMap {
         targetPlayer = GameObject.FindWithTag("Player").transform; //finds the player location
         anim.SetBool("wakeUp", true);
         ChangeState(EnemyState.walk);
-    }
+        toPoint = true;
+}
 
     // Update is called once per frame
     void FixedUpdate ()
