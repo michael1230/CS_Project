@@ -41,7 +41,7 @@ public class GralandChase : MonoBehaviour
     {
         if (GameManager.instance.noMenu==false)
         {
-            moveSpeed += 0.05f;
+            moveSpeed += 0.02f;
         }
 
     }
