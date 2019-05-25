@@ -886,7 +886,7 @@ public class BattleManager : MonoBehaviour
     public IEnumerator MoveBackAndNextTurnCo()//for moving back to original position
     {
         activeBattlers[currentTurn].effect1 = false;
-        activeBattlers[currentTurn].effect2 = false;
+        activeBattlers[currentTurn].damageNumbers = false;
         activeBattlers[currentTurn].Idle = false;
         activeBattlers[currentTurn].anim.SetBool("Move", true);       
         activeBattlers[currentTurn].moveToPostion(activeBattlers[currentTurn].transform, activeBattlers[currentTurn].transform.parent);
@@ -899,7 +899,7 @@ public class BattleManager : MonoBehaviour
     public IEnumerator MoveBackEnemyAndNextTurnCo()//for moving back to original position
     {
         activeBattlers[currentTurn].effect1 = false;
-        activeBattlers[currentTurn].effect2 = false;
+        activeBattlers[currentTurn].damageNumbers = false;
         activeBattlers[currentTurn].Idle = false;
         activeBattlers[currentTurn].anim.SetBool("Move", true);
         activeBattlers[currentTurn].moveToPostion(activeBattlers[currentTurn].transform, activeBattlers[currentTurn].transform.parent);

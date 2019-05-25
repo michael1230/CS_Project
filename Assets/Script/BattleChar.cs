@@ -27,7 +27,7 @@ public class BattleChar : MonoBehaviour
     public Animator anim;
 
     public bool effect1;
-    public bool effect2;
+    public bool damageNumbers;//  
     public bool Idle;
     public bool goToWin;
 
@@ -77,9 +77,9 @@ public class BattleChar : MonoBehaviour
         effect1 = true;
     }
 
-    public void AttackEffectOn2()
+    public void AttackDamageNumbers()
     {
-        effect2 = true;
+        damageNumbers = true;
     }
 
     public void ReturnToIdle()
