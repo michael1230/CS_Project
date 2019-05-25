@@ -6513,6 +6513,14 @@ MonoBehaviour:
   - {fileID: 114875038835581000, guid: 54541c0b5efc71f4cba411da2c26edb6, type: 2}
   - {fileID: 114642676237376796, guid: 71cb9bb2670ab474fad0031f2103489e, type: 2}
   - {fileID: 114898768606868544, guid: bac3fea0d7abdf34b831f5716711cafe, type: 2}
+  - {fileID: 114752483002511638, guid: b7870b2453903e14eb3aeb4d442384a9, type: 2}
+  - {fileID: 114567204937418738, guid: a19c07ad27d838d4f911c2b1fe9ff28a, type: 2}
+  - {fileID: 114087879188913238, guid: 2bc57850790729e4f95569c577c07def, type: 2}
+  - {fileID: 114376378785583116, guid: 0e3219d77d1bccb4fa52b6513179423b, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   BattleMenus: {fileID: 114813330975381514}
   currentPlayerText: {fileID: 114208864421034054}
   currentMenuText: {fileID: 114684200966542428}
@@ -6908,7 +6916,7 @@ MonoBehaviour:
   dexterity: 0
   anim: {fileID: 0}
   effect1: 0
-  effect2: 0
+  damageNumbers: 0
   Idle: 0
   goToWin: 0
   hasDied: 0
@@ -7870,7 +7878,7 @@ MonoBehaviour:
   dexterity: 0
   anim: {fileID: 0}
   effect1: 0
-  effect2: 0
+  damageNumbers: 0
   Idle: 0
   goToWin: 0
   hasDied: 0
@@ -8789,7 +8797,7 @@ MonoBehaviour:
   dexterity: 100
   anim: {fileID: 0}
   effect1: 0
-  effect2: 0
+  damageNumbers: 0
   Idle: 0
   goToWin: 0
   hasDied: 0
@@ -9561,7 +9569,7 @@ MonoBehaviour:
   dexterity: 0
   anim: {fileID: 0}
   effect1: 0
-  effect2: 0
+  damageNumbers: 0
   Idle: 0
   goToWin: 0
   hasDied: 0
@@ -9779,7 +9787,7 @@ MonoBehaviour:
   dexterity: 0
   anim: {fileID: 0}
   effect1: 0
-  effect2: 0
+  damageNumbers: 0
   Idle: 0
   goToWin: 0
   hasDied: 0
@@ -12250,7 +12258,7 @@ MonoBehaviour:
   dexterity: 0
   anim: {fileID: 0}
   effect1: 0
-  effect2: 0
+  damageNumbers: 0
   Idle: 0
   goToWin: 0
   hasDied: 0
@@ -12756,7 +12764,7 @@ MonoBehaviour:
   dexterity: 0
   anim: {fileID: 0}
   effect1: 0
-  effect2: 0
+  damageNumbers: 0
   Idle: 0
   goToWin: 0
   hasDied: 0
@@ -14763,7 +14771,7 @@ MonoBehaviour:
   dexterity: 0
   anim: {fileID: 0}
   effect1: 0
-  effect2: 0
+  damageNumbers: 0
   Idle: 0
   goToWin: 0
   hasDied: 0
@@ -16049,7 +16057,7 @@ MonoBehaviour:
   dexterity: 0
   anim: {fileID: 0}
   effect1: 0
-  effect2: 0
+  damageNumbers: 0
   Idle: 0
   goToWin: 0
   hasDied: 0

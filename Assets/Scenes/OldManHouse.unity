@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 293108851}
   - component: {fileID: 293108850}
   - component: {fileID: 293108849}
+  - component: {fileID: 293108852}
   m_Layer: 0
   m_Name: oldMan
   m_TagString: Untagged
@@ -261,6 +262,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1851852, y: 1.1851852}
   m_EdgeRadius: 0
+--- !u!114 &293108852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 293108846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 477ba120aeed2824598ffba65673cba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toMaps: {fileID: 1023107878}
 --- !u!1001 &930420258
 Prefab:
   m_ObjectHideFlags: 0
