@@ -6517,10 +6517,10 @@ MonoBehaviour:
   - {fileID: 114567204937418738, guid: a19c07ad27d838d4f911c2b1fe9ff28a, type: 2}
   - {fileID: 114087879188913238, guid: 2bc57850790729e4f95569c577c07def, type: 2}
   - {fileID: 114376378785583116, guid: 0e3219d77d1bccb4fa52b6513179423b, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 114268495396127902, guid: 096b49dc80b4e514dbeaf9e5cfcb1e53, type: 2}
+  - {fileID: 114504494575642086, guid: 818e8410331e4914a8cf83dea9f677a6, type: 2}
+  - {fileID: 114050050628225674, guid: 0d283f244298b3c4c96fb7fa9eeda934, type: 2}
+  - {fileID: 114409964699723738, guid: 140aa24e96c0b1744875283c8ddc1367, type: 2}
   BattleMenus: {fileID: 114813330975381514}
   currentPlayerText: {fileID: 114208864421034054}
   currentMenuText: {fileID: 114684200966542428}
