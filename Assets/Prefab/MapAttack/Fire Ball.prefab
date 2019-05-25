@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 4
   knockTime: 0.4
-  damage: 1
+  damage: 5
 --- !u!212 &212488676597620446
 SpriteRenderer:
   m_ObjectHideFlags: 1

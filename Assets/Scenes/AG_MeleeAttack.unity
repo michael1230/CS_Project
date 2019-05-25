@@ -1031,6 +1031,16 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: -54.470215
       objectReference: {fileID: 0}
+    - target: {fileID: 1304993484030352, guid: 78b4152e4d04cd940bf673857e489ff7, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114381737689366360, guid: 78b4152e4d04cd940bf673857e489ff7,
+        type: 2}
+      propertyPath: playerCurrentHealth
+      value: 
+      objectReference: {fileID: 11400000, guid: 867c4c96ffc6e7f428c5bf92eace0277,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78b4152e4d04cd940bf673857e489ff7, type: 2}
   m_IsPrefabAsset: 0
@@ -53785,9 +53795,12 @@ MonoBehaviour:
   dialogBox: {fileID: 299833221}
   dialogText: {fileID: 16683531}
   dialogText2: {fileID: 925315630}
+  dialogText3: {fileID: 0}
+  name: 
   dialog: pond ahedfvf
   dialog2: cdcd
   playerInRange: 0
+  once: 0
 --- !u!1 &1941161737
 GameObject:
   m_ObjectHideFlags: 0
@@ -53906,6 +53919,7 @@ MonoBehaviour:
   targetPlayer: {fileID: 0}
   chaseRaidius: 4
   attackRadius: 0.5
+  toPoint: 1
   anim: {fileID: 0}
 --- !u!61 &1948718950
 BoxCollider2D:

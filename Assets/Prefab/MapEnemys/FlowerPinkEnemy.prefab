@@ -79,9 +79,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.10858774, y: -0.24280715}
+  m_Offset: {x: 0.062076688, y: -0.18}
   serializedVersion: 2
-  m_Radius: 0.538995
+  m_Radius: 0.54968727
 --- !u!61 &61153971866724806
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -190,6 +190,7 @@ MonoBehaviour:
   targetPlayer: {fileID: 0}
   chaseRaidius: 10
   attackRadius: 0.5
+  toPoint: 0
   anim: {fileID: 0}
   targetOldPosition: {x: 0, y: 0, z: 0}
   pathDot:
@@ -200,7 +201,6 @@ MonoBehaviour:
   currentGoal: {fileID: 0}
   AstarPoint: {fileID: 0}
   roundingDistance: 0.1
-  toPoint: 0
   boundary: {fileID: 0}
   enterOrExit: 0
   once: 0

@@ -20,12 +20,18 @@ public class FireBarManager : MonoBehaviour {
     {
         fireSlider.value += 3;
         playerInventory.currentMagic += 3;//how much magic Fire player gets
+        /*
         if (fireSlider.value > fireSlider.maxValue)
         {
             fireSlider.value = fireSlider.maxValue;
             playerInventory.currentMagic = playerInventory.maxMagic;
         }
-
+        */
+        if (playerInventory.currentMagic > playerInventory.maxMagic)
+        {
+            fireSlider.value = playerInventory.maxMagic;
+            playerInventory.currentMagic = playerInventory.maxMagic;
+        }
     }
 
     public void DecreaseMagic()
