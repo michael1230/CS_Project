@@ -86,10 +86,10 @@ MonoBehaviour:
   - {fileID: 114444373464702530, guid: c901102ce92105c4cbdc612840720591, type: 2}
   charName: DarkAiden
   level: 2.1
-  currentHP: 300
-  maxHP: 300
-  currentMP: 200
-  maxMP: 200
+  currentHP: 200
+  maxHP: 200
+  currentMP: 150
+  maxMP: 150
   currentSP: 50
   maxSP: 50
   strength: 15

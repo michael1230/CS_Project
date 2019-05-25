@@ -90,13 +90,13 @@ MonoBehaviour:
   - {fileID: 114926319387557298, guid: f0242247c50a76042bb9f1fc2df66396, type: 2}
   charName: Garland
   level: 4.1
-  currentHP: 3000
-  maxHP: 3000
+  currentHP: 2500
+  maxHP: 2500
   currentMP: 400
   maxMP: 400
   currentSP: 200
   maxSP: 200
-  strength: 35
+  strength: 30
   defense: 40
   dexterity: 100
   anim: {fileID: 95845436900816114}

@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     public int numberOfElement = 0;
     //public int activePartyMemberIndex = 1;
 
-    public bool gameMenuOpen, dialogActive, fadingBetweenAreas, battleActive,gameOver,noMenu;
+    public bool gameMenuOpen, dialogActive, fadingBetweenAreas, battleActive,gameOver,noMenu, mainMenu;
 
     // Use this for initialization
     private void Awake()
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     {
         sceneName = SceneManager.GetActiveScene().name;
         enemyTracker = FindObjectOfType<EnemyTracker>();
-        if (gameMenuOpen || dialogActive || fadingBetweenAreas || battleActive|| gameOver)
+        if (gameMenuOpen || dialogActive || fadingBetweenAreas || battleActive|| gameOver||mainMenu)
         {
             noMenu = true;
             PlayerController.instance.canMovePlayer = false;

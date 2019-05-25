@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 public class CameraController : MonoBehaviour
 {
 
     public Transform target;
-    //public SimpleBlit effector;
     public Tilemap theMap;
     private Vector3 bottomLeftLimit;
     private Vector3 topRightLimit;
@@ -34,12 +34,11 @@ public class CameraController : MonoBehaviour
 
         halfHeight = Camera.main.orthographicSize;
         halfWidth = halfHeight * Camera.main.aspect;
-
         theMap.CompressBounds();
         bottomLeftLimit = theMap.localBounds.min + new Vector3(halfWidth, halfHeight, 0f);
         topRightLimit = theMap.localBounds.max + new Vector3(-halfWidth, -halfHeight, 0f);
-
         PlayerController.instance.SetBounds(theMap.localBounds.min, theMap.localBounds.max);
+
     }
 
     // LateUpdate is called once per frame after Update

@@ -82,13 +82,13 @@ MonoBehaviour:
   - {fileID: 114641226933197416, guid: 1fa5b811859ad1f4d8900e73673f7dae, type: 2}
   charName: DarkRoselia
   level: 1.1
-  currentHP: 100
-  maxHP: 100
+  currentHP: 75
+  maxHP: 75
   currentMP: 70
   maxMP: 70
   currentSP: 50
   maxSP: 50
-  strength: 20
+  strength: 17
   defense: 20
   dexterity: 20
   anim: {fileID: 95198312652491224}

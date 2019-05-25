@@ -45,7 +45,7 @@ public class GameMenu : MonoBehaviour
     {
         theMenuCanves.worldCamera = Camera.main;//get the main camera and use it
        // if (Input.GetKeyDown(KeyCode.Escape))//if the button is pressed
-        if ((Input.GetKeyDown(KeyCode.Escape))&&(GameManager.instance.gameOver==false) && (GameManager.instance.battleActive == false) && (GameManager.instance.fadingBetweenAreas==false) && (GameManager.instance.dialogActive == false))//if the button is pressed and GameOver is false or battleActive is false (if we are in gameOver or loading from GameOver or in battle) then dont activate menu
+        if ((Input.GetKeyDown(KeyCode.Escape))&&(GameManager.instance.gameOver==false) && (GameManager.instance.battleActive == false) && (GameManager.instance.fadingBetweenAreas==false) && (GameManager.instance.dialogActive == false) && (GameManager.instance.mainMenu == false))//if the button is pressed and GameOver is false or battleActive is false (if we are in gameOver or loading from GameOver or in battle) then dont activate menu
         {
             if (theMenu.activeInHierarchy)//if the menu is open
             {
@@ -221,6 +221,10 @@ public class GameMenu : MonoBehaviour
         GameManager.instance.fadingBetweenAreas = true;
         FadeManager.instance.ScenenTransition("Load");
         yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
+
+        PlayerController.instance.mySprite.enabled = true;
+
+
         AudioManager.instance.StopMusic();
         SceneManager.LoadScene(data.SceneName);
         yield return new WaitForSecondsRealtime(1);
@@ -310,6 +314,7 @@ public class GameMenu : MonoBehaviour
     }
     public void PrepareLoadData(int slot)
     {
+
         GameData data = LoadDataFile(slot);
         StartCoroutine(SceneLoad(data));
         CloseMenu();
