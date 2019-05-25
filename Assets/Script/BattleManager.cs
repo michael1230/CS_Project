@@ -224,7 +224,7 @@ public class BattleManager : MonoBehaviour
                 currenctBattleImeg.sprite = battleImeges[0];
                 AudioManager.instance.PlayBGM(8);//turn on the battle music
             }
-            else if (sceneName == "MB_SceneMoveTest")//later for other battles
+            else if ((sceneName == "MB_SceneMoveTest")|| (sceneName == "ChronoDesert"))//later for other battles
             {
                 currenctBattleImeg.sprite = battleImeges[1];
                 AudioManager.instance.PlayBGM(10);//turn on the battle music
@@ -240,6 +240,10 @@ public class BattleManager : MonoBehaviour
                     }
                 }
                 else if (enemiesToSpawn[0] == "DarkRoselia")//change to other boss name and music
+                {
+                    AudioManager.instance.PlayBGM(12);
+                }
+                else if (enemiesToSpawn[0] == "DarkAiden")//change to other boss name and music
                 {
                     AudioManager.instance.PlayBGM(12);
                 }

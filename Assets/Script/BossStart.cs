@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossStart : MonoBehaviour
 {
     public GralandChase Boss;
+    public bool once=false;
     // Use this for initialization
     void Start ()
     {
@@ -22,6 +23,10 @@ public class BossStart : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Boss.gameObject.SetActive(true);
+            if (once)
+            {
+                Boss.moveSpeed = 0;
+            }
         }
     }
 }

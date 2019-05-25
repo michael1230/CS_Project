@@ -29,4 +29,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DeltaForestKnight.unity
     guid: ec3a6bee02d3cf0489ef10ca2797b4b3
+  - enabled: 1
+    path: Assets/Scenes/ChronoDesert.unity
+    guid: 02b33fca8fc7cce4c8daf76fd584ae7f
+  - enabled: 1
+    path: Assets/Scenes/ChronoDesertKnight.unity
+    guid: af20e9cdf2ebdd848a2cf59d4c6c7561
+  - enabled: 1
+    path: Assets/Scenes/IceAge.unity
+    guid: 1d9322d3f9fd96b4b90e7218d0a8094d
+  - enabled: 1
+    path: Assets/Scenes/IceAgeKnight.unity
+    guid: 0f7ae87e08a208f46acc4c1d8aacdd83
   m_configObjects: {}
