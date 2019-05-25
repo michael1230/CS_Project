@@ -175,9 +175,9 @@ public class BattleManager : MonoBehaviour
                             playersInfos[i].mpSlider.maxValue = thePlayer.maxMP;
                             playersInfos[i].spSlider.maxValue = thePlayer.maxSP;//////////////////////////
                             activeBattlers[i].level = thePlayer.playerLevel;
-                            activeBattlers[i].currentHP = thePlayer.currentHP;
+                            activeBattlers[i].currentHP = thePlayer.maxHP;
                             activeBattlers[i].maxHP = thePlayer.maxHP;
-                            activeBattlers[i].currentMP = thePlayer.currentMP;
+                            activeBattlers[i].currentMP = thePlayer.maxMP;
                             activeBattlers[i].maxMP = thePlayer.maxMP;
                             activeBattlers[i].currentSP = thePlayer.maxSP;
                             activeBattlers[i].maxSP = thePlayer.maxSP;
