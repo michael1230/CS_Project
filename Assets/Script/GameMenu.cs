@@ -140,7 +140,6 @@ public class GameMenu : MonoBehaviour
         {
             pages[i].SetActive(false);//close all the pages
         }
-        dialogBox.SetActive(false);
         theMenu.SetActive(false);//close the menu
         GameManager.instance.gameMenuOpen = false;//tell GameManager that the menu is closed so that we start movement 
     }
