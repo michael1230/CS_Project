@@ -33,7 +33,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4516598766472834
 Transform:
   m_ObjectHideFlags: 1
@@ -41,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1852428236454754}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.38, y: 5.8, z: 0}
+  m_LocalPosition: {x: 9.34, y: 13.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,9 +79,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.28077912}
+  m_Offset: {x: -0.00999999, y: -0.08139849}
   serializedVersion: 2
-  m_Radius: 0.39205432
+  m_Radius: 0.45226908
 --- !u!61 &61652173930704248
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -94,7 +94,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.016783476, y: -0.09829521}
+  m_Offset: {x: -0.016783476, y: -0.04}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -190,6 +190,7 @@ MonoBehaviour:
   targetPlayer: {fileID: 0}
   chaseRaidius: 10
   attackRadius: 0.5
+  toPoint: 0
   anim: {fileID: 0}
   targetOldPosition: {x: 0, y: 0, z: 0}
   pathDot:
@@ -200,7 +201,6 @@ MonoBehaviour:
   currentGoal: {fileID: 0}
   AstarPoint: {fileID: 0}
   roundingDistance: 0.1
-  toPoint: 0
   boundary: {fileID: 0}
   enterOrExit: 0
   once: 0
