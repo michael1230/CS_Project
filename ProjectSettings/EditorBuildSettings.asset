@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/IceAgeKnight.unity
     guid: 0f7ae87e08a208f46acc4c1d8aacdd83
+  - enabled: 1
+    path: Assets/Scenes/DarkLand.unity
+    guid: 4e2ee22cd2e3a3548ae1c1bd73c441c4
   m_configObjects: {}

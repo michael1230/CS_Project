@@ -13,10 +13,17 @@ public class GameManager : MonoBehaviour
     public int[] bonusThirdElement;
     public int[] bonusFourthElement;
     public bool[] gotElement;
+
+    public bool cheatsON = false;
+
     public bool inForest = true;
     public bool inDesert = true;
+    public bool inIce = true;
+
+
     public bool imReallyDead = true;
     public bool canAttack = true;
+    public bool gameBeat = false;
     public string sceneName;
     public CharStats[] playerStats;//work on activate playerStats if the number of element!!!!
 
@@ -75,13 +82,17 @@ public class GameManager : MonoBehaviour
             imReallyDead = false;
         }
 
-
-        if (Input.GetKeyDown(KeyCode.T))//for test
+        if (cheatsON==true)
         {
-            //addElement();
-            ElementGet();
+            if (Input.GetKeyDown(KeyCode.T))//for test
+            {
+                //addElement();
+                ElementGet();
+            }
         }
-        if (sceneName == "OldManHouse")
+
+       
+        if ((sceneName == "OldManHouse")||(sceneName == "DeltaForestKnight") ||(sceneName == "ChronoDesertKnight") ||(sceneName == "IceAgeKnight") ||(sceneName == "DarkLand"))
         {
             canAttack = false;
             GameMenu.instance.healthHolder.SetActive(false);
@@ -97,12 +108,23 @@ public class GameManager : MonoBehaviour
             GameMenu.instance.sliderHolder.fireSlider.value = GameMenu.instance.sliderHolder.fireSlider.maxValue;
             inForest = false;
         }
-        else if ((sceneName == "MB_SceneMoveTest")&& (battleActive == false) && (inDesert == true))//later for other battles
+        else if (((sceneName == "MB_MapForBattle") || (sceneName == "ChronoDesert")) && (battleActive == false) && (inDesert == true))//later for forest battles
         {
             canAttack = true;
             GameMenu.instance.healthHolder.SetActive(true);
             GameMenu.instance.heartContainers.heartContainers.initialValue = 4;
             PlayerController.instance.currentHealth.initialValue = 8;
+            GameMenu.instance.heartContainers.InitHearts();
+            GameMenu.instance.sliderHolder.playerInventory.currentMagic = GameMenu.instance.sliderHolder.playerInventory.maxMagic;
+            GameMenu.instance.sliderHolder.fireSlider.value = GameMenu.instance.sliderHolder.playerInventory.currentMagic;
+            inDesert = false;
+        }
+        else if (((sceneName == "MB_MapForBattle") || (sceneName == "IceAge")) && (battleActive == false) && (inIce == true))//later for forest battles
+        {
+            canAttack = true;
+            GameMenu.instance.healthHolder.SetActive(true);
+            GameMenu.instance.heartContainers.heartContainers.initialValue = 5;
+            PlayerController.instance.currentHealth.initialValue = 10;
             GameMenu.instance.heartContainers.InitHearts();
             GameMenu.instance.sliderHolder.playerInventory.currentMagic = GameMenu.instance.sliderHolder.playerInventory.maxMagic;
             GameMenu.instance.sliderHolder.fireSlider.value = GameMenu.instance.sliderHolder.playerInventory.currentMagic;

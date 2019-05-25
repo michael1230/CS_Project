@@ -152,6 +152,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114433674862380934, guid: 31e53067ffd75e444a7e8cd7bb0144ee,
+        type: 2}
+      propertyPath: theMap
+      value: 
+      objectReference: {fileID: 1054585991}
+    - target: {fileID: 114433674862380934, guid: 31e53067ffd75e444a7e8cd7bb0144ee,
+        type: 2}
+      propertyPath: musicToPlay
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31e53067ffd75e444a7e8cd7bb0144ee, type: 2}
   m_IsPrefabAsset: 0
@@ -2296,6 +2306,11 @@ Prefab:
         type: 2}
       propertyPath: areaToLoad
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114794562716159394, guid: 60160f82edce74b489f79e53124e668b,
+        type: 2}
+      propertyPath: areaTransitionName
+      value: ToKnightIce
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60160f82edce74b489f79e53124e668b, type: 2}
@@ -5598,6 +5613,11 @@ Prefab:
       propertyPath: m_Size.x
       value: 6.4485903
       objectReference: {fileID: 0}
+    - target: {fileID: 114894562221189346, guid: daf42266a5aa0b44a9b3899c6212ef05,
+        type: 2}
+      propertyPath: name
+      value: Sakura
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daf42266a5aa0b44a9b3899c6212ef05, type: 2}
   m_IsPrefabAsset: 0
@@ -6221,6 +6241,16 @@ Prefab:
     - target: {fileID: 1495965752641520, guid: 60160f82edce74b489f79e53124e668b, type: 2}
       propertyPath: m_Name
       value: toOldMan
+      objectReference: {fileID: 0}
+    - target: {fileID: 114794562716159394, guid: 60160f82edce74b489f79e53124e668b,
+        type: 2}
+      propertyPath: areaTransitionName
+      value: OldManToIce
+      objectReference: {fileID: 0}
+    - target: {fileID: 114794562716159394, guid: 60160f82edce74b489f79e53124e668b,
+        type: 2}
+      propertyPath: areaToLoad
+      value: OldManHouse
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60160f82edce74b489f79e53124e668b, type: 2}

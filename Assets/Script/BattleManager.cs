@@ -53,6 +53,7 @@ public class BattleManager : MonoBehaviour
     public bool impossibleBattle;
 
 
+
     public bool next=false;////////////////////////
     // Use this for initialization
     void Start()
@@ -79,62 +80,65 @@ public class BattleManager : MonoBehaviour
                     StartCoroutine(EnemyMoveCo());//start the Coroutine for the enemy turn
                 }
             }
-
-            if (Input.GetKeyDown(KeyCode.N))///for test!!
+            if (GameManager.instance.cheatsON==true)
             {
-                NextTurn();
-            }
-
-            if (Input.GetKeyDown(KeyCode.K))///for test!!
-            {
-                activeBattlers[currentTurn].currentMP = activeBattlers[currentTurn].maxMP;
-                activeBattlers[currentTurn].currentSP = activeBattlers[currentTurn].maxSP;
-            }
-            if (Input.GetKeyDown(KeyCode.L))///for test!!
-            { 
-                for (int i = 0; i < GameManager.instance.totalItems.Length; i++)
+                if (Input.GetKeyDown(KeyCode.N))///for test!!
                 {
-                    GameManager.instance.totalItems[i].ItemAmount = 10;
+                    NextTurn();
                 }
-            }
-            if (Input.GetKeyDown(KeyCode.M))///for test!!
-            {
-                for (int i = 0; i < activeBattlers.Count; i++)
+
+                if (Input.GetKeyDown(KeyCode.K))///for test!!
                 {
-                    if(!activeBattlers[i].isPlayer)
+                    activeBattlers[currentTurn].currentMP = activeBattlers[currentTurn].maxMP;
+                    activeBattlers[currentTurn].currentSP = activeBattlers[currentTurn].maxSP;
+                }
+                if (Input.GetKeyDown(KeyCode.L))///for test!!
+                {
+                    for (int i = 0; i < GameManager.instance.totalItems.Length; i++)
                     {
-                        activeBattlers[i].currentHP = 1;
+                        GameManager.instance.totalItems[i].ItemAmount = 10;
                     }
                 }
-            }
-            if (Input.GetKeyDown(KeyCode.J))///for test!!
-            {
-                for (int i = 0; i < activeBattlers.Count; i++)
+                if (Input.GetKeyDown(KeyCode.M))///for test!!
                 {
-                    if (activeBattlers[i].isPlayer)
+                    for (int i = 0; i < activeBattlers.Count; i++)
                     {
-                        activeBattlers[i].currentHP = 1;
-                    }
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.P))///for test!!
-            {
-                for (int i = 0; i < activeBattlers.Count; i++)
-                {
-                    if (activeBattlers[i].isPlayer)
-                    {
-                        if(i==0)
+                        if (!activeBattlers[i].isPlayer)
                         {
                             activeBattlers[i].currentHP = 1;
-                        }                           
-                        else
-                        {
-                            activeBattlers[i].currentHP = 0;
                         }
-                        
+                    }
+                }
+                if (Input.GetKeyDown(KeyCode.J))///for test!!
+                {
+                    for (int i = 0; i < activeBattlers.Count; i++)
+                    {
+                        if (activeBattlers[i].isPlayer)
+                        {
+                            activeBattlers[i].currentHP = 1;
+                        }
+                    }
+                }
+                if (Input.GetKeyDown(KeyCode.P))///for test!!
+                {
+                    for (int i = 0; i < activeBattlers.Count; i++)
+                    {
+                        if (activeBattlers[i].isPlayer)
+                        {
+                            if (i == 0)
+                            {
+                                activeBattlers[i].currentHP = 1;
+                            }
+                            else
+                            {
+                                activeBattlers[i].currentHP = 0;
+                            }
+
+                        }
                     }
                 }
             }
+            
         }
     }
 
@@ -229,14 +233,27 @@ public class BattleManager : MonoBehaviour
                 currenctBattleImeg.sprite = battleImeges[1];
                 AudioManager.instance.PlayBGM(10);//turn on the battle music
             }
+            else if ((sceneName == "MB_jkljkl") || (sceneName == "IceAge"))//later for other battles
+            {
+                currenctBattleImeg.sprite = battleImeges[2];
+                AudioManager.instance.PlayBGM(16);//turn on the battle music
+            }
+            else if ((sceneName == "MB_jklddjkl") || (sceneName == "DarkLand"))//later for other battles
+            {
+                currenctBattleImeg.sprite = battleImeges[3];
+                AudioManager.instance.PlayBGM(19);//turn on the battle music
+            }
+
+
+
             if (bossBattle == true)
             {
                 if (enemiesToSpawn[0] == "Garland")//the first is always the boss!!!
                 {
-                    AudioManager.instance.PlayBGM(9);
                     if (GameManager.instance.numberOfElement<3)//check for elements number
                     {
                         impossibleBattle = true;
+                        AudioManager.instance.PlayBGM(9);
                     }
                 }
                 else if (enemiesToSpawn[0] == "DarkRoselia")//change to other boss name and music
@@ -245,7 +262,11 @@ public class BattleManager : MonoBehaviour
                 }
                 else if (enemiesToSpawn[0] == "DarkAiden")//change to other boss name and music
                 {
-                    AudioManager.instance.PlayBGM(12);
+                    AudioManager.instance.PlayBGM(14);
+                }
+                else if (enemiesToSpawn[0] == "DarkSakura")//change to other boss name and music
+                {
+                    AudioManager.instance.PlayBGM(17);
                 }
 
                 /*else if (enemiesToSpawn[0] == "otherBoss")//change to other boss name and music
@@ -1272,6 +1293,10 @@ public class BattleManager : MonoBehaviour
         if ((bossBattle==true)&&(impossibleBattle==false))
         {
             GameManager.instance.ElementGet();
+        }
+        else if ((bossBattle == true) && (impossibleBattle == true))
+        {
+            GameManager.instance.gameBeat=true;
         }
         BattleMenus.goToMenu(0, 0);
         BattleMenus.offMenu(false);
