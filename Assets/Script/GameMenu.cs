@@ -113,6 +113,27 @@ public class GameMenu : MonoBehaviour
         }
     }
 
+    public void QuitToMain()//need to add!!
+    {
+
+        CloseMenu();//close it
+        StartCoroutine(SceneSwitch());
+    }
+
+
+    public IEnumerator SceneSwitch()
+    {
+        FadeManager.instance.ScenenTransition("ScenensFade");
+        yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
+        PlayerController.instance.mySprite.enabled = true;
+        GameManager.instance.mainMenu = false;
+        SceneManager.LoadScene("MainMenu");
+        GameManager.instance.fadingBetweenAreas = false;
+        GameManager.instance.gameOver = false;
+
+    }
+
+
     public void CloseMenu()//a method to close the menu and all the pages
     {
         for (int i = 0; i < pages.Length; i++)

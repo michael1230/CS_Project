@@ -6489,6 +6489,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4c38a2b9041c88748add8abf7c31433c, type: 3}
   - {fileID: 21300000, guid: 92609e186aa6f9347a6513f9b7766702, type: 3}
   - {fileID: 21300000, guid: bc1d0034ebff3f149b28b486f3ed6e21, type: 3}
+  - {fileID: 21300000, guid: dfce6b7656338c244aefe65269df8585, type: 3}
   playerPositions:
   - {fileID: 4864725483362994}
   - {fileID: 4986765680515272}

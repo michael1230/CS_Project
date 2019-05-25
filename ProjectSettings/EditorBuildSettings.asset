@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 25a2981435c1771499db7556ccc5f8f6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MB_MapForBattle.unity
     guid: 7f4eb1b0621390c4f94f3f785d8b5c7b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MB_SceneMoveTest.unity
     guid: 422bbe447aee3bc479b168fb266ec9f1
   - enabled: 1
