@@ -34,7 +34,7 @@ public class Sign : MonoBehaviour
             dialogText2 = GameMenu.instance.dialogBoxLine2;
             dialogText3 = GameMenu.instance.dialogBoxLine3;
         }
-        if ((Input.GetKeyDown(KeyCode.Space) && playerInRange) && (GameManager.instance.sceneName == "OldManHouse")) //if player presses space near the sign then
+        if ((Input.GetKeyDown(KeyCode.Space) && playerInRange) && (GameManager.instance.sceneName == "OldManHouse")&&(GameManager.instance.gameMenuOpen==false)) //if player presses space near the sign then
         {
             if (dialogBox.activeInHierarchy) //if dialogBox is active change to false
             {
