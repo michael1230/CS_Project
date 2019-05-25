@@ -26,6 +26,7 @@ public class GameOver : MonoBehaviour
     {
         PlayerController.instance.currentState = PlayerState.idle;
         PlayerController.instance.mySprite.enabled = true;
+        headLine.gameObject.SetActive(true);
         //GameMenu.instance.healthHolder.SetActive(false);
         PlayerController.instance.transform.position = new Vector2(0,0);
         GameManager.instance.gameOver = true;
@@ -108,31 +109,38 @@ public class GameOver : MonoBehaviour
 
     public void QuitToMain()//need to add!!
     {
-        Destroy(GameManager.instance.gameObject);
-        Destroy(PlayerController.instance.gameObject);
-        Destroy(GameMenu.instance.gameObject);
-        Destroy(AudioManager.instance.gameObject);
-        Destroy(BattleManager.instance.gameObject);
 
-        SceneManager.LoadScene(mainMenuScene);
+        ShowPageButton(2);
+        headLine.gameObject.SetActive(false);
+        StartCoroutine(SceneSwitch());
     }
 
 
     public void QuitGame()//need to add!!
     {
-        Destroy(GameManager.instance.gameObject);
-        Destroy(PlayerController.instance.gameObject);
-        Destroy(GameMenu.instance.gameObject);
-        Destroy(AudioManager.instance.gameObject);
-        Destroy(BattleManager.instance.gameObject);
 
-        SceneManager.LoadScene(mainMenuScene);
+        ShowPageButton(2);
+        headLine.gameObject.SetActive(false);
+        Application.Quit();
+        
     }
 
     public void LoadLastSave(int slot)
     {
         ShowPageButton(2);
         GameMenu.instance.PrepareLoadData(slot);
+    }
+
+    public IEnumerator SceneSwitch()
+    {
+        FadeManager.instance.ScenenTransition("ScenensFade");
+        yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
+        PlayerController.instance.mySprite.enabled = true;
+        GameManager.instance.mainMenu = false;
+        SceneManager.LoadScene("MainMenu");
+        GameManager.instance.fadingBetweenAreas = false;
+        GameManager.instance.gameOver = false;
+
     }
 
 }

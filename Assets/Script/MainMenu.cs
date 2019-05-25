@@ -66,6 +66,7 @@ public class MainMenu : MonoBehaviour
         yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
         PlayerController.instance.mySprite.enabled = true;
         GameManager.instance.mainMenu = false;
+
         SceneManager.LoadScene("OldManHouse");
         PlayerController.instance.gameObject.transform.position = new Vector3(-1.18f, -1.49f, 0);
         GameManager.instance.fadingBetweenAreas = false;

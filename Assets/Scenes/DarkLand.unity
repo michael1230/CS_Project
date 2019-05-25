@@ -6654,7 +6654,7 @@ Prefab:
     - target: {fileID: 114794562716159394, guid: 60160f82edce74b489f79e53124e668b,
         type: 2}
       propertyPath: areaTransitionName
-      value: OldManToForest
+      value: OldManToLast
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60160f82edce74b489f79e53124e668b, type: 2}

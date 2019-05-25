@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public bool inForest = true;
     public bool inDesert = true;
     public bool inIce = true;
+    public bool inDark = true;
 
 
     public bool imReallyDead = true;
@@ -102,10 +103,15 @@ public class GameManager : MonoBehaviour
             canAttack = true;
             GameMenu.instance.healthHolder.SetActive(true);
             GameMenu.instance.heartContainers.heartContainers.initialValue = 3;
+            GameMenu.instance.heartContainers.heartContainers.RuntimeValue = 3;
             PlayerController.instance.currentHealth.initialValue = 6;
+            PlayerController.instance.currentHealth.RuntimeValue = 6;
             GameMenu.instance.heartContainers.InitHearts();
             GameMenu.instance.sliderHolder.playerInventory.currentMagic = GameMenu.instance.sliderHolder.playerInventory.maxMagic;
             GameMenu.instance.sliderHolder.fireSlider.value = GameMenu.instance.sliderHolder.fireSlider.maxValue;
+            totalItems[0].ItemAmount = 10;
+            totalItems[1].ItemAmount = 10;
+            totalItems[2].ItemAmount = 10;
             inForest = false;
         }
         else if (((sceneName == "MB_MapForBattle") || (sceneName == "ChronoDesert")) && (battleActive == false) && (inDesert == true))//later for forest battles
@@ -113,10 +119,15 @@ public class GameManager : MonoBehaviour
             canAttack = true;
             GameMenu.instance.healthHolder.SetActive(true);
             GameMenu.instance.heartContainers.heartContainers.initialValue = 4;
+            GameMenu.instance.heartContainers.heartContainers.RuntimeValue = 4;
             PlayerController.instance.currentHealth.initialValue = 8;
+            PlayerController.instance.currentHealth.RuntimeValue = 8;
             GameMenu.instance.heartContainers.InitHearts();
             GameMenu.instance.sliderHolder.playerInventory.currentMagic = GameMenu.instance.sliderHolder.playerInventory.maxMagic;
             GameMenu.instance.sliderHolder.fireSlider.value = GameMenu.instance.sliderHolder.playerInventory.currentMagic;
+            totalItems[0].ItemAmount = 13;
+            totalItems[1].ItemAmount = 13;
+            totalItems[2].ItemAmount = 13;
             inDesert = false;
         }
         else if (((sceneName == "MB_MapForBattle") || (sceneName == "IceAge")) && (battleActive == false) && (inIce == true))//later for forest battles
@@ -124,11 +135,23 @@ public class GameManager : MonoBehaviour
             canAttack = true;
             GameMenu.instance.healthHolder.SetActive(true);
             GameMenu.instance.heartContainers.heartContainers.initialValue = 5;
+            GameMenu.instance.heartContainers.heartContainers.RuntimeValue = 5;
             PlayerController.instance.currentHealth.initialValue = 10;
+            PlayerController.instance.currentHealth.RuntimeValue = 10;
             GameMenu.instance.heartContainers.InitHearts();
             GameMenu.instance.sliderHolder.playerInventory.currentMagic = GameMenu.instance.sliderHolder.playerInventory.maxMagic;
             GameMenu.instance.sliderHolder.fireSlider.value = GameMenu.instance.sliderHolder.playerInventory.currentMagic;
-            inDesert = false;
+            totalItems[0].ItemAmount = 15;
+            totalItems[1].ItemAmount = 15;
+            totalItems[2].ItemAmount = 15;
+            inIce = false;
+        }
+        else if (((sceneName == "MB_MapForBattle") || (sceneName == "DarkLand")) && (battleActive == false) && (inDark == true))//later for forest battles
+        {
+            totalItems[0].ItemAmount = 20;
+            totalItems[1].ItemAmount = 20;
+            totalItems[2].ItemAmount = 20;
+            inDark = false;
         }
 
     }

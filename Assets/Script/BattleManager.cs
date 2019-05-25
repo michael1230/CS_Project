@@ -223,17 +223,17 @@ public class BattleManager : MonoBehaviour
 
             string sceneName = SceneManager.GetActiveScene().name;
 
-            if ((sceneName == "MB_MapForBattle")|| (sceneName == "DeltaForest"))//later for forest battles
+            if ((sceneName == "MB_MapForBattle")|| (sceneName == "DeltaForest") || (sceneName == "DeltaForestKnight"))//later for forest battles
             {
                 currenctBattleImeg.sprite = battleImeges[0];
                 AudioManager.instance.PlayBGM(8);//turn on the battle music
             }
-            else if ((sceneName == "MB_SceneMoveTest")|| (sceneName == "ChronoDesert"))//later for other battles
+            else if ((sceneName == "MB_SceneMoveTest")|| (sceneName == "ChronoDesert") || (sceneName == "ChronoDesertKnight"))//later for other battles
             {
                 currenctBattleImeg.sprite = battleImeges[1];
                 AudioManager.instance.PlayBGM(10);//turn on the battle music
             }
-            else if ((sceneName == "MB_jkljkl") || (sceneName == "IceAge"))//later for other battles
+            else if ((sceneName == "MB_jkljkl") || (sceneName == "IceAge") || (sceneName == "IceAgeKnight"))//later for other battles
             {
                 currenctBattleImeg.sprite = battleImeges[2];
                 AudioManager.instance.PlayBGM(16);//turn on the battle music
