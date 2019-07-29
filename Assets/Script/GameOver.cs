@@ -10,38 +10,29 @@ using UnityEngine.UI;
 public class GameOver : MonoBehaviour
 {
 
-    public string mainMenuScene;
-    public string loadGameScene;
-    public GameObject[] Pages;
-    public TextMeshProUGUI headLine;
-    //0->Button
-    //1->Load
-
-    public Button[] loadButtons;
-
-
+    public GameObject[] Pages;//the pages for the game over menu
+    //0->Button page
+    //1->Load page
+    public TextMeshProUGUI headLine;//the headline of the scene
+    public Button[] loadButtons;//the buttons
 
     // Use this for initialization
-    void Start()
+    void Start()//reset values 
     {
         PlayerController.instance.currentState = PlayerState.idle;
         PlayerController.instance.mySprite.enabled = true;
         headLine.gameObject.SetActive(true);
-        //GameMenu.instance.healthHolder.SetActive(false);
         PlayerController.instance.transform.position = new Vector2(0,0);
         GameManager.instance.gameOver = true;
         headLine.alpha = 0;
         StartCoroutine(FadeIN(0, 1, 5f));
     }
-
     // Update is called once per frame
     void Update()
     {
-        //GameManager.instance.gameOver = true;
+
     }
-
-
-    IEnumerator FadeIN(float oldValue, float newValue, float duration)
+    IEnumerator FadeIN(float oldValue, float newValue, float duration)//make the headline fade in
     {
         float value = 0f;
         for (float t = 0f; t < duration; t += Time.deltaTime)//for loop to Fade in
@@ -52,36 +43,28 @@ public class GameOver : MonoBehaviour
         }
         value = newValue;
         headLine.alpha = value;
-        ShowPageButton(1);
-        //yield return new WaitForSeconds(.3f);
+        ShowPageButton(1);//now after the headline is here show the buttons 
     }
-
-
-
     public void ShowPageButton(int onOff)
     {
-        if (onOff == 0)
+        if (onOff == 0)//show the load buttons
         {
             Pages[0].SetActive(false);//show the page we want
             Pages[1].SetActive(true);//show the page we want
             LoadButtonsEnable();
         }
-        else if (onOff == 1)
+        else if (onOff == 1)//show the menu buttons
         {
             Pages[0].SetActive(true);//show the page we want
             Pages[1].SetActive(false);//show the page we want
         }
-        else if (onOff == 2)
+        else if (onOff == 2)//close both of the menus
         {
             Pages[0].SetActive(false);//show the page we want
             Pages[1].SetActive(false);//show the page we want
         }
     }
-
-
-
-
-    public void LoadButtonsEnable()
+    public void LoadButtonsEnable()//a method to make only the button that the save exits in this system pressable 
     {
         for (int i = 0; i < loadButtons.Length; i++)
         {
@@ -100,47 +83,47 @@ public class GameOver : MonoBehaviour
             }
         }
     }
-
     public void PlayButtonSound()//a method to play button sound
     {
         AudioManager.instance.PlaySFX(4);
     }
-
-
-    public void QuitToMain()//need to add!!
+    public void QuitToMain()//a method to quit to main menu
     {
 
         ShowPageButton(2);
         headLine.gameObject.SetActive(false);
         StartCoroutine(SceneSwitch());
     }
-
-
-    public void QuitGame()//need to add!!
+    public void QuitGame()//a method to quit the game
     {
-
         ShowPageButton(2);
         headLine.gameObject.SetActive(false);
-        Application.Quit();
-        
+        Application.Quit();       
     }
-
-    public void LoadLastSave(int slot)
+    public void LoadLastSave(int slot)//a method to load the save
     {
         ShowPageButton(2);
+        if(slot==0)//if we want to load the latest save thin its 0
+        {
+            for (int i = 0; i < loadButtons.Length; i++)//on the first interactable button we load it
+            {
+                if(loadButtons[i].interactable == true)
+                {
+                    slot = i;
+                    break;
+                }
+            }
+        }
         GameMenu.instance.PrepareLoadData(slot);
     }
-
-    public IEnumerator SceneSwitch()
+    public IEnumerator SceneSwitch()//a Coroutine to go back to main menu
     {
-        FadeManager.instance.ScenenTransition("ScenensFade");
-        yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
-        PlayerController.instance.mySprite.enabled = true;
-        GameManager.instance.mainMenu = false;
-        SceneManager.LoadScene("MainMenu");
-        GameManager.instance.fadingBetweenAreas = false;
-        GameManager.instance.gameOver = false;
-
+        FadeManager.instance.ScenenTransition("ScenensFade");//start the ScenenTransition with ScenensFade effect
+        yield return new WaitUntil(() => FadeManager.instance.midTransition == true);//wait until the screen is black
+        PlayerController.instance.mySprite.enabled = true;//show the player sprite
+        GameManager.instance.mainMenu = false;//reset
+        SceneManager.LoadScene("MainMenu");//load the scene
+        GameManager.instance.fadingBetweenAreas = false;//reset
+        GameManager.instance.gameOver = false;//reset
     }
-
 }

@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class BattleMagicSelect : MonoBehaviour {
 
-    public BattleMove theMove;
-    public Text nameText;
-    public Text costText;
+    public BattleMove theMove;//the move object
+    public Text nameText;//the text for the name
+    public Text costText;//the text for the move cost
 
     // Use this for initialization
     void Start()
@@ -22,13 +22,13 @@ public class BattleMagicSelect : MonoBehaviour {
     }
     public void Press()
     {
-        if (theMove.isAttackMagic())
+        if (theMove.isAttackMagic())//if the move is AttackMagic
         {
-            BattleManager.instance.OpenTargetMenu(theMove,1);
+            BattleManager.instance.OpenTargetMenu(theMove,1);//open the target select menu
         }
-        else if (theMove.isSelfMagic())
+        else if (theMove.isSelfMagic())//if the move is SelfMagic
         {
-            BattleManager.instance.OpenSelfMenu(theMove, null,1,false);
+            BattleManager.instance.OpenSelfMenu(theMove, null,1,false);//open the self target select menu
         }
 
     }

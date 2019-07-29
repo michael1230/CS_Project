@@ -7,18 +7,14 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-
-
-
-    public GameObject[] HeadLines;
-    public GameObject[] Pages;
+    public GameObject[] HeadLines;//the headline of this scene
+    public GameObject[] Pages;//the [ages of this menu
     //0->startPage
     //1->load page
-    public Button[] loadButtons;
-
+    public Button[] loadButtons;//the load data buttons
 
     // Use this for initialization
-    void Start()
+    void Start()//reset values
     {
         PlayerController.instance.mySprite.enabled = false;
         GameManager.instance.mainMenu = true;
@@ -27,52 +23,42 @@ public class MainMenu : MonoBehaviour
         HeadLines[2].SetActive(true);
         ShowPageButton(0);
     }
-
     // Update is called once per frame
     void Update()
     {
 
     }
-
-    public void NewGame()
+    public void NewGame()//a method for creating a new game
     {
-        ShowPageButton(2);
-        HeadLines[0].SetActive(false);
-        HeadLines[1].SetActive(false);
-        HeadLines[2].SetActive(false);
-        StartCoroutine(SceneSwitch());
+        ShowPageButton(2);//turn off the pages
+        HeadLines[0].SetActive(false);//turn off the headline
+        HeadLines[1].SetActive(false);//turn off the headline
+        HeadLines[2].SetActive(false);//turn off the headline
+        StartCoroutine(SceneSwitch());//start the Coroutine
     }
-
-    public void Exit()
+    public void Exit()//a method to exit the game
     {
-        ShowPageButton(2);
-        HeadLines[0].SetActive(false);
-        HeadLines[1].SetActive(false);
-        HeadLines[2].SetActive(false);
-        ///////
+        ShowPageButton(2);//turn off the pages
+        HeadLines[0].SetActive(false);//turn off the headline
+        HeadLines[1].SetActive(false);//turn off the headline
+        HeadLines[2].SetActive(false);//turn off the headline
         Application.Quit();
     }
-
-
     public void PlayButtonSound()//a method to play button sound
     {
         AudioManager.instance.PlaySFX(4);
     }
-
-
-    public IEnumerator SceneSwitch()
+    public IEnumerator SceneSwitch()//a method to go to the first map
     {
-        FadeManager.instance.ScenenTransition("ScenensFade");
-        yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
-        PlayerController.instance.mySprite.enabled = true;
-        GameManager.instance.mainMenu = false;
-
-        SceneManager.LoadScene("OldManHouse");
-        PlayerController.instance.gameObject.transform.position = new Vector3(-1.18f, -1.49f, 0);
-        GameManager.instance.fadingBetweenAreas = false;
+        FadeManager.instance.ScenenTransition("ScenensFade");//start the ScenenTransition with ScenensFade effect
+        yield return new WaitUntil(() => FadeManager.instance.midTransition == true);//wait until the screen is black
+        PlayerController.instance.mySprite.enabled = true;//show the player sprite
+        GameManager.instance.mainMenu = false;//reset
+        SceneManager.LoadScene("OldManHouse");//load the scene
+        PlayerController.instance.gameObject.transform.position = new Vector3(-1.18f, -1.49f, 0);//reset the player position
+        GameManager.instance.fadingBetweenAreas = false;//reset
     }
-
-    public void ShowPageButton(int onOff)
+    public void ShowPageButton(int onOff)//a method for showing the right pages
     {
         if (onOff == 0)//start page
         {
@@ -92,8 +78,7 @@ public class MainMenu : MonoBehaviour
             Pages[1].SetActive(false);//show the page we want
         }
     }
-
-    public void LoadButtonsEnable()
+    public void LoadButtonsEnable()//a method to make only the button that the save exits in this system pressable 
     {
         for (int i = 0; i < loadButtons.Length; i++)
         {
@@ -112,18 +97,24 @@ public class MainMenu : MonoBehaviour
             }
         }
     }
-
-
-    public void LoadLastSave(int slot)
+    public void LoadLastSave(int slot)//a method to load the save
     {
-        HeadLines[0].SetActive(false);
-        HeadLines[1].SetActive(false);
-        HeadLines[2].SetActive(false);
-        ShowPageButton(2);
-        //PlayerController.instance.mySprite.enabled = true;
-        GameManager.instance.mainMenu = false;
+        HeadLines[0].SetActive(false);//turn off the headline
+        HeadLines[1].SetActive(false);//turn off the headline
+        HeadLines[2].SetActive(false);//turn off the headline
+        ShowPageButton(2);//turn off the pages
+        GameManager.instance.mainMenu = false;//reset
+        if (slot == 0)//if we want to load the latest save thin its 0
+        {
+            for (int i = 0; i < loadButtons.Length; i++)//on the first interactable button we load it
+            {
+                if (loadButtons[i].interactable == true)
+                {
+                    slot = i;
+                    break;
+                }
+            }
+        }
         GameMenu.instance.PrepareLoadData(slot);
     }
-
-
 }

@@ -24,10 +24,6 @@ public class GameData
     private int[] playersSP;//the sp of the players
     private float bossSpeed;//the number of enemies on this map
     private bool bossActive;//if we have enemies on this map
-
-    //
-    //bool from GameManager for all the maps like inForest
-    //
     private float heartContainers;
     private float currentHealthInitialValue;
     private float currentHealthRuntimeValue;
@@ -35,7 +31,7 @@ public class GameData
     private float currentMagic;
     private int[] currentHearts;
 
-    public string SceneName
+    public string SceneName //getter and setter
     {
         get
         {
@@ -46,7 +42,7 @@ public class GameData
             this.sceneName = value;
         }
     }
-    public int NumOfElement
+    public int NumOfElement//getter and setter
     {
         get
         {
@@ -57,7 +53,7 @@ public class GameData
             this.numOfElement = value;
         }
     }
-    public bool EnemyOnMap
+    public bool EnemyOnMap//getter and setter
     {
         get
         {
@@ -68,7 +64,7 @@ public class GameData
             this.enemyOnMap = value;
         }
     }
-    public bool BossOnMap
+    public bool BossOnMap//getter and setter
     {
         get
         {
@@ -79,7 +75,7 @@ public class GameData
             this.bossOnMap = value;
         }
     }
-    public int NumOfEnemies
+    public int NumOfEnemies//getter and setter
     {
         get
         {
@@ -90,7 +86,7 @@ public class GameData
             this.numOfEnemies = value;
         }
     }
-    public int[] ItemsAmount
+    public int[] ItemsAmount//getter and setter
     {
         get
         {
@@ -101,7 +97,7 @@ public class GameData
             this.itemsAmount = value;
         }
     }
-    public float[] PlayerPos
+    public float[] PlayerPos//getter and setter
     {
         get
         {
@@ -112,7 +108,7 @@ public class GameData
             this.playerPos = value;
         }
     }
-    public float[] BossPos
+    public float[] BossPos//getter and setter
     {
         get
         {
@@ -123,7 +119,7 @@ public class GameData
             this.bossPos = value;
         }
     }
-    public bool[] DeadOrAliveEnemy
+    public bool[] DeadOrAliveEnemy//getter and setter
     {
         get
         {
@@ -134,7 +130,7 @@ public class GameData
             this.deadOrAliveEnemy = value;
         }
     }
-    public bool[] ElementGot
+    public bool[] ElementGot//getter and setter
     {
         get
         {
@@ -145,8 +141,7 @@ public class GameData
             this.elementGot = value;
         }
     }
-    
-    public float[,] EnemiesPos
+    public float[,] EnemiesPos//getter and setter
     {
         get
         {
@@ -157,7 +152,7 @@ public class GameData
             this.enemiesPos = value;
         }
     }
-    public float[] PlayersLevel
+    public float[] PlayersLevel//getter and setter
     {
         get
         {
@@ -168,7 +163,7 @@ public class GameData
             this.playersLevel = value;
         }
     }
-    public int[] PlayersHP
+    public int[] PlayersHP//getter and setter
     {
         get
         {
@@ -179,7 +174,7 @@ public class GameData
             this.playersHP = value;
         }
     }
-    public int[] PlayersMP
+    public int[] PlayersMP//getter and setter
     {
         get
         {
@@ -190,7 +185,7 @@ public class GameData
             this.playersMP = value;
         }
     }
-    public int[] PlayersSP
+    public int[] PlayersSP//getter and setter
     {
         get
         {
@@ -201,10 +196,7 @@ public class GameData
             this.playersSP = value;
         }
     }
-
-
-
-    public float HeartContainers
+    public float HeartContainers//getter and setter
     {
         get
         {
@@ -215,7 +207,7 @@ public class GameData
             this.heartContainers = value;
         }
     }
-    public float CurrentHealthInitialValue
+    public float CurrentHealthInitialValue//getter and setter
     {
         get
         {
@@ -226,7 +218,7 @@ public class GameData
             this.currentHealthInitialValue = value;
         }
     }
-    public float CurrentHealthRuntimeValue
+    public float CurrentHealthRuntimeValue//getter and setter
     {
         get
         {
@@ -237,8 +229,7 @@ public class GameData
             this.currentHealthRuntimeValue = value;
         }
     }
-
-    public float MaxMagic
+    public float MaxMagic//getter and setter
     {
         get
         {
@@ -249,7 +240,7 @@ public class GameData
             this.maxMagic = value;
         }
     }
-    public float CurrentMagic
+    public float CurrentMagic//getter and setter
     {
         get
         {
@@ -260,8 +251,7 @@ public class GameData
             this.currentMagic = value;
         }
     }
-
-    public int[] CurrentHearts
+    public int[] CurrentHearts//getter and setter
     {
         get
         {
@@ -272,7 +262,7 @@ public class GameData
             this.currentHearts = value;
         }
     }
-    public float BossSpeed
+    public float BossSpeed//getter and setter
     {
         get
         {
@@ -283,8 +273,7 @@ public class GameData
             this.bossSpeed = value;
         }
     }
-
-    public bool BossActive
+    public bool BossActive//getter and setter
     {
         get
         {

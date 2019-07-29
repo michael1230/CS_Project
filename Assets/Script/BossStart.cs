@@ -4,28 +4,26 @@ using UnityEngine;
 
 public class BossStart : MonoBehaviour
 {
-    public GralandChase Boss;
-    public bool once=false;
+    public GralandChase Boss;//the boos object
+    public bool once=false;//only once
     // Use this for initialization
     void Start ()
     {
 		
-	}
-	
+	}	
 	// Update is called once per frame
 	void Update ()
     {
 		
 	}
-
-    private void OnTriggerEnter2D(Collider2D other) //check if the player entered the sign area 
+    private void OnTriggerEnter2D(Collider2D other)//check if the player entered the boss start object 
     {
         if (other.CompareTag("Player"))
         {
-            Boss.gameObject.SetActive(true);
+            Boss.gameObject.SetActive(true);//activate the boss
             if (once)
             {
-                Boss.moveSpeed = 0;
+                Boss.moveSpeed = 0;//start tieh speed of 0
             }
         }
     }

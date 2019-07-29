@@ -5,25 +5,21 @@ using UnityEngine.UI;
 
 public class BattleItemSelect : MonoBehaviour
 {
-    public BattleItem theItem;
-   // public int itemIndex;
-    public Text nameText;
-    public Text amountText;
-
+    public BattleItem theItem;//the item object
+    public Text nameText;//text for the name
+    public Text amountText;//text for the amount
     // Use this for initialization
     void Start()
     {
 
     }
-
     // Update is called once per frame
     void Update()
     {
 
     }
-
     public void Press()
     {
-        BattleManager.instance.OpenSelfMenu(null,theItem,3,true);
+        BattleManager.instance.OpenSelfMenu(null,theItem,3,true);//open the self target select menu
     }
 }

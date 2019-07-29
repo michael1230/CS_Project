@@ -13,7 +13,6 @@ public class MenuNavigation : MonoBehaviour
     public int currentMenu = 0;//the current menu
     public int previousMenu = 0;//the previous menu for knowing where to go back from target and self menu
     public Button[] menuButtons;//the buttons on the current menu
-
     // Use this for initialization
     void Start()
     {
@@ -33,7 +32,6 @@ public class MenuNavigation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetButtonDown(("Fire2")))//the back button
         {
             if (currentMenu == 0)//if we are in the main menu then update the previousMenu to 0
@@ -46,14 +44,12 @@ public class MenuNavigation : MonoBehaviour
             }
         }
     }
-
     public void ShowVictoryPanel(bool onnOff)
     {
         victoryPanel.SetActive(onnOff);
         theInfoHolder.SetActive(false);
         theBattaleMenusHolder.SetActive(false);
     }
-
     public void backMenu()//a method forgoing to the previous Menu
     {
         if (currentMenu == 5 || currentMenu == 6)//if we are in the target or self menu
@@ -84,7 +80,6 @@ public class MenuNavigation : MonoBehaviour
         }
         this.buttonSelect();//select the first available button
     }
-
     public void buttonSelect()//a method for selecting the first available button
     {
         menuButtons = theMenus[currentMenu].GetComponentsInChildren<Button>();//get all the buttons in this menu
@@ -98,17 +93,16 @@ public class MenuNavigation : MonoBehaviour
             }
         }
     }
-    //public void offMenu()
-    public void offMenu(bool state)
+    public void offMenu(bool state)//a method to turn on or off the victory panel
     {
         theBattaleMenusHolder.SetActive(state);
     }
-    public void offButtons()
+    public void offButtons()//a method to turn off all the buttons
     {
         for (int i = 0; i < theMenus.Length; i++)//go on all the battle menu
         {
             {
-                theMenus[i].SetActive(false);//show it
+                theMenus[i].SetActive(false);//turn them off
 
             }
         }

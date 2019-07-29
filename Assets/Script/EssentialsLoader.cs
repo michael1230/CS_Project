@@ -5,18 +5,18 @@ using UnityEngine.EventSystems;
 
 public class EssentialsLoader : MonoBehaviour
 {
-
-    public GameObject FadeMan;
-    public GameObject player;
-    public GameObject gameMan;
-    public GameObject audioMan;
-    public GameObject battleMan;
-    public GameObject menuMan;
-    //public EventSystem sceneEventSystem = FindObjectOfType<EventSystem>();
+    public GameObject FadeMan;//the FadeManager object
+    public GameObject player;//the PlayerController object
+    public GameObject gameMan;//the GameManager object
+    public GameObject audioMan;//the AudioManager object
+    public GameObject battleMan;//the BattleManager object
+    public GameObject menuMan;//the GameMenu object
+    EventSystem sceneEventSystem;
 
     // Use this for initialization
     void Start()
-    {
+    {//for all of the is bellow
+     //if it object doesn't exits then create it
         if (PlayerController.instance == null)
         {
             PlayerController clone = Instantiate(player).GetComponent<PlayerController>();
@@ -44,16 +44,15 @@ public class EssentialsLoader : MonoBehaviour
         {
             BattleManager.instance = Instantiate(battleMan).GetComponent<BattleManager>();
         }
-
-        EventSystem sceneEventSystem = FindObjectOfType<EventSystem>();
-        if (sceneEventSystem == null)
+        sceneEventSystem = FindObjectOfType<EventSystem>();
+        if (sceneEventSystem == null)//the same but with EventSystem
         {
             GameObject eventSystem = new GameObject("EventSystem");
             eventSystem.AddComponent<EventSystem>();
             eventSystem.AddComponent<StandaloneInputModule>();
         }
     }
-
+    
     // Update is called once per frame
     void Update()
     {

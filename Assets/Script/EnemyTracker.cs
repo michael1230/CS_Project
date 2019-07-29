@@ -4,44 +4,42 @@ using UnityEngine;
 
 public class EnemyTracker : MonoBehaviour
 {
-    public bool enemyOnMap;
-    public bool bossOnMap;
-    public GameObject theBoss;
-    public GameObject[] theEnemies;
+    public bool enemyOnMap;//are there enemies on this map?
+    public bool bossOnMap;//is there a boss on this map?
+    public GameObject theBoss;//the boss chase object
+    public GameObject[] theEnemies;//all the enemies objects on this map
 
-
-
-
-    public void EnemyMovment(bool move)
+    public void EnemyMovment(bool move)//a method to enable and disable enemies and boss movement
     {
-        for (int i = 0; i < theEnemies.Length; i++)
+        if (move)//if the input is true then enable movement
         {
-            if (move)
+            if (enemyOnMap)//if there are enemies on the map
             {
-                if (enemyOnMap)
+                for (int i = 0; i < theEnemies.Length; i++)//enable movement for all of them
                 {
-                    //theEnemies[i].GetComponent<EnemyOnMap>().moveSpeed = 2; logEnemy
-
                     theEnemies[i].GetComponent<logEnemy>().myRigidbody.constraints = RigidbodyConstraints2D.None;
                     theEnemies[i].GetComponent<logEnemy>().myRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
                 }
-                if (bossOnMap)
-                {
-                    theBoss.GetComponent<GralandChase>().myRigidbody.constraints = RigidbodyConstraints2D.None;
-                    theBoss.GetComponent<GralandChase>().myRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-                }
+
             }
-            else
+            if (bossOnMap)//is there a boss on this map then enable his movement
             {
-                if (enemyOnMap)
+                theBoss.GetComponent<GralandChase>().myRigidbody.constraints = RigidbodyConstraints2D.None;
+                theBoss.GetComponent<GralandChase>().myRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+            }
+        }
+        else//if not then disable movement
+        {
+            if (enemyOnMap)//if there are enemies on the map
+            {
+                for (int i = 0; i < theEnemies.Length; i++)//disable movement for all fg them
                 {
-                    //theEnemies[i].GetComponent<EnemyOnMap>().moveSpeed = 0;
                     theEnemies[i].GetComponent<logEnemy>().myRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
                 }
-                if (bossOnMap)
-                {
-                    theBoss.GetComponent<GralandChase>().myRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
-                }
+            }
+            if (bossOnMap)//is there a boss on this map then disable his movement
+            {
+                theBoss.GetComponent<GralandChase>().myRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
             }
         }
     }

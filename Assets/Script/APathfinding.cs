@@ -68,7 +68,6 @@ public class APathfinding : MonoBehaviour
 
 
 
-    //public void RetracePath(WorldTile startNode, WorldTile endNode)
     Vector3[] RetracePath(WorldTile startNode, WorldTile endNode)
     {
         List<WorldTile> path = new List<WorldTile>();
@@ -83,8 +82,6 @@ public class APathfinding : MonoBehaviour
         {
             path.Add(currentNode);
         }
-        //path.Reverse();
-        //CreateNodesFromTilemaps.instance.path = path;
         Vector3[] waypoints = SimplifyPath(path);
         Array.Reverse(waypoints);
         return waypoints;
@@ -103,14 +100,7 @@ public class APathfinding : MonoBehaviour
 
         for (int i = 1; i < path.Count; i++)
         {
-            //Vector2 directionNew = new Vector2(path[i - 1].gridPosition.x - path[i].gridPosition.x, path[i - 1].gridPosition.y - path[i].gridPosition.y);
-            // Vector2 directionNew = new Vector2(path[i - 1].gridX - path[i].gridX, path[i - 1].gridY - path[i].gridY);
-            //if (directionNew != directionOld)
-            //{
             waypoints.Add(path[i - 1].gridPosition);
-            //waypoints.Add( new Vector3(path[i - 1].gridX, path[i - 1].gridY, 0));
-            //}
-            // directionOld = directionNew;
         }
         return waypoints.ToArray();
     }
@@ -127,18 +117,6 @@ public class APathfinding : MonoBehaviour
         else
         {
             return 14 * dstX + 10 * (dstY - dstX);
-        }
-        /*
-        float fDstX = Mathf.Abs(nodeA.gridPosition.x - nodeB.gridPosition.x);
-        float fDstY = Mathf.Abs(nodeA.gridPosition.y - nodeB.gridPosition.y);
-        if (fDstX > fDstY)
-        {
-            return (int)(14 * fDstY + 10 * (fDstX - fDstY));
-        }
-        else
-        {
-            return (int)(14 * fDstX + 10 * (fDstY - fDstX));
-        }
-        */
+        }      
     }
 }

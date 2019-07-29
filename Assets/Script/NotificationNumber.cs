@@ -18,7 +18,6 @@ public class NotificationNumber : MonoBehaviour
     {
 
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -53,6 +52,5 @@ public class NotificationNumber : MonoBehaviour
             notificationText.color = new Color32(212, 21, 128, 255);
         }
         transform.position += new Vector3(-placement,0F, 0f);//appear on different places each time
-
     }
 }

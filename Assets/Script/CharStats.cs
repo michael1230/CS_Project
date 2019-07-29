@@ -4,56 +4,33 @@ using UnityEngine;
 
 public class CharStats : MonoBehaviour
 {
-
-    public string charName;
-    // public int playerLevel;
-    public float playerLevel;
-
-    public int currentHP;
-    public int maxHP;
-    public int currentMP;
-    public int maxMP;
-    public int currentSP;
-    public int maxSP;
-    public int strength;
-    public int defense;
-    public int dexterity;
-    public List<BattleMove> movesAvailable = new List<BattleMove>();
-    public List<BattleMove> movesSet1 = new List<BattleMove>();
-    public List<BattleMove> movesSet2 = new List<BattleMove>();
-    public List<BattleMove> movesSet3 = new List<BattleMove>();
-    public List<BattleMove> movesSet4 = new List<BattleMove>();
-    //public bool[] hasElement;
-    //public int[][] bonusElement;
-    public Sprite charIamge;
-
-
-
+    public string charName;//the name
+    public float playerLevel;//the level
+    public int currentHP;//the current HP
+    public int maxHP;//the max HP
+    public int currentMP;//the current MP
+    public int maxMP;//the max MP
+    public int currentSP;//the current SP
+    public int maxSP;//the max SP
+    public int strength;// the strength..the attack power
+    public int defense;//the defense..the defense power
+    public int dexterity;//didn't use in the final game
+    public List<BattleMove> movesAvailable = new List<BattleMove>();//a list of moves thats available now
+    public List<BattleMove> movesSet1 = new List<BattleMove>();//first moves set
+    public List<BattleMove> movesSet2 = new List<BattleMove>();//second moves set
+    public List<BattleMove> movesSet3 = new List<BattleMove>();//third moves set
+    public List<BattleMove> movesSet4 = new List<BattleMove>();//forte moves set
     // Use this for initialization
     void Start()
     {
-        //hasElement = new bool[3];
-        /*bonusElement = new int[3][];
-        for (int i = 0; i < bonusElement.Length; i++)
-        {
-            bonusElement[i] = new int[7];
-            for (int j = 0; j < bonusElement[i].Length; j++)
-            {
-                bonusElement[i][j] = 25;
-            }
-        }
-        Debug.Log(bonusElement[0][1]);*/
 
     }
-
     // Update is called once per frame
     void Update()
     {
 
-
     }
-
-    public void AddBonusElementStats(int [] bonusElement)
+    public void AddBonusElementStats(int [] bonusElement)//a method for adding the bonus when getting new element
     {
         playerLevel += bonusElement[0];
         maxHP += bonusElement[1];

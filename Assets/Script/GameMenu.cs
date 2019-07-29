@@ -9,24 +9,23 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class GameMenu : MonoBehaviour
 {
-    public Canvas theMenuCanves;
-    public GameObject theMenu;
-    public TextMeshProUGUI currentSceneName;
-    public Button firstButton;
-    public GameObject[] pages;
-    public static GameMenu instance;
-    public GameObject[] Elements;
-    public GameObject[] partyImages;
-    public TextMeshProUGUI[] currentPotionAmountText;
-    public Button[] loadButtons;
-
-    public GameObject dialogBox;
-    public Text dialogBoxLine1;
-    public Text dialogBoxLine2;
-    public Text dialogBoxLine3;
-    public GameObject healthHolder;
-    public HeartManager heartContainers;
-    public FireBarManager sliderHolder;
+    public Canvas theMenuCanves;//the canves
+    public GameObject theMenu;//the menu itself
+    public TextMeshProUGUI currentSceneName;//a text to show the name of the map
+    public Button firstButton;//the first button in the menu
+    public GameObject[] pages;//the different pages of the menu
+    public static GameMenu instance;//the GameMenu object itself
+    public GameObject[] Elements;//the element in the menu
+    public GameObject[] partyImages;//the images of the party in the menu
+    public TextMeshProUGUI[] currentPotionAmountText;//a text to show the items and theres amount 
+    public Button[] loadButtons;//all the load buttons
+    public GameObject dialogBox;//the dialogBox object
+    public Text dialogBoxLine1;//a text to show diablog...the first line
+    public Text dialogBoxLine2;//a text to show diablog...the second line
+    public Text dialogBoxLine3;//a text to show diablog...the third line
+    public GameObject healthHolder;////////////////////////////////////////////////////////////////////////////
+    public HeartManager heartContainers;////////////////////////////////////////////////////////////////////////////
+    public FireBarManager sliderHolder;////////////////////////////////////////////////////////////////////////////
 
     private void Awake()
     {
@@ -38,14 +37,13 @@ public class GameMenu : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
         theMenuCanves.worldCamera = Camera.main;//get the main camera and use it
-    }
-	
+    }	
 	// Update is called once per frame
 	void Update ()
     {
         theMenuCanves.worldCamera = Camera.main;//get the main camera and use it
-       // if (Input.GetKeyDown(KeyCode.Escape))//if the button is pressed
-        if ((Input.GetKeyDown(KeyCode.Escape))&&(GameManager.instance.gameOver==false) && (GameManager.instance.battleActive == false) && (GameManager.instance.fadingBetweenAreas==false) && (GameManager.instance.dialogActive == false) && (GameManager.instance.mainMenu == false))//if the button is pressed and GameOver is false or battleActive is false (if we are in gameOver or loading from GameOver or in battle) then dont activate menu
+        //if the button is pressed and GameOver is false or battleActive is false (if we are in gameOver or loading from GameOver or in battle) then dont activate menu
+        if ((Input.GetKeyDown(KeyCode.Escape))&&(GameManager.instance.gameOver==false) && (GameManager.instance.battleActive == false) && (GameManager.instance.fadingBetweenAreas==false) && (GameManager.instance.dialogActive == false) && (GameManager.instance.mainMenu == false))
         {
             if (theMenu.activeInHierarchy)//if the menu is open
             {
@@ -63,7 +61,6 @@ public class GameMenu : MonoBehaviour
             AudioManager.instance.PlaySFX(5);//play menu sound 
         }
     }
-
     public void UpdateStatsPage()//a method for updating the info page
     {
         int numberOfElement = GameManager.instance.numberOfElement;//get the number of element we have acquired
@@ -77,11 +74,8 @@ public class GameMenu : MonoBehaviour
         }
         currentPotionAmountText[0].text = "HP potion: " + GameManager.instance.totalItems[0].ItemAmount;//show the hp potion amount
         currentPotionAmountText[1].text = "MP potion: " + GameManager.instance.totalItems[1].ItemAmount;//show the mp potion amount
-        currentPotionAmountText[2].text = "SP potion: " + GameManager.instance.totalItems[2].ItemAmount;//show the sp potion amount
-       // currentSceneName.text = SceneManager.GetActiveScene().name;//show the name of the map in the menu
-      
+        currentPotionAmountText[2].text = "SP potion: " + GameManager.instance.totalItems[2].ItemAmount;//show the sp potion amount      
     }
-
     public void ToggleWindow(int windowNumber)//a method to show the right page
     {
         for (int i = 0; i < pages.Length; i++)
@@ -96,8 +90,7 @@ public class GameMenu : MonoBehaviour
             }
         }
     }
-
-    public void LoadButtonsEnable()
+    public void LoadButtonsEnable()//a method to enable the load button..is there is not a save on the system then cant press the button
     {
         for (int i = 0; i < loadButtons.Length; i++)
         {
@@ -112,28 +105,22 @@ public class GameMenu : MonoBehaviour
             }
         }
     }
-
-    public void QuitToMain()//need to add!!
+    public void QuitToMain()//a method to go back to main menu
     {
 
-        CloseMenu();//close it
-        StartCoroutine(SceneSwitch());
+        CloseMenu();//close all of the menus open
+        StartCoroutine(SceneSwitch());//start the SceneSwitch Coroutine
     }
-
-
-    public IEnumerator SceneSwitch()
+    public IEnumerator SceneSwitch()//a Coroutine to go to the main menu scene
     {
-        FadeManager.instance.ScenenTransition("ScenensFade");
-        yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
-        PlayerController.instance.mySprite.enabled = true;
-        GameManager.instance.mainMenu = false;
-        SceneManager.LoadScene("MainMenu");
-        GameManager.instance.fadingBetweenAreas = false;
-        GameManager.instance.gameOver = false;
-
+        FadeManager.instance.ScenenTransition("ScenensFade");//start the ScenenTransition with ScenensFade effect
+        yield return new WaitUntil(() => FadeManager.instance.midTransition == true);//wait until the screen is black
+        PlayerController.instance.mySprite.enabled = true;//show the player sprite
+        GameManager.instance.mainMenu = false;//reset
+        SceneManager.LoadScene("MainMenu");//load the scene
+        GameManager.instance.fadingBetweenAreas = false;//reset
+        GameManager.instance.gameOver = false;//reset
     }
-
-
     public void CloseMenu()//a method to close the menu and all the pages
     {
         for (int i = 0; i < pages.Length; i++)
@@ -143,19 +130,17 @@ public class GameMenu : MonoBehaviour
         theMenu.SetActive(false);//close the menu
         GameManager.instance.gameMenuOpen = false;//tell GameManager that the menu is closed so that we start movement 
     }
-
     public void PlayButtonSound()//a method to play button sound
     {
         AudioManager.instance.PlaySFX(4);
     }
-
-    public void SaveData(int slot)
+    public void SaveData(int slot)//a method to save the data
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/" + slot + "Save.MBAG";
-
+        string path = Application.persistentDataPath + "/" + slot + "Save.MBAG";//the save file itself 
         FileStream stream = new FileStream(path, FileMode.Create);
-        GameData save = new GameData();
+        GameData save = new GameData();//the GameData object itself
+        //save the player stats, item, element etc..
         save.SceneName = SceneManager.GetActiveScene().name;
         save.NumOfElement = GameManager.instance.numberOfElement;
         save.EnemyOnMap = GameManager.instance.enemyTracker.enemyOnMap;
@@ -170,11 +155,9 @@ public class GameMenu : MonoBehaviour
         save.HeartContainers = heartContainers.heartContainers.initialValue;
         save.BossSpeed = GameManager.instance.enemyTracker.theBoss.GetComponent<GralandChase>().moveSpeed;
         save.BossActive = GameManager.instance.enemyTracker.theBoss.GetComponent<GralandChase>().gameObject.active;
-        //       save.CurrentHealthInitialValue = PlayerController.instance.currentHealth.initialValue;
         save.CurrentHealthRuntimeValue = PlayerController.instance.currentHealth.RuntimeValue;
         save.MaxMagic = sliderHolder.playerInventory.maxMagic;
         save.CurrentMagic = sliderHolder.playerInventory.currentMagic;
-
         save.CurrentHearts = new int[5];
         for (int i = 0; i < 5; i++)
         {
@@ -196,7 +179,6 @@ public class GameMenu : MonoBehaviour
             if(GameManager.instance.enemyTracker.bossOnMap)
             {
                 save.BossPos = new float[3] { GameManager.instance.enemyTracker.theBoss.transform.position.x, GameManager.instance.enemyTracker.theBoss.transform.position.y, GameManager.instance.enemyTracker.theBoss.transform.position.z };
-
             }
             save.NumOfEnemies = GameManager.instance.enemyTracker.theEnemies.Length;
             bool[] deadOrAliveEnemy = new bool[GameManager.instance.enemyTracker.theEnemies.Length];
@@ -216,8 +198,7 @@ public class GameMenu : MonoBehaviour
         stream.Close();
         CloseMenu();
     }
-
-    public GameData LoadDataFile(int slot)
+    public GameData LoadDataFile(int slot)//a method to load the data
     {
         string path = Application.persistentDataPath + "/" + slot + "Save.MBAG";
         if (File.Exists(path))
@@ -226,52 +207,44 @@ public class GameMenu : MonoBehaviour
             FileStream stream = new FileStream(path, FileMode.Open);
             GameData load = formatter.Deserialize(stream) as GameData;
             stream.Close();
-            return load;
+            return load;//return the data 
         }
-        else//shuld not be activate in gameMenu if file doesn't exists
+        else//should not be activate in gameMenu if file doesn't exists
         {
             Debug.Log("No file");
             return null;
         }
     }
-
-
-    public IEnumerator SceneLoad(GameData data)
+    public IEnumerator SceneLoad(GameData data)//a Coroutine to load the data...is a Coroutine because we need to time it right..while the screen in black we need to load without the player to see is being loaded 
     {
-        GameManager.instance.fadingBetweenAreas = true;
-        FadeManager.instance.ScenenTransition("Load");
-        yield return new WaitUntil(() => FadeManager.instance.midTransition == true);
-
-        PlayerController.instance.mySprite.enabled = true;
-
-
-        AudioManager.instance.StopMusic();
-        SceneManager.LoadScene(data.SceneName);
-        yield return new WaitForSecondsRealtime(1);
+        GameManager.instance.fadingBetweenAreas = true;//we will load the scene of the data and that means moving between scenes
+        FadeManager.instance.ScenenTransition("Load");//start the Transition with load effect
+        yield return new WaitUntil(() => FadeManager.instance.midTransition == true);//wait until the screen is black
+        PlayerController.instance.mySprite.enabled = true;//show the player(if its game over)
+        AudioManager.instance.StopMusic();//stop the currant music
+        SceneManager.LoadScene(data.SceneName);//loadButtons the scene of the data
+        yield return new WaitForSecondsRealtime(1);//wait 1 second real time(give the game time to load)
         AudioManager.instance.PlayBGM(FindObjectOfType<CameraController>().musicToPlay);
-        LoadData(data);
-        yield return new WaitUntil(() => FadeManager.instance.finishedTransition == true);
-        GameManager.instance.gameOver = false;//after loading back from menu or feom gameOver wait until Transition finished and then can walk/open menu
-        GameManager.instance.fadingBetweenAreas = false;
+        LoadData(data);//start the data load
+        yield return new WaitUntil(() => FadeManager.instance.finishedTransition == true);//with until the Transition is finished
+        GameManager.instance.gameOver = false;//after loading back from menu or from gameOver wait until Transition finished and then can walk/open menu
+        GameManager.instance.fadingBetweenAreas = false;//we can move
     }
-    public void LoadData(GameData data)
+    public void LoadData(GameData data)//a method to load the data
     {
+        //load the player stats, item, element etc..
         GameManager.instance.numberOfElement = data.NumOfElement;    
         GameManager.instance.totalItems[0].ItemAmount = data.ItemsAmount[0];
         GameManager.instance.totalItems[1].ItemAmount = data.ItemsAmount[1];
         GameManager.instance.totalItems[2].ItemAmount = data.ItemsAmount[2];
         heartContainers.heartContainers.initialValue = data.HeartContainers;
-
         healthHolder.SetActive(true);
         PlayerController.instance.MyRigidbody.constraints = RigidbodyConstraints2D.None;
         PlayerController.instance.MyRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-
         PlayerController.instance.imAlive = true;
         GameManager.instance.imReallyDead = true;
         GameManager.instance.enemyTracker.theBoss.GetComponent<GralandChase>().moveSpeed = data.BossSpeed;
         GameManager.instance.enemyTracker.theBoss.GetComponent<GralandChase>().gameObject.SetActive(data.BossActive);
-
-        //        PlayerController.instance.currentHealth.initialValue = data.CurrentHealthInitialValue;
         PlayerController.instance.currentHealth.RuntimeValue = data.CurrentHealthRuntimeValue;
         sliderHolder.fireSlider.value = data.CurrentMagic;
         sliderHolder.playerInventory.maxMagic = data.MaxMagic;
@@ -291,7 +264,6 @@ public class GameMenu : MonoBehaviour
                 heartContainers.hearts[i].sprite = heartContainers.emptyHeart;
             }
         }
-
         for (int i = 0; i <4; i++)
         {
             GameManager.instance.playerStats[i].maxHP = data.PlayersHP[i];
@@ -329,20 +301,12 @@ public class GameMenu : MonoBehaviour
                 GameManager.instance.enemyTracker.theEnemies[i].SetActive(data.DeadOrAliveEnemy[i]);
                 GameManager.instance.enemyTracker.theEnemies[i].transform.position = new Vector3(data.EnemiesPos[i, 0], data.EnemiesPos[i, 1], data.EnemiesPos[i, 2]);
             }
-        }
-        
+        }       
     }
-    public void PrepareLoadData(int slot)
+    public void PrepareLoadData(int slot)//a method to make all the necessary preparation
     {
-
-        GameData data = LoadDataFile(slot);
-        StartCoroutine(SceneLoad(data));
+        GameData data = LoadDataFile(slot);//load the file into data
+        StartCoroutine(SceneLoad(data));//load the data into the game
         CloseMenu();
     }
-
-
-
-
-
-
 }
