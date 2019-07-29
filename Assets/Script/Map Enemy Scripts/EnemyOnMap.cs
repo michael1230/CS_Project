@@ -89,7 +89,8 @@ public class EnemyOnMap : MonoBehaviour {
     {
         if (myRigidbody != null)
         {
-            yield return new WaitForSeconds(knockTime);
+            //yield return new WaitForSeconds(knockTime);
+            yield return new WaitForSecondsRealtime(knockTime);
             myRigidbody.velocity = Vector2.zero;
             currentState = EnemyState.idle;
             myRigidbody.velocity = Vector2.zero;

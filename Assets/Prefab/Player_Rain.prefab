@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 3
-  knockTime: 0.3
+  knockTime: 0.5
   damage: 3
 --- !u!114 &114191439632840566
 MonoBehaviour:
@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 3
-  knockTime: 0.3
+  knockTime: 0.5
   damage: 3
 --- !u!114 &114274969119176896
 MonoBehaviour:
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 3
-  knockTime: 0.3
+  knockTime: 0.5
   damage: 3
 --- !u!114 &114827888908643970
 MonoBehaviour:
@@ -493,7 +493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 3
-  knockTime: 0.3
+  knockTime: 0.5
   damage: 3
 --- !u!212 &212140802640073654
 SpriteRenderer:
