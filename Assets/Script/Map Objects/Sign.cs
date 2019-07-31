@@ -8,14 +8,15 @@ public class Sign : MonoBehaviour
 {
 
     public GameObject dialogBox; //reference for the dialog box
-    public Text dialogText; //reference for the text
-    public Text dialogText2;
-    public Text dialogText3;
-    public string name;
-    public string dialog; //reference to the string that shows up in place og the dialog
-    public string dialog2;
-    public bool playerInRange; //for activating the dialog
-    public bool once;
+    public Text dialogText;  //reference for the text1
+    public Text dialogText2; //reference for the text1
+    public Text dialogText3; //reference for the text1
+    public string name;    //reference to the string that shows up in place og the dialogText
+    public string dialog;  //reference to the string that shows up in place og the dialogText2
+    public string dialog2; //reference to the string that shows up in place og the dialogText3
+    public bool playerInRange; //for activating the dialog when player is in range
+    public bool once; //activating the dialog only one time for per sence 
+    
     // Use this for initialization
     void Start ()
     {
@@ -38,24 +39,24 @@ public class Sign : MonoBehaviour
         {
             if (dialogBox.activeInHierarchy) //if dialogBox is active change to false
             {
-                dialogBox.SetActive(false);
-                GameManager.instance.dialogActive = false;
+                dialogBox.SetActive(false); //set to false
+                GameManager.instance.dialogActive = false; //update the GameManager dialog is off
             }
             else // else change to true
             {
-                dialogBox.SetActive(true);
-                dialogText.text = name;
-                dialogText2.text = dialog;
-                dialogText3.text = dialog2;
-                GameManager.instance.dialogActive = true;
+                dialogBox.SetActive(true); //set to true
+                dialogText.text = name; //place a variable in Unity Inspector
+                dialogText2.text = dialog; //place a variable in Unity Inspector
+                dialogText3.text = dialog2; //place a variable in Unity Inspector
+                GameManager.instance.dialogActive = true; //update the GameManager dialog is on
             }
         }
-        else if ((playerInRange)&&(GameManager.instance.sceneName!= "OldManHouse"))
+        else if ((playerInRange)&&(GameManager.instance.sceneName!= "OldManHouse")) //if player in range of the sign and its not the OldManHouse then:
         {
-            GameManager.instance.dialogActive = true;
+            GameManager.instance.dialogActive = true; //update the GameManager dialog is on
             if (dialogBox.activeInHierarchy) //if dialogBox is active change to false
             {
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space)) //only if space is preesed 
                 {
                     dialogBox.SetActive(false);
                     //GameManager.instance.dialogActive = true;
@@ -69,9 +70,9 @@ public class Sign : MonoBehaviour
                 if(once==false)
                 {
                     dialogBox.SetActive(true);
-                    dialogText.text = name;
-                    dialogText2.text = dialog;
-                    dialogText3.text = dialog2;
+                    dialogText.text = name; //place a variable in Unity Inspector
+                    dialogText2.text = dialog; //place a variable in Unity Inspector
+                    dialogText3.text = dialog2; //place a variable in Unity Inspector
                     //GameManager.instance.dialogActive = true;
                 }
 
@@ -81,7 +82,7 @@ public class Sign : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) //check if the player entered the sign area 
     {
-        if (other.CompareTag("Player") && !other.isTrigger)
+        if (other.CompareTag("Player") && other.isTrigger) //if its the player he entered then true
         {
             playerInRange = true;
         }
@@ -89,7 +90,7 @@ public class Sign : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other) //check if the player exited the sign area 
     {
-        if (other.CompareTag("Player") && !other.isTrigger)
+        if (other.CompareTag("Player") && !other.isTrigger) //if the player got out of the trigger area 
         {
             playerInRange = false;
             dialogBox.SetActive(false);
