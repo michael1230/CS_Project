@@ -4,61 +4,47 @@ using UnityEngine;
 
 public class Knockback : MonoBehaviour
 {
-    public float thrust;
-    public float knockTime;
-    public float damage;
-    //public Transform thisEnemy;
+    public float thrust; //the force that player knocks things back
+    public float knockTime; //time for how long is the knockBack 
+    public float damage; //the damge from the knockBack
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other) //sent when another object enters a trigger collider attached to this object
     {
-        var player = other.GetComponent<PlayerController>();
-        var otherIsPlayer = player != null;
-        var thisIsPlayer = this.GetComponentInParent<PlayerController>() != null;
+        var player = other.GetComponent<PlayerController>(); //get reference to player
+        var otherIsPlayer = player != null; //if other is player
+        var thisIsPlayer = this.GetComponentInParent<PlayerController>() != null; //else if this is player then get reference to player, which is parent 
 
-        var enemy = other.GetComponent<EnemyOnMap>();
-        var otherIsEnemy = enemy != null;
-        var thisIsEnemy = this.GetComponentInParent<EnemyOnMap>() != null;
-
-        if (other.gameObject.CompareTag("breakable") && this.gameObject.CompareTag("Player"))
-        {
-            other.GetComponent<potMap>().Smash();
-        }
+        var enemy = other.GetComponent<EnemyOnMap>(); //get reference to enemy
+        var otherIsEnemy = enemy != null; //if other is enemy
+        var thisIsEnemy = this.GetComponentInParent<EnemyOnMap>() != null; //else if this is enemy then get reference to player
 
         if (otherIsEnemy && thisIsEnemy) //for 2 different enemys colliding but not to overlap
         {
-            Rigidbody2D otherRigidBody = other.GetComponent<Rigidbody2D>();
-            if (otherRigidBody != null)
+            Rigidbody2D otherRigidBody = other.GetComponent<Rigidbody2D>(); //get reference to other enemy Rigidbody2D to move it position
+            if (otherRigidBody != null) //if it has a Rigidbody2D
             {
-                Vector2 difference = otherRigidBody.transform.position - transform.position;
-                difference = difference.normalized;
-                otherRigidBody.AddForce(difference, ForceMode2D.Force);
-
-
+                Vector2 difference = otherRigidBody.transform.position - transform.position; //difference between the Vectors of otherIsEnemy to thisIsEnemy
+                difference = difference.normalized; //normalized the difference, makes it length of 1 but keeps the same direction
+                otherRigidBody.AddForce(difference, ForceMode2D.Force); //force is applied continuously along the direction of the force vector
             }
-        }//|| (other.gameObject.CompareTag("FireBall") && thisIsEnemy) || (this.gameObject.CompareTag("FireBall") && otherIsEnemy)
-        else if ((otherIsPlayer && thisIsEnemy) || (thisIsPlayer && otherIsEnemy) || (this.tag == "Player" && otherIsEnemy) || (other.gameObject.CompareTag("FireBall") && thisIsEnemy) || (this.gameObject.CompareTag("FireBall") && otherIsEnemy))//tag for things that can be knock
+        }
+        else if ((otherIsPlayer && thisIsEnemy) || (thisIsPlayer && otherIsEnemy) || (this.tag == "Player" && otherIsEnemy) || (other.gameObject.CompareTag("FireBall") && thisIsEnemy) || (this.gameObject.CompareTag("FireBall") && otherIsEnemy)) //knock back between enemy and player or enemy and fireBall
         {
-            //StartCoroutine(waitfortime());
-            Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
-            // thisEnemy.position = new Vector2(thisEnemy.transform.position.x - 5, thisEnemy.transform.position.y - 5);
+            Rigidbody2D hit = other.GetComponent<Rigidbody2D>(); //get reference to other Rigidbody2D to move it
             if (hit != null)
             {
-                //transform.position = new Vector2(transform.position.x-5, transform.position.y-5);
-                Vector2 difference = hit.transform.position - transform.position;
-                difference = difference.normalized * thrust;
-                hit.AddForce(difference, ForceMode2D.Impulse);
-                if (other.gameObject.CompareTag("SmallMapEnemy") && other.isTrigger)
+                Vector2 difference = hit.transform.position - transform.position; //difference between the Vectors 
+                difference = difference.normalized * thrust; //normalized the difference and add the thrust we want our enemy or player to be knockback
+                hit.AddForce(difference, ForceMode2D.Impulse); //force is applied continuously along the direction of the force vector
+                if (other.gameObject.CompareTag("SmallMapEnemy") && other.isTrigger) //if the enemy is the one been knockback and is not already been knockback then 
                 {
-                    hit.GetComponent<EnemyOnMap>().currentState = EnemyState.stagger;
-                    other.GetComponent<EnemyOnMap>().knock(hit, knockTime, damage);
+                    hit.GetComponent<EnemyOnMap>().currentState = EnemyState.stagger; //change enemy state to stagger while been knockback
+                    other.GetComponent<EnemyOnMap>().knock(hit, knockTime, damage); //active the knock in EnemyOnMap script and give it the hit, time and damage
                 }
-                if (other.gameObject.CompareTag("Player"))
+                if (other.gameObject.CompareTag("Player") && other.GetComponent<PlayerController>().currentState != PlayerState.stagger) //if the player is the one been knockback and is not already been knockback then 
                 {
-                    if (other.GetComponent<PlayerController>().currentState != PlayerState.stagger)
-                    {
-                        hit.GetComponent<PlayerController>().currentState = PlayerState.stagger;
-                        other.GetComponent<PlayerController>().knock(knockTime, damage);
-                    }
+                    hit.GetComponent<PlayerController>().currentState = PlayerState.stagger; //change player state to stagger while been knockback
+                    other.GetComponent<PlayerController>().knock(knockTime, damage); //active the knock in PlayerController script and give it the time and damage
                 }
             }
         }
