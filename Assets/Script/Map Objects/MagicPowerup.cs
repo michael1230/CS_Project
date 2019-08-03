@@ -9,12 +9,12 @@ public class MagicPowerup : Powerup {
 		
 	}
 
-    public void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other) //when player pick ups powerUp
     {
-       if(other.gameObject.CompareTag("Player"))
+       if(other.gameObject.CompareTag("Player"))//if it is the player
         {
-            powerupSignal.Raise();
-            Destroy(this.gameObject);
+            powerupSignal.Raise(); //send signal
+            Destroy(this.gameObject); //erase on the map
         }
     }
 }

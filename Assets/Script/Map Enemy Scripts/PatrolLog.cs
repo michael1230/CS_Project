@@ -16,23 +16,15 @@ public class PatrolLog : logEnemy {
     public Transform currentGoal;
     public Transform AstarPoint;
     public float roundingDistance;
-   // public bool toPoint = true;
-
-    public Collider2D boundary;
+    public Collider2D boundary; //boundary where the enemy will chase the player
 
     public bool enterOrExit;
     public bool once=false;
-
-
-
-    IEnumerator Moveback()//NEED TO PUT THE DOT IN THE MIDDLE AND ROUND IT 4.485 == 4.5
+    
+    IEnumerator Moveback()
     {
         yield return new WaitForSecondsRealtime(0.1f);
-
-        //yield return new WaitForSeconds(0.3f);
-        //StopAllCoroutines();
         toPoint = true;
-        //yield return null;
     }
 
     public override void CheckDistance()//will to change to A star algorithm probably
@@ -41,13 +33,6 @@ public class PatrolLog : logEnemy {
         {
             StartCoroutine(Moveback());
         }
-        /*if (Vector3.Distance(targetPlayer.position,
-                 transform.position) <= chaseRaidius
-                && Vector3.Distance(targetPlayer.position,
-                    transform.position) > attackRadius
-                && boundary.bounds.Contains(targetPlayer.transform.position))
-        */
-
         if ((enterOrExit == true))
             {
             toPoint = false;
@@ -60,13 +45,10 @@ public class PatrolLog : logEnemy {
                     StartCoroutine(UpdatePath());
                     once = true;
                 }
-                //StartCoroutine(UpdatePath());
                 ChangeState(EnemyState.walk);
                 anim.SetBool("wakeUp", true);
-                // toPoint = false;
                 }
             }
-            //else if (Vector3.Distance(targetPlayer.position, transform.position) > chaseRaidius || !boundary.bounds.Contains(targetPlayer.transform.position))
         else if (enterOrExit == false)
         {
             once = false;
@@ -89,7 +71,6 @@ public class PatrolLog : logEnemy {
             {
                 target = AstarPoint.transform;
             }
-
         }       
     }
 
@@ -107,7 +88,6 @@ public class PatrolLog : logEnemy {
         }
     }
 
-
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
     {
         if (pathSuccessful)
@@ -122,7 +102,6 @@ public class PatrolLog : logEnemy {
             
         }
     }
-
 
     IEnumerator UpdatePath()
     {
@@ -147,9 +126,7 @@ public class PatrolLog : logEnemy {
    
         
     }
-
-
-
+    
     IEnumerator FollowPath()
     {
         Vector3 currentWaypoint = path[0];
@@ -159,11 +136,6 @@ public class PatrolLog : logEnemy {
             if (transform.position == currentWaypoint)
             {
                 targetIndex++;
-                /*
-                if (targetIndex >= path.Length)
-                {
-                    yield break;
-                }*/
                 if (targetIndex >= path.Length)//targetIndex should be reset
                 {
                     targetIndex = 0;
@@ -176,9 +148,7 @@ public class PatrolLog : logEnemy {
             Vector3 temp = Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime);
             changeAnim(temp - transform.position);
             myRigidbody.MovePosition(temp);
-            //ChangeState(EnemyState.walk);
             anim.SetBool("wakeUp", true);
-            //yield return new WaitForSecondsRealtime(10);
             yield return null;
         }
     }
@@ -202,63 +172,4 @@ public class PatrolLog : logEnemy {
             }
         }
     }
-
-
-    /*
-    public Transform[] path; //array of paths
-    public int currentPoint;
-    public Transform currentGoal;
-    public float roundingDistance;
-
-    public override void CheckDistance()//will to change to A star algorithm probably
-    {
-        if (Vector3.Distance(target.position,
-                             transform.position) <= chaseRaidius
-            && Vector3.Distance(target.position,
-                                transform.position) > attackRadius)
-        {
-            if (currentState == EnemyState.idle || currentState == EnemyState.walk
-                && currentState != EnemyState.stagger)
-            {
-                Vector3 temp = Vector3.MoveTowards(transform.position,
-                                                   target.position,
-                                                   moveSpeed * Time.deltaTime); //the log will move to the player
-                changeAnim(temp - transform.position);
-                myRigidbody.MovePosition(temp);
-                //ChangeState(EnemyState.walk);
-                anim.SetBool("wakeUp", true);
-            }
-        }
-        else if (Vector3.Distance(target.position,
-                          transform.position) > chaseRaidius)
-        {
-            if(Vector3.Distance(transform.position, path[currentPoint].position) >roundingDistance && currentState != EnemyState.stagger)
-            {
-                Vector3 temp = Vector3.MoveTowards(transform.position,
-                                   path[currentPoint].position,//moves to the point
-                                   moveSpeed * Time.deltaTime); //the log will move to the player
-                changeAnim(temp - transform.position);
-                myRigidbody.MovePosition(temp);
-            }
-            else
-            {
-                ChangeGoal();
-            }
-        }
-    }
-
-    private void ChangeGoal() //check to see what the current goal is
-    {
-        if(currentPoint == path.Length - 1) //reset current goal to path 0
-        {
-            currentPoint = 0;
-            currentGoal = path[0];
-        }
-        else //increase current point
-        {
-            currentPoint++;
-            currentGoal = path[currentPoint];
-        }
-    }
-    */
 }

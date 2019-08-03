@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class FireBall : MonoBehaviour {
 
-    public float speed;
-    public Rigidbody2D myRigidbody;
+    public float speed; //the speed of the fireBall
+    public Rigidbody2D myRigidbody; //fireBall Rigidbody2D
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
     void Update()
     {
-        Object.Destroy(gameObject, 2.0f);
+        Object.Destroy(gameObject, 2.0f); //fireBall is destroy after 5 seconds
     }
 
     public void Setup(Vector2 velocity, Vector3 direction)
     {
-        myRigidbody.velocity = velocity.normalized * speed;
-        transform.rotation = Quaternion.Euler(direction);
+        myRigidbody.velocity = velocity.normalized * speed; //moving the myRigidbody of fireBall with speed
+        transform.rotation = Quaternion.Euler(direction); //change the rotation of the fireBall in the right direction 
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other) //for hitting the enemy
     {
-        if(other.gameObject.CompareTag("SmallMapEnemy"))
+        if(other.gameObject.CompareTag("SmallMapEnemy")) //if its the enemy it is destroid
         {
             Destroy(this.gameObject);
         }

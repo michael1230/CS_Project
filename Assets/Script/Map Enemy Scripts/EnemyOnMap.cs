@@ -16,50 +16,48 @@ public class EnemyOnMap : MonoBehaviour {
     public EnemyState currentState;
 
     [Header("Enemy Stats")]
-    public FloatValue maxHealth;
-    public float health;
+    public FloatValue maxHealth; //max health
+    public float health; //current health
     public string enemyName;
-    public int baseAttack;
-    public float moveSpeed;
-    public bool isAlive;
- //   public Vector2 homePosition;
+    public int baseAttack; //the force of enemy attack
+    public float moveSpeed; //moving speed
+    public bool isAlive; //to check if enemy is still alive
 
     [Header("Death Effects")]
     public GameObject deathEffect;
     private float deathEffectDelay = 1f;
-    public LootTable thisLoot;
+    public LootTable thisLoot; //referance to the LootTable of heart/fireBall 
 
-    private void Awake()
+    private void Awake() //Initial value on wake
     {
         health = maxHealth.initialValue;
         isAlive = true;
     }
 
-    private void OnEnable()
+    private void OnEnable() //Initial value when enabled
     {
-        //transform.position = homePosition;
         health = maxHealth.initialValue;
-        currentState = EnemyState.idle;
+        currentState = EnemyState.idle; //first state enemy doesn't move
     }
 
     private void TakeDamage(float damage) //enemy damage after hit
     {
         health -= damage;
-        if(health <= 0)
+        if(health <= 0) //if no more health enemy is dead
         {
             DeathEffect();
-            MakeLoot();//after death drop item
+            MakeLoot(); //after death drop item
             this.gameObject.SetActive(false); //better then destroy for memory
             isAlive = false;
         }
     }
 
-    private void MakeLoot()// for hearts and powerUp
+    private void MakeLoot() //for hearts and powerUp
     {
         if (thisLoot != null)
         {
-            Powerup current = thisLoot.LootPowerup();
-            if (current != null)
+            Powerup current = thisLoot.LootPowerup(); //get powerUp if probability gives one
+            if (current != null) //if we got loot then
             {
                 Instantiate(current.gameObject, transform.position, Quaternion.identity);//drop in the enemy place, Quaternion.identity == no rotation 
             }
@@ -68,10 +66,10 @@ public class EnemyOnMap : MonoBehaviour {
 
     private void DeathEffect() //effect for enemy death
     {
-        if (deathEffect != null)
+        if (deathEffect != null) //if there is a death effect for this enemy
         {
-            GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
-            Destroy(effect, deathEffectDelay);
+            GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity); //active the effect in the last place of dead enemy
+            Destroy(effect, deathEffectDelay); //after it is done it vanishes
         }
     }
 
@@ -82,18 +80,17 @@ public class EnemyOnMap : MonoBehaviour {
         {
             StartCoroutine(KnockCo(myRigidbody, knockTime));
         }
-        TakeDamage(damage);
+        TakeDamage(damage); //after knockBack give damage to enemy
     }
 
     private IEnumerator KnockCo(Rigidbody2D myRigidbody, float knockTime) //knock the enemy
     {
-        if (myRigidbody != null)
+        if (myRigidbody != null) //if there is myRigidbody for enemy
         {
-            //yield return new WaitForSeconds(knockTime);
-            yield return new WaitForSecondsRealtime(knockTime);
-            myRigidbody.velocity = Vector2.zero;
-            currentState = EnemyState.idle;
-            myRigidbody.velocity = Vector2.zero;
+            yield return new WaitForSecondsRealtime(knockTime); //for how long the knockBack
+            myRigidbody.velocity = Vector2.zero; //moving the enemy away
+            currentState = EnemyState.idle; //change enemy state to idle for not attacking while been knockback
+            myRigidbody.velocity = Vector2.zero; //keep vector2 zero after EnemyState.idle
         }
     }
 }
