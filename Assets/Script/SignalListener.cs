@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class SignalListener : MonoBehaviour {
 
     public Signal signal; //the signal to listen
-    public UnityEvent signalEvent;
+    public UnityEvent signalEvent; //zero argument persistent callback that can be saved with the Scene
 
     public void OnSignalRaised()
     {
