@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class logEnemy : EnemyOnMap {
 
-    public Rigidbody2D myRigidbody;
-    public Transform target;//moving the enemy
-    public Transform targetPlayer;//moving the enemy
-    public float chaseRaidius;
-    public float attackRadius;
+    public Rigidbody2D myRigidbody; //enemy Rigidbody2D
+    public Transform target; //moving the enemy to given target 
+    public Transform targetPlayer; //moving the enemy to player position
+    public float chaseRaidius; //the area which the enemy follows player
+    public float attackRadius; //the area which the enemy attacks player
 
     public bool toPoint = true;
 

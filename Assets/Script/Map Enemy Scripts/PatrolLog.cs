@@ -11,14 +11,14 @@ public class PatrolLog : logEnemy {
     Vector3[] path;
     int targetIndex;
 
-    public Transform[] pathDot; //array of paths
-    public int currentPoint;
-    public Transform currentGoal;
-    public Transform AstarPoint;
-    public float roundingDistance;
+    public Transform[] pathDot; //array of dots for enemy to walk on
+    public int currentPoint; //the first point from where enemy starts 
+    public Transform currentGoal; //the dot enemy needs to reach
+    public Transform AstarPoint; //if  A* search have ended the return to this point 
+    public float roundingDistance;////////////////////////////////////////////
     public Collider2D boundary; //boundary where the enemy will chase the player
 
-    public bool enterOrExit;
+    public bool enterOrExit; //bool for the area where A* begin
     public bool once=false;
     
     IEnumerator Moveback()
