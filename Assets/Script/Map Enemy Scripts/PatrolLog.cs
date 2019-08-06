@@ -14,13 +14,14 @@ public class PatrolLog : logEnemy {
     public Transform[] pathDot; //array of dots for enemy to walk on
     public int currentPoint; //the first point from where enemy starts 
     public Transform currentGoal; //the dot enemy needs to reach
-    public Transform AstarPoint; //if  A* search have ended the return to this point 
-    public float roundingDistance;////////////////////////////////////////////
+    public Transform AstarPoint; //if  A* search have ended then return to this point 
+    public float roundingDistance; //the distance of the enemy from the dot that is OK Before changing to the next dot
     public Collider2D boundary; //boundary where the enemy will chase the player
 
-    public bool enterOrExit; //bool for the area where A* begin
-    public bool once=false;
-    
+    public bool enterOrExit; //boolean for the area where A* activates 
+    public bool once=false; //////////////////////////
+    //to start the coroutine(UpdatePath) only one time
+
     IEnumerator Moveback()
     {
         yield return new WaitForSecondsRealtime(0.1f);
@@ -36,55 +37,52 @@ public class PatrolLog : logEnemy {
         if ((enterOrExit == true))
             {
             toPoint = false;
-            if (currentState == EnemyState.idle || currentState == EnemyState.walk
-                    && currentState != EnemyState.stagger)
+            if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger) //enemy will start walking only if was in idle or was walking and not been attacked
                 {
-                target = targetPlayer;
+                target = targetPlayer; //update the target to be the player
                 if (once==false)
                 {
                     StartCoroutine(UpdatePath());
                     once = true;
                 }
-                ChangeState(EnemyState.walk);
-                anim.SetBool("wakeUp", true);
-                }
+                ChangeState(EnemyState.walk); //change enemy state to walking
+                anim.SetBool("wakeUp", true); //start the animation
+            }
             }
         else if (enterOrExit == false)
         {
-            once = false;
-            if ((toPoint == true))
+            once = false; //for searching the player again if needed
+            if ((toPoint == true)) //if only the enemy was in the AstarPoint then go patrolling
             {
-                if (Vector3.Distance(transform.position, pathDot[currentPoint].position) > roundingDistance && currentState != EnemyState.stagger)
+                if (Vector3.Distance(transform.position, pathDot[currentPoint].position) > roundingDistance && currentState != EnemyState.stagger) //if the enemy did not yet reached the dot and is not under attack then he moves
                 {
-                    Vector3 temp = Vector3.MoveTowards(transform.position,
-                                       pathDot[currentPoint].position,//moves to the point
-                                       moveSpeed * Time.deltaTime); //the log will move to the player
-                    changeAnim(temp - transform.position);
-                    myRigidbody.MovePosition(temp);
+                    Vector3 temp = Vector3.MoveTowards(transform.position, pathDot[currentPoint].position, moveSpeed * Time.deltaTime); //to move to the next dot
+                    changeAnim(temp - transform.position); //change animation according to the moving position
+                    myRigidbody.MovePosition(temp); //change the position with the temp Value
                 }
                 else
                 {
-                    ChangeGoal();
+                    ChangeGoal(); //change the destination dot
                 }
             }
             else
             {
-                target = AstarPoint.transform;
+                target = AstarPoint.transform; //update the target to be the AstarPoint for returning to patrol
             }
         }       
     }
 
-    private void ChangeGoal() //check to see what the current goal is
+    private void ChangeGoal() //change dot to the next dot in the array
     {
-        if (currentPoint == pathDot.Length - 1) //reset current goal to path 0
+        if (currentPoint == pathDot.Length - 1) //if the enemy in the last point the reset
         {
-            currentPoint = 0;
-            currentGoal = pathDot[0];
+            currentPoint = 0; //reset current dot to 0
+            currentGoal = pathDot[0]; //reset current goal dot to currentPoint which is 0
         }
-        else //increase current point
+        else //else increase current point
         {
-            currentPoint++;
-            currentGoal = pathDot[currentPoint];
+            currentPoint++; //the next dot in the array
+            currentGoal = pathDot[currentPoint]; //current goal dot is currentPoint
         }
     }
 
@@ -145,13 +143,14 @@ public class PatrolLog : logEnemy {
                 currentWaypoint = path[targetIndex];
             }
 
-            Vector3 temp = Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime);
-            changeAnim(temp - transform.position);
-            myRigidbody.MovePosition(temp);
-            anim.SetBool("wakeUp", true);
+            Vector3 temp = Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime); //for the enemy to move to the currentWaypoint position
+            changeAnim(temp - transform.position); //change animation according to the moving position
+            myRigidbody.MovePosition(temp); //change the position with the temp Value
+            anim.SetBool("wakeUp", true); //start the animation
             yield return null;
         }
     }
+    
     public void OnDrawGizmos()
     {
         if (path != null)

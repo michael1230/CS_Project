@@ -13,7 +13,7 @@ public enum EnemyState
 public class EnemyOnMap : MonoBehaviour {
 
     [Header("State Machine")]
-    public EnemyState currentState;
+    public EnemyState currentState; //for changing states
 
     [Header("Enemy Stats")]
     public FloatValue maxHealth; //max health
@@ -26,7 +26,7 @@ public class EnemyOnMap : MonoBehaviour {
     [Header("Death Effects")]
     public GameObject deathEffect;
     private float deathEffectDelay = 1f;
-    public LootTable thisLoot; //referance to the LootTable of heart/fireBall 
+    public LootTable thisLoot; //reference to the LootTable of heart/fireBall 
 
     private void Awake() //Initial value on wake
     {

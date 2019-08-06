@@ -187,7 +187,7 @@ public class BattleManager : MonoBehaviour
                     {
                         if (enemyPrefabs[j].charName == enemiesToSpawn[i])//if the name of enemyPrefabs[j] is equal to enemiesToSpawn[i]
                         {
-                            BattleChar newEnemy;//the enemt object
+                            BattleChar newEnemy;//the enemy object
                             if (enemyPrefabs[j].isMapBoss|| enemyPrefabs[j].isGameBoss)//if its a boss
                             {
                                 newEnemy = Instantiate(enemyPrefabs[j], enemyPositions[2].position, enemyPositions[i].rotation);//put the boos in his position

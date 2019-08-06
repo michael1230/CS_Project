@@ -11,7 +11,7 @@ public class KightsAttack : MonoBehaviour
     void Start ()
     {
         player = FindObjectOfType<PlayerController>().gameObject;//find the player
-        animator = GetComponent<Animator>();//get the Animator pf the player
+        animator = GetComponent<Animator>();//get the Animator of the player
     }
 	
 	// Update is called once per frame
