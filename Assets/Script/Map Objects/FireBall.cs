@@ -18,13 +18,13 @@ public class FireBall : MonoBehaviour {
 
     public void Setup(Vector2 velocity, Vector3 direction)
     {
-        myRigidbody.velocity = velocity.normalized * speed; //moving the myRigidbody of fireBall with speed
-        transform.rotation = Quaternion.Euler(direction); //change the rotation of the fireBall in the right direction 
+        myRigidbody.velocity = velocity.normalized * speed; //moving the myRigidbody of fireBall with speed and normalize it for moving the same speed in all direction
+        transform.rotation = Quaternion.Euler(direction); //change the rotation of the fireBall in the correct direction 
     }
 
     public void OnTriggerEnter2D(Collider2D other) //for hitting the enemy
     {
-        if(other.gameObject.CompareTag("SmallMapEnemy")) //if its the enemy it is destroid
+        if(other.gameObject.CompareTag("SmallMapEnemy")) //if its the enemy it is destroyed
         {
             Destroy(this.gameObject);
         }

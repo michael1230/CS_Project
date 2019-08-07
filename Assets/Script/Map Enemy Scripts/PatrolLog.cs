@@ -32,9 +32,9 @@ public class PatrolLog : logEnemy {
     {
         if ((transform.position == AstarPoint.position)&&(target== AstarPoint.transform))
         {
-            StartCoroutine(Moveback());
+            StartCoroutine(Moveback()); //coroutine for returning to the AstarPoint dot and then patrol normally 
         }
-        if ((enterOrExit == true))
+        if ((enterOrExit == true)) //if player inside the boundary
             {
             toPoint = false;
             if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger) //enemy will start walking only if was in idle or was walking and not been attacked
@@ -49,10 +49,10 @@ public class PatrolLog : logEnemy {
                 anim.SetBool("wakeUp", true); //start the animation
             }
             }
-        else if (enterOrExit == false)
+        else if (enterOrExit == false) //if player is not inside the boundary
         {
             once = false; //for searching the player again if needed
-            if ((toPoint == true)) //if only the enemy was in the AstarPoint then go patrolling
+            if ((toPoint == true)) //if only the enemy was on the AstarPoint dot then go patrolling
             {
                 if (Vector3.Distance(transform.position, pathDot[currentPoint].position) > roundingDistance && currentState != EnemyState.stagger) //if the enemy did not yet reached the dot and is not under attack then he moves
                 {

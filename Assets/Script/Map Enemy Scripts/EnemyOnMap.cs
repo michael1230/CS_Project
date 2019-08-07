@@ -88,9 +88,8 @@ public class EnemyOnMap : MonoBehaviour {
         if (myRigidbody != null) //if there is myRigidbody for enemy
         {
             yield return new WaitForSecondsRealtime(knockTime); //for how long the knockBack
-            myRigidbody.velocity = Vector2.zero; //moving the enemy away
-            currentState = EnemyState.idle; //change enemy state to idle for not attacking while been knockback
-            myRigidbody.velocity = Vector2.zero; //keep vector2 zero after EnemyState.idle
+            currentState = EnemyState.idle; //change enemy state to idle for not attacking while been knock back
+            myRigidbody.velocity = Vector2.zero; //let the Rigidbody move freely for the effect of the knock back
         }
     }
 }
