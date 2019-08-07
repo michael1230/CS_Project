@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     {
         sceneName = SceneManager.GetActiveScene().name;//get the name of this scene
         enemyTracker = FindObjectOfType<EnemyTracker>();//get enemyTracker object
-        if (gameMenuOpen || dialogActive || fadingBetweenAreas || battleActive|| gameOver||mainMenu)//if one pf them is true then
+        if (gameMenuOpen || dialogActive || fadingBetweenAreas || battleActive|| gameOver||mainMenu)//if one of them is true then
         {
             dontGainSpeed = true;//don't gain speed now
             PlayerController.instance.canMovePlayer = false;//player cant move

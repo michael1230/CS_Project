@@ -17,10 +17,10 @@ public class KightsAttack : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (triggerBox.once==true)////////////////////////////////////////////////////////////////////////////
+        if (triggerBox.once==true)//if player finished reading the dialog and pressed space
         {
-            animator.SetBool("move", true);////////////////////////////////////////////////////////////////////////////
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, 7f * Time.deltaTime);////////////////////////////////////////////////////////////////////////////
+            animator.SetBool("move", true);//moving animation true
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, 7f * Time.deltaTime);//move the knight position with given speed
         }
     }
 }

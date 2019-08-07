@@ -25,7 +25,7 @@ public class GameMenu : MonoBehaviour
     public Text dialogBoxLine3;//a text to show diablog...the third line
     public GameObject healthHolder;////////////////////////////////////////////////////////////////////////////
     public HeartManager heartContainers;////////////////////////////////////////////////////////////////////////////
-    public FireBarManager sliderHolder;////////////////////////////////////////////////////////////////////////////
+    public FireBarManager sliderHolder;//a bar for how much magic player has
 
     private void Awake()
     {

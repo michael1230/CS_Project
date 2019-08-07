@@ -55,9 +55,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-
-
     void Start()
     {
         currentState = PlayerState.walk; //player first state is walking

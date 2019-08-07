@@ -30,7 +30,7 @@ public class TestBattleTrigger : MonoBehaviour
     {
         if (knight != null)//if the knight is not null...that means that this object is a knight 
         {
-            knight.triggerBox.gameObject.SetActive(false);/////////////////////////////////////////////////////////////////////////////////
+            knight.triggerBox.gameObject.SetActive(false);//turn of the triggerBox that starts the turn base battle
         }
         StartCoroutine(BattleManager.instance.PrepareforBattleStart(enemyToSpawn));//start the Coroutine PrepareforBattleStart with this enemies enemyToSpawn
         yield return new WaitForSeconds(3f);//
