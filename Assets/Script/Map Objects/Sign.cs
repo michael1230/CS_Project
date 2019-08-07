@@ -11,11 +11,11 @@ public class Sign : MonoBehaviour
     public Text dialogText;  //reference for the text1
     public Text dialogText2; //reference for the text1
     public Text dialogText3; //reference for the text1
-    public string name;    //reference to the string that shows up in place og the dialogText
-    public string dialog;  //reference to the string that shows up in place og the dialogText2
-    public string dialog2; //reference to the string that shows up in place og the dialogText3
+    public string name;    //reference to the string that shows up in place of the dialogText
+    public string dialog;  //reference to the string that shows up in place of the dialogText2
+    public string dialog2; //reference to the string that shows up in place of the dialogText3
     public bool playerInRange; //for activating the dialog when player is in range
-    public bool once; //activating the dialog only one time for per sence 
+    public bool once; //activating the dialog only one time for per scene  
     
     // Use this for initialization
     void Start ()
@@ -27,8 +27,7 @@ public class Sign : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-
-        if (dialogBox==null)
+        if (dialogBox==null)//if it doesn't exist then initialize from GameMenu
         {
             dialogBox = GameMenu.instance.dialogBox;
             dialogText = GameMenu.instance.dialogBoxLine1;
@@ -61,8 +60,6 @@ public class Sign : MonoBehaviour
                     dialogBox.SetActive(false);
                     //GameManager.instance.dialogActive = true;
                     once = true;
-
-
                 }
             }
             else // else change to true
@@ -73,9 +70,7 @@ public class Sign : MonoBehaviour
                     dialogText.text = name; //place a variable in Unity Inspector
                     dialogText2.text = dialog; //place a variable in Unity Inspector
                     dialogText3.text = dialog2; //place a variable in Unity Inspector
-                    //GameManager.instance.dialogActive = true;
                 }
-
             }
         }
     }

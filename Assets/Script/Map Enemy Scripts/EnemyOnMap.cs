@@ -21,7 +21,6 @@ public class EnemyOnMap : MonoBehaviour {
     public string enemyName;
     public int baseAttack; //the force of enemy attack
     public float moveSpeed; //moving speed
-    public bool isAlive; //to check if enemy is still alive
 
     [Header("Death Effects")]
     public GameObject deathEffect;
@@ -31,7 +30,6 @@ public class EnemyOnMap : MonoBehaviour {
     private void Awake() //Initial value on wake
     {
         health = maxHealth.initialValue;
-        isAlive = true;
     }
 
     private void OnEnable() //Initial value when enabled
@@ -48,7 +46,6 @@ public class EnemyOnMap : MonoBehaviour {
             DeathEffect();
             MakeLoot(); //after death drop item
             this.gameObject.SetActive(false); //better then destroy for memory
-            isAlive = false;
         }
     }
 

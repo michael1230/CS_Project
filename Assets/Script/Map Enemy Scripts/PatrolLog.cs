@@ -4,55 +4,48 @@ using UnityEngine;
 
 public class PatrolLog : logEnemy {
 
-    const float minPathUpdateTime = .2f;
-    const float pathUpdateMoveThreshold = .1f;
-
-    public Vector3 targetOldPosition;
-    Vector3[] path;
-    int targetIndex;
-
+    const float minPathUpdateTime = .2f;//a fixed time to check if we need to update 
+    const float pathUpdateMoveThreshold = .1f;//the Threshold of the distance between the old position and the new position
+    Vector3[] path;//The A* search path
+    int targetIndex;//the index for the next node in the path
     public Transform[] pathDot; //array of dots for enemy to walk on
     public int currentPoint; //the first point from where enemy starts 
     public Transform currentGoal; //the dot enemy needs to reach
-    public Transform AstarPoint; //if  A* search have ended then return to this point 
+    public Transform AstarPoint; //if A* search have ended then return to this point 
     public float roundingDistance; //the distance of the enemy from the dot that is OK Before changing to the next dot
     public Collider2D boundary; //boundary where the enemy will chase the player
-
     public bool enterOrExit; //boolean for the area where A* activates 
-    public bool once=false; //////////////////////////
-    //to start the coroutine(UpdatePath) only one time
-
-    IEnumerator Moveback()
+    public bool once=false; //to start the coroutine(UpdatePath) only one time
+    IEnumerator Moveback()//a Coroutine to return to regular patrol 
     {
         yield return new WaitForSecondsRealtime(0.1f);
         toPoint = true;
     }
-
     public override void CheckDistance()//will to change to A star algorithm probably
     {
-        if ((transform.position == AstarPoint.position)&&(target== AstarPoint.transform))
+        if ((transform.position == AstarPoint.position)&&(target== AstarPoint.transform))//if we reach AstarPoint and AstarPoint is our target
         {
-            StartCoroutine(Moveback()); //coroutine for returning to the AstarPoint dot and then patrol normally 
+            StartCoroutine(Moveback()); //coroutine for returning to regular patrol 
         }
         if ((enterOrExit == true)) //if player inside the boundary
             {
-            toPoint = false;
+            toPoint = false;//don't return to patrol
             if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger) //enemy will start walking only if was in idle or was walking and not been attacked
                 {
-                target = targetPlayer; //update the target to be the player
-                if (once==false)
-                {
-                    StartCoroutine(UpdatePath());
-                    once = true;
+                    target = targetPlayer; //update the target to be the player
+                    if (once==false)//if we have not yet to StartCoroutine(UpdatePath() with the current target
+                    {
+                        StartCoroutine(UpdatePath());
+                        once = true;//only once
+                    }
+                    ChangeState(EnemyState.walk); //change enemy state to walking
+                    anim.SetBool("wakeUp", true); //start the animation
                 }
-                ChangeState(EnemyState.walk); //change enemy state to walking
-                anim.SetBool("wakeUp", true); //start the animation
-            }
             }
         else if (enterOrExit == false) //if player is not inside the boundary
         {
             once = false; //for searching the player again if needed
-            if ((toPoint == true)) //if only the enemy was on the AstarPoint dot then go patrolling
+            if ((toPoint == true))//while toPoint is true do the patrol
             {
                 if (Vector3.Distance(transform.position, pathDot[currentPoint].position) > roundingDistance && currentState != EnemyState.stagger) //if the enemy did not yet reached the dot and is not under attack then he moves
                 {
@@ -71,7 +64,6 @@ public class PatrolLog : logEnemy {
             }
         }       
     }
-
     private void ChangeGoal() //change dot to the next dot in the array
     {
         if (currentPoint == pathDot.Length - 1) //if the enemy in the last point the reset
@@ -85,73 +77,62 @@ public class PatrolLog : logEnemy {
             currentGoal = pathDot[currentPoint]; //current goal dot is currentPoint
         }
     }
-
-    public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
+    public void OnPathFound(Vector3[] newPath, bool pathSuccessful)//this is the action method for the PathResult and PathRequest which is called in the FindPath method in APathfinding script
     {
         if (pathSuccessful)
         {
-            path = newPath;
-            targetIndex = 0;
-            StopCoroutine("FollowPath");
-            if (this.gameObject == isActiveAndEnabled && currentState != EnemyState.stagger)//for stopping if enemy was killed
+            path = newPath;// save the path
+            targetIndex = 0;//reset for the next node
+            StopCoroutine("FollowPath");//stop the current Coroutine
+            if (this.gameObject == isActiveAndEnabled && currentState != EnemyState.stagger)//if this enemy is active(alive) and is not been attacked
             {
-                StartCoroutine("FollowPath");
-            }
-            
+                StartCoroutine("FollowPath");//start the Coroutine
+            }            
         }
     }
-
-    IEnumerator UpdatePath()
+    IEnumerator UpdatePath()//a Coroutine to request a path and update it
     {
-        if (Time.timeSinceLevelLoad < .3f)
+        if (Time.timeSinceLevelLoad < .3f)//wait for the system to load
         {
             yield return new WaitForSeconds(.3f);
         }
-        PathRequestManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
-
-        float sqrMoveThreshold = pathUpdateMoveThreshold * pathUpdateMoveThreshold;
-        Vector3 targetPosOld = target.position;
-
-        while (true)
+        PathRequestManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));//request a new path
+        float sqrMoveThreshold = pathUpdateMoveThreshold * pathUpdateMoveThreshold;//sqr of the Threshold..the sqr is easier to calculate for the system
+        Vector3 targetPosOld = target.position;//save the current position of the target
+        while (true)// do always
         {
-            yield return new WaitForSeconds(minPathUpdateTime);
-            if ((target.position - targetPosOld).sqrMagnitude > sqrMoveThreshold)
+            yield return new WaitForSeconds(minPathUpdateTime);//wait a fixed time
+            if ((target.position - targetPosOld).sqrMagnitude > sqrMoveThreshold)//check if the distance between the old position and the new position is bigger then the Threshold
             {
-                PathRequestManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
-                targetPosOld = target.position;
+                PathRequestManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));//request a new path 
+                targetPosOld = target.position;//save the current position of the target
             }
-        }
-   
-        
-    }
-    
-    IEnumerator FollowPath()
+        }       
+    }    
+    IEnumerator FollowPath()//a Coroutine to start the movement of the enemy to the player
     {
-        Vector3 currentWaypoint = path[0];
-
-        while (true)
+        Vector3 currentWaypoint = path[0];//the first node
+        while (true)//do this always
         {
-            if (transform.position == currentWaypoint)
+            if (transform.position == currentWaypoint)//if this object position is the currentWaypoint
             {
-                targetIndex++;
-                if (targetIndex >= path.Length)//targetIndex should be reset
+                targetIndex++;//next node
+                if (targetIndex >= path.Length)//if we have reached or passed the target position
                 {
-                    targetIndex = 0;
-                    path = new Vector3[0];
+                    targetIndex = 0;//reset
+                    path = new Vector3[0];//reset
                     yield break;
                 }
-                currentWaypoint = path[targetIndex];
+                currentWaypoint = path[targetIndex];//the currentWaypoint is the next node
             }
-
             Vector3 temp = Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime); //for the enemy to move to the currentWaypoint position
             changeAnim(temp - transform.position); //change animation according to the moving position
             myRigidbody.MovePosition(temp); //change the position with the temp Value
             anim.SetBool("wakeUp", true); //start the animation
             yield return null;
         }
-    }
-    
-    public void OnDrawGizmos()
+    }  
+    public void OnDrawGizmos()//a method for showing gizmo
     {
         if (path != null)
         {
