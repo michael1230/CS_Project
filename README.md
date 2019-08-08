@@ -10,7 +10,7 @@ Red enemies means turn battle.
 Each move has a cost and can cost MP(magic move) or mp + SP(special move) and regular attach cost 0.
 After some distance from the beginning of the map Graland will show up and start to chase you and you will loose if he catches you.
 At the end of the map there's a map boss to beat, after you beat him he joins tu the party and you get more powerful.
-When you have all the elements the final map is open and the only thing left is to beat Graland.\
+When you have all the elements the final map is open and the only thing left is to beat Graland.
 
 The art and sound was not our work and the Credit for them is from here:\
 https://www.spriters-resource.com/mobile/finalfantasybraveexvius/?source=genre \
@@ -30,4 +30,4 @@ shin megami tensei iv apocalypse music:battle f2,Battle B1,Battle B2,battle f4 \
 undertale music: MEGALOVANIA \
 yakuza 6 music: Bug's Warrior \
 final fantasy xv music:Melancholia \
-xenoblade chronicles music:Gaur Plains \
+xenoblade chronicles music:Gaur Plains 
