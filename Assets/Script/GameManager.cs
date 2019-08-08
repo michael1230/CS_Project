@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public bool inDesert = true;//if we are in the Desert..only once!
     public bool inIce = true;//if we are in the Ice..only once!
     public bool inDark = true;//if we are in the Dark..only once!
-    public bool imReallyDead = true;////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public bool imReallyDead = true;//boolean for updating player is dead and not just deactivated 
     public bool canAttack = true;//if we cant attack now
     public bool gameBeat = false;//if we have beat the final boss
     public string sceneName;//the name for this scene
@@ -53,20 +53,20 @@ public class GameManager : MonoBehaviour
         {
             dontGainSpeed = true;//don't gain speed now
             PlayerController.instance.canMovePlayer = false;//player cant move
-            PlayerController.instance.PlyerIdle(false);/////////////////////////////////////////////////////////////////////
+            PlayerController.instance.PlyerIdle(false);//stop player blend tree animation
             enemyTracker.EnemyMovment(false);//enemies and boss cant move
-            GameMenu.instance.healthHolder.SetActive(false);////////////////////////////////////////////////////////////////
+            GameMenu.instance.healthHolder.SetActive(false);//deactivate healthHolder which holds all the player hearts 
         }
         else//if all of them is false then
         {
             dontGainSpeed = false;//gain speed now
             PlayerController.instance.canMovePlayer = true;//player can move
-            PlayerController.instance.PlyerIdle(true);/////////////////////////////////////////////////////////////////////
+            PlayerController.instance.PlyerIdle(true);//player animation are activated 
             enemyTracker.EnemyMovment(true);//enemies and boss can move
-            GameMenu.instance.healthHolder.SetActive(true);/////////////////////////////////////////////////////////////////////
+            GameMenu.instance.healthHolder.SetActive(true);//show player health on screen
         }
 
-        if ((PlayerController.instance.imAlive==false)&&(imReallyDead==true))//////////////////////////////////////////////////
+        if ((PlayerController.instance.imAlive==false)&&(imReallyDead==true))//if the player is dead then start coroutine of GameOver
         {
             StartCoroutine(BattleManager.instance.GameOverCo());
             imReallyDead = false;
@@ -82,20 +82,20 @@ public class GameManager : MonoBehaviour
         if ((sceneName == "OldManHouse")||(sceneName == "DeltaForestKnight") ||(sceneName == "ChronoDesertKnight") ||(sceneName == "IceAgeKnight") ||(sceneName == "DarkLand"))//if we are in one of these scene
         {
             canAttack = false;//cant attack
-            GameMenu.instance.healthHolder.SetActive(false);////////////////////////////////////////////////////////
+            GameMenu.instance.healthHolder.SetActive(false);//don't show player health
         }
         else if (((sceneName == "MB_MapForBattle")||(sceneName=="DeltaForest"))&&(battleActive==false)&&(inForest==true))//if we are in DeltaForest (or MB_MapForBattle for tests) and 
         // battleActive is false(thats means there is not a battle now) and inForest is true(thats means we have not been in this if yet) 
         {
             canAttack = true;//can attack 
-            GameMenu.instance.healthHolder.SetActive(true);////////////////////////////////////////////////////////
-            GameMenu.instance.heartContainers.heartContainers.initialValue = 3;////////////////////////////////////////////////////////
-            GameMenu.instance.heartContainers.heartContainers.RuntimeValue = 3;////////////////////////////////////////////////////////
-            PlayerController.instance.currentHealth.initialValue = 6;////////////////////////////////////////////////////////
-            PlayerController.instance.currentHealth.RuntimeValue = 6;////////////////////////////////////////////////////////
-            GameMenu.instance.heartContainers.InitHearts();////////////////////////////////////////////////////////
-            GameMenu.instance.sliderHolder.playerInventory.currentMagic = GameMenu.instance.sliderHolder.playerInventory.maxMagic;////////////////////////////////////////////////////////
-            GameMenu.instance.sliderHolder.fireSlider.value = GameMenu.instance.sliderHolder.fireSlider.maxValue;////////////////////////////////////////////////////////
+            GameMenu.instance.healthHolder.SetActive(true);//show player health
+            GameMenu.instance.heartContainers.heartContainers.initialValue = 3;//player starts with 3 hearts
+            GameMenu.instance.heartContainers.heartContainers.RuntimeValue = 3;//RuntimeValue is the current player health which start as the initialValue 
+            PlayerController.instance.currentHealth.initialValue = 6;//player initial health which is 2 times the amount of hearts because every heart is 2 health for the player
+            PlayerController.instance.currentHealth.RuntimeValue = 6;//current player health is the same is the initial value
+            GameMenu.instance.heartContainers.InitHearts();//make the hearts according to the given values
+            GameMenu.instance.sliderHolder.playerInventory.currentMagic = GameMenu.instance.sliderHolder.playerInventory.maxMagic;//set player magic for fire Ball to maximum 
+            GameMenu.instance.sliderHolder.fireSlider.value = GameMenu.instance.sliderHolder.fireSlider.maxValue;//set the fire bar slider to the maximum
             totalItems[0].ItemAmount = 10;//have 10 at the start of this map
             totalItems[1].ItemAmount = 10;//have 10 at the start of this map
             totalItems[2].ItemAmount = 10;//have 10 at the start of this map
@@ -105,14 +105,14 @@ public class GameManager : MonoBehaviour
         // battleActive is false(thats means there is not a battle now) and inDesert is true(thats means we have not been in this if yet)
         {
             canAttack = true;//can attack 
-            GameMenu.instance.healthHolder.SetActive(true);////////////////////////////////////////////////////////
-            GameMenu.instance.heartContainers.heartContainers.initialValue = 4;////////////////////////////////////////////////////////
-            GameMenu.instance.heartContainers.heartContainers.RuntimeValue = 4;////////////////////////////////////////////////////////
-            PlayerController.instance.currentHealth.initialValue = 8;////////////////////////////////////////////////////////
-            PlayerController.instance.currentHealth.RuntimeValue = 8;////////////////////////////////////////////////////////
-            GameMenu.instance.heartContainers.InitHearts();////////////////////////////////////////////////////////
-            GameMenu.instance.sliderHolder.playerInventory.currentMagic = GameMenu.instance.sliderHolder.playerInventory.maxMagic;////////////////////////////////////////////////////////
-            GameMenu.instance.sliderHolder.fireSlider.value = GameMenu.instance.sliderHolder.playerInventory.currentMagic;////////////////////////////////////////////////////////
+            GameMenu.instance.healthHolder.SetActive(true);//show player health
+            GameMenu.instance.heartContainers.heartContainers.initialValue = 4;//player starts with 4 hearts
+            GameMenu.instance.heartContainers.heartContainers.RuntimeValue = 4;//initialValue of hearts equals RuntimeValue
+            PlayerController.instance.currentHealth.initialValue = 8;//player starts with health of 8
+            PlayerController.instance.currentHealth.RuntimeValue = 8;//initialValue of health equals RuntimeValue
+            GameMenu.instance.heartContainers.InitHearts();//make the hearts according to the given values
+            GameMenu.instance.sliderHolder.playerInventory.currentMagic = GameMenu.instance.sliderHolder.playerInventory.maxMagic;//set player magic for fire Ball to maximum 
+            GameMenu.instance.sliderHolder.fireSlider.value = GameMenu.instance.sliderHolder.playerInventory.currentMagic;//set the fire bar slider to the maximum
             totalItems[0].ItemAmount = 13;//have 13 at the start of this map
             totalItems[1].ItemAmount = 13;//have 13 at the start of this map
             totalItems[2].ItemAmount = 13;//have 13 at the start of this map
@@ -122,14 +122,14 @@ public class GameManager : MonoBehaviour
         // battleActive is false(thats means there is not a battle now) and inIce is true(thats means we have not been in this if yet)
         {
             canAttack = true;//can attack 
-            GameMenu.instance.healthHolder.SetActive(true);
-            GameMenu.instance.heartContainers.heartContainers.initialValue = 5;////////////////////////////////////////////////////////
-            GameMenu.instance.heartContainers.heartContainers.RuntimeValue = 5;////////////////////////////////////////////////////////
-            PlayerController.instance.currentHealth.initialValue = 10;////////////////////////////////////////////////////////
-            PlayerController.instance.currentHealth.RuntimeValue = 10;////////////////////////////////////////////////////////
-            GameMenu.instance.heartContainers.InitHearts();////////////////////////////////////////////////////////
-            GameMenu.instance.sliderHolder.playerInventory.currentMagic = GameMenu.instance.sliderHolder.playerInventory.maxMagic;////////////////////////////////////////////////////////
-            GameMenu.instance.sliderHolder.fireSlider.value = GameMenu.instance.sliderHolder.playerInventory.currentMagic;////////////////////////////////////////////////////////
+            GameMenu.instance.healthHolder.SetActive(true);//show player health
+            GameMenu.instance.heartContainers.heartContainers.initialValue = 5;//player starts with 5 hearts
+            GameMenu.instance.heartContainers.heartContainers.RuntimeValue = 5;//initialValue of hearts equals RuntimeValue
+            PlayerController.instance.currentHealth.initialValue = 10;//player starts with health of 10
+            PlayerController.instance.currentHealth.RuntimeValue = 10;//initialValue of health equals RuntimeValue
+            GameMenu.instance.heartContainers.InitHearts();//make the hearts according to the given values
+            GameMenu.instance.sliderHolder.playerInventory.currentMagic = GameMenu.instance.sliderHolder.playerInventory.maxMagic;//set player magic for fire Ball to maximum 
+            GameMenu.instance.sliderHolder.fireSlider.value = GameMenu.instance.sliderHolder.playerInventory.currentMagic;//set the fire bar slider to the maximum
             totalItems[0].ItemAmount = 15;//have 15 at the start of this map
             totalItems[1].ItemAmount = 15;//have 15 at the start of this map
             totalItems[2].ItemAmount = 15;//have 15 at the start of this map
@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviour
     }
     public void addElement()//a method to add an element with its moves and bonuses and party 
     {
-        switch (numberOfElement)//swith case for numberOfElement
+        switch (numberOfElement)//switch case for numberOfElement
         {
             case 0://if numberOfElement is 0
                 for (int i = 0; i < playerStats.Length; i++)//go on all the players we have
@@ -186,7 +186,7 @@ public class GameManager : MonoBehaviour
                         playerStats[i].gameObject.SetActive(false);
                     }                    
                 }
-                gotElement[0] = true;//to only add the bunus once(because of the save and load)
+                gotElement[0] = true;//to only add the bonus once(because of the save and load)
                 break;
             case 2:
                 for (int i = 0; i < playerStats.Length; i++)//go on all the players we have
@@ -206,7 +206,7 @@ public class GameManager : MonoBehaviour
                         playerStats[i].gameObject.SetActive(false);
                     }
                 }
-                gotElement[1] = true;//to only add the bunus once(because of the save and load)
+                gotElement[1] = true;//to only add the bonus once(because of the save and load)
                 break;
             case 3:
                 for (int i = 0; i < playerStats.Length; i++)//go on all the players we have
@@ -226,7 +226,7 @@ public class GameManager : MonoBehaviour
                         playerStats[i].gameObject.SetActive(false);
                     }
                 }
-                gotElement[2] = true;//to only add the bunus once(because of the save and load)
+                gotElement[2] = true;//to only add the bonus once(because of the save and load)
                 break;
             default:
                 break;

@@ -9,7 +9,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class GameMenu : MonoBehaviour
 {
-    public Canvas theMenuCanves;//the canves
+    public Canvas theMenuCanves;//the canvas
     public GameObject theMenu;//the menu itself
     public TextMeshProUGUI currentSceneName;//a text to show the name of the map
     public Button firstButton;//the first button in the menu
@@ -23,8 +23,8 @@ public class GameMenu : MonoBehaviour
     public Text dialogBoxLine1;//a text to show diablog...the first line
     public Text dialogBoxLine2;//a text to show diablog...the second line
     public Text dialogBoxLine3;//a text to show diablog...the third line
-    public GameObject healthHolder;////////////////////////////////////////////////////////////////////////////
-    public HeartManager heartContainers;////////////////////////////////////////////////////////////////////////////
+    public GameObject healthHolder;//for holding all the player hearts and activate and deactivate when needed 
+    public HeartManager heartContainers;//all the hearts of the player
     public FireBarManager sliderHolder;//a bar for how much magic player has
 
     private void Awake()

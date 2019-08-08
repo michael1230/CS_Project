@@ -12,8 +12,8 @@ public class FireBarManager : MonoBehaviour {
     void Start ()
     {
         fireSlider.maxValue = playerInventory.maxMagic; //set to maxValue to maxMagic
-        fireSlider.value = playerInventory.maxMagic; //first value of slider is maxium 
-        playerInventory.currentMagic = playerInventory.maxMagic; //first value of playerInventory is maxium 
+        fireSlider.value = playerInventory.maxMagic; //first value of slider is maximum 
+        playerInventory.currentMagic = playerInventory.maxMagic; //first value of playerInventory is maximum 
     }
 	
     public void AddMagic() //add magic if potion is picked up
@@ -29,8 +29,8 @@ public class FireBarManager : MonoBehaviour {
 
     public void DecreaseMagic() //decrease magic if it was used
     {
-        fireSlider.value -= 1; //decrea slider by 1
-        playerInventory.currentMagic -= 1; //decrea playerInventory by 1
+        fireSlider.value -= 1; //decrease slider by 1
+        playerInventory.currentMagic -= 1; //decrease playerInventory by 1
         if (fireSlider.value < 0) //if the amount less then zero update all to zero
         {
             fireSlider.value = 0; //update slider
