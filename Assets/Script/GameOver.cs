@@ -103,17 +103,6 @@ public class GameOver : MonoBehaviour
     public void LoadLastSave(int slot)//a method to load the save
     {
         ShowPageButton(2);
-        if(slot==0)//if we want to load the latest save thin its 0
-        {
-            for (int i = 0; i < loadButtons.Length; i++)//on the first interactable button we load it
-            {
-                if(loadButtons[i].interactable == true)
-                {
-                    slot = i;
-                    break;
-                }
-            }
-        }
         GameMenu.instance.PrepareLoadData(slot);
     }
     public IEnumerator SceneSwitch()//a Coroutine to go back to main menu

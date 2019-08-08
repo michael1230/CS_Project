@@ -56,6 +56,29 @@ public class MainMenu : MonoBehaviour
         GameManager.instance.mainMenu = false;//reset
         SceneManager.LoadScene("OldManHouse");//load the scene
         PlayerController.instance.gameObject.transform.position = new Vector3(-1.18f, -1.49f, 0);//reset the player position
+        //reseting for new game..its here and not in the NewGame() method because the Coroutine could change back values and if we change it here then it works
+        GameManager.instance.inForest = true;
+        GameManager.instance.inDesert = true;
+        GameManager.instance.inIce = true;
+        GameManager.instance.inDark = true;
+        PlayerController.instance.imAlive = true;
+        GameManager.instance.imReallyDead = true;
+        GameManager.instance.totalItems[0].ItemAmount = 10;
+        GameManager.instance.totalItems[1].ItemAmount = 10;
+        GameManager.instance.totalItems[2].ItemAmount = 10;
+        GameManager.instance.numberOfElement = 0;
+        PlayerController.instance.MyRigidbody.constraints = RigidbodyConstraints2D.None;
+        PlayerController.instance.MyRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        for (int i = 0; i < GameManager.instance.playerStats.Length; i++)
+        {
+            GameManager.instance.playerStats[i].movesAvailable = GameManager.instance.playerStats[i].movesSet1;
+            GameManager.instance.playerStats[i].ResetStats();
+            if(i>0)
+            {
+                GameManager.instance.playerStats[i].gameObject.SetActive(false);
+            }
+        }
+        GameMenu.instance.UpdateStatsPage();
         GameManager.instance.fadingBetweenAreas = false;//reset
     }
     public void ShowPageButton(int onOff)//a method for showing the right pages
@@ -104,17 +127,6 @@ public class MainMenu : MonoBehaviour
         HeadLines[2].SetActive(false);//turn off the headline
         ShowPageButton(2);//turn off the pages
         GameManager.instance.mainMenu = false;//reset
-        if (slot == 0)//if we want to load the latest save thin its 0
-        {
-            for (int i = 0; i < loadButtons.Length; i++)//on the first interactable button we load it
-            {
-                if (loadButtons[i].interactable == true)
-                {
-                    slot = i;
-                    break;
-                }
-            }
-        }
         GameMenu.instance.PrepareLoadData(slot);
     }
 }

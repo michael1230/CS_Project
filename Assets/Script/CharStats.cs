@@ -15,6 +15,7 @@ public class CharStats : MonoBehaviour
     public int strength;// the strength..the attack power
     public int defense;//the defense..the defense power
     public int dexterity;//didn't use in the final game
+    public int[] initialStats;//the initial stats
     public List<BattleMove> movesAvailable = new List<BattleMove>();//a list of moves thats available now
     public List<BattleMove> movesSet1 = new List<BattleMove>();//first moves set
     public List<BattleMove> movesSet2 = new List<BattleMove>();//second moves set
@@ -40,4 +41,15 @@ public class CharStats : MonoBehaviour
         currentMP = maxMP;
         currentSP = maxSP;
     }
+    public void ResetStats()//a method for reseting the stats..for new game
+    {
+        playerLevel = initialStats[0];
+        maxHP = initialStats[1];
+        maxMP = initialStats[2];
+        maxSP = initialStats[3];
+        currentHP = maxHP;
+        currentMP = maxMP;
+        currentSP = maxSP;
+    }
+
 }

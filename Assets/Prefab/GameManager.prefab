@@ -176,7 +176,15 @@ MonoBehaviour:
   bonusThirdElement: 01000000c80000006400000000000000
   bonusFourthElement: 01000000bc0200006400000000000000
   gotElement: 
-  mapCanves: {fileID: 1304993484030352, guid: 78b4152e4d04cd940bf673857e489ff7, type: 2}
+  cheatsON: 0
+  inForest: 1
+  inDesert: 1
+  inIce: 1
+  inDark: 1
+  imReallyDead: 1
+  canAttack: 1
+  gameBeat: 0
+  sceneName: 
   playerStats:
   - {fileID: 114883337014863132}
   - {fileID: 114446696453270072}
@@ -192,6 +200,8 @@ MonoBehaviour:
   fadingBetweenAreas: 0
   battleActive: 0
   gameOver: 0
+  mainMenu: 0
+  dontGainSpeed: 0
 --- !u!114 &114446696453270072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -214,6 +224,7 @@ MonoBehaviour:
   strength: 15
   defense: 25
   dexterity: 15
+  initialStats: 01000000320000003c0000001e000000
   movesAvailable:
   - {fileID: 114806301489941652, guid: 65ad07a7e08a17d4dbba6a36f54ec66a, type: 2}
   movesSet1:
@@ -244,7 +255,6 @@ MonoBehaviour:
   - {fileID: 114827294459047278, guid: dfe6c6933563b284fbd4ae65d5ebebc5, type: 2}
   - {fileID: 114388328556835074, guid: 91024f94ced036b4db8a270dc06d3639, type: 2}
   - {fileID: 114585410376524806, guid: a859e98e9bec2144e90c2ac64d7268a7, type: 2}
-  charIamge: {fileID: 0}
 --- !u!114 &114769546529351650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -267,6 +277,7 @@ MonoBehaviour:
   strength: 30
   defense: 20
   dexterity: 15
+  initialStats: 01000000320000001e0000001e000000
   movesAvailable:
   - {fileID: 114806301489941652, guid: 65ad07a7e08a17d4dbba6a36f54ec66a, type: 2}
   - {fileID: 114055494465312062, guid: 7ce6b02b23d9b7c49a2919ab2a0f34f7, type: 2}
@@ -303,7 +314,6 @@ MonoBehaviour:
   - {fileID: 114054797884662858, guid: 908561f5cb4c64b4e8eca0c2ddf02c7c, type: 2}
   - {fileID: 114447846774214176, guid: 65d59a0fae2def64fa244ec7401bdc90, type: 2}
   - {fileID: 114822445977656862, guid: 0a54bf30d5d10154494e30b53856a030, type: 2}
-  charIamge: {fileID: 0}
 --- !u!114 &114779775681037156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -326,6 +336,7 @@ MonoBehaviour:
   strength: 15
   defense: 25
   dexterity: 15
+  initialStats: 0100000032000000320000001e000000
   movesAvailable:
   - {fileID: 114806301489941652, guid: 65ad07a7e08a17d4dbba6a36f54ec66a, type: 2}
   - {fileID: 114055494465312062, guid: 7ce6b02b23d9b7c49a2919ab2a0f34f7, type: 2}
@@ -361,7 +372,6 @@ MonoBehaviour:
   - {fileID: 114941992678065994, guid: 793192183c6e3364ca8df9b1726de2b3, type: 2}
   - {fileID: 114668688244807104, guid: e4af3b43a9162454a9228cfc54328798, type: 2}
   - {fileID: 114444373464702530, guid: ba92970c4331f9448865e46f5a9a054d, type: 2}
-  charIamge: {fileID: 0}
 --- !u!114 &114883337014863132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -384,6 +394,7 @@ MonoBehaviour:
   strength: 25
   defense: 20
   dexterity: 15
+  initialStats: 01000000320000001e0000001e000000
   movesAvailable:
   - {fileID: 114806301489941652, guid: 65ad07a7e08a17d4dbba6a36f54ec66a, type: 2}
   - {fileID: 114055494465312062, guid: 7ce6b02b23d9b7c49a2919ab2a0f34f7, type: 2}
@@ -424,4 +435,3 @@ MonoBehaviour:
   - {fileID: 114802743291203858, guid: 69582a8969757fd4183e51b07ec94db3, type: 2}
   - {fileID: 114871754334901526, guid: fa491add8d789594ab027f11031d6a5d, type: 2}
   - {fileID: 114384706252748100, guid: 1291d6dd404b5df4c8fdfc5e13780f7b, type: 2}
-  charIamge: {fileID: 0}

@@ -153,8 +153,6 @@ public class GameMenu : MonoBehaviour
         save.ElementGot = GameManager.instance.gotElement;
         save.BossOnMap = GameManager.instance.enemyTracker.bossOnMap;
         save.HeartContainers = heartContainers.heartContainers.initialValue;
-        save.BossSpeed = GameManager.instance.enemyTracker.theBoss.GetComponent<GralandChase>().moveSpeed;
-        save.BossActive = GameManager.instance.enemyTracker.theBoss.GetComponent<GralandChase>().gameObject.active;
         save.CurrentHealthRuntimeValue = PlayerController.instance.currentHealth.RuntimeValue;
         save.MaxMagic = sliderHolder.playerInventory.maxMagic;
         save.CurrentMagic = sliderHolder.playerInventory.currentMagic;
@@ -178,6 +176,8 @@ public class GameMenu : MonoBehaviour
         {
             if(GameManager.instance.enemyTracker.bossOnMap)
             {
+                save.BossSpeed = GameManager.instance.enemyTracker.theBoss.GetComponent<GralandChase>().moveSpeed;
+                save.BossActive = GameManager.instance.enemyTracker.theBoss.GetComponent<GralandChase>().gameObject.active;
                 save.BossPos = new float[3] { GameManager.instance.enemyTracker.theBoss.transform.position.x, GameManager.instance.enemyTracker.theBoss.transform.position.y, GameManager.instance.enemyTracker.theBoss.transform.position.z };
             }
             save.NumOfEnemies = GameManager.instance.enemyTracker.theEnemies.Length;
@@ -211,7 +211,6 @@ public class GameMenu : MonoBehaviour
         }
         else//should not be activate in gameMenu if file doesn't exists
         {
-            Debug.Log("No file");
             return null;
         }
     }
@@ -243,8 +242,6 @@ public class GameMenu : MonoBehaviour
         PlayerController.instance.MyRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         PlayerController.instance.imAlive = true;
         GameManager.instance.imReallyDead = true;
-        GameManager.instance.enemyTracker.theBoss.GetComponent<GralandChase>().moveSpeed = data.BossSpeed;
-        GameManager.instance.enemyTracker.theBoss.GetComponent<GralandChase>().gameObject.SetActive(data.BossActive);
         PlayerController.instance.currentHealth.RuntimeValue = data.CurrentHealthRuntimeValue;
         sliderHolder.fireSlider.value = data.CurrentMagic;
         sliderHolder.playerInventory.maxMagic = data.MaxMagic;
@@ -294,6 +291,8 @@ public class GameMenu : MonoBehaviour
         {
             if (data.BossOnMap)
             {
+                GameManager.instance.enemyTracker.theBoss.GetComponent<GralandChase>().moveSpeed = data.BossSpeed;
+                GameManager.instance.enemyTracker.theBoss.GetComponent<GralandChase>().gameObject.SetActive(data.BossActive);
                 GameManager.instance.enemyTracker.theBoss.transform.position = new Vector3(data.BossPos[0], data.BossPos[1], data.BossPos[2]);
             }
             for (int i = 0; i < GameManager.instance.enemyTracker.theEnemies.Length; i++)
