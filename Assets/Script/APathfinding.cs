@@ -30,9 +30,9 @@ public class APathfinding : MonoBehaviour
                     pathSuccess = true;
                     break;
                 }
-                foreach (WorldTile neighbour in currentWorldTile.getMyNeighbours())//for each neighbour of the currentWorldTile
+                foreach (WorldTile neighbour in currentWorldTile.getMyNeighbours())//for each neighbor of the currentWorldTile
                 {
-                    if (!neighbour.walkable || closedSet.Contains(neighbour))//if the neighbour is not walkable or it is already in the close set
+                    if (!neighbour.walkable || closedSet.Contains(neighbour))//if the neighbor is not walkable or it is already in the close set
                     {
                         continue;
                     }
@@ -41,8 +41,8 @@ public class APathfinding : MonoBehaviour
                     {
                         neighbour.gCost = newCostToNeighbour;//update the g cost
                         neighbour.hCost = GetDistance(neighbour, targetNode);//calculate the h cost
-                        neighbour.parent = currentWorldTile;//set the parent of the neighbour to currentWorldTile
-                        if (!openSet.Contains(neighbour))//if the neighbour is not in the open set
+                        neighbour.parent = currentWorldTile;//set the parent of the neighbor to currentWorldTile
+                        if (!openSet.Contains(neighbour))//if the neighbor is not in the open set
                             openSet.Add(neighbour);//add him
                         else//if he is then we need to update him
                         {

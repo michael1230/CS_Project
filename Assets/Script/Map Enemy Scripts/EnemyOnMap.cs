@@ -13,60 +13,59 @@ public enum EnemyState
 public class EnemyOnMap : MonoBehaviour {
 
     [Header("State Machine")]
-    public EnemyState currentState; //for changing states
+    public EnemyState currentState;//for changing states
 
     [Header("Enemy Stats")]
-    public FloatValue maxHealth; //max health
-    public float health; //current health
-    public string enemyName;
-    public int baseAttack; //the force of enemy attack
-    public float moveSpeed; //moving speed
+    public FloatValue maxHealth;//max health
+    public float health;//current health
+    public int baseAttack;//the force of enemy attack
+    public float moveSpeed;//moving speed
 
     [Header("Death Effects")]
-    public GameObject deathEffect;
-    private float deathEffectDelay = 1f;
-    public LootTable thisLoot; //reference to the LootTable of heart/fireBall 
+    public GameObject deathEffect;//reference to enemy death effect
+    private float deathEffectDelay = 1f;//delay to enable seeing the death effect happen
+    public LootTable thisLoot;//reference to the LootTable of heart/fireBall 
 
-    private void Awake() //Initial value on wake
+    private void Awake()//Initial value on wake
     {
-        health = maxHealth.initialValue;
+        health = maxHealth.initialValue;//enemy starts with max health 
     }
 
-    private void OnEnable() //Initial value when enabled
+    private void OnEnable()//Initial value when enabled
     {
         health = maxHealth.initialValue;
-        currentState = EnemyState.idle; //first state enemy doesn't move
+        currentState = EnemyState.idle;//first state enemy doesn't move
     }
 
-    private void TakeDamage(float damage) //enemy damage after hit
+    private void TakeDamage(float damage)//enemy damage after getting hit
     {
         health -= damage;
-        if(health <= 0) //if no more health enemy is dead
+        if(health <= 0)//if no more health enemy is dead
         {
             DeathEffect();
-            MakeLoot(); //after death drop item
-            this.gameObject.SetActive(false); //better then destroy for memory
+            MakeLoot();//after death drop item
+            this.gameObject.SetActive(false);//better then destroy for memory
         }
     }
 
-    private void MakeLoot() //for hearts and powerUp
+    private void MakeLoot()//for hearts and powerUp
     {
         if (thisLoot != null)
         {
-            Powerup current = thisLoot.LootPowerup(); //get powerUp if probability gives one
-            if (current != null) //if we got loot then
+            Powerup current = thisLoot.LootPowerup();//get powerUp if probability gives one
+            if (current != null)//if we got loot then
             {
                 Instantiate(current.gameObject, transform.position, Quaternion.identity);//drop in the enemy place, Quaternion.identity == no rotation 
             }
         }
     }
 
-    private void DeathEffect() //effect for enemy death
+    private void DeathEffect()//effect for enemy death
     {
-        if (deathEffect != null) //if there is a death effect for this enemy
+        if (deathEffect != null)//if there is a death effect for this enemy
         {
-            GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity); //active the effect in the last place of dead enemy
-            Destroy(effect, deathEffectDelay); //after it is done it vanishes
+            GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);//active the effect in the last place of the enemy that died
+            Destroy(effect, deathEffectDelay);//after it is done it vanishes
         }
     }
 
@@ -77,16 +76,16 @@ public class EnemyOnMap : MonoBehaviour {
         {
             StartCoroutine(KnockCo(myRigidbody, knockTime));
         }
-        TakeDamage(damage); //after knockBack give damage to enemy
+        TakeDamage(damage);//after knockBack give damage to enemy
     }
 
     private IEnumerator KnockCo(Rigidbody2D myRigidbody, float knockTime) //knock the enemy
     {
         if (myRigidbody != null) //if there is myRigidbody for enemy
         {
-            yield return new WaitForSecondsRealtime(knockTime); //for how long the knockBack
-            currentState = EnemyState.idle; //change enemy state to idle for not attacking while been knock back
-            myRigidbody.velocity = Vector2.zero; //let the Rigidbody move freely for the effect of the knock back
+            yield return new WaitForSecondsRealtime(knockTime);//for how long the knockBack
+            currentState = EnemyState.idle;//change enemy state to idle for not attacking while been knock back
+            myRigidbody.velocity = Vector2.zero;//let the Rigidbody move freely for the effect of the knock back
         }
     }
 }
