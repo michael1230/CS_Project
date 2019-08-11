@@ -146,7 +146,6 @@ MonoBehaviour:
   areaToLoad: DarkLand
   areaTransitionName: OldManToLast
   theEntrance: {fileID: 1411594205}
-  waitToLoad: 1
   shoulShowGizmo: 1
 --- !u!61 &211897440
 BoxCollider2D:
@@ -387,7 +386,6 @@ MonoBehaviour:
   areaToLoad: IceAge
   areaTransitionName: OldManToIce
   theEntrance: {fileID: 826172914}
-  waitToLoad: 1
   shoulShowGizmo: 1
 --- !u!61 &533365565
 BoxCollider2D:
@@ -469,7 +467,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 826172913}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.42, y: -1.77, z: -0.12639703}
+  m_LocalPosition: {x: 11.89, y: -1.9, z: -0.12639703}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 533365566}
@@ -900,7 +898,6 @@ MonoBehaviour:
   areaToLoad: ChronoDesert
   areaTransitionName: OldManToDesert
   theEntrance: {fileID: 2058043601}
-  waitToLoad: 1
   shoulShowGizmo: 1
 --- !u!61 &930815030
 BoxCollider2D:
@@ -976,7 +973,6 @@ MonoBehaviour:
   areaToLoad: DeltaForest
   areaTransitionName: OldManToForest
   theEntrance: {fileID: 1734346356}
-  waitToLoad: 1
   shoulShowGizmo: 1
 --- !u!61 &1023107879
 BoxCollider2D:
@@ -2146,7 +2142,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1411594204}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.19, y: -10.53, z: -0.12639703}
+  m_LocalPosition: {x: 0.66, y: -10.66, z: -0.12639703}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 211897441}
@@ -2191,7 +2187,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1734346355}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.26, y: -1.71, z: -0.12639703}
+  m_LocalPosition: {x: -11.73, y: -1.71, z: -0.12639703}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1023107880}
@@ -6341,7 +6337,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2058043600}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.93, y: 5.25, z: -0.12639703}
+  m_LocalPosition: {x: 0.4, y: 5.25, z: -0.12639703}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 930815031}

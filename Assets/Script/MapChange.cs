@@ -29,7 +29,7 @@ public class MapChange : MonoBehaviour
             dialog.dialogText2.text = "Im happy to see all of you survived";
             dialog.dialogText3.text = "now our world can be at peace";
         }
-            if (GameManager.instance.numberOfElement==0)//if we only start the game
+        else if (GameManager.instance.numberOfElement==0)//if we only start the game
         {
             toForest.gameObject.SetActive(true);//can go to Forest only
             toDeserts.gameObject.SetActive(false);//cant go to Desert
