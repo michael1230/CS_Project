@@ -52,7 +52,6 @@ public class Sign : MonoBehaviour
         }
         else if ((playerInRange)&&(GameManager.instance.sceneName!= "OldManHouse"))//if player in range of the sign and its not the OldManHouse then:
         {
-            GameManager.instance.dialogActive = true;//update the GameManager dialog is on
             if (dialogBox.activeInHierarchy)//if dialogBox is active change to false
             {
                 if (Input.GetKeyDown(KeyCode.Space))//only if space was pressed 
@@ -65,6 +64,7 @@ public class Sign : MonoBehaviour
             {
                 if(once==false)
                 {
+                    GameManager.instance.dialogActive = true;//update the GameManager dialog is on
                     dialogBox.SetActive(true);
                     dialogText.text = name;//place a variable in Unity Inspector
                     dialogText2.text = dialog;//place a variable in Unity Inspector
