@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class Powerup : MonoBehaviour {
 
-    public Signal powerupSignal; //for sending signal on map
+    public Signal powerupSignal;//for sending signal on map
 
 }

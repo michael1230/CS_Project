@@ -6,7 +6,7 @@ public class KightsAttack : MonoBehaviour
 {
     public GameObject player;//the player 
     public Sign triggerBox;//the Sign object
-    private Animator animator; //reference the Animator
+    private Animator animator;//reference the Animator
     // Use this for initialization
     void Start ()
     {

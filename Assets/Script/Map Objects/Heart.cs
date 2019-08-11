@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Heart : Powerup
 {
-    public FloatValue playerHealth; //players current health
-    public FloatValue heartContainers; //for not increasing the hearts more then there is
-    public float amountToIncrease; //amount increace player health
+    public FloatValue playerHealth;//players current health (every heart is 2 health points)
+    public FloatValue heartContainers;//the max hearts shown on the scene which is player health
+    public float amountToIncrease;//amount to increase player health
 
     // Use this for initialization
     void Start () {
@@ -17,17 +17,17 @@ public class Heart : Powerup
 	void Update () {
 		
 	}
-    public void OnTriggerEnter2D(Collider2D other) //for player collecting the heart
+    public void OnTriggerEnter2D(Collider2D other)//for player collecting the heart
     {
-        if (other.CompareTag("Player") && !other.isTrigger) //if it is player
+        if (other.CompareTag("Player") && !other.isTrigger)//if it is player
         {
-            playerHealth.RuntimeValue += amountToIncrease; //increase health
-            if (playerHealth.RuntimeValue > heartContainers.RuntimeValue * 2f) //check heart container is not full
+            playerHealth.RuntimeValue += amountToIncrease;//increase health
+            if (playerHealth.RuntimeValue > heartContainers.RuntimeValue * 2f)//check if heart container is full
             {
-                playerHealth.RuntimeValue = heartContainers.RuntimeValue * 2f; //increse health by 2 becuse its a full heart
+                playerHealth.RuntimeValue = heartContainers.RuntimeValue * 2f;//set player health to max that can be 
             }
-            powerupSignal.Raise(); //tell the ui to update the hearts
-            Destroy(this.gameObject); //erase the heart on map
+            powerupSignal.Raise();//tell the ui to update the hearts
+            Destroy(this.gameObject);//erase the heart on map
         }
     }
 

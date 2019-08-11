@@ -17,7 +17,7 @@ public class GralandChase : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        target = GameObject.FindWithTag("Player").transform; //finds the player location
+        target = GameObject.FindWithTag("Player").transform;//finds the player location
         StartCoroutine(UpdatePath());
         InvokeRepeating("SpeedMore", 1f, 1f);//call this method multiple times
     }

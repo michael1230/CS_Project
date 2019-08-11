@@ -5,19 +5,19 @@ using UnityEngine.Events;
 
 public class SignalListener : MonoBehaviour {
 
-    public Signal signal; //the signal to listen
-    public UnityEvent signalEvent; //zero argument persistent callback that can be saved with the Scene
+    public Signal signal;//the signal to listen
+    public UnityEvent signalEvent;//zero argument persistent callback that can be saved with the Scene
 
     public void OnSignalRaised()
     {
-        signalEvent.Invoke(); // calls the present event
+        signalEvent.Invoke();//calls the present event
     }
 
-    private void OnEnable() //going to the signal and register
+    private void OnEnable()//going to the signal script and register
     {
         signal.RegisterListener(this);
     }
-    private void OnDisable() //going to the signal and disables
+    private void OnDisable()//going to the signal script and disables
     {
         signal.DeRegisterListener(this);
     }
