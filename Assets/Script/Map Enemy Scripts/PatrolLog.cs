@@ -129,11 +129,6 @@ public class PatrolLog : logEnemy {
                 myRigidbody.MovePosition(temp);//change the position with the temp Value
                 anim.SetBool("wakeUp", true);//start the animation
             }
-            /*
-            Vector3 temp = Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime);//for the enemy to move to the currentWaypoint position
-            changeAnim(temp - transform.position);//change animation according to the moving position
-            myRigidbody.MovePosition(temp);//change the position with the temp Value
-            anim.SetBool("wakeUp", true);//start the animation*/
             yield return null;
         }
     }  

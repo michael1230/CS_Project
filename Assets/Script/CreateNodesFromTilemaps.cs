@@ -84,7 +84,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
             {
                 //go through our world bounds in increments of 1
                 TileBase tb = floor.GetTile(new Vector3Int(x, y, 0)); //check if we have a floor tile at that world coords
-                if (tb == null)//if we dont then do nothing
+                if (tb == null)//if we don't then do nothing
                 {
 
                 }
@@ -95,7 +95,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                     foreach (Tilemap t in obstacleLayers)//for each Tilemap in the obstacleLayers
                     {
                         TileBase tb2 = t.GetTile(new Vector3Int(x, y, 0));//get the TileBase in this tile           
-                        if (tb2 == null)//if we dont have a floor tile then do nothing
+                        if (tb2 == null)//if we don't have a floor tile then do nothing
                         {
                         }
                         else//if we have then
@@ -103,7 +103,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                             foundObstacle = true;//then we found an Obstacle
                         }
                     }
-                    if (foundObstacle == false)//if we didnt find an Obstacle then
+                    if (foundObstacle == false)//if we didn't find an Obstacle then
                     {
                         WorldTile wt = new WorldTile(true, new Vector3(x + 0.5f, y + 0.5f, 0), gridX, gridY);//create a walkable WorldTile(node) at the center of the tile with gridX and gridY
                         unSortedNodes.Add(wt);//add to unSortedNodes
