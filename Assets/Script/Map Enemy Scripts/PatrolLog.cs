@@ -76,12 +76,12 @@ public class PatrolLog : logEnemy {
     }
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)//this is the action method for the PathResult and PathRequest which is called in the FindPath method in APathfinding script
     {
-        if (pathSuccessful)
+        if (pathSuccessful && currentState != EnemyState.stagger)
         {
             path = newPath;//save the path
             targetIndex = 0;//reset for the next node
             StopCoroutine("FollowPath");//stop the current Coroutine
-            if (this.gameObject == isActiveAndEnabled && currentState != EnemyState.stagger)//if this enemy is active(alive) and is not been attacked
+            if (this.gameObject == isActiveAndEnabled)//if this enemy is active(alive) and is not been attacked
             {
                 StartCoroutine("FollowPath");//start the Coroutine
             }            
@@ -122,10 +122,18 @@ public class PatrolLog : logEnemy {
                 }
                 currentWaypoint = path[targetIndex];//the currentWaypoint is the next node
             }
+            if (currentState != EnemyState.stagger)
+            {
+                Vector3 temp = Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime);//for the enemy to move to the currentWaypoint position
+                changeAnim(temp - transform.position);//change animation according to the moving position
+                myRigidbody.MovePosition(temp);//change the position with the temp Value
+                anim.SetBool("wakeUp", true);//start the animation
+            }
+            /*
             Vector3 temp = Vector3.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime);//for the enemy to move to the currentWaypoint position
             changeAnim(temp - transform.position);//change animation according to the moving position
             myRigidbody.MovePosition(temp);//change the position with the temp Value
-            anim.SetBool("wakeUp", true);//start the animation
+            anim.SetBool("wakeUp", true);//start the animation*/
             yield return null;
         }
     }  

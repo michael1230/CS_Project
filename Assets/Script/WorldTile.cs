@@ -12,7 +12,7 @@ public class WorldTile :IHeapItem<WorldTile>
     public float xMax;//the max X position for the nod in its tile 
     public float yMin;//the min Y position for the nod in its tile 
     public float yMax;//the max Y position for the nod in its tile 
-    public int heapIndex;////////////////////////////////////////////////////////////////////////////////////////////
+    public int heapIndex;//Index for the heap
     public Vector3 gridPosition;//the vector 3 grid position
     public bool walkable;//if this is a walkable node
     public List<WorldTile> myNeighbours;//a list of this node neighbors

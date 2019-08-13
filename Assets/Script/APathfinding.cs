@@ -34,7 +34,7 @@ public class APathfinding : MonoBehaviour
                 {
                     if (!neighbour.walkable || closedSet.Contains(neighbour))//if the neighbor is not walkable or it is already in the close set
                     {
-                        continue;
+                        continue;//skip the current iteration
                     }
                     int newCostToNeighbour = currentWorldTile.gCost + GetDistance(currentWorldTile, neighbour);//the g cost of this neighbour 
                     if (newCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))//if we have found better path to this neighbour or the neighbour is not in the open set

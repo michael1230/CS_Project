@@ -421,8 +421,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb067b085c825f4089595565f8cd9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 3
-  knockTime: 0.5
+  thrust: 2
+  knockTime: 0.3
   damage: 3
 --- !u!114 &114191439632840566
 MonoBehaviour:
@@ -435,8 +435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb067b085c825f4089595565f8cd9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 3
-  knockTime: 0.5
+  thrust: 2
+  knockTime: 0.3
   damage: 3
 --- !u!114 &114274969119176896
 MonoBehaviour:
@@ -478,8 +478,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb067b085c825f4089595565f8cd9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 3
-  knockTime: 0.5
+  thrust: 2
+  knockTime: 0.3
   damage: 3
 --- !u!114 &114827888908643970
 MonoBehaviour:
@@ -492,8 +492,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb067b085c825f4089595565f8cd9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 3
-  knockTime: 0.5
+  thrust: 2
+  knockTime: 0.3
   damage: 3
 --- !u!212 &212140802640073654
 SpriteRenderer:

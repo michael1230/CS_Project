@@ -73,10 +73,10 @@ public class CreateNodesFromTilemaps : MonoBehaviour
     }
     void createNodes()//a method to create the nodes
     {
-        //use these to work out the size and where each node should be in the 2d array we'll use to store our nodes so we can work out neighbours and get paths
+        //use these to work out the size and where each node should be in the 2d array we'll use to store our nodes so we can work out neighbors and get paths
         int gridX = 0;//the place of the node in the array (1 dimension)
         int gridY = 0;//the place of the node in the array (2 dimension)
-        bool foundTileOnLastPass = false;//a bool to know if we hace find a tile..its between the iteration of the loops
+        bool foundTileOnLastPass = false;//a bool to know if we have found a tile..its between the iteration of the loops
         //scan tiles and create nodes based on where they are
         for (int x = scanStartX; x < scanFinishX; x++)
         {
@@ -135,7 +135,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
             }
         }
         //put nodes into 2d array based on the
-        sortedNodes = new WorldTile[gridBoundX + 1, gridBoundY + 1];//initialise the 2d array that will store our nodes in their position
+        sortedNodes = new WorldTile[gridBoundX + 1, gridBoundY + 1];//initialize the 2d array that will store our nodes in their position
         foreach (WorldTile wt in unSortedNodes)//for each WorldTile in unSortedNodes
         { 
             if ((wt.gridY == 0)||(wt.gridY == maxYFloor-1))//the first row and the last row of the map is unwalkable
@@ -144,8 +144,8 @@ public class CreateNodesFromTilemaps : MonoBehaviour
             }
             sortedNodes[wt.gridX, wt.gridY] = wt;//put the WorldTile into the 2d array in the correct position
         }
-        //assign neighbours to nodes
-        for (int x = 0; x < gridBoundX; x++)//go through the 2d array and assign the neighbours of each node
+        //assign neighbors to nodes
+        for (int x = 0; x < gridBoundX; x++)//go through the 2d array and assign the neighbors of each node
         { 
             for (int y = 0; y < gridBoundY; y++)
             {
@@ -153,7 +153,7 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                 { 
 
                 }
-                else//if they do then assign the neighbours
+                else//if they do then assign the neighbors
                 {
                     WorldTile wt = sortedNodes[x, y]; 
                     wt.myNeighbours = GetNeighbours(wt);
@@ -293,9 +293,9 @@ public class CreateNodesFromTilemaps : MonoBehaviour
                     float currentNodeX = currentNode.gridPosition.x;//the x gridPosition
                     float currentNodeY = currentNode.gridPosition.y;//the Y gridPosition
                     float delta = 0.30f;//the space between the obstacle and the node
-                    if (currentNode.walkable == true && currentNode.getMyNeighbours() != null)//is this node is walkable and it has neighbours then
+                    if (currentNode.walkable == true && currentNode.getMyNeighbours() != null)//is this node is walkable and it has neighbors then
                     {
-                        foreach (WorldTile neighbor in currentNode.getMyNeighbours())//for each neighbour
+                        foreach (WorldTile neighbor in currentNode.getMyNeighbours())//for each neighbor
                         {
                             if (neighbor != null)//if the neighbor is not null
                             {
